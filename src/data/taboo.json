@@ -1,0 +1,202 @@
+[
+  {
+    "id": "taboo-1",
+    "targetWord": "אוהל",
+    "forbiddenWords": [
+      "לינה",
+      "קמפינג",
+      "יתדות",
+      "שק שינה"
+    ]
+  },
+  {
+    "id": "taboo-2",
+    "targetWord": "מדריך",
+    "forbiddenWords": [
+      "קבוצה",
+      "מסלול",
+      "הסבר",
+      "טיול"
+    ]
+  },
+  {
+    "id": "taboo-3",
+    "targetWord": "מימייה",
+    "forbiddenWords": [
+      "מים",
+      "שלוקר",
+      "שתייה",
+      "צמא"
+    ]
+  },
+  {
+    "id": "taboo-4",
+    "targetWord": "מפה",
+    "forbiddenWords": [
+      "ניווט",
+      "שביל",
+      "סימון",
+      "צפון"
+    ]
+  },
+  {
+    "id": "taboo-5",
+    "targetWord": "מצפן",
+    "forbiddenWords": [
+      "מחט",
+      "כיוון",
+      "דרום",
+      "שדה"
+    ]
+  },
+  {
+    "id": "taboo-6",
+    "targetWord": "פק\"ל קפה",
+    "forbiddenWords": [
+      "גזייה",
+      "פינג'אן",
+      "תה",
+      "סוכר"
+    ]
+  },
+  {
+    "id": "taboo-7",
+    "targetWord": "שק שינה",
+    "forbiddenWords": [
+      "שק\"ש",
+      "לילה",
+      "שינה",
+      "קר"
+    ]
+  },
+  {
+    "id": "taboo-8",
+    "targetWord": "פנס ראש",
+    "forbiddenWords": [
+      "חושך",
+      "סוללות",
+      "אור",
+      "מצח"
+    ]
+  },
+  {
+    "id": "taboo-9",
+    "targetWord": "קרם הגנה",
+    "forbiddenWords": [
+      "שמש",
+      "שרוף",
+      "מריחה",
+      "קיץ"
+    ]
+  },
+  {
+    "id": "taboo-10",
+    "targetWord": "כובע טמבל",
+    "forbiddenWords": [
+      "ראש",
+      "שמש",
+      "הגנה",
+      "טיול"
+    ]
+  },
+  {
+    "id": "taboo-11",
+    "targetWord": "נעלי הרים",
+    "forbiddenWords": [
+      "רגליים",
+      "שרוכים",
+      "סוליה",
+      "הליכה"
+    ]
+  },
+  {
+    "id": "taboo-12",
+    "targetWord": "מקל הליכה",
+    "forbiddenWords": [
+      "עזרה",
+      "שביל",
+      "תמיכה",
+      "הליכה"
+    ]
+  },
+  {
+    "id": "taboo-13",
+    "targetWord": "סנדלי שורש",
+    "forbiddenWords": [
+      "רצועות",
+      "מים",
+      "קיץ",
+      "הליכה"
+    ]
+  },
+  {
+    "id": "taboo-14",
+    "targetWord": "ערכת עזרה ראשונה",
+    "forbiddenWords": [
+      "פלסטר",
+      "חובש",
+      "תחבושת",
+      "פציעה"
+    ]
+  },
+  {
+    "id": "taboo-15",
+    "targetWord": "מדורה",
+    "forbiddenWords": [
+      "עצים",
+      "גפרור",
+      "אש",
+      "עשן"
+    ]
+  },
+  {
+    "id": "taboo-16",
+    "targetWord": "מרשמלו",
+    "forbiddenWords": [
+      "שיפוד",
+      "לבן",
+      "מתוק",
+      "אש"
+    ]
+  },
+  {
+    "id": "taboo-17",
+    "targetWord": "אלתוש",
+    "forbiddenWords": [
+      "יתוש",
+      "עקיצה",
+      "ריח",
+      "גירוד"
+    ]
+  },
+  {
+    "id": "taboo-18",
+    "targetWord": "גזייה",
+    "forbiddenWords": [
+      "בלון",
+      "להבה",
+      "אש",
+      "קפה"
+    ]
+  },
+  {
+    "id": "taboo-19",
+    "targetWord": "אוטובוס",
+    "forbiddenWords": [
+      "נהג",
+      "נסיעה",
+      "מושב",
+      "שירים"
+    ]
+  },
+  {
+    "id": "taboo-20",
+    "targetWord": "פינג'אן",
+    "forbiddenWords": [
+      "קפה",
+      "ידית",
+      "הרתחה",
+      "פינג'אן"
+    ]
+  }
+]

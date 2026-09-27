@@ -1,0 +1,274 @@
+import React from 'react';
+import { 
+  Link2, 
+  Trees, 
+  Compass, 
+  Brain, 
+  Music, 
+  Trophy, 
+  ChevronLeft, 
+  Flame, 
+  Eye, 
+  EyeOff, 
+  Sparkles 
+} from 'lucide-react';
+import { riddlesData } from '../data/content';
+import { CATEGORIES } from '../data/categories';
+import { RiddleItem, CategoryId } from '../types';
+import { SearchBar } from '../components/common/SearchBar';
+import { SituationChips } from '../components/common/SituationChips';
+import { RiddleCard } from '../components/riddles/RiddleCard';
+import { usePakalStore } from '../store/usePakalStore';
+import { sanitizeSearchQuery } from '../lib/security';
+
+interface HomePageProps {
+  onNavigateCategory: (catId: CategoryId) => void;
+  onNavigateTaboo: () => void;
+  onNavigatePakal: () => void;
+}
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  Link: Link2,
+  Trees: Trees,
+  Compass: Compass,
+  Brain: Brain,
+  Music: Music,
+};
+
+export const HomePage: React.FC<HomePageProps> = ({
+  onNavigateCategory,
+  onNavigateTaboo,
+  onNavigatePakal,
+}) => {
+  const { 
+    themeMode, 
+    searchQuery, 
+    activeSituation, 
+    favorites,
+    revealedMap,
+    revealAll,
+    hideAll 
+  } = usePakalStore();
+
+  const isCampfire = themeMode === 'campfire';
+  const allRiddles = riddlesData as RiddleItem[];
+
+  // Filter logic
+  let filteredRiddles = allRiddles;
+
+  // Situation Filter
+  if (activeSituation === 'pakal') {
+    filteredRiddles = filteredRiddles.filter((r) => favorites.includes(r.id));
+  } else if (activeSituation === 'bus') {
+    filteredRiddles = filteredRiddles.filter((r) => r.tags.includes('אוטובוס'));
+  } else if (activeSituation === 'walking') {
+    filteredRiddles = filteredRiddles.filter((r) => r.tags.includes('הליכה'));
+  } else if (activeSituation === 'campfire') {
+    filteredRiddles = filteredRiddles.filter((r) => r.tags.includes('מדורה'));
+  } else if (activeSituation === 'icebreaker') {
+    filteredRiddles = filteredRiddles.filter((r) => r.tags.includes('שבירת-קרח'));
+  }
+
+  // Search Query Filter
+  if (searchQuery.trim()) {
+    const q = sanitizeSearchQuery(searchQuery).toLowerCase();
+    filteredRiddles = filteredRiddles.filter(
+      (r) =>
+        r.question.toLowerCase().includes(q) ||
+        r.answer.toLowerCase().includes(q) ||
+        r.subCategory.toLowerCase().includes(q)
+    );
+  }
+
+  const isFiltering = searchQuery.trim().length > 0 || activeSituation !== 'all';
+  const displayedRiddles = filteredRiddles.slice(0, 40); // Fast initial rendering
+
+  // Counts by category
+  const categoryCounts = CATEGORIES.reduce((acc, cat) => {
+    acc[cat.id] = allRiddles.filter((r) => r.categoryId === cat.id).length;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const displayedIds = displayedRiddles.map((r) => r.id);
+  const allShownAreRevealed = displayedIds.length > 0 && displayedIds.every((id) => !!revealedMap[id]);
+
+  return (
+    <div className="space-y-5 pb-24">
+      
+      {/* Search Input Bar */}
+      <div>
+        <SearchBar totalMatches={isFiltering ? filteredRiddles.length : undefined} />
+      </div>
+
+      {/* Field Situation Chips */}
+      <div>
+        <SituationChips />
+      </div>
+
+      {/* When filtering or searching: Show filtered results */}
+      {isFiltering ? (
+        <div className="space-y-3">
+          <div className="flex items-center justify-between px-1">
+            <h2 className="text-base font-extrabold flex items-center gap-1.5">
+              <span>תוצאות סינון</span>
+              <span className="text-xs px-2 py-0.5 rounded-full font-bold bg-amber-500/20 text-amber-700 dark:text-orange-400">
+                {filteredRiddles.length} חידות
+              </span>
+            </h2>
+
+            {filteredRiddles.length > 0 && (
+              <button
+                onClick={() => allShownAreRevealed ? hideAll() : revealAll(displayedIds)}
+                className={`text-xs font-bold px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1 ${
+                  isCampfire 
+                    ? 'border-campfire-border bg-stone-900 text-orange-300' 
+                    : 'border-amber-200 bg-white text-stone-700 shadow-sm'
+                }`}
+              >
+                {allShownAreRevealed ? (
+                  <>
+                    <EyeOff className="w-3.5 h-3.5" />
+                    <span>הסתר הכל</span>
+                  </>
+                ) : (
+                  <>
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>חשוף הכל</span>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+
+          {filteredRiddles.length === 0 ? (
+            <div className={`p-8 text-center rounded-2xl border ${
+              isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-white border-amber-200'
+            }`}>
+              <Sparkles className="w-10 h-10 mx-auto mb-2 text-stone-400" />
+              <h3 className="font-extrabold text-base mb-1">לא נמצאו חידות מתאימות</h3>
+              <p className="text-xs text-stone-500">נסה לחפש מילים אחרות או להסיר את הסינון</p>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {displayedRiddles.map((riddle, index) => (
+                <RiddleCard key={riddle.id} riddle={riddle} index={index} />
+              ))}
+              {filteredRiddles.length > 40 && (
+                <p className="text-center text-xs text-stone-400 py-2">
+                  מוצגות 40 מתוך {filteredRiddles.length} חידות. צמצם את החיפוש לתוצאות מדויקות יותר.
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+      ) : (
+        /* Default Dashboard View */
+        <>
+          {/* Quick Taboo Game Banner */}
+          <div 
+            onClick={onNavigateTaboo}
+            className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+              isCampfire
+                ? 'bg-gradient-to-r from-red-950 via-campfire-card to-stone-950 border-orange-600/70 shadow-fire'
+                : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white border-amber-400 shadow-lg shadow-amber-500/20'
+            }`}
+          >
+            <div className="flex items-center justify-between relative z-10">
+              <div className="flex items-center gap-3">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                  isCampfire ? 'bg-orange-600 text-white' : 'bg-white text-orange-600 shadow-md'
+                }`}>
+                  <Trophy className="w-6 h-6 stroke-[2.5]" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-black text-lg">משחק טאבו שטח</span>
+                    <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
+                      אינטראקטיבי
+                    </span>
+                  </div>
+                  <p className={`text-xs ${isCampfire ? 'text-orange-200/80' : 'text-amber-100'}`}>
+                    20 כרטיסי שטח + טיימר 60 שניות וצפצוף
+                  </p>
+                </div>
+              </div>
+              <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" />
+            </div>
+          </div>
+
+          {/* 5 Main Content Categories */}
+          <div>
+            <div className="flex items-center justify-between mb-3 px-1">
+              <div>
+                <h2 className="text-lg font-black tracking-tight">קטגוריות תוכן שטח</h2>
+                <p className="text-xs text-stone-500">בחירה לפי נושא הטיול או הפעילות</p>
+              </div>
+              <span className="text-xs font-bold text-stone-400">
+                {allRiddles.length} חידות
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {CATEGORIES.map((cat) => {
+                const IconComponent = ICON_MAP[cat.iconName] || Flame;
+                const count = categoryCounts[cat.id] || 0;
+
+                return (
+                  <div
+                    key={cat.id}
+                    onClick={() => onNavigateCategory(cat.id)}
+                    className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                      isCampfire
+                        ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 hover:bg-stone-900 shadow-fire'
+                        : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-3">
+                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${cat.color} shadow-md shrink-0`}>
+                          <IconComponent className="w-5 h-5 stroke-[2.2]" />
+                        </div>
+                        <div>
+                          <h3 className="font-extrabold text-base leading-tight mb-1 group-hover:text-amber-600 dark:group-hover:text-orange-400 transition-colors">
+                            {cat.title}
+                          </h3>
+                          <p className="text-xs text-stone-400 line-clamp-1 mb-2">
+                            {cat.subtitle}
+                          </p>
+                          <span className={`text-[11px] font-bold px-2 py-0.5 rounded-lg border ${
+                            isCampfire 
+                              ? 'bg-stone-950 text-orange-400 border-stone-800' 
+                              : 'bg-amber-50 text-amber-800 border-amber-200'
+                          }`}>
+                            {count} שאלות
+                          </span>
+                        </div>
+                      </div>
+
+                      <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-amber-600 dark:group-hover:text-orange-400 group-hover:-translate-x-1 transition-all shrink-0 mt-2" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Quick Guide Tips Card */}
+          <div className={`p-4 rounded-2xl border text-xs leading-relaxed ${
+            isCampfire 
+              ? 'bg-stone-950 border-campfire-border/60 text-stone-400' 
+              : 'bg-amber-100/50 border-amber-200 text-stone-700'
+          }`}>
+            <div className="font-bold flex items-center gap-1.5 mb-1 text-sm text-stone-900 dark:text-orange-200">
+              <span>🏕️ טיפ למדריך בשטח:</span>
+            </div>
+            <p>
+              לחץ על כפתור <strong>"🎲 שלוף!"</strong> בתחתית המסך לשליפה מהירה של שאלה אקראית בכל שלב בהליכה או בהפסקת קפה. סמן שאלות בכוכב (★) להכנת פק"ל הדרכה אישי מראש!
+            </p>
+          </div>
+        </>
+      )}
+
+    </div>
+  );
+};

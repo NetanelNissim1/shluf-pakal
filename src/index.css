@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #fffdf7;
+    --card-bg: #ffffff;
+    --card-border: #f1ebd8;
+    --text-primary: #18181b;
+    --text-secondary: #52525b;
+    --accent: #d97706;
+    --accent-glow: rgba(217, 119, 6, 0.2);
+  }
+
+  .campfire {
+    --bg-main: #000000;
+    --card-bg: #120703;
+    --card-border: #381206;
+    --text-primary: #ffedd5;
+    --text-secondary: #fdba74;
+    --accent: #ea580c;
+    --accent-glow: rgba(234, 88, 12, 0.35);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    overscroll-behavior-y: none;
+  }
+}
+
+/* Custom scrollbar for horizontal category pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes flamePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.5));
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+    filter: drop-shadow(0 0 22px rgba(239, 68, 68, 0.8));
+  }
+}
+
+.animate-flame {
+  animation: flamePulse 2.5s infinite ease-in-out;
+}
+
+@keyframes cardPop {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-pop {
+  animation: cardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Touch active styles for field responsive feedback */
+.touch-press:active {
+  transform: scale(0.97);
+  transition: transform 0.08s ease;
+}
