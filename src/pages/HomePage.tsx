@@ -18,6 +18,7 @@ import { CATEGORIES } from '../data/categories';
 import { RiddleItem, CategoryId } from '../types';
 import { SearchBar } from '../components/common/SearchBar';
 import { SituationChips } from '../components/common/SituationChips';
+import { DifficultyFilter } from '../components/common/DifficultyFilter';
 import { RiddleCard } from '../components/riddles/RiddleCard';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
@@ -46,6 +47,7 @@ export const HomePage: React.FC<HomePageProps> = ({
     themeMode, 
     searchQuery, 
     activeSituation, 
+    activeDifficulty,
     favorites,
     revealedMap,
     revealAll,
@@ -73,6 +75,11 @@ export const HomePage: React.FC<HomePageProps> = ({
     filteredRiddles = filteredRiddles.filter((r) => r.categoryId === 'israeli-holidays');
   }
 
+  // Difficulty Filter
+  if (activeDifficulty !== 'all') {
+    filteredRiddles = filteredRiddles.filter((r) => r.difficulty === activeDifficulty);
+  }
+
   // Search Query Filter
   if (searchQuery.trim()) {
     const q = sanitizeSearchQuery(searchQuery).toLowerCase();
@@ -84,7 +91,7 @@ export const HomePage: React.FC<HomePageProps> = ({
     );
   }
 
-  const isFiltering = searchQuery.trim().length > 0 || activeSituation !== 'all';
+  const isFiltering = searchQuery.trim().length > 0 || activeSituation !== 'all' || activeDifficulty !== 'all';
   const displayedRiddles = filteredRiddles.slice(0, 40); // Fast initial rendering
 
   // Counts by category
@@ -107,6 +114,11 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Field Situation Chips */}
       <div>
         <SituationChips />
+      </div>
+
+      {/* Difficulty Filter */}
+      <div className="px-1">
+        <DifficultyFilter />
       </div>
 
       {/* When filtering or searching: Show filtered results */}

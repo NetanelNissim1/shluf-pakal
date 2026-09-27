@@ -63,7 +63,7 @@ const decryptedRiddles = deobfuscateData(encryptedRaw.riddles);
 const decryptedTaboo = deobfuscateData(encryptedRaw.taboo);
 
 assert(Array.isArray(decryptedRiddles), 'פריקת החידות מחזירה מערך תקין');
-assert(decryptedRiddles.length === 1533, `כמות החידות היא בדיוק 1,533 (נמצאו: ${decryptedRiddles.length})`);
+assert(decryptedRiddles.length === 1733, `כמות החידות היא בדיוק 1,733 (נמצאו: ${decryptedRiddles.length})`);
 assert(Array.isArray(decryptedTaboo), 'פריקת כרטיסי הטאבו מחזירה מערך תקין');
 assert(decryptedTaboo.length === 20, `כמות כרטיסי הטאבו היא בדיוק 20 (נמצאו: ${decryptedTaboo.length})`);
 
@@ -170,13 +170,29 @@ assert(allHolidaysPresent, 'כל 10 מועדי וחגי ישראל מיוצגי�
 
 // Filter check: Purim
 const purimRiddles = holidayRiddles.filter(r => r.subCategory === 'פורים');
-assert(purimRiddles.length === 13, `סינון לפי 'פורים' החזיר 13 חידות מדויקות`);
+assert(purimRiddles.length === 33, `סינון לפי 'פורים' החזיר 33 חידות מדויקות (13 מקור + 20 חדשות)`);
 assert(purimRiddles.some(r => r.question.includes('אחשוורוש') || r.question.includes('המן')), 'חידות פורים כוללות את דמויות המגילה');
 
 // Filter check: Passover
 const pesachRiddles = holidayRiddles.filter(r => r.subCategory === 'פסח');
-assert(pesachRiddles.length === 15, `סינון לפי 'פסח' החזיר 15 חידות מדויקות`);
+assert(pesachRiddles.length === 35, `סינון לפי 'פסח' החזיר 35 חידות מדויקות (15 מקור + 20 חדשות)`);
 assert(pesachRiddles.some(r => r.question.includes('ליל הסדר') || r.answer.includes('אפיקומן')), 'חידות פסח כוללות את מנהגי ליל הסדר');
+
+// Cycle 9: Difficulty Level System Verification
+console.log('\n[מחזור 9]: בדיקת מערכת רמות קושי (קל, בינוני, מאתגר)');
+const easyRiddles = decryptedRiddles.filter(r => r.difficulty === 'easy');
+const mediumRiddles = decryptedRiddles.filter(r => r.difficulty === 'medium');
+const hardRiddles = decryptedRiddles.filter(r => r.difficulty === 'hard');
+
+assert(easyRiddles.length > 500, `רמת קושי 'קל' מכילה מאות שאלות נגישות (נמצאו: ${easyRiddles.length})`);
+assert(mediumRiddles.length > 700, `רמת קושי 'בינוני' מכילה את הרוב המאוזן (נמצאו: ${mediumRiddles.length})`);
+assert(hardRiddles.length > 100, `רמת קושי 'מאתגר' מכילה חידות מתוחכמות ועמוקות (נמצאו: ${hardRiddles.length})`);
+
+// Combined filter test: Holidays + Difficulty
+const easyHolidays = holidayRiddles.filter(r => r.difficulty === 'easy');
+const mediumHolidays = holidayRiddles.filter(r => r.difficulty === 'medium');
+assert(easyHolidays.length > 0, `חגי ישראל מכילים שאלות קלות לילדים (נמצאו: ${easyHolidays.length})`);
+assert(mediumHolidays.length > 0, `חגי ישראל מכילים שאלות בינוניות לקבוצה (נמצאו: ${mediumHolidays.length})`);
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);

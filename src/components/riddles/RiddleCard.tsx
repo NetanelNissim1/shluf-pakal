@@ -72,6 +72,22 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({ riddle, index }) => {
           }`}>
             {riddle.subCategory}
           </span>
+          {riddle.difficulty && (
+            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border flex items-center gap-1 ${
+              riddle.difficulty === 'hard'
+                ? isCampfire ? 'bg-rose-950/60 text-rose-300 border-rose-900/60' : 'bg-rose-50 text-rose-700 border-rose-200'
+                : riddle.difficulty === 'medium'
+                  ? isCampfire ? 'bg-amber-950/60 text-amber-300 border-amber-900/60' : 'bg-amber-50 text-amber-700 border-amber-200'
+                  : isCampfire ? 'bg-emerald-950/60 text-emerald-300 border-emerald-900/60' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            }`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${
+                riddle.difficulty === 'hard' ? 'bg-rose-500' : riddle.difficulty === 'medium' ? 'bg-amber-500' : 'bg-emerald-500'
+              }`} />
+              <span>
+                {riddle.difficulty === 'hard' ? 'מאתגר' : riddle.difficulty === 'medium' ? 'בינוני' : 'קליל'}
+              </span>
+            </span>
+          )}
           {index !== undefined && (
             <span className="text-[11px] text-stone-400 font-medium">
               #{index + 1}

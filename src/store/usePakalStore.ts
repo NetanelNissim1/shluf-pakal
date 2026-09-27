@@ -35,6 +35,8 @@ interface PakalState {
   setActiveCategory: (cat: CategoryId | null) => void;
   activeSubCategory: string | null;
   setActiveSubCategory: (sub: string | null) => void;
+  activeDifficulty: 'all' | 'easy' | 'medium' | 'hard';
+  setActiveDifficulty: (diff: 'all' | 'easy' | 'medium' | 'hard') => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
 
@@ -115,6 +117,11 @@ export const usePakalStore = create<PakalState>()(
       setActiveSubCategory: (sub) => {
         if (get().hapticsEnabled) triggerHaptic(25);
         set({ activeSubCategory: sub });
+      },
+      activeDifficulty: 'all',
+      setActiveDifficulty: (diff) => {
+        if (get().hapticsEnabled) triggerHaptic(20);
+        set({ activeDifficulty: diff });
       },
       searchQuery: '',
       setSearchQuery: (query) => set({ searchQuery: query }),

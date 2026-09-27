@@ -12,6 +12,7 @@ import { CATEGORIES } from '../data/categories';
 import { RiddleItem, CategoryId } from '../types';
 import { SubCategoryTabs } from '../components/riddles/SubCategoryTabs';
 import { RiddleCard } from '../components/riddles/RiddleCard';
+import { DifficultyFilter } from '../components/common/DifficultyFilter';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 
@@ -22,6 +23,7 @@ export const CategoryPage: React.FC = () => {
     setActiveCategory, 
     activeSubCategory, 
     setActiveSubCategory,
+    activeDifficulty,
     revealedMap,
     revealAll,
     hideAll
@@ -57,6 +59,9 @@ export const CategoryPage: React.FC = () => {
     if (activeSubCategory) {
       result = result.filter((r) => r.subCategory === activeSubCategory);
     }
+    if (activeDifficulty !== 'all') {
+      result = result.filter((r) => r.difficulty === activeDifficulty);
+    }
     if (localSearch.trim()) {
       const q = sanitizeSearchQuery(localSearch).toLowerCase();
       result = result.filter(
@@ -67,7 +72,20 @@ export const CategoryPage: React.FC = () => {
       );
     }
     return result;
-  }, [categoryRiddles, activeSubCategory, localSearch]);
+  }, [categoryRiddles, activeSubCategory, activeDifficulty, localSearch]);
+
+  const difficultyCounts = useMemo(() => {
+    let pool = categoryRiddles;
+    if (activeSubCategory) {
+      pool = pool.filter((r) => r.subCategory === activeSubCategory);
+    }
+    return {
+      all: pool.length,
+      easy: pool.filter((r) => r.difficulty === 'easy').length,
+      medium: pool.filter((r) => r.difficulty === 'medium').length,
+      hard: pool.filter((r) => r.difficulty === 'hard').length,
+    };
+  }, [categoryRiddles, activeSubCategory]);
 
   const visibleRiddles = filteredRiddles.slice(0, displayLimit);
   const visibleIds = visibleRiddles.map((r) => r.id);
@@ -175,6 +193,11 @@ export const CategoryPage: React.FC = () => {
         }}
         totalCount={categoryRiddles.length}
       />
+
+      {/* Difficulty Level Filter */}
+      <div className="px-1">
+        <DifficultyFilter counts={difficultyCounts} />
+      </div>
 
       {/* List Header & Anti-Peeking Global Toggle */}
       <div className="flex items-center justify-between px-1">

@@ -208,6 +208,36 @@ function parseMarkdownFiles() {
         if (questionText && answerText) {
           const tags = determineTags(fileMeta.categoryId, currentSubCategory, questionText);
           
+function determineDifficulty(categoryId, subCategory, questionText) {
+  const subLower = subCategory.toLowerCase();
+  const len = questionText.length;
+
+  if (
+    subLower.includes('פלינדרומים') ||
+    subLower.includes('היפוך') ||
+    subLower.includes('מתחכמות') ||
+    subLower.includes('כפולים') ||
+    subLower.includes('קפד') ||
+    len > 72
+  ) {
+    return 'hard';
+  }
+
+  if (
+    len > 38 ||
+    categoryId === 'logic-language' ||
+    categoryId === 'israel-history' ||
+    subLower.includes('בוטנית') ||
+    subLower.includes('הוא והיא')
+  ) {
+    return 'medium';
+  }
+
+  return 'easy';
+}
+
+          const difficulty = determineDifficulty(fileMeta.categoryId, currentSubCategory, questionText);
+
           allRiddles.push({
             id: `riddle-${riddleCounter++}`,
             sourceFile: filename,
@@ -216,7 +246,7 @@ function parseMarkdownFiles() {
             question: questionText,
             answer: answerText,
             tags: tags,
-            difficulty: (questionText.length > 50 || fileMeta.categoryId === 'logic-language') ? 'medium' : 'easy'
+            difficulty: difficulty
           });
         }
       }
