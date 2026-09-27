@@ -19193,5 +19193,1702 @@
       "שבירת-קרח"
     ],
     "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1416",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "איזה איבר של בעל חיים תוקע ומריע, אבל אין לו פה?",
+    "answer": "שופר של איל",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1417",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "מה טובלים בדבש כדי שתהיה שנה מתוקה?",
+    "answer": "תפוח",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1418",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "מה מניחים על השולחן כדי שנהיה לראש ולא ל...",
+    "answer": "זנב - ראש של דג או כבש",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1419",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "איזה פרי מכיל לפי המסורת 613 גרגרים כנגד תרי\"ג מצוות?",
+    "answer": "רימון",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1420",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "לאן הולכים אחר הצהריים של ראש השנה כדי להשליך את החטאים למים?",
+    "answer": "תשליך - לים, נחל או מעיין עם דגים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1421",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "מה שמו של החודש העברי שבו חל ראש השנה?",
+    "answer": "תשרי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1422",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "כמה קולות שופר לפחות נהוג לשמוע בראש השנה?",
+    "answer": "100 קולות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1423",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "אילו שלושה שמות יש לסוגי התקיעות בשופר?",
+    "answer": "תקיעה, שברים, תרועה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1424",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "מהו הכינוי המקראי הנוסף לראש השנה בתורה?",
+    "answer": "יום תרועה / יום הזיכרון",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1425",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "איזה ירק מסמל את סילוק אויבינו ושונאינו בארוחת החג?",
+    "answer": "סלק / סלקא",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1426",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "איזה ירק מסמל שירבו זכויותינו כרוביא?",
+    "answer": "לוביה / רוביא / פול",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1427",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ראש השנה",
+    "question": "איזה ירק מברכים עליו \"שיקרע רוע גזר דיננו\"?",
+    "answer": "גזר / קרא - דלעת",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1428",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "באיזו תפילה מרגשת ופותחת מתחיל ערב יום הכיפורים?",
+    "answer": "כל נדרי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1429",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "כמה תפילות מתפללים ביום כיפור, בניגוד לשלוש ביום רגיל?",
+    "answer": "חמש תפילות: ערבית, שחרית, מוסף, מנחה, נעילה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1430",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "מה שמה של התפילה החמישית והמיוחדת שנאמרת רק ביום כיפור לקראת שקיעת החמה?",
+    "answer": "תפילת נעילה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1431",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "איזה ספר קוראים בהפטרת מנחה המספר על נביא שברח באונייה ונבלע בדג גדול?",
+    "answer": "ספר יונה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1432",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "לאיזו עיר נשלח יונה הנביא להחזיר את תושביה בתשובה?",
+    "answer": "נינווה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1433",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "איזה סוג נעליים אסור לנעול ביום כיפור?",
+    "answer": "נעלי עור",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1434",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "באיזה צליל מסתיים יום הכיפורים לפני תפילת ערבית?",
+    "answer": "תקיעת שופר - תקיעה גדולה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1435",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "איזה מנהג כפרות מקובל לעשות לפני יום כיפור (בכסף או בעוף)?",
+    "answer": "כפרות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1436",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "מה מאחלים זה לזה ביום הכיפורים?",
+    "answer": "גמר חתימה טובה / צום קל ומועיל",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1437",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "איזה צבע בגדים נהוג ללבוש ביום כיפור כסמל לטוהר ומלאכים?",
+    "answer": "לבן",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1438",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הכיפורים",
+    "question": "באיזו שבת מיוחדת בין כסה לעשור עוסקים בשיבה ותשובה?",
+    "answer": "שבת שובה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1439",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "אילו ארבעה מינים נוטלים בחג הסוכות?",
+    "answer": "אתרוג, לולב, הדס וערבה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1440",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "לאיזה איבר בגוף האדם דומה האתרוג (שיש לו טעם ויש לו ריח)?",
+    "answer": "הלב",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1441",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "לאיזה איבר בגוף האדם דומה הלולב (שיש לו טעם ואין לו ריח)?",
+    "answer": "עמוד השדרה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1442",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "לאיזה איבר בגוף האדם דומה ההדס (שיש לו ריח ואין לו טעם)?",
+    "answer": "העיניים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1443",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "לאיזה איבר בגוף האדם דומה הערבה (שאין לה טעם ואין לה ריח)?",
+    "answer": "השפתיים / פה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1444",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "ממה חייב להיות עשוי הסכך של הסוכה?",
+    "answer": "גידולי קרקע תלושים - ענפי דקל, קנים וכדומה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1445",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "כמה ימים חוגגים את חג הסוכות בארץ ישראל (כולל שמיני עצרת)?",
+    "answer": "שמונה ימים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1446",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "מיהם שבעת האורחים הרוחניים שמזמינים לסוכה בכל ערב?",
+    "answer": "האושפיזין: אברהם, יצחק, יעקב, יוסף, משה, אהרן, דוד",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1447",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "מה מקיפים בבית הכנסת בסוכות עם ארבעת המינים תוך אמירת פיוטים?",
+    "answer": "הושענות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1448",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "באיזה יום חובטים חמישה ענפי ערבה בקרקע?",
+    "answer": "הושענא רבה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1449",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "באיזה חג מסייימים את קריאת התורה ומתחילים מיד מבראשית?",
+    "answer": "שמחת תורה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1450",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "סוכות ושמחת תורה",
+    "question": "מה מחזיקים ביד ורוקדים איתו בהקפות בשמחת תורה?",
+    "answer": "ספרי תורה / דגלי שמחת תורה עם תפוח ונר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1451",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "כמה נרות בסך הכל מדליקים לאורך כל שמונת ימי החנוכה (כולל השמש בכל יום)?",
+    "answer": "44 נרות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1452",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "מי היה מנהיג המרד החשמונאי ובניו?",
+    "answer": "מתתיהו הכהן",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1453",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "איזה כינוי ניתן ליהודה, בנו של מתתיהו, שפירושו \"פטיש\"?",
+    "answer": "יהודה המכבי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1454",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "מהו הנס המרכזי של מנורת המקדש שחוגגים בחנוכה?",
+    "answer": "נס פך השמן - שהספיק לשמונה ימים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1455",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "אילו ארבע אותיות מופיעות על הסביבון בישראל?",
+    "answer": "נ' ג' ה' פ' - נס גדול היה פה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1456",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "אילו ארבע אותיות מופיעות על הסביבון בגולה (מחוץ לישראל)?",
+    "answer": "נ' ג' ה' ש' - נס גדול היה שם",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1457",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "אילו מאכלים מטוגנים בשמן נהוג לאכול בחנוכה זכר לנס פך השמן?",
+    "answer": "סופגניות ולביבות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1458",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "איזה בעל חיים ענקי שימש את הצבא הסלווקי-יווני כ\"טנק\" עתיק?",
+    "answer": "פיל מלחמה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1459",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "איזה מבני מתתיהו נהרג בקרב בית זכריה כשדקר פיל מלחמה?",
+    "answer": "אלעזר המכבי / אלעזר החורני",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1460",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "איזה שיר חנוכה פותח במילים: \"סביבון סוב סוב סוב, חנוכה הוא חג...\"?",
+    "answer": "טוב",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1461",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "איזה חג נוסף נקרא גם \"חג האורים\"?",
+    "answer": "חנוכה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1462",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "חנוכה",
+    "question": "באיזה חודש עברי חל חג החנוכה (החל מכ\"ה בו)?",
+    "answer": "חודש כסלו",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1463",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "מה חוגג חג ט\"ו בשבט לפי המשנה?",
+    "answer": "ראש השנה לאילנות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1464",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "איזה עץ הוא הראשון לפרוח בארץ ישראל בפרחים לבנים-ורודים ומבשר את החג?",
+    "answer": "שקד / שקדייה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1465",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "אילו שבעה מינים נתברכה בהם ארץ ישראל ונאכלים בחג?",
+    "answer": "חיטה, שעורה, גפן, תאנה, רימון, זית ותמר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1466",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "איזה מנהג שטח חינוכי עושים ילדי ישראל בט\"ו בשבט ביערות ובגנים?",
+    "answer": "נטיעת עצים ושתילים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1467",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "איזה ארגון לאומי מנהל את יערות ישראל ומבצע את מבצעי הנטיעות הגדולים?",
+    "answer": "קק\"ל - קרן קימת לישראל",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1468",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "מהו סדר הארוחה המיוחד שהנהיגו מקובלי צפת בט\"ו בשבט עם 4 כוסות יין ופירות?",
+    "answer": "סדר ט\"ו בשבט",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1469",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "איזה פרי מיובש ושחום בעל תרמיל קשה נאכל באופן מסורתי בט\"ו בשבט?",
+    "answer": "חרוב",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1470",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "מאיזה פרי עץ מפיקים שמן כתית טהור למאור ולמאכל?",
+    "answer": "זית",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1471",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "מאיזה פרי מפיקים סילאן מתוק וטבעי?",
+    "answer": "תמר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1472",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "איך קוראים לציפה המתוקה שעוטפת את הזרעים ברימון?",
+    "answer": "גרגירים / ארילים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1473",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ט\"ו בשבט",
+    "question": "באיזו עונה בשנה חל ט\"ו בשבט (בחורף או באביב)?",
+    "answer": "בסוף החורף - כשהאילנות מתחילים ללבלב",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1474",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מה שמו של המלך הפרסי בסיפור המגילה?",
+    "answer": "אחשוורוש",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1475",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מה שמה של המלכה שסירבה להגיע למשתה והוחלפה?",
+    "answer": "ושתי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1476",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מי הייתה הנערה היהודייה שנבחרה למלכה במקום ושתי?",
+    "answer": "אסתר המלכה / הדסה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1477",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מי היה בן דודה ואפוטרופסה של אסתר שישב בשער המלך?",
+    "answer": "מרדכי היהודי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1478",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מי היה השר הרשע שרצה להשמיד, להרוג ולאבד את כל היהודים?",
+    "answer": "המן האגגאי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1479",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מה השליך המן כדי לקבוע את יום הגזירה, וממנו נגזר שם החג?",
+    "answer": "פור - גורל",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1480",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מה מרעישים ומסובבים בבית הכנסת בכל פעם שמוזכר שמו של המן?",
+    "answer": "רעשן",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1481",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "איזה מאפה משולש וממולא בפרג, שוקולד או תמרים אוכלים בפורים?",
+    "answer": "אוזני המן",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1482",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "אילו ארבע מצוות מיוחדות של פורים מתחילות באות מ'?",
+    "answer": "מקרא מגילה, משלוח מנות, מתנות לאביונים, משתה ושמחה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1483",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "כמה מנות מינימום חייבים לשלוח לחבר במשלוח מנות?",
+    "answer": "שתי מנות של אוכל לאדם אחד",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1484",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "באיזה תאריך חוגגים את \"שושן פורים\" בערים מוקפות חומה מימות יהושע בן נון (כמו ירושלים)?",
+    "answer": "ט\"ו באדר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1485",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "מה נהוג ללבוש בפורים כדי לשמוח ולהיראות כמו מישהו אחר?",
+    "answer": "תחפושות ומסכות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1486",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פורים",
+    "question": "איזה צום חל יום אחד לפני פורים?",
+    "answer": "תענית אסתר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1487",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "כמה כוסות יין שותים בליל הסדר כנגד ארבע לשונות הגאולה?",
+    "answer": "ארבע כוסות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1488",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "אילו שלושה דברים אמר רבן גמליאל שכל מי שלא אמרן בפסח לא יצא ידי חובתו?",
+    "answer": "פסח, מצה ומרור",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1489",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "מה שמו של הלחם העני שלא הספיק להחמיץ בצאת בני ישראל ממצרים?",
+    "answer": "מצה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1490",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "כמה זמן לוקח לבצק להפוך לחמץ אם לא נאפה?",
+    "answer": "18 דקות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1491",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "איזה חלק של המצה מחביאים בליל הסדר והילדים מחפשים אותו כדי לקבל פרס?",
+    "answer": "אפיקומן",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1492",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "מה שמה של הקערה המרכזית שמונחת על השולחן בליל הסדר?",
+    "answer": "קערת הסדר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1493",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "אילו שישה סימנים מונחים בקערת הסדר?",
+    "answer": "זרוע, ביצה, מרור, חרוסת, כרפס, חזרת",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1494",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "מה מסמלת החרוסת המתוקה בקערת הסדר?",
+    "answer": "את הטיט והלבנים שבהם עבדו בני ישראל במצרים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1495",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "מה שואל הילד הקטן בפתיחת ליל הסדר?",
+    "answer": "מה נשתנה הלילה הזה מכל הלילות?",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1496",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "כמה בנים מוזכרים בהגדה של פסח?",
+    "answer": "ארבעה בנים: חכם, רשע, תם, ושאינו יודע לשאול",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1497",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "כמה מכות הנחית הקדוש ברוך הוא על המצרים?",
+    "answer": "עשר מכות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1498",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "מהי המכה הראשונה ומהי המכה העשירית?",
+    "answer": "דם - מכה ראשונה; מכת בכורות - מכה עשירית",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1499",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "איזה ים נבקע לשניים כדי שבני ישראל יעברו בו בחרבה?",
+    "answer": "ים סוף",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1500",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "איזה שיר מפורסם בסוף ההגדה מתחיל בגדי קטן שאבא קנה בשני זוזים?",
+    "answer": "חד גדיא",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1501",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "פסח",
+    "question": "מה סופרים החל מהלילה השני של פסח במשך 49 ימים עד שבועות?",
+    "answer": "ספירת העומר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1502",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "באיזו שנה עברית הוכרזה הקמת מדינת ישראל?",
+    "answer": "תש\"ח - ה' באייר 1948",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1503",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "מי קרא את מגילת העצמאות במוזיאון תל אביב והפך לראש הממשלה הראשון?",
+    "answer": "דוד בן גוריון",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1504",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "מהו הפרח האדום בעל \"טיפת הדם\" המשמש כסמל יום הזיכרון לחללי מערכות ישראל?",
+    "answer": "דם המכבים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1505",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "מה נשמע בכל רחבי הארץ ביום הזיכרון ובשעתה כולם עומדים דום?",
+    "answer": "צפירה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1506",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "איזה הר בירושלים נקרא על שם חוזה המדינה ובו שוכן בית הקברות הצבאי הראשי?",
+    "answer": "הר הרצל",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1507",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "איזה טקס מרכזי שנערך בהר הרצל נועל את יום הזיכרון ופותח את יום העצמאות?",
+    "answer": "טקס הדלקת המשואות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1508",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "כמה משואות משיאים בכל שנה בטקס הר הרצל כנגד שבטי ישראל?",
+    "answer": "12 משואות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1509",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "מה עושים מטוסי חיל האוויר בשמי הארץ בצהרי יום העצמאות?",
+    "answer": "מטס חיל האוויר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1510",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "איזה חידון תנ\"ך בינלאומי לנוער נערך בשידור חי ביום העצמאות בירושלים?",
+    "answer": "חידון התנ\"ך העולמי",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1511",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "איזה מאכל לאומי נהוג להכין על האש בפארקים וביערות ביום העצמאות?",
+    "answer": "מנגל / בשרים ופיתות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1512",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "יום הזיכרון ויום העצמאות",
+    "question": "מה שמו של ההמנון הלאומי של מדינת ישראל שכתב נפתלי הרץ אימבר?",
+    "answer": "התקווה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1513",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "מה מדליקים ברחבי הארץ בל\"ג בעומר עם קרשים וענפים יבשים?",
+    "answer": "מדורה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1514",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "איזה ירק או מאכל נהוג לעטוף בנייר כסף ולזרוק לתוך גחלי המדורה?",
+    "answer": "תפוח אדמה - קרטושקעס",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1515",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "איזה מתוק לבן ורך משפדים על מקל וצולים מעל להבות המדורה?",
+    "answer": "מרשמלו",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1516",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "באיזה יום לספירת העומר חל ל\"ג בעומר?",
+    "answer": "יום 33 לספירת העומר",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1517",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "איזה תנא קדוש, מחבר ספר הזוהר, נקבר בהר מירון והילולתו נחגגת בל\"ג בעומר?",
+    "answer": "רבי שמעון בר יוחאי - רשב\"י",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1518",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "איזה מנהג תספורת ראשונה בגיל שלוש לבנים נהוג לעשות במירון בל\"ג בעומר?",
+    "answer": "חלאקה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1519",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "איזה כלי נשק קדום נהגו ילדי ישראל להכין מענפים וחוטים בל\"ג בעומר?",
+    "answer": "קשת וחצים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1520",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "מה נעצר ביום ל\"ג בעומר בקרב 24,000 תלמידיו של רבי עקיבא?",
+    "answer": "המגפה שפגעה בהם",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1521",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "מאיזה פרי עץ נהוג להביא ענפים למדורה בגלל הריח הטוב והבעירה הנקייה?",
+    "answer": "ענפי הדר / זית / אלון",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1522",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "ל\"ג בעומר",
+    "question": "איזה הר בגליל העליון הוא מוקד העלייה לרגל ההמוני בל\"ג בעומר?",
+    "answer": "הר מירון",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1523",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "אילו חמישה שמות שונים יש לחג השבועות?",
+    "answer": "שבועות, חג הקציר, יום הביכורים, עצרת, חג מתן תורה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1524",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "איזה אירוע היסטורי אדיר של עם ישראל התרחש בהר סיני בחג השבועות?",
+    "answer": "מתן תורה ועשרת הדיברות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1525",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "איזה סוג מאכלים נהוג לאכול בשבועות (בשר או חלב)?",
+    "answer": "מאכלי חלב וגבינות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1526",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "מה נהוג ללמוד לאורך כל הלילה הראשון של חג השבועות?",
+    "answer": "תיקון ליל שבועות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1527",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "איזו מגילת תנ\"ך מרגשת קוראים בחג השבועות, שמתרחשת בעונת קציר שעורים בבית לחם?",
+    "answer": "מגילת רות",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1528",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "מי הייתה הגיורת המואבייה הנאמנה שאמרה לנעמי: \"עמך עמי ואלוהייך אלוהיי\"?",
+    "answer": "רות המואבייה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1529",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "איזה מלך מפורסם של ישראל נולד ונפטר לפי המסורת בחג השבועות, והיה נינה של רות?",
+    "answer": "דוד המלך",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1530",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "מה נהגו להביא לבית המקדש בטנא מקושט מראשית פרי האדמה?",
+    "answer": "ביכורים משבעת המינים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1531",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "באיזה מנהג רטוב ושמח אוהבים ילדים להשתעשע בחג השבועות?",
+    "answer": "מלחמת מים / שפיכת מים",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "id": "riddle-1532",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "באיזה חודש עברי חל חג השבועות (בו' בו)?",
+    "answer": "חודש סיוון",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "id": "riddle-1533",
+    "sourceFile": "jewish_holidays.md",
+    "categoryId": "israeli-holidays",
+    "subCategory": "שבועות",
+    "question": "מדוע מקשטים את הבתים ובתי הכנסת בענפים ירוקים ובפרחים בשבועות?",
+    "answer": "זכר להר סיני שלבלב ופרח לקראת מתן תורה",
+    "tags": [
+      "מדורה",
+      "אוטובוס",
+      "שבירת-קרח",
+      "הליכה"
+    ],
+    "difficulty": "medium"
   }
 ]

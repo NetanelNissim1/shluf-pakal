@@ -41,6 +41,11 @@ const FILE_CATEGORY_MAP = {
     categoryId: 'songs-culture',
     categoryName: 'תרבות, שירים ישראליים ואנגלית',
     defaultTags: ['אוטובוס', 'מדורה', 'שבירת-קרח']
+  },
+  'jewish_holidays.md': {
+    categoryId: 'israeli-holidays',
+    categoryName: 'חגי ומועדי ישראל',
+    defaultTags: ['מדורה', 'שבירת-קרח', 'אוטובוס']
   }
 };
 
@@ -100,6 +105,13 @@ function determineTags(categoryId, subCategory, question) {
     }
     if (subLower.includes('אנגלית') || subLower.includes('מפורסמים')) {
       tags.add('שבירת-קרח');
+    }
+  } else if (categoryId === 'israeli-holidays') {
+    tags.add('מדורה');
+    tags.add('אוטובוס');
+    tags.add('שבירת-קרח');
+    if (subLower.includes('ט"ו בשבט') || subLower.includes('שבועות') || subLower.includes('ל"ג בעומר')) {
+      tags.add('הליכה');
     }
   }
 

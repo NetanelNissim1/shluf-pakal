@@ -63,7 +63,7 @@ const decryptedRiddles = deobfuscateData(encryptedRaw.riddles);
 const decryptedTaboo = deobfuscateData(encryptedRaw.taboo);
 
 assert(Array.isArray(decryptedRiddles), 'פריקת החידות מחזירה מערך תקין');
-assert(decryptedRiddles.length === 1415, `כמות החידות היא בדיוק 1,415 (נמצאו: ${decryptedRiddles.length})`);
+assert(decryptedRiddles.length === 1533, `כמות החידות היא בדיוק 1,533 (נמצאו: ${decryptedRiddles.length})`);
 assert(Array.isArray(decryptedTaboo), 'פריקת כרטיסי הטאבו מחזירה מערך תקין');
 assert(decryptedTaboo.length === 20, `כמות כרטיסי הטאבו היא בדיוק 20 (נמצאו: ${decryptedTaboo.length})`);
 
@@ -140,6 +140,43 @@ for (let i = 0; i < 5; i++) {
   const picked = decryptedRiddles[randomIndex];
   assert(picked && picked.question && picked.answer, `שליפה אקראית #${i+1} החזירה חידה תקינה בעברית: "${picked.question.slice(0, 35)}..."`);
 }
+
+// Cycle 8: Israeli Holidays & Holiday Filtering Test
+console.log('\n[מחזור 8]: בדיקת חידות חגי ישראל וסינון לפי חג');
+const holidayRiddles = decryptedRiddles.filter(r => r.categoryId === 'israeli-holidays');
+assert(holidayRiddles.length > 100, `קטגוריית חגי ישראל מכילה מעל 100 חידות (נמצאו: ${holidayRiddles.length})`);
+
+const expectedHolidays = [
+  'ראש השנה',
+  'יום הכיפורים',
+  'סוכות ושמחת תורה',
+  'חנוכה',
+  'ט"ו בשבט',
+  'פורים',
+  'פסח',
+  'יום הזיכרון ויום העצמאות',
+  'ל"ג בעומר',
+  'שבועות'
+];
+
+let allHolidaysPresent = true;
+expectedHolidays.forEach(h => {
+  const count = holidayRiddles.filter(r => r.subCategory === h).length;
+  if (count === 0) {
+    allHolidaysPresent = false;
+  }
+});
+assert(allHolidaysPresent, 'כל 10 מועדי וחגי ישראל מיוצגים וניתנים לסינון ישיר');
+
+// Filter check: Purim
+const purimRiddles = holidayRiddles.filter(r => r.subCategory === 'פורים');
+assert(purimRiddles.length === 13, `סינון לפי 'פורים' החזיר 13 חידות מדויקות`);
+assert(purimRiddles.some(r => r.question.includes('אחשוורוש') || r.question.includes('המן')), 'חידות פורים כוללות את דמויות המגילה');
+
+// Filter check: Passover
+const pesachRiddles = holidayRiddles.filter(r => r.subCategory === 'פסח');
+assert(pesachRiddles.length === 15, `סינון לפי 'פסח' החזיר 15 חידות מדויקות`);
+assert(pesachRiddles.some(r => r.question.includes('ליל הסדר') || r.answer.includes('אפיקומן')), 'חידות פסח כוללות את מנהגי ליל הסדר');
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);

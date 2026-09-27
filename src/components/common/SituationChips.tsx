@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bus, Footprints, Flame, Sparkles, Star, LayoutGrid } from 'lucide-react';
+import { Bus, Footprints, Flame, Sparkles, Star, LayoutGrid, CalendarDays } from 'lucide-react';
 import { SituationFilter } from '../../types';
 import { usePakalStore } from '../../store/usePakalStore';
 
@@ -11,6 +11,7 @@ interface ChipItem {
 
 const SITUATIONS: ChipItem[] = [
   { id: 'all', label: 'הכל', icon: LayoutGrid },
+  { id: 'holidays', label: 'חגי ישראל', icon: CalendarDays },
   { id: 'bus', label: 'באוטובוס', icon: Bus },
   { id: 'walking', label: 'תוך כדי הליכה', icon: Footprints },
   { id: 'campfire', label: 'סביב המדורה', icon: Flame },

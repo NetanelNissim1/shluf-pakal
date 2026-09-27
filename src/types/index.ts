@@ -4,10 +4,11 @@ export type CategoryId =
   | 'israel-history'   // ידיעת הארץ וערים (מתוך israel_history_places.md)
   | 'logic-language'   // היגיון ולשון (מתוך language_and_logic.md)
   | 'songs-culture'    // שירים, תרבות וטאבו (מתוך culture_and_songs.md)
+  | 'israeli-holidays' // חגי ומועדי ישראל (מתוך jewish_holidays.md)
   | 'games-activities' // משחקים והפעלות
   | 'stories';         // סיפורים וקטעי קריאה
 
-export type SituationFilter = 'all' | 'bus' | 'walking' | 'campfire' | 'icebreaker' | 'pakal';
+export type SituationFilter = 'all' | 'holidays' | 'bus' | 'walking' | 'campfire' | 'icebreaker' | 'pakal';
 
 export interface RiddleItem {
   id: string;

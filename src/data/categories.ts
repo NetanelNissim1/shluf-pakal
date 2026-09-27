@@ -45,5 +45,14 @@ export const CATEGORIES: CategoryMeta[] = [
     color: 'from-rose-500 to-red-600',
     accent: 'rose',
     description: 'קלאסיקות ישראליות, שירים מסביב למדורה, חידות מפורסמים ומשחק הטאבו'
+  },
+  {
+    id: 'israeli-holidays',
+    title: 'חגי ומועדי ישראל',
+    subtitle: 'ראש השנה, סוכות, חנוכה, פורים, פסח, עצמאות...',
+    iconName: 'CalendarDays',
+    color: 'from-amber-600 via-orange-600 to-red-600',
+    accent: 'amber',
+    description: 'חידות, מנהגים, סודות וסיפורים לכל מועדי השנה - עם סינון מהיר לפי כל חג'
   }
 ];

@@ -10,7 +10,8 @@ import {
   Flame, 
   Eye, 
   EyeOff, 
-  Sparkles 
+  Sparkles,
+  CalendarDays 
 } from 'lucide-react';
 import { riddlesData } from '../data/content';
 import { CATEGORIES } from '../data/categories';
@@ -33,6 +34,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Compass: Compass,
   Brain: Brain,
   Music: Music,
+  CalendarDays: CalendarDays,
 };
 
 export const HomePage: React.FC<HomePageProps> = ({
@@ -67,6 +69,8 @@ export const HomePage: React.FC<HomePageProps> = ({
     filteredRiddles = filteredRiddles.filter((r) => r.tags.includes('מדורה'));
   } else if (activeSituation === 'icebreaker') {
     filteredRiddles = filteredRiddles.filter((r) => r.tags.includes('שבירת-קרח'));
+  } else if (activeSituation === 'holidays') {
+    filteredRiddles = filteredRiddles.filter((r) => r.categoryId === 'israeli-holidays');
   }
 
   // Search Query Filter
