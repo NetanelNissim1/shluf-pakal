@@ -10844,7 +10844,7 @@
     "categoryId": "logic-language",
     "subCategory": "חידודי לשון",
     "question": "אי סדר בא לפעוטון",
-    "answer": "באלגן",
+    "answer": "בלגן - בא לגן",
     "tags": [
       "מדורה",
       "מתוחכמים"
@@ -20226,7 +20226,7 @@
     "sourceFile": "jewish_holidays.md",
     "categoryId": "israeli-holidays",
     "subCategory": "סוכות ושמחת תורה",
-    "question": "באיזה חג מסייימים את קריאת התורה ומתחילים מיד מבראשית?",
+    "question": "באיזה חג מסיימים את קריאת התורה ומתחילים מיד מבראשית?",
     "answer": "שמחת תורה",
     "tags": [
       "מדורה",

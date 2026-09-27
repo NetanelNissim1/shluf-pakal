@@ -46,9 +46,9 @@ export const TabooTimer: React.FC<TabooTimerProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 p-3 rounded-2xl border transition-all ${
+    <div className={`flex items-center justify-between gap-4 p-3 rounded-2xl border transition-all ${
       isCampfire ? 'bg-campfire-card border-campfire-border/80' : 'bg-white border-amber-200/90 shadow-sm'
-    }">
+    }`}>
       {/* Circular Animated SVG Timer */}
       <div className="flex items-center gap-3">
         <div className="relative w-14 h-14 flex items-center justify-center">
