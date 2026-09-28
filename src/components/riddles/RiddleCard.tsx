@@ -127,7 +127,7 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({ riddle, index }) => {
 
       {/* Question Text (Large 18px+ font for outdoor sunlight readability) */}
       <div className="mb-4">
-        <p className="text-[19px] sm:text-[20px] font-bold leading-snug tracking-tight select-text">
+        <p className="text-[19px] sm:text-[20px] font-bold leading-snug tracking-tight">
           {riddle.question}
         </p>
       </div>
@@ -156,7 +156,7 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({ riddle, index }) => {
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                 <span>הפתרון:</span>
               </div>
-              <div className="text-[18px] sm:text-[19px] font-extrabold text-amber-600 dark:text-orange-400 select-text">
+              <div className="text-[18px] sm:text-[19px] font-extrabold text-amber-600 dark:text-orange-400">
                 {riddle.answer}
               </div>
             </div>

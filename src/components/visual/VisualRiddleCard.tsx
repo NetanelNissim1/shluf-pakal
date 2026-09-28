@@ -238,10 +238,10 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                 <span>הפתרון:</span>
               </div>
-              <div className="text-[18px] sm:text-[19px] font-extrabold text-amber-600 dark:text-orange-400 select-text mb-1">
+              <div className="text-[18px] sm:text-[19px] font-extrabold text-amber-600 dark:text-orange-400 mb-1">
                 {riddle.answer}
               </div>
-              <div className="text-xs text-stone-500 dark:text-stone-300 select-text">
+              <div className="text-xs text-stone-500 dark:text-stone-300">
                 {riddle.explanation}
               </div>
             </div>

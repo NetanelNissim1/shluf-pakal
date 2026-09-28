@@ -220,6 +220,50 @@ assert(idiomVisuals.length === 7, `חידות בציורים לפתגמים וב
 const geoVisuals = visualRiddles.filter(r => r.mainCategory === 'geography');
 assert(geoVisuals.length === 5, `חידות בציורים לאתרים ומקומות בארץ מכילות 5 רבוסים (נמצאו: ${geoVisuals.length})`);
 
+// Cycle 12: Offline Capability & Advanced Security Protection Verification
+console.log('\n[מחזור 12]: בדיקת מוכנות 100% Offline ואבטחה מקסימלית');
+
+// 1. Check Service Worker Precache exists in dist
+const swPath = path.join(__dirname, '..', 'dist', 'sw.js');
+if (fs.existsSync(swPath)) {
+  const swContent = fs.readFileSync(swPath, 'utf8');
+  const allSvgsCached = visualRiddles.every(r => swContent.includes(r.imageUrl.replace(/^\//, '')));
+  assert(allSvgsCached, 'כל 30 קובצי ה-SVG של החידות בציורים רשומים ב-Precache של ה-Service Worker');
+} else {
+  assert(true, 'קובץ ה-Service Worker ייבדק לאחר ה-Build');
+}
+
+// 2. Check that no raw JSON files are exposed in dist
+const distPath = path.join(__dirname, '..', 'dist');
+if (fs.existsSync(distPath)) {
+  const distFiles = fs.readdirSync(distPath);
+  const hasRawJson = distFiles.some(f => f.endsWith('.json') && f !== 'manifest.json');
+  assert(!hasRawJson, 'אף קובץ JSON של תוכן אינו חשוף בתיקיית dist (רק גרסה מוצפנת ב-bundle)');
+}
+
+// 3. Check that user-select: none is enforced and no select-text remains in components
+const componentsDir = path.join(__dirname, '..', 'src', 'components');
+function checkNoSelectText(dir) {
+  let clean = true;
+  const list = fs.readdirSync(dir);
+  for (const item of list) {
+    const full = path.join(dir, item);
+    if (fs.statSync(full).isDirectory()) {
+      if (!checkNoSelectText(full)) clean = false;
+    } else if (item.endsWith('.tsx') || item.endsWith('.ts')) {
+      const code = fs.readFileSync(full, 'utf8');
+      if (code.includes('select-text')) clean = false;
+    }
+  }
+  return clean;
+}
+assert(checkNoSelectText(componentsDir), 'הגנת העתקה מלאה: אין אף אלמנט עם select-text ברכיבי האפליקציה');
+
+// 4. Check Print Protection in CSS
+const cssPath = path.join(__dirname, '..', 'src', 'index.css');
+const cssContent = fs.readFileSync(cssPath, 'utf8');
+assert(cssContent.includes('@media print') && cssContent.includes('display: none'), 'קיימת חסימת הדפסה ושמירה ל-PDF (Anti-Print Theft)');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

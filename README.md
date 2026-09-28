@@ -8,7 +8,7 @@
 [![Riddles](https://img.shields.io/badge/חידות-1%2C733-amber)](https://github.com/NetanelNissim1/shluf-pakal)
 [![ODT Activities](https://img.shields.io/badge/ODT-101-forestgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Visual Riddles](https://img.shields.io/badge/חידות%20בציורים-30-purple)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Tests](https://img.shields.io/badge/בדיקות-50%2F50%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Tests](https://img.shields.io/badge/בדיקות-54%2F54%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
 
@@ -116,7 +116,7 @@ npm run dev
 # 3. פרסור והצפנת קובצי התוכן (במידה ונוספו חידות או פעילויות ל-content/)
 npm run parse
 
-# 4. הרצת מחזורי הבדיקות האוטומטיים (50 בדיקות אימות ואבטחה ב-11 מחזורים)
+# 4. הרצת מחזורי הבדיקות האוטומטיים (54 בדיקות אימות, אבטחה ו-Offline ב-12 מחזורים)
 node scripts/verify-app.cjs
 
 # 5. בניית גרסת Production מוצפנת ו-PWA מלאה

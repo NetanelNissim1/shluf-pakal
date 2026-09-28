@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { CategoryId, SituationFilter, ThemeMode } from '../types';
 import { triggerHaptic } from '../lib/haptics';
+import { sanitizeSearchQuery } from '../lib/security';
 
 interface PakalState {
   // Theme & Environment
@@ -124,7 +125,7 @@ export const usePakalStore = create<PakalState>()(
         set({ activeDifficulty: diff });
       },
       searchQuery: '',
-      setSearchQuery: (query) => set({ searchQuery: query }),
+      setSearchQuery: (query) => set({ searchQuery: sanitizeSearchQuery(query) }),
 
       // Randomizer
       isRandomizerOpen: false,

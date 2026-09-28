@@ -264,7 +264,7 @@ ${activity.instructions}
       </div>
 
       {/* Step-by-Step Instructions */}
-      <div className={`p-3.5 rounded-xl border text-sm sm:text-base leading-relaxed mb-4 select-text ${
+      <div className={`p-3.5 rounded-xl border text-sm sm:text-base leading-relaxed mb-4 select-none ${
         isCampfire
           ? 'bg-stone-950/80 border-stone-800/80 text-stone-200'
           : 'bg-stone-50 border-stone-200/80 text-stone-800'

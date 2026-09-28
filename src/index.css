@@ -32,6 +32,14 @@
   }
 }
 
+/* Anti-theft print protection to prevent bulk saving / printing of content */
+@media print {
+  body {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
 /* Custom scrollbar for horizontal category pills */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

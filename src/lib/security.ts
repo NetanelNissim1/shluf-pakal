@@ -82,12 +82,16 @@ export function initContentProtection(): () => void {
     e.preventDefault();
   };
 
-  // 2. Block keyboard shortcuts for scraping / inspecting (Ctrl+U, Ctrl+S, F12)
+  // 2. Block keyboard shortcuts for scraping, printing, saving or inspecting
   const handleKeyDown = (e: KeyboardEvent) => {
+    const target = e.target as HTMLElement;
+    const isInput = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA');
+
     if (
       e.key === 'F12' ||
       ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
-      ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's'))
+      ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'P' || e.key === 'p')) ||
+      (!isInput && (e.ctrlKey || e.metaKey) && (e.key === 'A' || e.key === 'a'))
     ) {
       e.preventDefault();
       e.stopPropagation();
@@ -99,13 +103,26 @@ export function initContentProtection(): () => void {
     e.preventDefault();
   };
 
+  // 4. Block manual clipboard copying outside search/input fields
+  const handleCopy = (e: ClipboardEvent) => {
+    const target = e.target as HTMLElement;
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+      return;
+    }
+    e.preventDefault();
+  };
+
   window.addEventListener('contextmenu', handleContextMenu);
   window.addEventListener('keydown', handleKeyDown);
   window.addEventListener('dragstart', handleDragStart);
+  window.addEventListener('copy', handleCopy);
+  window.addEventListener('cut', handleCopy);
 
   return () => {
     window.removeEventListener('contextmenu', handleContextMenu);
     window.removeEventListener('keydown', handleKeyDown);
     window.removeEventListener('dragstart', handleDragStart);
+    window.removeEventListener('copy', handleCopy);
+    window.removeEventListener('cut', handleCopy);
   };
 }

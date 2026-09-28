@@ -18,6 +18,13 @@ export const StudentViewerPage: React.FC<StudentViewerPageProps> = ({
   // Find current riddle or fallback
   const currentRiddle = allVisual.find(r => r.id === riddleId) || allVisual[0];
 
+  const handleExitClick = () => {
+    if (!onExitStudentMode) return;
+    if (window.confirm('האם לעבור למצב מדריך מלא? (יוצגו פתרונות וכל מאגרי הפק"ל)')) {
+      onExitStudentMode();
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 bg-[#000000] text-white flex flex-col select-none overflow-hidden">
       
@@ -40,7 +47,7 @@ export const StudentViewerPage: React.FC<StudentViewerPageProps> = ({
 
         {onExitStudentMode && (
           <button
-            onClick={onExitStudentMode}
+            onClick={handleExitClick}
             className="text-xs font-bold text-stone-400 hover:text-white px-2.5 py-1.5 rounded-lg border border-stone-800 hover:bg-stone-900 transition-colors"
           >
             חזרה למדריך
