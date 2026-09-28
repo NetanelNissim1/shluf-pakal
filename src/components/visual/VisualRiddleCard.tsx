@@ -16,7 +16,7 @@ import {
 import { VisualRiddle } from '../../types';
 import { usePakalStore } from '../../store/usePakalStore';
 import { triggerHaptic } from '../../lib/haptics';
-import { formatVisualRiddleForWhatsApp, shareToWhatsApp } from '../../lib/share';
+import { formatVisualRiddleForWhatsApp, shareToWhatsApp, getStudentShareUrl } from '../../lib/share';
 
 interface VisualRiddleCardProps {
   riddle: VisualRiddle;
@@ -67,14 +67,12 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
 
   const [copiedWhatsApp, setCopiedWhatsApp] = useState(false);
 
-  const handleWhatsAppShare = (e: React.MouseEvent) => {
+  const handleWhatsAppShare = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (hapticsEnabled) triggerHaptic(25);
-    const origin = typeof window !== 'undefined' ? window.location.origin : '';
-    const path = typeof window !== 'undefined' ? window.location.pathname : '';
-    const studentUrl = `${origin}${path}?mode=student&riddle=${riddle.id}`;
+    const studentUrl = getStudentShareUrl(riddle.id);
     const text = formatVisualRiddleForWhatsApp(riddle.title, studentUrl);
-    shareToWhatsApp(text);
+    await shareToWhatsApp(text, studentUrl);
     setCopiedWhatsApp(true);
     setTimeout(() => setCopiedWhatsApp(false), 2000);
   };

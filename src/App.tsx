@@ -17,11 +17,11 @@ export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
   const { themeMode, setActiveCategory, activeSituation } = usePakalStore();
 
-  // Check for student viewer mode (from Circle Share QR: ?mode=student&riddle=id)
+  // Check for student viewer mode (from Circle Share QR or direct link: ?riddle=id or ?mode=student)
   const [studentMode, setStudentMode] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      return params.get('mode') === 'student';
+      return params.get('mode') === 'student' || params.has('riddle');
     }
     return false;
   });

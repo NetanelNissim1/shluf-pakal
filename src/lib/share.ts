@@ -63,22 +63,74 @@ export async function shareContent(title: string, text: string): Promise<boolean
   return await copyToClipboard(text);
 }
 
-export function formatVisualRiddleForWhatsApp(riddleTitle: string, studentUrl: string): string {
-  return `🧩 *חידת ציורים ורבוס שטח למעגל התלמידים!* 🧩
-"${riddleTitle}"
+export const DEFAULT_PUBLIC_URL = 'https://shluf-pakal.vercel.app';
 
-🔍 *היכנסו לקישור הבא לצפייה באיור במסך מלא עם זום (ללא פתרון):*
-${studentUrl}
+/**
+ * Returns the public web domain to ensure WhatsApp links are 100% valid and clickable for students
+ */
+export function getBaseShareUrl(): string {
+  if (typeof window === 'undefined') return DEFAULT_PUBLIC_URL;
 
-💡 *הוראות:* חקרו את פרטי הציור, חברו את הרמזים וכתבו את הפתרון שלכם כאן בקבוצה! בהצלחה! ✨`;
+  const hostname = window.location.hostname;
+  const isLocal = !hostname || hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.') || hostname.startsWith('10.');
+
+  if (isLocal) {
+    const customDomain = localStorage.getItem('shluf_public_domain');
+    if (customDomain && customDomain.startsWith('http')) {
+      return customDomain.replace(/\/$/, '');
+    }
+    return DEFAULT_PUBLIC_URL;
+  }
+
+  return (window.location.origin + window.location.pathname).replace(/\/$/, '');
 }
 
-export function shareToWhatsApp(text: string): void {
+/**
+ * Generates simple, direct student link that opens the rebus drawing directly
+ */
+export function getStudentShareUrl(riddleId: string): string {
+  const baseUrl = getBaseShareUrl();
+  return `${baseUrl}/?riddle=${riddleId}`;
+}
+
+export function formatVisualRiddleForWhatsApp(riddleTitle: string, studentUrl: string): string {
+  return `🧩 חידת ציורים: *${riddleTitle}*
+
+לחצו על הקישור לפתיחת האיור:
+${studentUrl}
+
+💡 מה מסתתר בציור? כתבו את התשובה בקבוצה!`;
+}
+
+export async function shareToWhatsApp(text: string, directUrl?: string): Promise<boolean> {
+  const isMobile = typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  // On mobile devices, native share sheet opens WhatsApp directly and creates a clean clickable link card
+  if (isMobile && navigator.share) {
+    try {
+      await navigator.share({
+        title: 'חידת ציורים',
+        text: text,
+        url: directUrl
+      });
+      return true;
+    } catch {
+      // User cancelled native share sheet or not supported, fallback to direct whatsapp url
+    }
+  }
+
   const encoded = encodeURIComponent(text);
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encoded}`;
+
   if (typeof window !== 'undefined') {
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    if (isMobile) {
+      window.location.href = whatsappUrl;
+    } else {
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    }
+    return true;
   }
+  return false;
 }
 
 export function downloadVisualImage(imageUrl: string, filename: string): void {

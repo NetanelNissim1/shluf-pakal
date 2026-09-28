@@ -3,7 +3,14 @@ import { QRCodeSVG } from 'qrcode.react';
 import { X, Copy, Check, Users, Sparkles, QrCode, Share2, Download } from 'lucide-react';
 import { VisualRiddle } from '../../types';
 import { usePakalStore } from '../../store/usePakalStore';
-import { copyToClipboard, formatVisualRiddleForWhatsApp, shareToWhatsApp, downloadVisualImage } from '../../lib/share';
+import { 
+  copyToClipboard, 
+  formatVisualRiddleForWhatsApp, 
+  shareToWhatsApp, 
+  downloadVisualImage,
+  getStudentShareUrl,
+  getBaseShareUrl
+} from '../../lib/share';
 import { triggerHaptic } from '../../lib/haptics';
 
 interface CircleShareQRProps {
@@ -15,11 +22,11 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
   const { themeMode, hapticsEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
   const [copied, setCopied] = useState(false);
+  const [copiedRawLink, setCopiedRawLink] = useState(false);
+  const [currentBase, setCurrentBase] = useState(() => getBaseShareUrl());
 
-  // Generate clean student view URL pointing directly to this riddle
-  const currentOrigin = typeof window !== 'undefined' ? window.location.origin : '';
-  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
-  const shareUrl = `${currentOrigin}${currentPath}?mode=student&riddle=${riddle.id}`;
+  // Generate clean, direct student URL pointing to this riddle
+  const shareUrl = `${currentBase}/?riddle=${riddle.id}`;
 
   const handleCopyLink = async () => {
     if (hapticsEnabled) triggerHaptic(25);
@@ -27,6 +34,27 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
     if (success) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleCopyRawLink = async () => {
+    if (hapticsEnabled) triggerHaptic(20);
+    const success = await copyToClipboard(shareUrl);
+    if (success) {
+      setCopiedRawLink(true);
+      setTimeout(() => setCopiedRawLink(false), 2000);
+    }
+  };
+
+  const handleChangeDomain = () => {
+    const entered = window.prompt(
+      'הזן את כתובת האתר שלך (לדוגמה https://shluf-pakal.vercel.app):',
+      currentBase
+    );
+    if (entered && entered.trim().startsWith('http')) {
+      const clean = entered.trim().replace(/\/$/, '');
+      localStorage.setItem('shluf_public_domain', clean);
+      setCurrentBase(clean);
     }
   };
 
@@ -77,19 +105,50 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
           </span>
         </div>
 
+        {/* Simple Clickable Link Display Box */}
+        <div className={`p-2.5 rounded-xl border text-xs text-left font-mono dir-ltr mb-2 flex items-center justify-between gap-2 ${
+          isCampfire ? 'bg-stone-900 border-stone-800 text-amber-300' : 'bg-amber-50/70 border-amber-200 text-stone-800'
+        }`}>
+          <a
+            href={shareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="truncate underline text-blue-600 dark:text-amber-400 hover:opacity-80"
+            title="פתח קישור ישיר"
+          >
+            {shareUrl}
+          </a>
+          <button
+            onClick={handleCopyRawLink}
+            className="p-1.5 rounded-lg bg-stone-200/80 dark:bg-stone-800 hover:bg-amber-500 hover:text-white transition-all shrink-0"
+            title="העתק קישור"
+          >
+            {copiedRawLink ? <Check className="w-3.5 h-3.5 text-emerald-500 stroke-[2.5]" /> : <Copy className="w-3.5 h-3.5" />}
+          </button>
+        </div>
+
+        {typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && (
+          <div className="mb-3 text-[10px] text-stone-400 flex items-center justify-between px-1">
+            <span>כתובת ציבורית פעילה לוואטסאפ</span>
+            <button onClick={handleChangeDomain} className="text-amber-600 underline">
+              החלף דומיין
+            </button>
+          </div>
+        )}
+
         {/* Action Buttons: WhatsApp Group Share, Copy Link, and Download Image */}
         <div className="space-y-2">
           {/* Direct WhatsApp Share Button */}
           <button
-            onClick={() => {
+            onClick={async () => {
               if (hapticsEnabled) triggerHaptic(30);
               const text = formatVisualRiddleForWhatsApp(riddle.title, shareUrl);
-              shareToWhatsApp(text);
+              await shareToWhatsApp(text, shareUrl);
             }}
-            className="w-full py-3 px-4 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white shadow-md shadow-emerald-950/20 transition-all touch-press"
+            className="w-full py-3.5 px-4 rounded-xl font-black text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white shadow-md shadow-emerald-950/20 transition-all touch-press"
           >
             <Share2 className="w-4 h-4" />
-            <span>שלח לוואטסאפ של קבוצת החניכים 📲</span>
+            <span>שלח לוואטסאפ של התלמידים 📲</span>
           </button>
 
           {/* Copy Link Button */}
