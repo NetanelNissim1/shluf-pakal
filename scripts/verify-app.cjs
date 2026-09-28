@@ -63,7 +63,7 @@ const decryptedRiddles = deobfuscateData(encryptedRaw.riddles);
 const decryptedTaboo = deobfuscateData(encryptedRaw.taboo);
 
 assert(Array.isArray(decryptedRiddles), 'פריקת החידות מחזירה מערך תקין');
-assert(decryptedRiddles.length === 1773, `כמות החידות היא בדיוק 1,773 (נמצאו: ${decryptedRiddles.length})`);
+assert(decryptedRiddles.length === 1813, `כמות החידות היא בדיוק 1,813 (נמצאו: ${decryptedRiddles.length})`);
 assert(Array.isArray(decryptedTaboo), 'פריקת כרטיסי הטאבו מחזירה מערך תקין');
 assert(decryptedTaboo.length === 20, `כמות כרטיסי הטאבו היא בדיוק 20 (נמצאו: ${decryptedTaboo.length})`);
 
@@ -209,16 +209,16 @@ assert(waterActivities.length >= 5, `סינון סביבת מים ונחלים �
 console.log('\n[מחזור 11]: בדיקת מודול חידות בציורים (Visual Riddles & Rebus)');
 const visualRiddles = deobfuscateData(encryptedRaw.visual);
 assert(Array.isArray(visualRiddles), 'פריקת חידות בציורים מחזירה מערך תקין');
-assert(visualRiddles.length === 30, `כמות החידות בציורים היא בדיוק 30 (נמצאו: ${visualRiddles.length})`);
+assert(visualRiddles.length === 80, `כמות החידות בציורים היא בדיוק 80 (נמצאו: ${visualRiddles.length})`);
 assert(visualRiddles.every(r => r.id && r.title && r.mainCategory && r.rebusFormulaDescription && r.answer), 'כל חידה בציורים מכילה שדות חובה מלאים');
 const allSvgsExist = visualRiddles.every(r => fs.existsSync(path.join(__dirname, '..', 'public', r.imageUrl)));
-assert(allSvgsExist, 'כל 30 קובצי ה-SVG של החידות בציורים קיימים פיזית בתיקיית public');
+assert(allSvgsExist, 'כל 80 קובצי ה-SVG של החידות בציורים קיימים פיזית בתיקיית public');
 const holidayVisuals = visualRiddles.filter(r => r.mainCategory === 'holidays');
-assert(holidayVisuals.length === 18, `חידות בציורים לחגי ישראל מכילות 18 רבוסים (נמצאו: ${holidayVisuals.length})`);
+assert(holidayVisuals.length === 34, `חידות בציורים לחגי ישראל מכילות 34 רבוסים (נמצאו: ${holidayVisuals.length})`);
 const idiomVisuals = visualRiddles.filter(r => r.mainCategory === 'general');
-assert(idiomVisuals.length === 7, `חידות בציורים לפתגמים וביטויים מכילות 7 רבוסים (נמצאו: ${idiomVisuals.length})`);
+assert(idiomVisuals.length === 25, `חידות בציורים לפתגמים וביטויים מכילות 25 רבוסים (נמצאו: ${idiomVisuals.length})`);
 const geoVisuals = visualRiddles.filter(r => r.mainCategory === 'geography');
-assert(geoVisuals.length === 5, `חידות בציורים לאתרים ומקומות בארץ מכילות 5 רבוסים (נמצאו: ${geoVisuals.length})`);
+assert(geoVisuals.length === 21, `חידות בציורים לאתרים ומקומות בארץ מכילות 21 רבוסים (נמצאו: ${geoVisuals.length})`);
 
 // Cycle 12: Offline Capability & Advanced Security Protection Verification
 console.log('\n[מחזור 12]: בדיקת מוכנות 100% Offline ואבטחה מקסימלית');
@@ -228,7 +228,7 @@ const swPath = path.join(__dirname, '..', 'dist', 'sw.js');
 if (fs.existsSync(swPath)) {
   const swContent = fs.readFileSync(swPath, 'utf8');
   const allSvgsCached = visualRiddles.every(r => swContent.includes(r.imageUrl.replace(/^\//, '')));
-  assert(allSvgsCached, 'כל 30 קובצי ה-SVG של החידות בציורים רשומים ב-Precache של ה-Service Worker');
+  assert(allSvgsCached, 'כל 80 קובצי ה-SVG של החידות בציורים רשומים ב-Precache של ה-Service Worker');
 } else {
   assert(true, 'קובץ ה-Service Worker ייבדק לאחר ה-Build');
 }
@@ -264,14 +264,19 @@ const cssPath = path.join(__dirname, '..', 'src', 'index.css');
 const cssContent = fs.readFileSync(cssPath, 'utf8');
 assert(cssContent.includes('@media print') && cssContent.includes('display: none'), 'קיימת חסימת הדפסה ושמירה ל-PDF (Anti-Print Theft)');
 
-// Cycle 13: Regional Field Content Verification (חלוקה לאזורים בארץ ישראל)
-console.log('\n[מחזור 13]: בדיקת תכני שטח לפי אזורים בארץ ישראל (40 חידות שטח ייעודיות)');
+// Cycle 13: Regional Field Content Verification (חלוקה ל-10 אזורים בארץ ישראל)
+console.log('\n[מחזור 13]: בדיקת תכני שטח לפי אזורים בארץ ישראל (80 חידות שטח ב-10 חבלי ארץ)');
 const regionalCategories = [
   { name: 'ירושלים והרי יהודה', expected: 8 },
   { name: 'מדבר יהודה וים המלח', expected: 8 },
   { name: 'רמת הגולן והחרמון', expected: 8 },
   { name: 'הגליל והעמקים', expected: 8 },
-  { name: 'הנגב, המכתשים והערבה', expected: 8 }
+  { name: 'הנגב, המכתשים והערבה', expected: 8 },
+  { name: 'השפלה, מערות בית גוברין ועמק האלה', expected: 8 },
+  { name: 'השרון, הכרמל ומישור החוף', expected: 8 },
+  { name: 'בקעת הירדן, הגלבוע ועמק המעיינות', expected: 8 },
+  { name: 'השומרון, הרי בנימין ושילה', expected: 8 },
+  { name: 'הרי אילת והערבה הדרומית', expected: 8 }
 ];
 
 let totalRegionalRiddles = 0;
@@ -281,7 +286,39 @@ regionalCategories.forEach(region => {
   assert(count === region.expected, `אזור "${region.name}" מכיל בדיוק ${region.expected} שאלות שטח והדרכה (נמצאו: ${count})`);
 });
 
-assert(totalRegionalRiddles === 40, `סך הכל שאלות שטח לפי אזורים הינו בדיוק 40 (נמצאו: ${totalRegionalRiddles})`);
+assert(totalRegionalRiddles === 80, `סך הכל שאלות שטח לפי אזורים הינו בדיוק 80 ב-10 חבלי ארץ (נמצאו: ${totalRegionalRiddles})`);
+
+// Cycle 14: Comprehensive Spelling, Grammar & Hebrew Text Quality Assurance
+console.log('\n[מחזור 14]: בדיקת תקינות כתיב, דקדוק ושפה עברית ללא שגיאות');
+
+// 1. Riddles spelling & syntax check
+let syntaxErrors = 0;
+decryptedRiddles.forEach(r => {
+  if (r.question.includes('  ') || r.answer.includes('  ')) syntaxErrors++;
+  // Unbalanced parenthesis in question or answer
+  const qOpen = (r.question.match(/\(/g) || []).length;
+  const qClose = (r.question.match(/\)/g) || []).length;
+  if (qOpen !== qClose) syntaxErrors++;
+  const aOpen = (r.answer.match(/\(/g) || []).length;
+  const aClose = (r.answer.match(/\)/g) || []).length;
+  if (aOpen !== aClose) syntaxErrors++;
+});
+assert(syntaxErrors === 0, `כל 1,813 החידות ללא כפילויות רווחים ועם סוגריים מאוזנים לחלוטין (נמצאו שגיאות: ${syntaxErrors})`);
+
+// 2. Visual riddles spelling & completeness
+let visualSpellErrors = 0;
+visualRiddles.forEach(v => {
+  if (!v.title || !v.answer || !v.explanation || !v.rebusFormulaDescription) visualSpellErrors++;
+  if (v.title.includes('  ') || v.answer.includes('  ')) visualSpellErrors++;
+});
+assert(visualSpellErrors === 0, `כל 80 החידות בציורים בעלות כתיב עברי תקין, ללא רווחים כפולים וללא שדות חסרים (נמצאו: ${visualSpellErrors})`);
+
+// 3. ODT Activities grammar & Hebrew text
+let odtGrammarErrors = 0;
+odtActivities.forEach(act => {
+  if (act.title.length < 2 || act.instructions.length < 5 || act.groupValue.length < 3) odtGrammarErrors++;
+});
+assert(odtGrammarErrors === 0, `כל 101 פעילויות ה-ODT בעלות ניסוח עברי תקני ומלא (נמצאו: ${odtGrammarErrors})`);
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);

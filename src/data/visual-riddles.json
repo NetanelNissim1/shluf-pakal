@@ -252,6 +252,230 @@
     "explanation": "`[סל טנא פירות] + [מגל קוצר תבואה] + [שיבולת חיטה]`"
   },
   {
+    "id": "hol-19",
+    "title": "תקיעת שופר",
+    "mainCategory": "holidays",
+    "holidayTag": "rosh-hashana",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-19.svg",
+    "rebusFormulaDescription": "`[שופר איל] + [תווי נגינה ותרועה]`",
+    "hints": [
+      "המצווה המרכזית ביום הדין שמשמיעה קול תרועה."
+    ],
+    "answer": "תקיעת שופר.",
+    "explanation": "שופר + תקיעה = תקיעת שופר."
+  },
+  {
+    "id": "hol-20",
+    "title": "כרטיס ברכה",
+    "mainCategory": "holidays",
+    "holidayTag": "rosh-hashana",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-20.svg",
+    "rebusFormulaDescription": "`[מעטפת כרטיס] + [כוכב ברכה זוהר]`",
+    "hints": [
+      "\"שנה טובה\" שהיינו נוהגים לשלוח בדואר לקרובים."
+    ],
+    "answer": "כרטיס ברכה.",
+    "explanation": "כרטיס + ברכה = כרטיס ברכה (אגרת ברכה)."
+  },
+  {
+    "id": "hol-21",
+    "title": "צום קל",
+    "mainCategory": "holidays",
+    "holidayTag": "yom-kippur",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-21.svg",
+    "rebusFormulaDescription": "`[פה חתום ברוכסן] + [נוצה קלה]`",
+    "hints": [
+      "הברכה הנפוצה ביותר שמברכים זה את זה בערב יום הכיפורים."
+    ],
+    "answer": "צום קל.",
+    "explanation": "צום + קל = צום קל."
+  },
+  {
+    "id": "hol-22",
+    "title": "ספר החיים",
+    "mainCategory": "holidays",
+    "holidayTag": "yom-kippur",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-22.svg",
+    "rebusFormulaDescription": "`[ספר פתוח] + [עץ החיים הירוק]`",
+    "hints": [
+      "תפילה מרכזית בימים נוראים: \"בספר חיים ברכה ושלום נזכר ונכתב\"."
+    ],
+    "answer": "ספר החיים.",
+    "explanation": "ספר + עץ חיים = ספר החיים."
+  },
+  {
+    "id": "hol-23",
+    "title": "אושפיזין",
+    "mainCategory": "holidays",
+    "holidayTag": "sukkot",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/hol-23.svg",
+    "rebusFormulaDescription": "`[אורחים נכנסים] + [כתר קדושה]`",
+    "hints": [
+      "שבעת האורחים הרוחניים שמזמינים לסוכה בכל ערב."
+    ],
+    "answer": "אושפיזין קדישין.",
+    "explanation": "אורחים קדושים = אושפיזין."
+  },
+  {
+    "id": "hol-24",
+    "title": "הקפות שניות",
+    "mainCategory": "holidays",
+    "holidayTag": "sukkot",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-24.svg",
+    "rebusFormulaDescription": "`[מעגל מסתובב] + [ספרה 2]`",
+    "hints": [
+      "הריקודים המסורתיים עם ספרי התורה במוצאי החג."
+    ],
+    "answer": "הקפות שניות.",
+    "explanation": "הקפה + 2 = הקפות שניות."
+  },
+  {
+    "id": "hol-25",
+    "title": "מעוז צור ישועתי",
+    "mainCategory": "holidays",
+    "holidayTag": "chanukah",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-25.svg",
+    "rebusFormulaDescription": "`[מבצר סלע] + [גלגל הצלה]`",
+    "hints": [
+      "הפיוט המרכזי ששרים כולם מיד לאחר הדלקת הנרות בחנוכה."
+    ],
+    "answer": "מעוז צור ישועתי.",
+    "explanation": "מעוז צור + ישועה = מעוז צור ישועתי."
+  },
+  {
+    "id": "hol-26",
+    "title": "נר איש וביתו",
+    "mainCategory": "holidays",
+    "holidayTag": "chanukah",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-26.svg",
+    "rebusFormulaDescription": "`[נר] + [איש] + [בית]`",
+    "hints": [
+      "הגדרת חז\"ל בתלמוד למצוות היסוד של הדלקת נרות חנוכה."
+    ],
+    "answer": "נר איש וביתו.",
+    "explanation": "נר + איש + בית = נר איש וביתו."
+  },
+  {
+    "id": "hol-27",
+    "title": "השקדייה פורחת",
+    "mainCategory": "holidays",
+    "holidayTag": "tu-bishvat",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-27.svg",
+    "rebusFormulaDescription": "`[ענף שקדייה] + [שמש זוהרת]`",
+    "hints": [
+      "השיר המפורסם: \"...ושמש פז זורחת, ציפורים מראש כל גג\"."
+    ],
+    "answer": "השקדייה פורחת.",
+    "explanation": "שקדייה + פריחה/שמש = השקדייה פורחת."
+  },
+  {
+    "id": "hol-28",
+    "title": "פירות יבשים",
+    "mainCategory": "holidays",
+    "holidayTag": "tu-bishvat",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-28.svg",
+    "rebusFormulaDescription": "`[סלסילת פירות] + [שמש יובש מדברית]`",
+    "hints": [
+      "תאנים, תמרים, צימוקים וחרובים שאוכלים בסדר החג."
+    ],
+    "answer": "פירות יבשים.",
+    "explanation": "פירות + יובש = פירות יבשים."
+  },
+  {
+    "id": "hol-29",
+    "title": "ככה ייעשה לאיש",
+    "mainCategory": "holidays",
+    "holidayTag": "purim",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/hol-29.svg",
+    "rebusFormulaDescription": "`[סוס מלכות] + [כתר זהב] + [חץ הכרזה]`",
+    "hints": [
+      "מה שקרא המן ברחובות שושן הבירה לפני מרדכי."
+    ],
+    "answer": "ככה ייעשה לאיש אשר המלך חפץ ביקרו.",
+    "explanation": "סוס + כתר + מעשה = ככה ייעשה לאיש."
+  },
+  {
+    "id": "hol-30",
+    "title": "עד דלא ידע",
+    "mainCategory": "holidays",
+    "holidayTag": "purim",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-30.svg",
+    "rebusFormulaDescription": "`[חבית יין] + [סימן שאלה/אי-ידיעה]`",
+    "hints": [
+      "מצוות המשתה והעדלאידע המפורסמת של פורים."
+    ],
+    "answer": "עד דלא ידע.",
+    "explanation": "יין + חוסר ידיעה = עד דלא ידע."
+  },
+  {
+    "id": "hol-31",
+    "title": "מה נשתנה",
+    "mainCategory": "holidays",
+    "holidayTag": "pesach",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-31.svg",
+    "rebusFormulaDescription": "`[?] + [זיקית משנה צבע] + [מצה]`",
+    "hints": [
+      "ארבע הקושיות שפותח בהן הילד הצעיר בליל הסדר."
+    ],
+    "answer": "מה נשתנה.",
+    "explanation": "מה (?) + נשתנה (זיקית) + מצה = מה נשתנה הלילה הזה."
+  },
+  {
+    "id": "hol-32",
+    "title": "מכת בכורות",
+    "mainCategory": "holidays",
+    "holidayTag": "pesach",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-32.svg",
+    "rebusFormulaDescription": "`[ברק מכה] + [מספר 1 - בכור]`",
+    "hints": [
+      "המכה העשירית והקשה מכולן במצרים שגרמה לפרעה לשלח את בני ישראל."
+    ],
+    "answer": "מכת בכורות.",
+    "explanation": "מכה + בכור (1) = מכת בכורות."
+  },
+  {
+    "id": "hol-33",
+    "title": "צפירת דומייה",
+    "mainCategory": "holidays",
+    "holidayTag": "independence-day",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-33.svg",
+    "rebusFormulaDescription": "`[צופר אזעקה] + [אדם עומד דום]`",
+    "hints": [
+      "שתי דקות של עמידה ברחבי הארץ להתייחדות עם זכר הנופלים."
+    ],
+    "answer": "צפירת דומייה.",
+    "explanation": "צפירה + דומייה = צפירת דומייה."
+  },
+  {
+    "id": "hol-34",
+    "title": "מתן תורה",
+    "mainCategory": "holidays",
+    "holidayTag": "shavuot",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-34.svg",
+    "rebusFormulaDescription": "`[מתנה] + [לוחות הברית]`",
+    "hints": [
+      "המאורע המכונן בהר סיני הנחגג בחג השבועות."
+    ],
+    "answer": "מתן תורה.",
+    "explanation": "מתנה (מתן) + לוחות הברית (תורה) = מתן תורה."
+  },
+  {
     "id": "gen-01",
     "title": "סוף מעשה במחשבה תחילה",
     "mainCategory": "general",
@@ -350,6 +574,258 @@
     "explanation": "`[סמיילי חיים + סמל מוות] + [יד אוחזת לשון]`"
   },
   {
+    "id": "gen-08",
+    "title": "מים שקטים חודרים עמוק",
+    "mainCategory": "general",
+    "generalTag": "`אופי והתנהגות`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-08.svg",
+    "rebusFormulaDescription": "`[מים שקטים] + [חץ יורד לעומק]`",
+    "hints": [
+      "פתגם המתאר אדם שקט וצנוע אך בעל עוצמה והשפעה רבה."
+    ],
+    "answer": "מים שקטים חודרים עמוק.",
+    "explanation": "מים שקטים + חדירה עמוקה = מים שקטים חודרים עמוק."
+  },
+  {
+    "id": "gen-09",
+    "title": "עלה לו הדם לראש",
+    "mainCategory": "general",
+    "generalTag": "`רגשות וכעס`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-09.svg",
+    "rebusFormulaDescription": "`[חץ למעלה] + [טיפת דם] + [ראש אדם]`",
+    "hints": [
+      "ביטוי שמתאר התפרצות בלתי נשלטת של כעס ורוגז."
+    ],
+    "answer": "עלה לו הדם לראש.",
+    "explanation": "עלה + דם + ראש = עלה לו הדם לראש."
+  },
+  {
+    "id": "gen-10",
+    "title": "אין הנחתום מעיד על עיסתו",
+    "mainCategory": "general",
+    "generalTag": "`צניעות`",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/gen-10.svg",
+    "rebusFormulaDescription": "`[אופה/נחתום] + [איקס אדום] + [בצק/עיסה]`",
+    "hints": [
+      "פתגם חז\"ל: יוצר המוצר אינו יכול לשבח בעצמו את מעשה ידיו."
+    ],
+    "answer": "אין הנחתום מעיד על עיסתו.",
+    "explanation": "נחתום + אין מעיד + עיסה = אין הנחתום מעיד על עיסתו."
+  },
+  {
+    "id": "gen-11",
+    "title": "אבן נגולה מעל ליבו",
+    "mainCategory": "general",
+    "generalTag": "`הקלה ושמחה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-11.svg",
+    "rebusFormulaDescription": "`[סלע מתגלגל] + [לב משוחרר]`",
+    "hints": [
+      "ביטוי לתחושת הקלה ורווחה עצומה לאחר שדאגה כבדה הוסרה."
+    ],
+    "answer": "אבן נגולה מעל ליבו.",
+    "explanation": "אבן נגולה + לב = אבן נגולה מעל ליבו."
+  },
+  {
+    "id": "gen-12",
+    "title": "מרוב עצים לא רואים את היער",
+    "mainCategory": "general",
+    "generalTag": "`ראייה כוללת`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-12.svg",
+    "rebusFormulaDescription": "`[הרבה עצי יער] + [עיניים עם איקס]`",
+    "hints": [
+      "מצב שבו מתעמקים יותר מדי בפרטים הטכניים ושוכחים את המטרה הגדולה."
+    ],
+    "answer": "מרוב עצים לא רואים את היער.",
+    "explanation": "ריבוי עצים + חוסר ראייה = מרוב עצים לא רואים את היער."
+  },
+  {
+    "id": "gen-13",
+    "title": "שם רגליים",
+    "mainCategory": "general",
+    "generalTag": "`יחסים והתנהגות`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-13.svg",
+    "rebusFormulaDescription": "`[מכשול רגליים במסלול]`",
+    "hints": [
+      "חיבל בכוונה בהתקדמותו או בהצלחתו של אדם אחר."
+    ],
+    "answer": "שם רגליים.",
+    "explanation": "רגל מושטת להכשיל = שם רגליים."
+  },
+  {
+    "id": "gen-14",
+    "title": "דרך המלך",
+    "mainCategory": "general",
+    "generalTag": "`שבילים והובלה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-14.svg",
+    "rebusFormulaDescription": "`[דרך סלולה] + [כתר מלך]`",
+    "hints": [
+      "הדרך הראשית, הישרה והנכונה ביותר להגיע אל המטרה."
+    ],
+    "answer": "דרך המלך.",
+    "explanation": "דרך + מלך = דרך המלך."
+  },
+  {
+    "id": "gen-15",
+    "title": "תפסת מרובה לא תפסת",
+    "mainCategory": "general",
+    "generalTag": "`מידה ושיקול דעת`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-15.svg",
+    "rebusFormulaDescription": "`[עומס חפצים מרובים] + [ספרה 0]`",
+    "hints": [
+      "כלל חז\"ל מפורסם: מי שמנסה לקחת או להשיג יותר מדי – נשאר בידיים ריקות."
+    ],
+    "answer": "תפסת מרובה לא תפסת.",
+    "explanation": "תפיסה מרובה + אפס = תפסת מרובה לא תפסת."
+  },
+  {
+    "id": "gen-16",
+    "title": "איזהו עשיר השמח בחלקו",
+    "mainCategory": "general",
+    "generalTag": "`אושר ורוח`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-16.svg",
+    "rebusFormulaDescription": "`[מטבע זהב] + [חיוך שמח] + [פרוסת עוגה]`",
+    "hints": [
+      "מאמר חז\"ל ממסכת אבות: מיהו האדם המאושר באמת בעולמו."
+    ],
+    "answer": "איזהו עשיר השמח בחלקו.",
+    "explanation": "עשיר + שמח + חלקו = איזהו עשיר השמח בחלקו."
+  },
+  {
+    "id": "gen-17",
+    "title": "כדור שלג",
+    "mainCategory": "general",
+    "generalTag": "`דינמיקה והתפתחות`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-17.svg",
+    "rebusFormulaDescription": "`[כדור שלג מתגלגל]`",
+    "hints": [
+      "תהליך קטן שהחל בפשטות והתפתח במהירות לסערה או משבר גדול."
+    ],
+    "answer": "כדור שלג מתגלגל.",
+    "explanation": "כדור שלג במורד = כדור שלג."
+  },
+  {
+    "id": "gen-18",
+    "title": "לשבור את הקרח",
+    "mainCategory": "general",
+    "generalTag": "`תקשורת וגיבוש`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-18.svg",
+    "rebusFormulaDescription": "`[פטיש שובר] + [קוביית קרח]`",
+    "hints": [
+      "הפגת המבוכה, הריחוק והמתח בתחילתו של מפגש קבוצתי."
+    ],
+    "answer": "לשבור את הקרח.",
+    "explanation": "שבירה + קרח = לשבור את הקרח."
+  },
+  {
+    "id": "gen-19",
+    "title": "פתח פה לשטן",
+    "mainCategory": "general",
+    "generalTag": "`דיבור ואמונה`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-19.svg",
+    "rebusFormulaDescription": "`[פה פתוח] + [שד עם קרניים]`",
+    "hints": [
+      "אזהרה עממית שלא לדבר על אסון או צרה כדי לא לזמן אותם במילים."
+    ],
+    "answer": "אל תפתח פה לשטן.",
+    "explanation": "פתיחת פה + שטן = אל תפתח פה לשטן."
+  },
+  {
+    "id": "gen-20",
+    "title": "יורד לסוף דעתו",
+    "mainCategory": "general",
+    "generalTag": "`הבנה ומחשבה`",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/gen-20.svg",
+    "rebusFormulaDescription": "`[סולם יורד] + [מוח חושב]`",
+    "hints": [
+      "הצליח להבין לעומק ובדיוק את כוונתו של אדם אחר."
+    ],
+    "answer": "יורד לסוף דעתו.",
+    "explanation": "ירידה לסוף + דעת = יורד לסוף דעתו."
+  },
+  {
+    "id": "gen-21",
+    "title": "יצא שכרו בהפסדו",
+    "mainCategory": "general",
+    "generalTag": "`כדאיות וכלכלה`",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/gen-21.svg",
+    "rebusFormulaDescription": "`[שכר (+)] + [הפסד גדול (-)]`",
+    "hints": [
+      "הנזק, הטרחה וההפסד גדולים בהרבה מהתועלת הקטנה שהופקה."
+    ],
+    "answer": "יצא שכרו בהפסדו.",
+    "explanation": "רווח קטן + הפסד ענק = יצא שכרו בהפסדו."
+  },
+  {
+    "id": "gen-22",
+    "title": "שם נפשו בכפו",
+    "mainCategory": "general",
+    "generalTag": "`אומץ וגבורה`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-22.svg",
+    "rebusFormulaDescription": "`[לב/נפש] + [כף יד פתוחה]`",
+    "hints": [
+      "ביטוי תנ\"כי המתאר אדם שלקח סיכון גדול עד כדי סכנת חיים ממש."
+    ],
+    "answer": "שם נפשו בכפו.",
+    "explanation": "נפש + כף יד = שם נפשו בכפו."
+  },
+  {
+    "id": "gen-23",
+    "title": "עקב בצד אגודל",
+    "mainCategory": "general",
+    "generalTag": "`סבלנות והתמדה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-23.svg",
+    "rebusFormulaDescription": "`[עקב נעל] + [אגודל רגל]`",
+    "hints": [
+      "התקדמות איטית, זהירה ומחושבת צעד אחר צעד."
+    ],
+    "answer": "עקב בצד אגודל.",
+    "explanation": "עקב + אגודל = עקב בצד אגודל."
+  },
+  {
+    "id": "gen-24",
+    "title": "הציץ ונפגע",
+    "mainCategory": "general",
+    "generalTag": "`סקרנות והשפעה`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-24.svg",
+    "rebusFormulaDescription": "`[עין מציצה] + [כוכב פגיעה]`",
+    "hints": [
+      "נחשף לעולם חדש, התלהב והושפע ממנו באופן ששינה את דרכו."
+    ],
+    "answer": "הציץ ונפגע.",
+    "explanation": "הצצה בעין + פגיעה/התפעלות = הציץ ונפגע."
+  },
+  {
+    "id": "gen-25",
+    "title": "שבעת מדורי גיהנום",
+    "mainCategory": "general",
+    "generalTag": "`קשיים ותלאות`",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/gen-25.svg",
+    "rebusFormulaDescription": "`[ספרה 7] + [להבות אש גיהנום]`",
+    "hints": [
+      "מסכת ייסורים, תלאות וקשיים רבים שאדם עבר עד שהגיע לתוצאה הרצויה."
+    ],
+    "answer": "שבעת מדורי גיהנום.",
+    "explanation": "7 + מדורי אש = שבעת מדורי גיהנום."
+  },
+  {
     "id": "geo-01",
     "title": "פתח תקווה",
     "mainCategory": "geography",
@@ -418,5 +894,229 @@
     ],
     "answer": "מגדל העמק.",
     "explanation": "`[מגדל גבוה] + [ציור עמק ירוק בין הרים]`"
+  },
+  {
+    "id": "geo-06",
+    "title": "כרמיאל",
+    "mainCategory": "geography",
+    "generalTag": "`הגליל`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-06.svg",
+    "rebusFormulaDescription": "`[כרם ענבים] + [אותיות אֵל]`",
+    "hints": [
+      "העיר המרכזית בבקעת בית הכרם בגליל, עיר מחולות מפורסמת."
+    ],
+    "answer": "כרמיאל.",
+    "explanation": "כרמי + אל = כרמיאל."
+  },
+  {
+    "id": "geo-07",
+    "title": "נהריה",
+    "mainCategory": "geography",
+    "generalTag": "`מישור החוף הצפוני`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-07.svg",
+    "rebusFormulaDescription": "`[נהר זורם] + [אותיות יָהּ]`",
+    "hints": [
+      "עיר החוף הצפונית אשר נחל געתון חוצה את שדרתה המרכזית."
+    ],
+    "answer": "נהריה.",
+    "explanation": "נהר + יה = נהריה."
+  },
+  {
+    "id": "geo-08",
+    "title": "נשר",
+    "mainCategory": "geography",
+    "generalTag": "`הכרמל וחיפה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-08.svg",
+    "rebusFormulaDescription": "`[איור נשר פורש כנפיים]`",
+    "hints": [
+      "עיר למרגלות הכרמל הידועה בפארק הגשרים התלויים מעל נחל קטיע."
+    ],
+    "answer": "נשר.",
+    "explanation": "עוף הנשר = נשר."
+  },
+  {
+    "id": "geo-09",
+    "title": "כפר סבא",
+    "mainCategory": "geography",
+    "generalTag": "`השרון`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-09.svg",
+    "rebusFormulaDescription": "`[בתי כפר] + [דמות סבא]`",
+    "hints": [
+      "עיר מרכזית בדרום השרון שהוקמה כמושבה חקלאית ב-1903."
+    ],
+    "answer": "כפר סבא.",
+    "explanation": "כפר + סבא = כפר סבא."
+  },
+  {
+    "id": "geo-10",
+    "title": "רמת השרון",
+    "mainCategory": "geography",
+    "generalTag": "`השרון`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-10.svg",
+    "rebusFormulaDescription": "`[רמה מוגבהת] + [תות שדה של השרון]`",
+    "hints": [
+      "עיר בשרון הגובלת בתל אביב והרצליה, מפורסמת בשדות התותים שלה."
+    ],
+    "answer": "רמת השרון.",
+    "explanation": "רמה + שרון (תות) = רמת השרון."
+  },
+  {
+    "id": "geo-11",
+    "title": "בית שמש",
+    "mainCategory": "geography",
+    "generalTag": "`השפלה והרי יהודה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-11.svg",
+    "rebusFormulaDescription": "`[בית] + [שמש]`",
+    "hints": [
+      "עיר היסטורית בשפלת יהודה מול הרי ירושלים (\"מנחל שורק עד עמק האלה\")."
+    ],
+    "answer": "בית שמש.",
+    "explanation": "בית + שמש = בית שמש."
+  },
+  {
+    "id": "geo-12",
+    "title": "נתיבות",
+    "mainCategory": "geography",
+    "generalTag": "`הנגב הצפוני`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-12.svg",
+    "rebusFormulaDescription": "`[שבילי נתיבות מתפצלים]`",
+    "hints": [
+      "עיר בנגב המערבי הידועה כעיר הקדושה בה קבור הבאבא סאלי."
+    ],
+    "answer": "נתיבות.",
+    "explanation": "נתיבי דרך = נתיבות."
+  },
+  {
+    "id": "geo-13",
+    "title": "קצרין",
+    "mainCategory": "geography",
+    "generalTag": "`רמת הגולן`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-13.svg",
+    "rebusFormulaDescription": "`[סרגל קצר] + [אותיות יִין]`",
+    "hints": [
+      "היישוב המרכזי והבירה הלא-רשמית של רמת הגולן."
+    ],
+    "answer": "קצרין.",
+    "explanation": "קצר + ין = קצרין."
+  },
+  {
+    "id": "geo-14",
+    "title": "מטולה",
+    "mainCategory": "geography",
+    "generalTag": "`אצבע הגליל`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-14.svg",
+    "rebusFormulaDescription": "`[טלטול מעגלי] + [האות הּ]`",
+    "hints": [
+      "המושבה הצפונית ביותר בישראל, סמוך למפל התנור ולגבול לבנון."
+    ],
+    "answer": "מטולה.",
+    "explanation": "מטול + ה = מטולה."
+  },
+  {
+    "id": "geo-15",
+    "title": "ים המלח",
+    "mainCategory": "geography",
+    "generalTag": "`מדבר יהודה והבקעה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-15.svg",
+    "rebusFormulaDescription": "`[גלי ים] + [מלחייה]`",
+    "hints": [
+      "ימת המלח הסגורה והמקום הנמוך ביותר על פני כדור הארץ."
+    ],
+    "answer": "ים המלח.",
+    "explanation": "ים + מלח = ים המלח."
+  },
+  {
+    "id": "geo-16",
+    "title": "הר תבור",
+    "mainCategory": "geography",
+    "generalTag": "`הגליל התחתון`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-16.svg",
+    "rebusFormulaDescription": "`[הר כיפתי] + [כנסיית ההשתנות בתבור]`",
+    "hints": [
+      "הר מבודד וכיפתי מרשים המתנשא מעל עמק יזרעאל."
+    ],
+    "answer": "הר תבור.",
+    "explanation": "הר כיפה + כנסייה = הר תבור."
+  },
+  {
+    "id": "geo-17",
+    "title": "מצדה",
+    "mainCategory": "geography",
+    "generalTag": "`מדבר יהודה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-17.svg",
+    "rebusFormulaDescription": "`[מבצר בצוק מבודד] + [שביל הנחש]`",
+    "hints": [
+      "מבצר הורדוס וסמל עמידתם ההירואית של הקנאים מול הלגיון הרומי."
+    ],
+    "answer": "מצדה.",
+    "explanation": "מצודה בצוק = מצדה."
+  },
+  {
+    "id": "geo-18",
+    "title": "אילת",
+    "mainCategory": "geography",
+    "generalTag": "`הערבה והדרום`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-18.svg",
+    "rebusFormulaDescription": "`[איילה] + [דולפין בים סוף]`",
+    "hints": [
+      "עיר הנמל והנופש הדרומית ביותר בישראל לחופי מפרץ אילת."
+    ],
+    "answer": "אילת.",
+    "explanation": "איילה + ים סוף = אילת."
+  },
+  {
+    "id": "geo-19",
+    "title": "חולון",
+    "mainCategory": "geography",
+    "generalTag": "`גוש דן והמרכז`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-19.svg",
+    "rebusFormulaDescription": "`[דיונת חול] + [אותיות וֹן]`",
+    "hints": [
+      "עיר במחוז תל אביב שהוקמה על גבי חולות נודדים, וידועה כ\"עיר הילדים\"."
+    ],
+    "answer": "חולון.",
+    "explanation": "חול + ון = חולון."
+  },
+  {
+    "id": "geo-20",
+    "title": "מעלה אדומים",
+    "mainCategory": "geography",
+    "generalTag": "`מדבר יהודה ובנימין`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-20.svg",
+    "rebusFormulaDescription": "`[מדרגות מעלה] + [צבע אדום]`",
+    "hints": [
+      "עיר במדבר יהודה על הדרך העולה מיריחו ומים המלח לירושלים."
+    ],
+    "answer": "מעלה אדומים.",
+    "explanation": "מעלה + אדום = מעלה אדומים."
+  },
+  {
+    "id": "geo-21",
+    "title": "שער הגיא",
+    "mainCategory": "geography",
+    "generalTag": "`הרי יהודה ושפלה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-21.svg",
+    "rebusFormulaDescription": "`[שער קשת] + [עמק גיא עם משוריין]`",
+    "hints": [
+      "באב אל-וואד - פתח המעבר הצר והמפורסם בדרך ההיסטורית לירושלים."
+    ],
+    "answer": "שער הגיא.",
+    "explanation": "שער + גיא ומשוריין = שער הגיא."
   }
 ]

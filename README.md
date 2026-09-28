@@ -4,23 +4,23 @@
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-NetanelNissim1%2Fshluf--pakal-orange?logo=github)](https://github.com/NetanelNissim1/shluf-pakal)
 [![PWA Ready](https://img.shields.io/badge/PWA-100%25%20Offline-success)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Total Content](https://img.shields.io/badge/פעילויות-1%2C924-blue)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Riddles](https://img.shields.io/badge/חידות-1%2C773-amber)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Total Content](https://img.shields.io/badge/פעילויות-2%2C014-blue)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Riddles](https://img.shields.io/badge/חידות-1%2C813-amber)](https://github.com/NetanelNissim1/shluf-pakal)
 [![ODT Activities](https://img.shields.io/badge/ODT-101-forestgreen)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Visual Riddles](https://img.shields.io/badge/חידות%20בציורים-30-purple)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Tests](https://img.shields.io/badge/בדיקות-60%2F60%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Visual Riddles](https://img.shields.io/badge/חידות%20בציורים-80-purple)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Tests](https://img.shields.io/badge/בדיקות-68%2F68%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
 
 ## 🌟 סקירה כללית
-אפליקציית **"שלוף"** פותחה במיוחד עבור מדריכי טיולים, מפקדים, מורים, תנועות נוער ומדריכי של"ח. האפליקציה מאפשרת שליפה מיידית (פחות מ-2 שניות) של מעל **1,920 חידות, פעילויות ODT, חידות בציורים (רבוסים), משחק טאבו אינטראקטיבי מלא וסיפורים** ישירות מהסמארטפון – **ללא צורך בחיבור אינטרנט כלל (100% Offline-First)** ועם התאמה מרבית לתנאי שטח קיצוניים (שמש יוקדת או חושך סביב מדורה).
+אפליקציית **"שלוף"** פותחה במיוחד עבור מדריכי טיולים, מפקדים, מורים, תנועות נוער ומדריכי של"ח. האפליקציה מאפשרת שליפה מיידית (פחות מ-2 שניות) של מעל **2,010 חידות, פעילויות ODT, חידות בציורים (רבוסים), משחק טאבו אינטראקטיבי מלא וסיפורים** ישירות מהסמארטפון – **ללא צורך בחיבור אינטרנט כלל (100% Offline-First)** ועם התאמה מרבית לתנאי שטח קיצוניים (שמש יוקדת או חושך סביב מדורה).
 
 ---
 
 ## 🚀 תכונות עיקריות
 
 1. **עבודה מלאה ללא קליטה (100% Offline PWA):**
-   * כל 1,773 החידות וכרטיסי הטאבו מאוחסנים מקומית במכשיר.
+   * כל 1,813 החידות וכרטיסי הטאבו מאוחסנים מקומית במכשיר.
    * Service Worker (Workbox) מבצע Pre-cache לכל הנכסים, הסקריפטים ומאגר הנתונים לעבודה במצב טיסה.
    * ניתן להתקנה ישירה על מסך הבית (Add to Home Screen) ב-iOS וב-Android כאפליקציית Standalone.
 
@@ -31,8 +31,8 @@
 3. **מערכת סינון רמות קושי (Difficulty Level Filtering):**
    * כל שאלה במאגר מסווגת לאחת משלוש רמות:
      * 🟢 **קליל (642 חידות):** שאלות זיהוי מהירות, מנהגים בסיסיים, אותיות וחיות (מתאים לילדים ולחימום).
-     * 🟡 **בינוני (932 חידות):** שאלות ידע כללי, טבע, שירים, היסטוריה ומושגי שטח מאוזנים.
-     * 🔴 **מאתגר (199 חידות):** חידות היגיון מתחכמות, כפל משמעות, פלינדרומים ושאלות עומק.
+     * 🟡 **בינוני (933 חידות):** שאלות ידע כללי, טבע, שירים, היסטוריה ומושגי שטח מאוזנים.
+     * 🔴 **מאתגר (238 חידות):** חידות היגיון מתחכמות, כפל משמעות, פלינדרומים ושאלות עומק.
    * תגית חיווי צבעונית מוצגת על גבי כל כרטיסיית חידה.
    * רכיב סינון קושי מהיר זמין הן במסך הבית והן במסך הקטגוריות לשילוב סינון עם כל נושא וחג.
 
@@ -75,8 +75,8 @@
     * **רעיון למשחק המשך (Sequential Recommendations):** המלצה אוטומטית חכמה לפעילות הבאה מתוך אותו עולם תוכן לשמירה על רצף הדרכתי מושלם.
     * **שיתוף שטח לוואטסאפ (📲):** בלחיצה אחת מפיק הודעת הדרכה מפורטת עם כותרת, ציוד, הוראות וערך קבוצתי.
 
-11. **מודול חידות בציורים ורבוסים גרפיים (30 חידות ויזואליות):**
-    * **30 איורים וקטוריים ברזולוציה גבוהה (SVG מקומי):** 100% Offline-First ללא תלות ברשת (חגי ומועדי ישראל, פתגמים וביטויים, ואתרי ארץ ישראל).
+11. **מודול חידות בציורים ורבוסים גרפיים (80 חידות ויזואליות):**
+    * **80 איורים וקטוריים ברזולוציה גבוהה (SVG מקומי):** 100% Offline-First ללא תלות ברשת (חגי ומועדי ישראל [34], פתגמים וביטויים [25], ואתרי ארץ ישראל [21]).
     * **מצב מנחה במסך מלא (Presenter Full-Screen AMOLED #000000):** רקע שחור אטום לחיסכון בסוללה ומניעת סנוור, עם מחוות צביטה וגרירה (Pinch-to-Zoom & Pan) להגדלה עד פי 6.
     * **ארכיטקטורת הגנה נגד הצצות (Anti-Peeking):**
       * רמז זמני מוגבל ל-3 שניות שנעלם אוטומטית.
@@ -95,12 +95,12 @@
 | :--- | :--- | :---: | :--- |
 | [`word_chains_riddles.md`](file:///c:/projects/shluf-pakal/content/word_chains_riddles.md) | **שרשראות מילים ותחיליות** | **349** | חידות אותיות, חידות "פיל", "חל", "גל", "מס", "פר", "חן", "עץ". |
 | [`nature_and_animals.md`](file:///c:/projects/shluf-pakal/content/nature_and_animals.md) | **טבע, בעלי חיים וצומח** | **207** | חיות לפי א'-ב', חרוזים ותיאורים, הוא והיא בצמחים, בוטניקה ופירות. |
-| [`israel_history_places.md`](file:///c:/projects/shluf-pakal/content/israel_history_places.md) | **ארץ ישראל, היסטוריה וערים** | **250** | חידות חוצה ישראל, אתרים היסטוריים, ערים ויישובים, וכן **40 שאלות שטח והדרכה המחולקות ל-5 חבלי ארץ (ירושלים, מדבר יהודה, גולן, גליל ונגב)**. |
+| [`israel_history_places.md`](file:///c:/projects/shluf-pakal/content/israel_history_places.md) | **ארץ ישראל, היסטוריה וערים** | **290** | חידות חוצה ישראל, אתרים היסטוריים, ערים ויישובים, וכן **80 שאלות שטח והדרכה ב-10 חבלי ארץ (ירושלים, מדבר יהודה, גולן, גליל, נגב, שפלה, שרון וכרמל, עמק המעיינות, שומרון, ואילת)**. |
 | [`language_and_logic.md`](file:///c:/projects/shluf-pakal/content/language_and_logic.md) | **לשון, היגיון וכפל משמעות** | **435** | חידודי לשון, כפל משמעות, חידות "למה? כי...", צירופים והיפוכיהם, פלינדרומים. |
 | [`culture_and_songs.md`](file:///c:/projects/shluf-pakal/content/culture_and_songs.md) | **תרבות, שירים ישראליים וטאבו** | **214** | שירים ישראליים, חידות מפורסמים, רגע של אנגלית ותרגום מצחיק, 20 כרטיסי טאבו. |
 | [`jewish_holidays.md`](file:///c:/projects/shluf-pakal/content/jewish_holidays.md) | **חגי ומועדי ישראל** | **318** | **חידות מנהגים ומסורת לכל מועדי השנה עם סינון לפי כל חג:**<br>• ראש השנה (32)<br>• יום הכיפורים (31)<br>• סוכות ושמחת תורה (32)<br>• חנוכה (32)<br>• ט"ו בשבט (31)<br>• פורים (33)<br>• פסח (35)<br>• יום הזיכרון ויום העצמאות (31)<br>• ל"ג בעומר (30)<br>• שבועות (31) |
 | [`odt_games_activities.md`](file:///c:/projects/shluf-pakal/content/odt_games_activities.md) | **פעילויות שטח ואימוני ODT (חדש!)** | **101** | **101 מתודות שטח מובנות** למנהיגות, גיבוש, תקשורת ואמון, כולל טיימר מובנה וסינוני ציוד. |
-| [`visual_riddles_database.md`](file:///c:/projects/shluf-pakal/content/visual_riddles_database.md) | **חידות בציורים ורבוסים (חדש!)** | **30** | **30 איורי SVG וקטוריים מקומיים** לחגים, ביטויים ואתרי הארץ, כולל מצב מנחה, מסך כפול וקוד QR. |
+| [`visual_riddles_database.md`](file:///c:/projects/shluf-pakal/content/visual_riddles_database.md) | **חידות בציורים ורבוסים (חדש!)** | **80** | **80 איורי SVG וקטוריים מקומיים** לחגים (34), ביטויים (25) ואתרי הארץ (21), כולל מצב מנחה, מסך כפול וקוד QR. |
 
 ---
 
@@ -116,7 +116,7 @@ npm run dev
 # 3. פרסור והצפנת קובצי התוכן (במידה ונוספו חידות או פעילויות ל-content/)
 npm run parse
 
-# 4. הרצת מחזורי הבדיקות האוטומטיים (60 בדיקות אימות, אבטחה, אזורי שטח ו-Offline ב-13 מחזורים)
+# 4. הרצת מחזורי הבדיקות האוטומטיים (68 בדיקות אימות, אבטחה, אזורי שטח, כתיב עברי ו-Offline ב-14 מחזורים)
 node scripts/verify-app.cjs
 
 # 5. בניית גרסת Production מוצפנת ו-PWA מלאה
