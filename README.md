@@ -3,6 +3,7 @@
 **פלטפורמת תוכן והפעלות שטח למדריכים – מותאמת מובייל (Mobile-First PWA & 100% Offline-First)**
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-NetanelNissim1%2Fshluf--pakal-orange?logo=github)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Domain](https://img.shields.io/badge/דומיין-shluf--pakal.org-emerald?logo=googlechrome&logoColor=white)](https://shluf-pakal.org)
 [![PWA Ready](https://img.shields.io/badge/PWA-100%25%20Offline-success)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Total Content](https://img.shields.io/badge/פעילויות-2%2C014-blue)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Riddles](https://img.shields.io/badge/חידות-1%2C813-amber)](https://github.com/NetanelNissim1/shluf-pakal)
