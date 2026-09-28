@@ -16,6 +16,7 @@ import {
 import { VisualRiddle } from '../../types';
 import { usePakalStore } from '../../store/usePakalStore';
 import { triggerHaptic } from '../../lib/haptics';
+import { formatVisualRiddleForWhatsApp, shareToWhatsApp } from '../../lib/share';
 
 interface VisualRiddleCardProps {
   riddle: VisualRiddle;
@@ -64,6 +65,20 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
     }, 3500);
   };
 
+  const [copiedWhatsApp, setCopiedWhatsApp] = useState(false);
+
+  const handleWhatsAppShare = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (hapticsEnabled) triggerHaptic(25);
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const path = typeof window !== 'undefined' ? window.location.pathname : '';
+    const studentUrl = `${origin}${path}?mode=student&riddle=${riddle.id}`;
+    const text = formatVisualRiddleForWhatsApp(riddle.title, studentUrl);
+    shareToWhatsApp(text);
+    setCopiedWhatsApp(true);
+    setTimeout(() => setCopiedWhatsApp(false), 2000);
+  };
+
   const getDifficultyBadge = () => {
     switch (riddle.difficulty) {
       case 'hard':
@@ -106,8 +121,21 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
           )}
         </div>
 
-        {/* Action Buttons: QR Share, Star Favorite */}
+        {/* Action Buttons: WhatsApp Share, QR Share, Star Favorite */}
         <div className="flex items-center gap-1">
+          <button
+            onClick={handleWhatsAppShare}
+            title="שלח קישור תצוגת חניך לוואטסאפ"
+            aria-label="שלח לוואטסאפ"
+            className={`p-2 rounded-xl transition-all touch-press ${
+              isCampfire
+                ? 'text-emerald-400 hover:bg-emerald-950/60'
+                : 'text-emerald-600 hover:bg-emerald-50'
+            }`}
+          >
+            {copiedWhatsApp ? <Check className="w-4 h-4 text-emerald-500 stroke-[2.5]" /> : <Share2 className="w-4 h-4" />}
+          </button>
+
           <button
             onClick={() => onOpenQR(riddle)}
             title="שתף למעגל החניכים (QR)"

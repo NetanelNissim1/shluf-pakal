@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { X, Copy, Check, Users, Sparkles, QrCode } from 'lucide-react';
+import { X, Copy, Check, Users, Sparkles, QrCode, Share2, Download } from 'lucide-react';
 import { VisualRiddle } from '../../types';
 import { usePakalStore } from '../../store/usePakalStore';
-import { copyToClipboard } from '../../lib/share';
+import { copyToClipboard, formatVisualRiddleForWhatsApp, shareToWhatsApp, downloadVisualImage } from '../../lib/share';
 import { triggerHaptic } from '../../lib/haptics';
 
 interface CircleShareQRProps {
@@ -77,30 +77,62 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
           </span>
         </div>
 
-        {/* Copy Link Button */}
-        <button
-          onClick={handleCopyLink}
-          className={`w-full py-3 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 border transition-all touch-press ${
-            isCampfire
-              ? 'bg-stone-900 border-stone-700 text-stone-200 hover:bg-stone-800'
-              : 'bg-stone-100 border-stone-300 text-stone-800 hover:bg-stone-200'
-          }`}
-        >
-          {copied ? (
-            <>
-              <Check className="w-4 h-4 text-emerald-500 stroke-[2.5]" />
-              <span>הקישור הועתק בהצלחה!</span>
-            </>
-          ) : (
-            <>
-              <Copy className="w-4 h-4 text-stone-500" />
-              <span>העתק קישור תצוגת חניך</span>
-            </>
-          )}
-        </button>
+        {/* Action Buttons: WhatsApp Group Share, Copy Link, and Download Image */}
+        <div className="space-y-2">
+          {/* Direct WhatsApp Share Button */}
+          <button
+            onClick={() => {
+              if (hapticsEnabled) triggerHaptic(30);
+              const text = formatVisualRiddleForWhatsApp(riddle.title, shareUrl);
+              shareToWhatsApp(text);
+            }}
+            className="w-full py-3 px-4 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white shadow-md shadow-emerald-950/20 transition-all touch-press"
+          >
+            <Share2 className="w-4 h-4" />
+            <span>שלח לוואטסאפ של קבוצת החניכים 📲</span>
+          </button>
+
+          {/* Copy Link Button */}
+          <button
+            onClick={handleCopyLink}
+            className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 border transition-all touch-press ${
+              isCampfire
+                ? 'bg-stone-900 border-stone-700 text-stone-200 hover:bg-stone-800'
+                : 'bg-stone-100 border-stone-300 text-stone-800 hover:bg-stone-200'
+            }`}
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4 text-emerald-500 stroke-[2.5]" />
+                <span>הקישור הועתק בהצלחה!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4 text-stone-500" />
+                <span>העתק קישור תצוגת חניך</span>
+              </>
+            )}
+          </button>
+
+          {/* Download Image Button */}
+          <button
+            onClick={() => {
+              if (hapticsEnabled) triggerHaptic(20);
+              downloadVisualImage(riddle.imageUrl, `shluf-${riddle.id}.svg`);
+            }}
+            className={`w-full py-2 px-3 rounded-xl font-bold text-[11px] flex items-center justify-center gap-1.5 border transition-all touch-press ${
+              isCampfire
+                ? 'bg-stone-900/60 border-stone-800 text-stone-400 hover:text-stone-200 hover:bg-stone-800'
+                : 'bg-amber-50/50 border-amber-200 text-stone-600 hover:text-stone-900 hover:bg-amber-100/60'
+            }`}
+          >
+            <Download className="w-3.5 h-3.5 text-amber-500" />
+            <span>הורד איור לשליחה כקובץ תמונה</span>
+          </button>
+        </div>
 
         <p className="text-[11px] text-stone-400 mt-3">
-          💡 פתרון מושלם כשאין מקרן בשטח או ליד המדורה
+          💡 הקישור פותח לתלמידים את הציור בזום מלא – ללא תשובות וספוילרים!
         </p>
       </div>
     </div>

@@ -62,3 +62,32 @@ export async function shareContent(title: string, text: string): Promise<boolean
   }
   return await copyToClipboard(text);
 }
+
+export function formatVisualRiddleForWhatsApp(riddleTitle: string, studentUrl: string): string {
+  return `🧩 *חידת ציורים ורבוס שטח למעגל התלמידים!* 🧩
+"${riddleTitle}"
+
+🔍 *היכנסו לקישור הבא לצפייה באיור במסך מלא עם זום (ללא פתרון):*
+${studentUrl}
+
+💡 *הוראות:* חקרו את פרטי הציור, חברו את הרמזים וכתבו את הפתרון שלכם כאן בקבוצה! בהצלחה! ✨`;
+}
+
+export function shareToWhatsApp(text: string): void {
+  const encoded = encodeURIComponent(text);
+  const whatsappUrl = `https://api.whatsapp.com/send?text=${encoded}`;
+  if (typeof window !== 'undefined') {
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  }
+}
+
+export function downloadVisualImage(imageUrl: string, filename: string): void {
+  if (typeof window === 'undefined') return;
+  const link = document.createElement('a');
+  link.href = imageUrl;
+  link.download = filename || 'riddle.svg';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+

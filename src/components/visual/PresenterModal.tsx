@@ -247,14 +247,14 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
             <span className="hidden md:inline">{isCastModeActive ? 'מקרן מחובר' : 'מקרן'}</span>
           </button>
 
-          {/* Circle Share QR */}
+          {/* Circle Share (WhatsApp / QR) */}
           <button
             onClick={() => onOpenQR(riddle)}
-            title="שתף למעגל החניכים (קוד QR)"
+            title="שתף למעגל החניכים (וואטסאפ / קוד QR)"
             className="p-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-400 text-xs font-bold flex items-center gap-1 transition-all"
           >
             <Share2 className="w-4 h-4" />
-            <span className="hidden md:inline">שתף למעגל</span>
+            <span className="hidden md:inline">שתף (וואטסאפ/QR)</span>
           </button>
 
           {/* Fullscreen Toggle */}
