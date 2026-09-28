@@ -22,11 +22,11 @@ export const CATEGORIES: CategoryMeta[] = [
   {
     id: 'israel-history',
     title: 'ארץ ישראל, היסטוריה וערים',
-    subtitle: 'חוצה ישראל, אתרים היסטוריים וערים',
+    subtitle: 'ירושלים, מדבר יהודה, גולן, גליל, נגב...',
     iconName: 'Compass',
     color: 'from-blue-500 to-indigo-700',
     accent: 'blue',
-    description: 'ידיעת הארץ, סיפורי קרבות, שבילים, יישובים ומורשת ישראל'
+    description: 'ידיעת הארץ לפי אזורים (ירושלים, מדבר יהודה, גולן, גליל, נגב וערבה), אתרים היסטוריים וערים'
   },
   {
     id: 'logic-language',

@@ -63,7 +63,7 @@ const decryptedRiddles = deobfuscateData(encryptedRaw.riddles);
 const decryptedTaboo = deobfuscateData(encryptedRaw.taboo);
 
 assert(Array.isArray(decryptedRiddles), 'פריקת החידות מחזירה מערך תקין');
-assert(decryptedRiddles.length === 1733, `כמות החידות היא בדיוק 1,733 (נמצאו: ${decryptedRiddles.length})`);
+assert(decryptedRiddles.length === 1773, `כמות החידות היא בדיוק 1,773 (נמצאו: ${decryptedRiddles.length})`);
 assert(Array.isArray(decryptedTaboo), 'פריקת כרטיסי הטאבו מחזירה מערך תקין');
 assert(decryptedTaboo.length === 20, `כמות כרטיסי הטאבו היא בדיוק 20 (נמצאו: ${decryptedTaboo.length})`);
 
@@ -75,7 +75,7 @@ decryptedRiddles.forEach((r) => {
     allRiddlesValid = false;
   }
 });
-assert(allRiddlesValid, 'כל 1,415 החידות מכילות שדות חובה מלאים (id, question, answer, categoryId, subCategory, tags)');
+assert(allRiddlesValid, `כל ${decryptedRiddles.length} החידות מכילות שדות חובה מלאים (id, question, answer, categoryId, subCategory, tags)`);
 
 let allTabooValid = true;
 decryptedTaboo.forEach((t) => {
@@ -263,6 +263,25 @@ assert(checkNoSelectText(componentsDir), 'הגנת העתקה מלאה: אין �
 const cssPath = path.join(__dirname, '..', 'src', 'index.css');
 const cssContent = fs.readFileSync(cssPath, 'utf8');
 assert(cssContent.includes('@media print') && cssContent.includes('display: none'), 'קיימת חסימת הדפסה ושמירה ל-PDF (Anti-Print Theft)');
+
+// Cycle 13: Regional Field Content Verification (חלוקה לאזורים בארץ ישראל)
+console.log('\n[מחזור 13]: בדיקת תכני שטח לפי אזורים בארץ ישראל (40 חידות שטח ייעודיות)');
+const regionalCategories = [
+  { name: 'ירושלים והרי יהודה', expected: 8 },
+  { name: 'מדבר יהודה וים המלח', expected: 8 },
+  { name: 'רמת הגולן והחרמון', expected: 8 },
+  { name: 'הגליל והעמקים', expected: 8 },
+  { name: 'הנגב, המכתשים והערבה', expected: 8 }
+];
+
+let totalRegionalRiddles = 0;
+regionalCategories.forEach(region => {
+  const count = decryptedRiddles.filter(r => r.categoryId === 'israel-history' && r.subCategory === region.name).length;
+  totalRegionalRiddles += count;
+  assert(count === region.expected, `אזור "${region.name}" מכיל בדיוק ${region.expected} שאלות שטח והדרכה (נמצאו: ${count})`);
+});
+
+assert(totalRegionalRiddles === 40, `סך הכל שאלות שטח לפי אזורים הינו בדיוק 40 (נמצאו: ${totalRegionalRiddles})`);
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
