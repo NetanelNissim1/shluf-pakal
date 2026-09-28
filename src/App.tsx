@@ -5,6 +5,9 @@ import { HomePage } from './pages/HomePage';
 import { CategoryPage } from './pages/CategoryPage';
 import { TabooPage } from './pages/TabooPage';
 import { MyPakalPage } from './pages/MyPakalPage';
+import { ODTPage } from './pages/ODTPage';
+import { VisualRiddlesPage } from './pages/VisualRiddlesPage';
+import { StudentViewerPage } from './components/visual/StudentViewerPage';
 import { RandomizerModal } from './components/randomizer/RandomizerModal';
 import { usePakalStore } from './store/usePakalStore';
 import { CategoryId } from './types';
@@ -13,6 +16,23 @@ import { initContentProtection } from './lib/security';
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
   const { themeMode, setActiveCategory, activeSituation } = usePakalStore();
+
+  // Check for student viewer mode (from Circle Share QR: ?mode=student&riddle=id)
+  const [studentMode, setStudentMode] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('mode') === 'student';
+    }
+    return false;
+  });
+
+  const [studentRiddleId, setStudentRiddleId] = useState<string | undefined>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('riddle') || undefined;
+    }
+    return undefined;
+  });
 
   // Initialize anti-scraping and content protection barriers
   useEffect(() => {
@@ -34,7 +54,7 @@ export const App: React.FC = () => {
     }
   }, [themeMode]);
 
-  // Navigate directly to category view
+  // Navigation handlers
   const handleNavigateCategory = (catId: CategoryId) => {
     setActiveCategory(catId);
     setCurrentTab('categories');
@@ -51,12 +71,41 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // If user clicks the situation chip "הפק"ל שלי", switch to pakal tab
+  const handleNavigateODT = () => {
+    setCurrentTab('odt');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateVisual = () => {
+    setCurrentTab('visual');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // If user clicks situational chips, switch to the respective tab
   useEffect(() => {
     if (activeSituation === 'pakal') {
       setCurrentTab('pakal');
+    } else if (activeSituation === 'odt') {
+      setCurrentTab('odt');
+    } else if (activeSituation === 'visual') {
+      setCurrentTab('visual');
     }
   }, [activeSituation]);
+
+  // Render Student Viewer if mode=student is activated
+  if (studentMode) {
+    return (
+      <StudentViewerPage
+        riddleId={studentRiddleId}
+        onExitStudentMode={() => {
+          setStudentMode(false);
+          if (typeof window !== 'undefined') {
+            window.history.replaceState({}, '', window.location.pathname);
+          }
+        }}
+      />
+    );
+  }
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 select-none ${
@@ -72,10 +121,16 @@ export const App: React.FC = () => {
             onNavigateCategory={handleNavigateCategory}
             onNavigateTaboo={handleNavigateTaboo}
             onNavigatePakal={handleNavigatePakal}
+            onNavigateODT={handleNavigateODT}
+            onNavigateVisual={handleNavigateVisual}
           />
         )}
 
         {currentTab === 'categories' && <CategoryPage />}
+
+        {currentTab === 'odt' && <ODTPage />}
+
+        {currentTab === 'visual' && <VisualRiddlesPage />}
 
         {currentTab === 'taboo' && <TabooPage />}
 

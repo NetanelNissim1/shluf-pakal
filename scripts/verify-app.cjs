@@ -194,6 +194,32 @@ const mediumHolidays = holidayRiddles.filter(r => r.difficulty === 'medium');
 assert(easyHolidays.length > 0, `חגי ישראל מכילים שאלות קלות לילדים (נמצאו: ${easyHolidays.length})`);
 assert(mediumHolidays.length > 0, `חגי ישראל מכילים שאלות בינוניות לקבוצה (נמצאו: ${mediumHolidays.length})`);
 
+// Cycle 10: ODT Testing
+console.log('\n[מחזור 10]: בדיקת מודול אימוני שטח ו-ODT (101 מתודות)');
+const odtActivities = deobfuscateData(encryptedRaw.odt);
+assert(Array.isArray(odtActivities), 'פריקת נתוני ODT מחזירה מערך תקין');
+assert(odtActivities.length === 101, `כמות פעילויות ה-ODT היא בדיוק 101 (נמצאו: ${odtActivities.length})`);
+assert(odtActivities.every(a => a.id && a.title && a.category && a.instructions && a.groupValue), 'כל פעילות מכילה שדות חובה (id, title, category, instructions, groupValue)');
+const ropeActivities = odtActivities.filter(a => a.equipment.some(eq => eq.includes('חבל')));
+assert(ropeActivities.length >= 15, `סינון לפי חבלים מחזיר עשרות פעילויות (נמצאו: ${ropeActivities.length})`);
+const waterActivities = odtActivities.filter(a => a.environment === 'water');
+assert(waterActivities.length >= 5, `סינון סביבת מים ונחלים תקין (נמצאו: ${waterActivities.length})`);
+
+// Cycle 11: Visual Riddles & Rebus Testing
+console.log('\n[מחזור 11]: בדיקת מודול חידות בציורים (Visual Riddles & Rebus)');
+const visualRiddles = deobfuscateData(encryptedRaw.visual);
+assert(Array.isArray(visualRiddles), 'פריקת חידות בציורים מחזירה מערך תקין');
+assert(visualRiddles.length === 30, `כמות החידות בציורים היא בדיוק 30 (נמצאו: ${visualRiddles.length})`);
+assert(visualRiddles.every(r => r.id && r.title && r.mainCategory && r.rebusFormulaDescription && r.answer), 'כל חידה בציורים מכילה שדות חובה מלאים');
+const allSvgsExist = visualRiddles.every(r => fs.existsSync(path.join(__dirname, '..', 'public', r.imageUrl)));
+assert(allSvgsExist, 'כל 30 קובצי ה-SVG של החידות בציורים קיימים פיזית בתיקיית public');
+const holidayVisuals = visualRiddles.filter(r => r.mainCategory === 'holidays');
+assert(holidayVisuals.length === 18, `חידות בציורים לחגי ישראל מכילות 18 רבוסים (נמצאו: ${holidayVisuals.length})`);
+const idiomVisuals = visualRiddles.filter(r => r.mainCategory === 'general');
+assert(idiomVisuals.length === 7, `חידות בציורים לפתגמים וביטויים מכילות 7 רבוסים (נמצאו: ${idiomVisuals.length})`);
+const geoVisuals = visualRiddles.filter(r => r.mainCategory === 'geography');
+assert(geoVisuals.length === 5, `חידות בציורים לאתרים ומקומות בארץ מכילות 5 רבוסים (נמצאו: ${geoVisuals.length})`);
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');
@@ -201,3 +227,4 @@ console.log('======================================================\n');
 if (failed > 0) {
   process.exit(1);
 }
+

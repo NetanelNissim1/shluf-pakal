@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" class="rebus-svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="900" height="550" rx="24" fill="url(#bgGrad)" stroke="#3f3f46" stroke-width="3"/>
+  <rect x="15" y="15" width="870" height="520" rx="18" fill="none" stroke="#27272a" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Content Graphics Area -->
+  
+  <!-- Door Opening Inward (משנכנס) -->
+  <g transform="translate(140, 250)" filter="url(#shadow)">
+    <rect x="-40" y="-70" width="80" height="140" fill="#3f3f46" stroke="#71717a" stroke-width="4"/>
+    <polygon points="-40,-70 20,-60 20,60 -40,70" fill="#b45309"/>
+    <line x1="20" y1="0" x2="60" y2="0" stroke="#22c55e" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="50,-10 65,0 50,10" fill="#22c55e"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#f59e0b" text-anchor="middle">מִשֶּׁנִּכְנַס</text>
+  </g>
+
+  <!-- Maple Leaf (אדר) -->
+  <g transform="translate(340, 250)" filter="url(#shadow)">
+    <path d="M0,-60 L15,-30 L45,-35 L30,-10 L60,10 L25,20 L35,50 L0,35 L-35,50 L-25,20 L-60,10 L-30,-10 L-45,-35 L-15,-30 Z" fill="#ea580c"/>
+    <line x1="0" y1="35" x2="0" y2="70" stroke="#9a3412" stroke-width="8" stroke-linecap="round"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#fb923c" text-anchor="middle">אֲדָר (עלה)</text>
+  </g>
+
+  <!-- Giant Plus (מרבים) -->
+  <g transform="translate(540, 250)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="70" fill="url(#blueGrad)"/>
+    <text x="0" y="32" font-family="Rubik, system-ui, sans-serif" font-size="110" font-weight="900" fill="#ffffff" text-anchor="middle">+</text>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#60a5fa" text-anchor="middle">מַרְבִּים (+)</text>
+  </g>
+
+  <!-- Laughing Smiley (בשמחה) -->
+  <g transform="translate(740, 250)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="70" fill="url(#goldGrad)"/>
+    <!-- Laughing eyes -->
+    <path d="M-35,-15 Q-20,-35 -5,-15" stroke="#78350f" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M5,-15 Q20,-35 35,-15" stroke="#78350f" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Open grinning mouth -->
+    <path d="M-35,10 Q0,65 35,10 Z" fill="#78350f"/>
+    <path d="M-25,10 Q0,35 25,10 Z" fill="#f87171"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#fde047" text-anchor="middle">בְּשִׂמְחָה</text>
+  </g>
+
+</svg>

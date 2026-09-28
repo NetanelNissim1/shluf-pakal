@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" class="rebus-svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="900" height="550" rx="24" fill="url(#bgGrad)" stroke="#3f3f46" stroke-width="3"/>
+  <rect x="15" y="15" width="870" height="520" rx="18" fill="none" stroke="#27272a" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Content Graphics Area -->
+  
+  <!-- Knight Shield (מגן) -->
+  <g transform="translate(180, 250)" filter="url(#shadow)">
+    <path d="M-60,-65 L60,-65 L60,10 Q60,65 0,85 Q-60,65 -60,10 Z" fill="#94a3b8" stroke="#e2e8f0" stroke-width="4"/>
+    <path d="M-40,-45 L40,-45 L40,5 Q40,45 0,65 Q-40,45 -40,5 Z" fill="#475569"/>
+    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#cbd5e1" text-anchor="middle">מָגֵן</text>
+  </g>
+
+  <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+
+  <!-- King David Harp & Crown (דוד) -->
+  <g transform="translate(480, 250)" filter="url(#shadow)">
+    <!-- Crown -->
+    <path d="M-35,-65 L-25,-45 L0,-60 L25,-45 L35,-65 L30,-35 L-30,-35 Z" fill="url(#goldGrad)"/>
+    <!-- Harp -->
+    <path d="M-30,-20 Q20,-30 40,30 Q10,70 -30,60 Z" stroke="url(#goldGrad)" stroke-width="8" fill="none"/>
+    <line x1="-15" y1="-15" x2="-15" y2="60" stroke="#fde047" stroke-width="3"/>
+    <line x1="0" y1="-18" x2="0" y2="55" stroke="#fde047" stroke-width="3"/>
+    <line x1="15" y1="-10" x2="15" y2="45" stroke="#fde047" stroke-width="3"/>
+    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fbbf24" text-anchor="middle">דָּוִד (המלך)</text>
+  </g>
+
+  <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+
+  <!-- Blue & White Paint Cans (כחול לבן) -->
+  <g transform="translate(740, 250)" filter="url(#shadow)">
+    <!-- Blue can -->
+    <rect x="-65" y="-30" width="55" height="75" rx="6" fill="#1d4ed8" stroke="#60a5fa" stroke-width="3"/>
+    <!-- White can -->
+    <rect x="5" y="-30" width="55" height="75" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>
+    <text x="-37" y="15" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">כחול</text>
+    <text x="32" y="15" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#0f172a" text-anchor="middle">לבן</text>
+    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#60a5fa" text-anchor="middle">כָּחֹל לָבָן</text>
+  </g>
+
+</svg>

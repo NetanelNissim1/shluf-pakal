@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" class="rebus-svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="900" height="550" rx="24" fill="url(#bgGrad)" stroke="#3f3f46" stroke-width="3"/>
+  <rect x="15" y="15" width="870" height="520" rx="18" fill="none" stroke="#27272a" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Content Graphics Area -->
+  
+  <!-- Calendar: א תשרי -->
+  <g transform="translate(180, 260)" filter="url(#shadow)">
+    <rect x="-85" y="-85" width="170" height="170" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+    <rect x="-85" y="-85" width="170" height="45" rx="16" fill="#ef4444"/>
+    <circle cx="-50" cy="-62" r="5" fill="#ffffff"/>
+    <circle cx="50" cy="-62" r="5" fill="#ffffff"/>
+    <text x="0" y="-53" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">תשרי</text>
+    <text x="0" y="30" font-family="Rubik, system-ui, sans-serif" font-size="75" font-weight="900" fill="#0f172a" text-anchor="middle">א׳</text>
+    <text x="0" y="65" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#64748b" text-anchor="middle">ראש השנה</text>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#f43f5e" text-anchor="middle">שנה</text>
+  </g>
+
+  <!-- Plus -->
+  <text x="350" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+
+  <!-- Thumbs Up / Like -->
+  <g transform="translate(480, 260)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="80" fill="url(#greenGrad)"/>
+    <path d="M-30,15 L-30,-20 L-10,-20 L0,-50 C10,-50 15,-40 15,-20 L15,-10 L35,-10 C45,-10 45,5 35,15 L25,25 C25,35 15,35 5,35 L-30,35 Z" fill="#ffffff"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#34d399" text-anchor="middle">טובה</text>
+  </g>
+
+  <!-- Plus -->
+  <text x="610" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+
+  <!-- Lollipop / Sweet -->
+  <g transform="translate(740, 260)" filter="url(#shadow)">
+    <line x1="0" y1="20" x2="0" y2="90" stroke="#f1f5f9" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="0" cy="-20" r="65" fill="url(#goldGrad)"/>
+    <path d="M-40,-20 C-40,-45 40,-45 40,-20 C40,5 -20,5 -20,-20 C-20,-30 10,-30 10,-20" stroke="#ef4444" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fbbf24" text-anchor="middle">מתוקה</text>
+  </g>
+
+</svg>

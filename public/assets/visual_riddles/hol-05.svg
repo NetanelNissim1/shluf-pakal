@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" class="rebus-svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="900" height="550" rx="24" fill="url(#bgGrad)" stroke="#3f3f46" stroke-width="3"/>
+  <rect x="15" y="15" width="870" height="520" rx="18" fill="none" stroke="#27272a" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Content Graphics Area -->
+  
+  <!-- Peace Dove (שלום + י"ת = שלומית) -->
+  <g transform="translate(180, 250)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="75" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="3"/>
+    <path d="M-30,10 C-30,-20 0,-35 25,-10 C45,-25 50,-5 35,15 C20,30 -10,35 -30,10 Z" fill="#f8fafc"/>
+    <path d="M25,-10 L45,-15 L35,-5 Z" fill="#f59e0b"/>
+    <path d="M38,-12 Q55,-25 60,-15" stroke="#16a34a" stroke-width="4" fill="none"/>
+    <circle cx="50" cy="-20" r="4" fill="#22c55e"/>
+    <text x="0" y="55" font-family="Rubik, system-ui, sans-serif" font-size="22" font-weight="900" fill="#38bdf8" text-anchor="middle">שלום + י"ת</text>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#38bdf8" text-anchor="middle">שלומית</text>
+  </g>
+
+  <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+
+  <!-- Hammer & Nail (בונה) -->
+  <g transform="translate(480, 250)" filter="url(#shadow)">
+    <rect x="-10" y="-10" x2="20" width="20" height="90" rx="6" fill="#b45309"/>
+    <rect x="-45" y="-45" width="90" height="35" rx="8" fill="#94a3b8" stroke="#475569" stroke-width="3"/>
+    <line x1="-50" y1="20" x2="-20" y2="40" stroke="#f59e0b" stroke-width="4"/>
+    <line x1="-40" y1="60" x2="50" y2="60" stroke="#d97706" stroke-width="8" stroke-linecap="round"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fbbf24" text-anchor="middle">בונה</text>
+  </g>
+
+  <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+
+  <!-- Sukkah (סוכה) -->
+  <g transform="translate(750, 250)" filter="url(#shadow)">
+    <rect x="-60" y="-40" width="120" height="100" rx="4" fill="#78350f" stroke="#451a03" stroke-width="3"/>
+    <!-- Door -->
+    <rect x="-20" y="10" width="40" height="50" rx="4" fill="#18181b"/>
+    <!-- Sechach -->
+    <ellipse cx="0" cy="-45" rx="75" ry="18" fill="#16a34a"/>
+    <path d="M-60,-45 Q0,-70 60,-45" stroke="#22c55e" stroke-width="6" fill="none"/>
+    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#4ade80" text-anchor="middle">סוכה</text>
+  </g>
+
+</svg>

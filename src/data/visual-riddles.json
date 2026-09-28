@@ -1,0 +1,422 @@
+[
+  {
+    "id": "hol-01",
+    "title": "תפוח בדבש",
+    "mainCategory": "holidays",
+    "holidayTag": "rosh-hashana",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-01.svg",
+    "rebusFormulaDescription": "`[ציור של תפוח] + [אות ב'] + [ציור צנצנת דבש]`",
+    "hints": [
+      "הברכה המתוקה והמפורסמת ביותר של פתיחת השנה."
+    ],
+    "answer": "תפוח בדבש.",
+    "explanation": "תפוח + ב' + דבש = תפוח בדבש."
+  },
+  {
+    "id": "hol-02",
+    "title": "שנה טובה ומתוקה",
+    "mainCategory": "holidays",
+    "holidayTag": "rosh-hashana",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-02.svg",
+    "rebusFormulaDescription": "`[לוח שנה] + [בוהן מורמת / חיוך] + [סוכרייה]`",
+    "hints": [
+      "האיחול שמחליפים בין כולם בחודש תשרי."
+    ],
+    "answer": "שנה טובה ומתוקה.",
+    "explanation": "`[לוח שנה] + [בוהן מורמת / חיוך] + [סוכרייה]`"
+  },
+  {
+    "id": "hol-03",
+    "title": "גמר חתימה טובה",
+    "mainCategory": "holidays",
+    "holidayTag": "yom-kippur",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/hol-03.svg",
+    "rebusFormulaDescription": "`[קו גמר] + [עט חותם על חוזה] + [סימן V ירוק]`",
+    "hints": [
+      "הברכה המסורתית שמברכים בין כסה לעשור."
+    ],
+    "answer": "גמר חתימה טובה.",
+    "explanation": "`[קו גמר] + [עט חותם על חוזה] + [סימן V ירוק]`"
+  },
+  {
+    "id": "hol-04",
+    "title": "ארבעת המינים",
+    "mainCategory": "holidays",
+    "holidayTag": "sukkot",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-04.svg",
+    "rebusFormulaDescription": "`[ספרה 4] + [סמלי זכר ונקבה]`",
+    "hints": [
+      "מנענעים אותם בסוכה."
+    ],
+    "answer": "ארבעת המינים.",
+    "explanation": "`[ספרה 4] + [סמלי זכר ונקבה]`"
+  },
+  {
+    "id": "hol-05",
+    "title": "שלומית בונה סוכה",
+    "mainCategory": "holidays",
+    "holidayTag": "sukkot",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-05.svg",
+    "rebusFormulaDescription": "`[יונת שלום + י\"ת] + [פטיש ומסמר] + [סוכה]`",
+    "hints": [
+      "שיר ילדים מפורסם של נעמי שמר."
+    ],
+    "answer": "שלומית בונה סוכה.",
+    "explanation": "`[יונת שלום + י\"ת] + [פטיש ומסמר] + [סוכה]`"
+  },
+  {
+    "id": "hol-06",
+    "title": "נס גדול היה פה",
+    "mainCategory": "holidays",
+    "holidayTag": "chanukah",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-06.svg",
+    "rebusFormulaDescription": "`[כוס נס קפה] + [ענק/פיל] + [איור של פה]`",
+    "hints": [
+      "האותיות נ' ג' ה' פ' שעל הסביבון הישראלי."
+    ],
+    "answer": "נס גדול היה פה.",
+    "explanation": "`[כוס נס קפה] + [ענק/פיל] + [איור של פה]`"
+  },
+  {
+    "id": "hol-07",
+    "title": "דמי חנוכה",
+    "mainCategory": "holidays",
+    "holidayTag": "chanukah",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-07.svg",
+    "rebusFormulaDescription": "`[טיפת דמעה] + [חנוכייה]`",
+    "hints": [
+      "מטבעות השוקולד שהסבים וההורים מחלקים לילדים בחג."
+    ],
+    "answer": "דמי חנוכה.",
+    "explanation": "`[טיפת דמעה] + [חנוכייה]`"
+  },
+  {
+    "id": "hol-08",
+    "title": "סופגנייה בריבה",
+    "mainCategory": "holidays",
+    "holidayTag": "chanukah",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-08.svg",
+    "rebusFormulaDescription": "`[ספוג מטבח] + [נ\"י] + [ריבת תות]`",
+    "hints": [
+      "המאכל המטוגן המסורתי של חודש כסלו."
+    ],
+    "answer": "סופגנייה בריבה.",
+    "explanation": "`[ספוג מטבח] + [נ\"י] + [ריבת תות]`"
+  },
+  {
+    "id": "hol-09",
+    "title": "כי האדם עץ השדה",
+    "mainCategory": "holidays",
+    "holidayTag": "tu-bishvat",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/hol-09.svg",
+    "rebusFormulaDescription": "`[Key] + [אדם] + [עץ] + [שדה חרוש]`",
+    "hints": [
+      "פסוק מספר דברים ושיר מפורסם של נתן זך ושלום חנוך."
+    ],
+    "answer": "כי האדם עץ השדה.",
+    "explanation": "`[Key] + [אדם] + [עץ] + [שדה חרוש]`"
+  },
+  {
+    "id": "hol-10",
+    "title": "צדיק כתמר יפרח",
+    "mainCategory": "holidays",
+    "holidayTag": "tu-bishvat",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-10.svg",
+    "rebusFormulaDescription": "`[האות צ' עטורת כתר] + [עץ דקל תמר] + [פרח מלבלב]`",
+    "hints": [
+      "פסוק מתהילים המושר בכל שבת."
+    ],
+    "answer": "צדיק כתמר יפרח.",
+    "explanation": "`[האות צ' עטורת כתר] + [עץ דקל תמר] + [פרח מלבלב]`"
+  },
+  {
+    "id": "hol-11",
+    "title": "משנכנס אדר מרבים בשמחה",
+    "mainCategory": "holidays",
+    "holidayTag": "purim",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/hol-11.svg",
+    "rebusFormulaDescription": "`[דלת נפתחת פנימה] + [עלה אדר] + [הרבה אנשים מחייכים]`",
+    "hints": [
+      "הכלל המפורסם של חודש אדר."
+    ],
+    "answer": "משנכנס אדר מרבים בשמחה.",
+    "explanation": "`[דלת נפתחת פנימה] + [עלה אדר] + [הרבה אנשים מחייכים]`"
+  },
+  {
+    "id": "hol-12",
+    "title": "משלוח מנות",
+    "mainCategory": "holidays",
+    "holidayTag": "purim",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-12.svg",
+    "rebusFormulaDescription": "`[שליח דואר עם חבילה] + [צלחות ארוחה]`",
+    "hints": [
+      "אחת מארבע מצוות החג שנותנים לאיש ורעהו."
+    ],
+    "answer": "משלוח מנות.",
+    "explanation": "`[שליח דואר עם חבילה] + [צלחות ארוחה]`"
+  },
+  {
+    "id": "hol-13",
+    "title": "אוזן המן",
+    "mainCategory": "holidays",
+    "holidayTag": "purim",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-13.svg",
+    "rebusFormulaDescription": "`[ציור של אוזן] + [דמות רשע עם כובע משולש]`",
+    "hints": [
+      "המאפה המשולש עם פרג או שוקולד."
+    ],
+    "answer": "אוזן המן.",
+    "explanation": "`[ציור של אוזן] + [דמות רשע עם כובע משולש]`"
+  },
+  {
+    "id": "hol-14",
+    "title": "יציאת מצרים",
+    "mainCategory": "holidays",
+    "holidayTag": "pesach",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-14.svg",
+    "rebusFormulaDescription": "`[שלט EXIT] + [פירמידות]`",
+    "hints": [
+      "האירוע המרכזי אותו מספרים בהגדה בליל הסדר."
+    ],
+    "answer": "יציאת מצרים.",
+    "explanation": "`[שלט EXIT] + [פירמידות]`"
+  },
+  {
+    "id": "hol-15",
+    "title": "עבדים היינו",
+    "mainCategory": "holidays",
+    "holidayTag": "pesach",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/hol-15.svg",
+    "rebusFormulaDescription": "`[אזיקים שבורים] + [שלד עצמות / חרות]`",
+    "hints": [
+      "פיוט מפורסם הפותח את סיפור יציאת מצרים בהגדה."
+    ],
+    "answer": "עבדים היינו.",
+    "explanation": "`[אזיקים שבורים] + [שלד עצמות / חרות]`"
+  },
+  {
+    "id": "hol-16",
+    "title": "קערת ליל הסדר",
+    "mainCategory": "holidays",
+    "holidayTag": "pesach",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-16.svg",
+    "rebusFormulaDescription": "`[קערה] + [ליל ירח מלא] + [חצים מסודרים בסדר מופתי]`",
+    "hints": [
+      "עליה מונחים הזרוע, הביצה, המרור והחרוסת."
+    ],
+    "answer": "קערת ליל הסדר.",
+    "explanation": "`[קערה] + [ליל ירח מלא] + [חצים מסודרים בסדר מופתי]`"
+  },
+  {
+    "id": "hol-17",
+    "title": "מגן דוד כחול לבן",
+    "mainCategory": "holidays",
+    "holidayTag": "independence-day",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/hol-17.svg",
+    "rebusFormulaDescription": "`[מגן] + [דוד המלך] + [צבעי כחול-לבן]`",
+    "hints": [
+      "הסמל הלאומי במרכז הדגל."
+    ],
+    "answer": "מגן דוד כחול לבן.",
+    "explanation": "`[מגן] + [דוד המלך] + [צבעי כחול-לבן]`"
+  },
+  {
+    "id": "hol-18",
+    "title": "ביכורי קציר חיטים",
+    "mainCategory": "holidays",
+    "holidayTag": "shavuot",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/hol-18.svg",
+    "rebusFormulaDescription": "`[סל טנא פירות] + [מגל קוצר תבואה] + [שיבולת חיטה]`",
+    "hints": [
+      "שם נוסף לחג מתן תורה ועונת השנה החקלאית."
+    ],
+    "answer": "ביכורי קציר חיטים.",
+    "explanation": "`[סל טנא פירות] + [מגל קוצר תבואה] + [שיבולת חיטה]`"
+  },
+  {
+    "id": "gen-01",
+    "title": "סוף מעשה במחשבה תחילה",
+    "mainCategory": "general",
+    "generalTag": "`מוסר השכל`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-01.svg",
+    "rebusFormulaDescription": "`[The End] + [בנאי עובד] + [בועת מחשבה] + [ספרה 1]`",
+    "hints": [
+      "פיוט \"לכה דודי\" - עצה לחשוב היטב לפני שפועלים."
+    ],
+    "answer": "סוף מעשה במחשבה תחילה.",
+    "explanation": "`[The End] + [בנאי עובד] + [בועת מחשבה] + [ספרה 1]`"
+  },
+  {
+    "id": "gen-02",
+    "title": "לא דובים ולא יער",
+    "mainCategory": "general",
+    "generalTag": "`עולם החי והצומח`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-02.svg",
+    "rebusFormulaDescription": "`[איקס אדום על דובים] + [איקס אדום על עצי יער]`",
+    "hints": [
+      "ביטוי שאומר: הדבר לא קרה מעולם, שקר מוחלט."
+    ],
+    "answer": "לא דובים ולא יער.",
+    "explanation": "`[איקס אדום על דובים] + [איקס אדום על עצי יער]`"
+  },
+  {
+    "id": "gen-03",
+    "title": "בור סיד שאינו מאבד טיפה",
+    "mainCategory": "general",
+    "generalTag": "`חכמה וזיכרון`",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/gen-03.svg",
+    "rebusFormulaDescription": "`[בור לבן מסויד] + [טיפת מים עם מגן]`",
+    "hints": [
+      "כינוי במסכת אבות לתלמיד בעל זיכרון פנומנלי (רבי אליעזר בן הורקנוס)."
+    ],
+    "answer": "בור סוד שאינו מאבד טיפה.",
+    "explanation": "`[בור לבן מסויד] + [טיפת מים עם מגן]`"
+  },
+  {
+    "id": "gen-04",
+    "title": "שבר את הכלים",
+    "mainCategory": "general",
+    "generalTag": "`התנהגות`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-04.svg",
+    "rebusFormulaDescription": "`[פטיש שובר צלחת וכוס]`",
+    "hints": [
+      "החליט להפסיק לשתף פעולה, \"שוברים את הכלים ולא משחקים\"."
+    ],
+    "answer": "שבר את הכלים.",
+    "explanation": "`[פטיש שובר צלחת וכוס]`"
+  },
+  {
+    "id": "gen-05",
+    "title": "טמן ידו בצלחת",
+    "mainCategory": "general",
+    "generalTag": "`עצלנות`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/gen-05.svg",
+    "rebusFormulaDescription": "`[כף יד קבורה בתוך צלחת מרק]`",
+    "hints": [
+      "ביטוי מספר משלי שמתאר אדם פסיבי ועצלן שאינו עושה דבר."
+    ],
+    "answer": "טמן ידו בצלחת.",
+    "explanation": "`[כף יד קבורה בתוך צלחת מרק]`"
+  },
+  {
+    "id": "gen-06",
+    "title": "נפל האסימון",
+    "mainCategory": "general",
+    "generalTag": "`הבנה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/gen-06.svg",
+    "rebusFormulaDescription": "`[אסימון נופל בחריץ] + [נורת חשמל צהובה]`",
+    "hints": [
+      "הביטוי העממי שמתאר את הרגע שבו אדם הבין סוף סוף משהו מסובך."
+    ],
+    "answer": "נפל האסימון.",
+    "explanation": "`[אסימון נופל בחריץ] + [נורת חשמל צהובה]`"
+  },
+  {
+    "id": "gen-07",
+    "title": "חיים ומוות ביד הלשון",
+    "mainCategory": "general",
+    "generalTag": "`דיבור ותקשורת`",
+    "difficulty": "hard",
+    "imageUrl": "/assets/visual_riddles/gen-07.svg",
+    "rebusFormulaDescription": "`[סמיילי חיים + סמל מוות] + [יד אוחזת לשון]`",
+    "hints": [
+      "פתגם מספר משלי המדגיש את כוחן של המילים לבנות או להרוס."
+    ],
+    "answer": "מות וחיים ביד לשון.",
+    "explanation": "`[סמיילי חיים + סמל מוות] + [יד אוחזת לשון]`"
+  },
+  {
+    "id": "geo-01",
+    "title": "פתח תקווה",
+    "mainCategory": "geography",
+    "generalTag": "`ערים במרכז`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-01.svg",
+    "rebusFormulaDescription": "`[דלת פתוחה] + [בלון מחשבה עם ציור כוכב משאלות]`",
+    "hints": [
+      "\"אם המושבות\" שנוסדה ב-1878."
+    ],
+    "answer": "פתח תקווה.",
+    "explanation": "`[דלת פתוחה] + [בלון מחשבה עם ציור כוכב משאלות]`"
+  },
+  {
+    "id": "geo-02",
+    "title": "ראש פינה",
+    "mainCategory": "geography",
+    "generalTag": "`הגליל`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-02.svg",
+    "rebusFormulaDescription": "`[ציור של ראש אדם] + [חץ לפינה של חדר]`",
+    "hints": [
+      "מושבה גלילית ציורית למרגלות צפת (\"אבן מאסו הבונים הייתה ל...\")."
+    ],
+    "answer": "ראש פינה.",
+    "explanation": "`[ציור של ראש אדם] + [חץ לפינה של חדר]`"
+  },
+  {
+    "id": "geo-03",
+    "title": "באר שבע",
+    "mainCategory": "geography",
+    "generalTag": "`הנגב`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-03.svg",
+    "rebusFormulaDescription": "`[באר מים] + [ספרה 7]`",
+    "hints": [
+      "בירת הנגב ועיר האבות."
+    ],
+    "answer": "באר שבע.",
+    "explanation": "`[באר מים] + [ספרה 7]`"
+  },
+  {
+    "id": "geo-04",
+    "title": "עין גדי",
+    "mainCategory": "geography",
+    "generalTag": "`ים המלח ומדבר יהודה`",
+    "difficulty": "easy",
+    "imageUrl": "/assets/visual_riddles/geo-04.svg",
+    "rebusFormulaDescription": "`[איור עין] + [איור גדי עזים]`",
+    "hints": [
+      "נווה מדבר מפורסם לחופי ים המלח עם מפל מים ויעלים."
+    ],
+    "answer": "עין גדי.",
+    "explanation": "`[איור עין] + [איור גדי עזים]`"
+  },
+  {
+    "id": "geo-05",
+    "title": "מגדל העמק",
+    "mainCategory": "geography",
+    "generalTag": "`צפון`",
+    "difficulty": "medium",
+    "imageUrl": "/assets/visual_riddles/geo-05.svg",
+    "rebusFormulaDescription": "`[מגדל גבוה] + [ציור עמק ירוק בין הרים]`",
+    "hints": [
+      "עיר במחוז הצפון המשקיפה על עמק יזרעאל."
+    ],
+    "answer": "מגדל העמק.",
+    "explanation": "`[מגדל גבוה] + [ציור עמק ירוק בין הרים]`"
+  }
+]

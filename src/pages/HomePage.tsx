@@ -10,8 +10,9 @@ import {
   Flame, 
   Eye, 
   EyeOff, 
-  Sparkles,
-  CalendarDays 
+  Sparkles, 
+  CalendarDays,
+  Palette
 } from 'lucide-react';
 import { riddlesData } from '../data/content';
 import { CATEGORIES } from '../data/categories';
@@ -27,6 +28,8 @@ interface HomePageProps {
   onNavigateCategory: (catId: CategoryId) => void;
   onNavigateTaboo: () => void;
   onNavigatePakal: () => void;
+  onNavigateODT?: () => void;
+  onNavigateVisual?: () => void;
 }
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -42,6 +45,8 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigateCategory,
   onNavigateTaboo,
   onNavigatePakal,
+  onNavigateODT,
+  onNavigateVisual,
 }) => {
   const { 
     themeMode, 
@@ -180,37 +185,105 @@ export const HomePage: React.FC<HomePageProps> = ({
       ) : (
         /* Default Dashboard View */
         <>
-          {/* Quick Taboo Game Banner */}
-          <div 
-            onClick={onNavigateTaboo}
-            className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
-              isCampfire
-                ? 'bg-gradient-to-r from-red-950 via-campfire-card to-stone-950 border-orange-600/70 shadow-fire'
-                : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white border-amber-400 shadow-lg shadow-amber-500/20'
-            }`}
-          >
-            <div className="flex items-center justify-between relative z-10">
-              <div className="flex items-center gap-3">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                  isCampfire ? 'bg-orange-600 text-white' : 'bg-white text-orange-600 shadow-md'
-                }`}>
-                  <Trophy className="w-6 h-6 stroke-[2.5]" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-black text-lg">משחק טאבו שטח</span>
-                    <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
-                      אינטראקטיבי
-                    </span>
+          {/* Quick Field Modules Banners Grid */}
+          <div className="grid grid-cols-1 gap-2.5">
+            {/* 1. ODT Activities Banner */}
+            <div 
+              onClick={onNavigateODT}
+              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+                isCampfire
+                  ? 'bg-gradient-to-r from-emerald-950 via-campfire-card to-stone-950 border-emerald-600/70 shadow-fire'
+                  : 'bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border-emerald-400 shadow-md shadow-emerald-600/20'
+              }`}
+            >
+              <div className="flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                    isCampfire ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-700 shadow-md'
+                  }`}>
+                    <Compass className="w-5 h-5 stroke-[2.5]" />
                   </div>
-                  <p className={`text-xs ${isCampfire ? 'text-orange-200/80' : 'text-amber-100'}`}>
-                    20 כרטיסי שטח + טיימר 60 שניות וצפצוף
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-black text-base sm:text-lg">אימוני שטח ו-ODT</span>
+                      <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
+                        101 מתודות
+                      </span>
+                    </div>
+                    <p className={`text-xs ${isCampfire ? 'text-emerald-200/80' : 'text-emerald-100'}`}>
+                      פיתוח צוות, טיימר שטח משולב ופילטור לפי ציוד
+                    </p>
+                  </div>
                 </div>
+                <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
               </div>
-              <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" />
+            </div>
+
+            {/* 2. Visual Riddles Banner */}
+            <div 
+              onClick={onNavigateVisual}
+              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+                isCampfire
+                  ? 'bg-gradient-to-r from-purple-950 via-campfire-card to-stone-950 border-purple-600/70 shadow-fire'
+                  : 'bg-gradient-to-r from-amber-600 via-rose-600 to-purple-600 text-white border-rose-400 shadow-md shadow-rose-500/20'
+              }`}
+            >
+              <div className="flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                    isCampfire ? 'bg-rose-600 text-white' : 'bg-white text-rose-600 shadow-md'
+                  }`}>
+                    <Palette className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-black text-base sm:text-lg">חידות בציורים ורבוסים</span>
+                      <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
+                        מסך מלא ו-QR
+                      </span>
+                    </div>
+                    <p className={`text-xs ${isCampfire ? 'text-rose-200/80' : 'text-rose-100'}`}>
+                      זום למעגל החניכים, שידור מקרן וסריקת QR לשטח
+                    </p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+              </div>
+            </div>
+
+            {/* 3. Taboo Game Banner */}
+            <div 
+              onClick={onNavigateTaboo}
+              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+                isCampfire
+                  ? 'bg-gradient-to-r from-red-950 via-campfire-card to-stone-950 border-orange-600/70 shadow-fire'
+                  : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white border-amber-400 shadow-md shadow-amber-500/20'
+              }`}
+            >
+              <div className="flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                    isCampfire ? 'bg-orange-600 text-white' : 'bg-white text-orange-600 shadow-md'
+                  }`}>
+                    <Trophy className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-black text-base sm:text-lg">משחק טאבו שטח</span>
+                      <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
+                        אינטראקטיבי
+                      </span>
+                    </div>
+                    <p className={`text-xs ${isCampfire ? 'text-orange-200/80' : 'text-amber-100'}`}>
+                      20 כרטיסי שטח + טיימר 60 שניות עגול וצפצוף
+                    </p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+              </div>
             </div>
           </div>
+
 
           {/* 5 Main Content Categories */}
           <div>
