@@ -351,6 +351,31 @@ const shareTsCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'lib', 'sh
 const shareTsFormatClean = shareTsCode.includes('categoryLabel: string') && !shareTsCode.includes('riddleTitle: string');
 assert(shareTsFormatClean, 'מנגנון שיתוף לוואטסאפ (share.ts) משתמש בתווית קטגוריה ניטרלית ללא ספוילר');
 
+// Cycle 16: In-App Text Scaling Quick Stepper (Recommendation 1)
+console.log('\n[מחזור 16]: בדיקת מנגנון הגדלת טקסט לקריאה בשטח (A- / A / A+)');
+
+// 1. Check Root CSS Font Scaling rules
+const cssCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'index.css'), 'utf8');
+const hasNormalSize = cssCode.includes('html.text-size-normal') && cssCode.includes('100%');
+const hasLargeSize = cssCode.includes('html.text-size-large') && cssCode.includes('115%');
+const hasHugeSize = cssCode.includes('html.text-size-huge') && cssCode.includes('130%');
+assert(hasNormalSize && hasLargeSize && hasHugeSize, 'הגדרות ה-CSS כוללות 3 דרגות פרופורציונליות: רגיל (100%), גדול (115%), ענק שטח (130%)');
+
+// 2. Check Store State and Persistence
+const storeCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'store', 'usePakalStore.ts'), 'utf8');
+const storeHasTextSize = storeCode.includes('textSize: TextSize') && storeCode.includes('setTextSize:') && storeCode.includes('cycleTextSize:');
+assert(storeHasTextSize, 'חנות הנתונים (usePakalStore) כוללת מצב textSize ופונקציות עדכון שנשמרות ב-localStorage');
+
+// 3. Check App.tsx integration
+const appCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'App.tsx'), 'utf8');
+const appAppliesClass = appCode.includes('text-size-${textSize || \'normal\'}');
+assert(appAppliesClass, 'קובץ App.tsx מעדכן דינמית את תג ה-html במחלקה המתאימה text-size-*');
+
+// 4. Check Header.tsx Quick Stepper UI
+const headerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'layout', 'Header.tsx'), 'utf8');
+const headerHasStepper = headerCode.includes('textButtonRef') && headerCode.includes('showTextMenu') && headerCode.includes('setTextSize(\'normal\')') && headerCode.includes('setTextSize(\'large\')') && headerCode.includes('setTextSize(\'huge\')');
+assert(headerHasStepper, 'סרגל העליון (Header.tsx) מכיל בקר Quick Stepper עם בועית בחירה בין 3 הדרגות');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

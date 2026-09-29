@@ -15,7 +15,7 @@ import { initContentProtection } from './lib/security';
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
-  const { themeMode, setActiveCategory, activeSituation } = usePakalStore();
+  const { themeMode, textSize, setActiveCategory, activeSituation } = usePakalStore();
 
   // Check for student viewer mode (from Circle Share QR or direct link: ?riddle=id or ?mode=student)
   const [studentMode, setStudentMode] = useState<boolean>(() => {
@@ -53,6 +53,13 @@ export const App: React.FC = () => {
       root.style.backgroundColor = '#fffdf7';
     }
   }, [themeMode]);
+
+  // Apply text size class to <html> tag for dynamic scaling across app
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove('text-size-normal', 'text-size-large', 'text-size-huge');
+    root.classList.add(`text-size-${textSize || 'normal'}`);
+  }, [textSize]);
 
   // Navigation handlers
   const handleNavigateCategory = (catId: CategoryId) => {

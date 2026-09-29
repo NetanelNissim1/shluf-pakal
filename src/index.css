@@ -32,6 +32,23 @@
   }
 }
 
+/* Dynamic Root Font Scaling for Field Accessibility (A- / A / A+) */
+html {
+  transition: font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.text-size-normal {
+  font-size: 100%; /* 16px */
+}
+
+html.text-size-large {
+  font-size: 115%; /* 18.4px */
+}
+
+html.text-size-huge {
+  font-size: 130%; /* 20.8px */
+}
+
 /* Anti-theft print protection to prevent bulk saving / printing of content */
 @media print {
   body {

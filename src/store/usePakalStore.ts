@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CategoryId, SituationFilter, ThemeMode } from '../types';
+import { CategoryId, SituationFilter, ThemeMode, TextSize } from '../types';
 import { triggerHaptic } from '../lib/haptics';
 import { sanitizeSearchQuery } from '../lib/security';
 
@@ -9,6 +9,11 @@ interface PakalState {
   themeMode: ThemeMode;
   toggleTheme: () => void;
   setTheme: (mode: ThemeMode) => void;
+
+  // Text Scaling (Accessibility & Field Reading)
+  textSize: TextSize;
+  setTextSize: (size: TextSize) => void;
+  cycleTextSize: () => void;
 
   // Sound & Haptics settings
   soundEnabled: boolean;
@@ -58,6 +63,19 @@ export const usePakalStore = create<PakalState>()(
         set({ themeMode: next });
       },
       setTheme: (mode) => set({ themeMode: mode }),
+
+      // Text Scaling
+      textSize: 'normal',
+      setTextSize: (size: TextSize) => {
+        if (get().hapticsEnabled) triggerHaptic(20);
+        set({ textSize: size });
+      },
+      cycleTextSize: () => {
+        const cur = get().textSize;
+        const next: TextSize = cur === 'normal' ? 'large' : cur === 'large' ? 'huge' : 'normal';
+        if (get().hapticsEnabled) triggerHaptic([25, 20]);
+        set({ textSize: next });
+      },
 
       // Sound & Haptics
       soundEnabled: true,
