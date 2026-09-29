@@ -40,7 +40,6 @@
     <!-- Crown -->
     <path d="M-40,-50 L-30,-25 L0,-45 L30,-25 L40,-50 L35,-15 L-35,-15 Z" fill="url(#goldGrad)"/>
     <text x="0" y="55" font-family="Rubik, system-ui, sans-serif" font-size="110" font-weight="900" fill="#f8fafc" text-anchor="middle">צ׳</text>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fbbf24" text-anchor="middle">צַדִּיק</text>
   </g>
 
   <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -56,7 +55,6 @@
     <circle cx="-12" cy="-10" r="7" fill="#ea580c"/>
     <circle cx="0" cy="-5" r="7" fill="#ea580c"/>
     <circle cx="12" cy="-10" r="7" fill="#ea580c"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#4ade80" text-anchor="middle">כַּתָּמָר</text>
   </g>
 
   <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -70,7 +68,6 @@
     <circle cx="0" cy="10" r="16" fill="#ec4899"/>
     <path d="M0,10 L0,70" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
     <ellipse cx="15" cy="40" rx="14" ry="7" fill="#22c55e" transform="rotate(30 15 40)"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#f472b6" text-anchor="middle">יִפְרָח</text>
   </g>
 
 </svg>

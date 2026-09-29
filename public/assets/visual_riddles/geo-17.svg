@@ -44,6 +44,5 @@
     <polygon points="-60,45 -35,-25 35,-25 60,45" fill="#78350f" stroke="#d97706" stroke-width="3"/>
               <rect x="-25" y="-55" width="50" height="30" fill="#b45309" stroke="#fbbf24" stroke-width="2"/>
               <path d="M-55,40 Q-10,10 -30,-20" stroke="#fbbf24" stroke-width="4" stroke-dasharray="6 4" fill="none"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">מְצָדָה (מְצוּדָה בַּצּוּק)</text>
   </g>
 </svg>

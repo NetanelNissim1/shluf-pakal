@@ -44,6 +44,5 @@
     <path d="M0,-20 Q-40,-60 -70,-30 Q-40,0 -10,35 Q0,45 10,35 Q40,0 70,-30 Q40,-60 0,-20 Z" fill="#78350f" stroke="#fbbf24" stroke-width="2"/>
               <circle cx="0" cy="-25" r="14" fill="#fef08a"/>
               <polygon points="0,-20 8,-10 -8,-10" fill="#ea580c"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">נֶשֶׁר (עוֹף דּוֹרֵס)</text>
   </g>
 </svg>

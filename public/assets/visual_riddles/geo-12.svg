@@ -44,6 +44,5 @@
     <path d="M0,50 Q-40,0 -50,-50" stroke="#fbbf24" stroke-width="8" fill="none"/>
               <path d="M0,50 L0,-50" stroke="#38bdf8" stroke-width="8"/>
               <path d="M0,50 Q40,0 50,-50" stroke="#34d399" stroke-width="8" fill="none"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">נְתִיבוֹת (נְתִיבֵי דֶּרֶךְ)</text>
   </g>
 </svg>

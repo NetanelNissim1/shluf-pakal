@@ -98,10 +98,10 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
           />
         </div>
 
-        {/* Riddle Title Badge */}
+        {/* Riddle Category Badge (Neutral to protect answer from students) */}
         <div className="mb-4">
           <span className="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-orange-300 border border-amber-500/30">
-            🎨 {riddle.title}
+            🎨 {riddle.mainCategory === 'holidays' ? 'חידת חגי ישראל' : riddle.mainCategory === 'geography' ? 'חידת אתרים בארץ' : 'חידת ביטויים ופתגמים'}
           </span>
         </div>
 
@@ -142,7 +142,8 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
           <button
             onClick={async () => {
               if (hapticsEnabled) triggerHaptic(30);
-              const text = formatVisualRiddleForWhatsApp(riddle.title, shareUrl);
+              const catLabel = riddle.mainCategory === 'holidays' ? 'חגי ישראל' : riddle.mainCategory === 'geography' ? 'אתרים בארץ' : 'ביטויים ופתגמים';
+              const text = formatVisualRiddleForWhatsApp(catLabel, shareUrl);
               await shareToWhatsApp(text, shareUrl);
             }}
             className="w-full py-3.5 px-4 rounded-xl font-black text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white shadow-md shadow-emerald-950/20 transition-all touch-press"

@@ -47,7 +47,6 @@
     <!-- Bucket -->
     <rect x="-15" y="-10" width="30" height="30" rx="4" fill="#94a3b8"/>
     <line x1="0" y1="-60" x2="0" y2="-10" stroke="#cbd5e1" stroke-width="3"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#fbbf24" text-anchor="middle">בְּאֵר (מים)</text>
   </g>
 
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -56,7 +55,6 @@
   <g transform="translate(640, 260)" filter="url(#shadow)">
     <rect x="-90" y="-90" width="180" height="180" rx="30" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="4"/>
     <text x="0" y="60" font-family="Rubik, system-ui, sans-serif" font-size="160" font-weight="900" fill="#38bdf8" text-anchor="middle">7</text>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#38bdf8" text-anchor="middle">שֶׁבַע</text>
   </g>
 
 </svg>

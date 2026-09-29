@@ -43,7 +43,6 @@
   <g transform="translate(260, 250)" filter="url(#shadow)">
     <rect x="-35" y="-45" width="70" height="30" fill="#475569" rx="3"/>
               <rect x="-8" y="-15" width="16" height="75" fill="#78350f" rx="3"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#f87171" text-anchor="middle">לִשְׁבֹּר (פַּטִּישׁ)</text>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: אֶת הַקֶּרַח (קֻבִיָּה) -->
@@ -51,6 +50,5 @@
     <rect x="-45" y="-45" width="90" height="90" fill="#bae6fd" stroke="#0284c7" stroke-width="4" rx="6"/>
               <line x1="-20" y1="-20" x2="20" y2="20" stroke="#0284c7" stroke-width="3"/>
               <line x1="-30" y1="10" x2="10" y2="-30" stroke="#0284c7" stroke-width="3"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#38bdf8" text-anchor="middle">אֶת הַקֶּרַח (קֻבִיָּה)</text>
   </g>
 </svg>

@@ -30,7 +30,6 @@ function createSvg(elements, plusSigns = true) {
   <!-- Element ${idx + 1}: ${el.label} -->
   <g transform="translate(${x}, ${y})" filter="url(#shadow)">
     ${el.svg}
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="${el.color || '#fbbf24'}" text-anchor="middle">${el.label}</text>
   </g>`;
 
     if (plusSigns && idx < count - 1) {

@@ -49,7 +49,6 @@
 
     <!-- Inactive "Zzz" -->
     <text x="80" y="-70" font-family="Rubik, system-ui, sans-serif" font-size="36" font-weight="900" fill="#38bdf8">Zzz...</text>
-    <text x="0" y="155" font-family="system-ui, sans-serif" font-size="34" font-weight="900" fill="#fde047" text-anchor="middle">טָמַן יָדוֹ בַּצַּלַּחַת (עצלנות)</text>
   </g>
 
 </svg>

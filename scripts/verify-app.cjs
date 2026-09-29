@@ -320,6 +320,37 @@ odtActivities.forEach(act => {
 });
 assert(odtGrammarErrors === 0, `כל 101 פעילויות ה-ODT בעלות ניסוח עברי תקני ומלא (נמצאו: ${odtGrammarErrors})`);
 
+// Cycle 15: Visual Riddles Mystery & Anti-Spoiler Purity
+console.log('\n[מחזור 15]: בדיקת טוהר החידות החזותיות (אי-הסגרת תשובות ב-SVG, בתצוגת חניך ובשיתוף)');
+
+// 1. Verify 80 SVGs have 0 bottom spoiler labels
+let svgSpoilerCount = 0;
+const visualDir = path.join(__dirname, '..', 'public', 'assets', 'visual_riddles');
+const svgFiles = fs.readdirSync(visualDir).filter(f => f.endsWith('.svg'));
+svgFiles.forEach(f => {
+  const content = fs.readFileSync(path.join(visualDir, f), 'utf8');
+  if (/<text x="0" y="(?:125|130|135|145|155)"/.test(content)) {
+    svgSpoilerCount++;
+  }
+});
+assert(svgFiles.length === 80, `כל 80 קובצי ה-SVG של החידות בציורים קיימים (נמצאו: ${svgFiles.length})`);
+assert(svgSpoilerCount === 0, `כל 80 קובצי ה-SVG נקיים מתוויות טקסט מסגירות בתחתית הציור (נמצאו חריגות: ${svgSpoilerCount})`);
+
+// 2. Verify StudentViewerPage does not leak riddle title in header
+const studentViewerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'visual', 'StudentViewerPage.tsx'), 'utf8');
+const studentLeaksTitle = studentViewerCode.includes('{currentRiddle.title}');
+assert(!studentLeaksTitle, 'תצוגת חניך (StudentViewerPage) אינה חושפת את שם/פתרון החידה בכותרת');
+
+// 3. Verify CircleShareQR does not leak riddle title in student badge
+const qrShareCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'visual', 'CircleShareQR.tsx'), 'utf8');
+const qrLeaksTitle = qrShareCode.includes('{riddle.title}');
+assert(!qrLeaksTitle, 'מסך ברקוד מעגל החניכים (CircleShareQR) מציג כותרת קטגוריה ניטרלית ללא ספוילר');
+
+// 4. Verify WhatsApp share text does not leak riddle title in parameter
+const shareTsCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'lib', 'share.ts'), 'utf8');
+const shareTsFormatClean = shareTsCode.includes('categoryLabel: string') && !shareTsCode.includes('riddleTitle: string');
+assert(shareTsFormatClean, 'מנגנון שיתוף לוואטסאפ (share.ts) משתמש בתווית קטגוריה ניטרלית ללא ספוילר');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

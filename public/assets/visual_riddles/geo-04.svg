@@ -42,7 +42,6 @@
     <circle cx="0" cy="0" r="32" fill="#0284c7"/>
     <circle cx="0" cy="0" r="16" fill="#000000"/>
     <circle cx="-6" cy="-6" r="6" fill="#ffffff"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#38bdf8" text-anchor="middle">עַיִן</text>
   </g>
 
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -61,7 +60,6 @@
     <circle cx="-14" cy="5" r="6" fill="#000000"/>
     <circle cx="14" cy="5" r="6" fill="#000000"/>
     <polygon points="-8,45 8,45 0,65" fill="#e2e8f0"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#fbbf24" text-anchor="middle">גְּדִי (עזים)</text>
   </g>
 
 </svg>

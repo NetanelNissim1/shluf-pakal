@@ -46,7 +46,6 @@
               <line x1="-25" y1="-30" x2="25" y2="-30" stroke="#f59e0b" stroke-width="4"/>
               <line x1="-25" y1="0" x2="25" y2="0" stroke="#f59e0b" stroke-width="4"/>
               <line x1="-25" y1="30" x2="25" y2="30" stroke="#f59e0b" stroke-width="4"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">יוֹרֵד (סֻלָּם)</text>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: דַּעְתּוֹ (מוֹחַ) -->
@@ -54,6 +53,5 @@
     <circle cx="0" cy="0" r="55" fill="url(#purpleGrad)"/>
               <path d="M-25,-15 Q0,-35 25,-15 Q0,10 -25,-15" stroke="#f3e8ff" stroke-width="4" fill="none"/>
               <path d="M-25,15 Q0,-5 25,15" stroke="#f3e8ff" stroke-width="4" fill="none"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#c084fc" text-anchor="middle">דַּעְתּוֹ (מוֹחַ)</text>
   </g>
 </svg>

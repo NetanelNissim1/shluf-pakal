@@ -39,7 +39,6 @@
   <g transform="translate(180, 250)" filter="url(#shadow)">
     <path d="M-75,-10 C-75,60 75,60 75,-10 Z" fill="url(#blueGrad)"/>
     <ellipse cx="0" cy="-10" rx="75" ry="20" fill="#93c5fd"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#60a5fa" text-anchor="middle">קַעֲרַת</text>
   </g>
 
   <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -53,7 +52,6 @@
     <!-- Stars -->
     <polygon points="-30,-30 -26,-20 -36,-24" fill="#ffffff"/>
     <polygon points="-40,15 -36,25 -46,21" fill="#ffffff"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fde047" text-anchor="middle">לֵיל (ירח)</text>
   </g>
 
   <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -62,7 +60,6 @@
   <g transform="translate(740, 250)" filter="url(#shadow)">
     <rect x="-65" y="-65" width="130" height="130" rx="20" fill="url(#cardGrad)" stroke="#22c55e" stroke-width="3"/>
     <text x="0" y="25" font-family="Rubik, system-ui, sans-serif" font-size="52" font-weight="900" fill="#4ade80" text-anchor="middle">1 2 3</text>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#4ade80" text-anchor="middle">הַסֵּדֶר</text>
   </g>
 
 </svg>

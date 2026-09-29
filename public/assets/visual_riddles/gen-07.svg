@@ -39,7 +39,6 @@
   <g transform="translate(180, 250)" filter="url(#shadow)">
     <circle cx="0" cy="-10" r="60" fill="url(#greenGrad)"/>
     <rect x="-10" y="25" width="20" height="45" fill="#78350f" rx="4"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#4ade80" text-anchor="middle">חַיִּים (עץ)</text>
   </g>
 
   <!-- Skull / Death (ומוות) -->
@@ -53,7 +52,6 @@
     <line x1="-15" y1="30" x2="-15" y2="45" stroke="#000000" stroke-width="4"/>
     <line x1="0" y1="30" x2="0" y2="45" stroke="#000000" stroke-width="4"/>
     <line x1="15" y1="30" x2="15" y2="45" stroke="#000000" stroke-width="4"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#f87171" text-anchor="middle">וָמָוֶת</text>
   </g>
 
   <!-- Equal / In Hand of Tongue -->
@@ -63,7 +61,6 @@
     <!-- Tongue resting in hand -->
     <path d="M-25,10 C-25,-30 25,-30 25,10 C25,45 -25,45 -25,10 Z" fill="#e11d48"/>
     <line x1="0" y1="-15" x2="0" y2="25" stroke="#991b1b" stroke-width="4"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fb7185" text-anchor="middle">בְּיַד לָשׁוֹן</text>
   </g>
 
 </svg>

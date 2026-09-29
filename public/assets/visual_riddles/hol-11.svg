@@ -41,21 +41,18 @@
     <polygon points="-40,-70 20,-60 20,60 -40,70" fill="#b45309"/>
     <line x1="20" y1="0" x2="60" y2="0" stroke="#22c55e" stroke-width="8" stroke-linecap="round"/>
     <polygon points="50,-10 65,0 50,10" fill="#22c55e"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#f59e0b" text-anchor="middle">מִשֶּׁנִּכְנַס</text>
   </g>
 
   <!-- Maple Leaf (אדר) -->
   <g transform="translate(340, 250)" filter="url(#shadow)">
     <path d="M0,-60 L15,-30 L45,-35 L30,-10 L60,10 L25,20 L35,50 L0,35 L-35,50 L-25,20 L-60,10 L-30,-10 L-45,-35 L-15,-30 Z" fill="#ea580c"/>
     <line x1="0" y1="35" x2="0" y2="70" stroke="#9a3412" stroke-width="8" stroke-linecap="round"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#fb923c" text-anchor="middle">אֲדָר (עלה)</text>
   </g>
 
   <!-- Giant Plus (מרבים) -->
   <g transform="translate(540, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="70" fill="url(#blueGrad)"/>
     <text x="0" y="32" font-family="Rubik, system-ui, sans-serif" font-size="110" font-weight="900" fill="#ffffff" text-anchor="middle">+</text>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#60a5fa" text-anchor="middle">מַרְבִּים (+)</text>
   </g>
 
   <!-- Laughing Smiley (בשמחה) -->
@@ -67,7 +64,6 @@
     <!-- Open grinning mouth -->
     <path d="M-35,10 Q0,65 35,10 Z" fill="#78350f"/>
     <path d="M-25,10 Q0,35 25,10 Z" fill="#f87171"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#fde047" text-anchor="middle">בְּשִׂמְחָה</text>
   </g>
 
 </svg>

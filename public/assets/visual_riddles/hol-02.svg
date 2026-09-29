@@ -41,10 +41,7 @@
     <rect x="-85" y="-85" width="170" height="45" rx="16" fill="#ef4444"/>
     <circle cx="-50" cy="-62" r="5" fill="#ffffff"/>
     <circle cx="50" cy="-62" r="5" fill="#ffffff"/>
-    <text x="0" y="-53" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">תשרי</text>
     <text x="0" y="30" font-family="Rubik, system-ui, sans-serif" font-size="75" font-weight="900" fill="#0f172a" text-anchor="middle">א׳</text>
-    <text x="0" y="65" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#64748b" text-anchor="middle">ראש השנה</text>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#f43f5e" text-anchor="middle">שנה</text>
   </g>
 
   <!-- Plus -->
@@ -54,7 +51,6 @@
   <g transform="translate(480, 260)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="80" fill="url(#greenGrad)"/>
     <path d="M-30,15 L-30,-20 L-10,-20 L0,-50 C10,-50 15,-40 15,-20 L15,-10 L35,-10 C45,-10 45,5 35,15 L25,25 C25,35 15,35 5,35 L-30,35 Z" fill="#ffffff"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#34d399" text-anchor="middle">טובה</text>
   </g>
 
   <!-- Plus -->
@@ -65,7 +61,6 @@
     <line x1="0" y1="20" x2="0" y2="90" stroke="#f1f5f9" stroke-width="10" stroke-linecap="round"/>
     <circle cx="0" cy="-20" r="65" fill="url(#goldGrad)"/>
     <path d="M-40,-20 C-40,-45 40,-45 40,-20 C40,5 -20,5 -20,-20 C-20,-30 10,-30 10,-20" stroke="#ef4444" stroke-width="8" fill="none" stroke-linecap="round"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#fbbf24" text-anchor="middle">מתוקה</text>
   </g>
 
 </svg>

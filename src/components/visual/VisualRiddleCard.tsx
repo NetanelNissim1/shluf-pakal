@@ -71,7 +71,8 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
     e.stopPropagation();
     if (hapticsEnabled) triggerHaptic(25);
     const studentUrl = getStudentShareUrl(riddle.id);
-    const text = formatVisualRiddleForWhatsApp(riddle.title, studentUrl);
+    const catLabel = riddle.mainCategory === 'holidays' ? 'חגי ישראל' : riddle.mainCategory === 'geography' ? 'אתרים בארץ' : 'ביטויים ופתגמים';
+    const text = formatVisualRiddleForWhatsApp(catLabel, studentUrl);
     await shareToWhatsApp(text, studentUrl);
     setCopiedWhatsApp(true);
     setTimeout(() => setCopiedWhatsApp(false), 2000);

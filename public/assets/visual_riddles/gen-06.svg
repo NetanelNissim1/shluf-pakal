@@ -49,7 +49,6 @@
     <!-- Arrow down -->
     <line x1="0" y1="20" x2="0" y2="60" stroke="#fef08a" stroke-width="8" stroke-linecap="round"/>
     <polygon points="-12,50 0,68 12,50" fill="#fef08a"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#fbbf24" text-anchor="middle">נָפַל הָאֲסִימוֹן</text>
   </g>
 
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">➔</text>
@@ -64,7 +63,6 @@
     <circle cx="0" cy="-20" r="55" fill="url(#goldGrad)"/>
     <path d="M-30,15 L30,15 L20,45 L-20,45 Z" fill="#94a3b8"/>
     <ellipse cx="0" cy="50" rx="15" ry="6" fill="#64748b"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#fde047" text-anchor="middle">💡 רַעֲיוֹן! (הֵבִין)</text>
   </g>
 
 </svg>

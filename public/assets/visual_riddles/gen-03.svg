@@ -40,7 +40,6 @@
     <rect x="-80" y="-50" width="160" height="110" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="6"/>
     <ellipse cx="0" cy="-50" rx="80" ry="24" fill="#e2e8f0"/>
     <ellipse cx="0" cy="-50" rx="60" ry="16" fill="#0f172a"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="#f8fafc" text-anchor="middle">בּוֹר סִיד (לבן)</text>
   </g>
 
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -52,7 +51,6 @@
     <!-- Water drop inside -->
     <path d="M0,-25 C30,25 35,55 0,65 C-35,55 -30,25 0,-25 Z" fill="url(#blueGrad)"/>
     <circle cx="-10" cy="40" r="6" fill="#ffffff" opacity="0.6"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="#38bdf8" text-anchor="middle">אֵינוֹ מְאַבֵּד טִפָּה</text>
   </g>
 
 </svg>

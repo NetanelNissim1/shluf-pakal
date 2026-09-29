@@ -36,7 +36,7 @@ export const StudentViewerPage: React.FC<StudentViewerPageProps> = ({
           </div>
           <div>
             <h1 className="text-sm font-extrabold text-white leading-tight">
-              {currentRiddle.title}
+              {currentRiddle.mainCategory === 'holidays' ? 'חידת חגי ישראל' : currentRiddle.mainCategory === 'geography' ? 'חידת אתרים בארץ' : 'חידת ביטויים ופתגמים'} - מה מסתתר כאן?
             </h1>
             <div className="flex items-center gap-1 text-[11px] text-stone-400">
               <EyeOff className="w-3 h-3 text-emerald-400" />
@@ -99,7 +99,7 @@ export const StudentViewerPage: React.FC<StudentViewerPageProps> = ({
               >
                 <img
                   src={currentRiddle.imageUrl}
-                  alt={currentRiddle.title}
+                  alt="חידה בציורים - מה מסתתר כאן?"
                   className="max-w-full max-h-[85vh] object-contain drop-shadow-2xl select-none pointer-events-none"
                   draggable={false}
                 />

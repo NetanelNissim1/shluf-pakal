@@ -46,7 +46,6 @@
               <circle cx="25" cy="-20" r="30" fill="#fbcfe8"/>
               <circle cx="0" cy="-40" r="32" fill="#f472b6"/>
               <circle cx="0" cy="-40" r="10" fill="#fef08a"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#f472b6" text-anchor="middle">שְׁקֵדִיָּה</text>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: פּוֹרַחַת (שֶׁמֶשׁ) -->
@@ -56,6 +55,5 @@
               <line x1="0" y1="50" x2="0" y2="65" stroke="#f59e0b" stroke-width="6"/>
               <line x1="-65" y1="0" x2="-50" y2="0" stroke="#f59e0b" stroke-width="6"/>
               <line x1="50" y1="0" x2="65" y2="0" stroke="#f59e0b" stroke-width="6"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">פּוֹרַחַת (שֶׁמֶשׁ)</text>
   </g>
 </svg>

@@ -39,7 +39,6 @@
   <g transform="translate(260, 260)" filter="url(#shadow)">
     <rect x="-100" y="-60" width="200" height="120" rx="16" fill="#15803d" stroke="#22c55e" stroke-width="4"/>
     <text x="0" y="15" font-family="Rubik, system-ui, sans-serif" font-size="44" font-weight="900" fill="#ffffff" text-anchor="middle">EXIT ➔</text>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#4ade80" text-anchor="middle">יְצִיאַת</text>
   </g>
 
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -53,7 +52,6 @@
     <polygon points="-15,-55 55,50 90,40" fill="#b45309"/>
     <!-- Small pyramid -->
     <polygon points="-65,10 -105,50 -25,50" fill="#d97706"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#fcd34d" text-anchor="middle">מִצְרַיִם (פירמידות)</text>
   </g>
 
 </svg>

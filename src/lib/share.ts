@@ -93,13 +93,13 @@ export function getStudentShareUrl(riddleId: string): string {
   return `${baseUrl}/?riddle=${riddleId}`;
 }
 
-export function formatVisualRiddleForWhatsApp(riddleTitle: string, studentUrl: string): string {
-  return `🧩 חידת ציורים: *${riddleTitle}*
+export function formatVisualRiddleForWhatsApp(categoryLabel: string, studentUrl: string): string {
+  return `🧩 *חידה בציורים מאפליקציית שלוף!* (${categoryLabel})
 
-לחצו על הקישור לפתיחת האיור:
+🔎 לחצו על הקישור לפתיחת האיור:
 ${studentUrl}
 
-💡 מה מסתתר בציור? כתבו את התשובה בקבוצה!`;
+💡 מה מסתתר בציור? נסו לפצח וכתבו את התשובה בקבוצה!`;
 }
 
 export async function shareToWhatsApp(text: string, directUrl?: string): Promise<boolean> {

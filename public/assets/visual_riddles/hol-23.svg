@@ -46,7 +46,6 @@
               <path d="M-50,35 Q-30,15 -10,35" stroke="#fbbf24" stroke-width="4" fill="none"/>
               <circle cx="30" cy="-10" r="18" fill="#38bdf8"/>
               <path d="M10,35 Q30,15 50,35" stroke="#38bdf8" stroke-width="4" fill="none"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">אוּשְׁפִּיזִין (אוֹרְחִים)</text>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: קַדִּישִׁין (כֶּתֶר) -->
@@ -55,6 +54,5 @@
               <circle cx="-50" cy="-35" r="7" fill="#fbbf24"/>
               <circle cx="0" cy="-45" r="8" fill="#fbbf24"/>
               <circle cx="50" cy="-35" r="7" fill="#fbbf24"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#c084fc" text-anchor="middle">קַדִּישִׁין (כֶּתֶר)</text>
   </g>
 </svg>

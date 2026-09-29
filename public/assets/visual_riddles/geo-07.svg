@@ -43,13 +43,11 @@
   <g transform="translate(260, 250)" filter="url(#shadow)">
     <path d="M-60,-40 Q0,-10 -60,40 L60,40 Q0,-10 60,-40 Z" fill="#0284c7"/>
               <path d="M-40,-20 Q0,5 -40,30" stroke="#bae6fd" stroke-width="4" fill="none"/>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#38bdf8" text-anchor="middle">נָהָר (זְרִימָה)</text>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: יָהּ (י+ה) -->
   <g transform="translate(640, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="65" fill="#0f172a" stroke="#fbbf24" stroke-width="3"/>
               <text x="0" y="24" font-size="65" font-weight="900" fill="#fbbf24" text-anchor="middle">יָהּ</text>
-    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="25" font-weight="900" fill="#fbbf24" text-anchor="middle">יָהּ (י+ה)</text>
   </g>
 </svg>

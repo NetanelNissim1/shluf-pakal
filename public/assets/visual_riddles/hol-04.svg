@@ -39,7 +39,6 @@
   <g transform="translate(260, 260)" filter="url(#shadow)">
     <rect x="-100" y="-100" width="200" height="200" rx="30" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="4"/>
     <text x="0" y="55" font-family="Rubik, system-ui, sans-serif" font-size="160" font-weight="900" fill="#38bdf8" text-anchor="middle">4</text>
-    <text x="0" y="145" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#38bdf8" text-anchor="middle">ארבעת</text>
   </g>
 
   <!-- Cross Multiply / Plus -->
@@ -56,8 +55,6 @@
     <circle cx="50" cy="10" r="40" stroke="#ec4899" stroke-width="12" fill="none"/>
     <line x1="50" y1="50" x2="50" y2="90" stroke="#ec4899" stroke-width="12" stroke-linecap="round"/>
     <line x1="30" y1="70" x2="70" y2="70" stroke="#ec4899" stroke-width="12" stroke-linecap="round"/>
-
-    <text x="0" y="145" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#f472b6" text-anchor="middle">מינים (זכר/נקבה)</text>
   </g>
 
 </svg>

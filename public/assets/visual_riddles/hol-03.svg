@@ -44,7 +44,6 @@
     <rect x="-25" y="-50" width="25" height="30" fill="#ffffff"/>
     <rect x="25" y="-50" width="25" height="30" fill="#ffffff"/>
     <text x="0" y="30" font-family="Rubik, system-ui, sans-serif" font-size="24" font-weight="900" fill="#38bdf8">FINISH</text>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#38bdf8" text-anchor="middle">גמר</text>
   </g>
 
   <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -60,7 +59,6 @@
     <!-- Pen -->
     <path d="M40,-50 L65,-75 L80,-60 L55,-35 Z" fill="#0284c7"/>
     <polygon points="40,-50 35,-35 55,-35" fill="#f59e0b"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#60a5fa" text-anchor="middle">חתימה</text>
   </g>
 
   <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -69,7 +67,6 @@
   <g transform="translate(740, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="75" fill="url(#greenGrad)"/>
     <path d="M-30,-5 L-10,25 L40,-25" stroke="#ffffff" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="0" y="125" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#34d399" text-anchor="middle">טובה</text>
   </g>
 
 </svg>

@@ -50,8 +50,6 @@
 
     <!-- Impact burst -->
     <polygon points="-30,-10 -10,-40 10,-10 40,-30 25,10 50,30 15,25 0,55 -15,25 -50,30 -25,10" fill="#f59e0b"/>
-
-    <text x="0" y="145" font-family="system-ui, sans-serif" font-size="36" font-weight="900" fill="#f87171" text-anchor="middle">שָׁבַר אֶת הַכֵּלִים!</text>
   </g>
 
 </svg>

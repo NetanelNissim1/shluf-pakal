@@ -41,7 +41,6 @@
     <!-- Light beaming from door -->
     <polygon points="-50,-70 20,-60 20,70 -50,70" fill="url(#goldGrad)"/>
     <circle cx="10" cy="10" r="5" fill="#78350f"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#38bdf8" text-anchor="middle">פֶּתַח (דלת פתוחה)</text>
   </g>
 
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
@@ -53,7 +52,6 @@
     <!-- Shooting star -->
     <path d="M-60,40 Q-20,0 20,-20" stroke="url(#goldGrad)" stroke-width="8" stroke-linecap="round" fill="none"/>
     <polygon points="20,-35 25,-15 45,-15 30,-5 35,15 20,5 5,15 10,-5 -5,-15 15,-15" fill="#fde047"/>
-    <text x="0" y="135" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#fde047" text-anchor="middle">תִּקְוָה (כוכב משאלות)</text>
   </g>
 
 </svg>
