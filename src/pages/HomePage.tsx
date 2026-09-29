@@ -12,7 +12,8 @@ import {
   EyeOff, 
   Sparkles, 
   CalendarDays,
-  Palette
+  Palette,
+  Lightbulb
 } from 'lucide-react';
 import { riddlesData } from '../data/content';
 import { CATEGORIES } from '../data/categories';
@@ -56,7 +57,8 @@ export const HomePage: React.FC<HomePageProps> = ({
     favorites,
     revealedMap,
     revealAll,
-    hideAll 
+    hideAll,
+    openFeedbackDrawer 
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
@@ -354,6 +356,39 @@ export const HomePage: React.FC<HomePageProps> = ({
             <p>
               לחץ על כפתור <strong>"🎲 שלוף!"</strong> בתחתית המסך לשליפה מהירה של שאלה אקראית בכל שלב בהליכה או בהפסקת קפה. סמן שאלות בכוכב (★) להכנת פק"ל הדרכה אישי מראש!
             </p>
+          </div>
+
+          {/* Feedback & Suggestions Banner */}
+          <div className={`p-4 rounded-2xl border text-xs leading-relaxed flex items-center justify-between gap-3 ${
+            isCampfire 
+              ? 'bg-stone-950 border-stone-800 text-stone-300' 
+              : 'bg-emerald-50/70 border-emerald-200 text-stone-700'
+          }`}>
+            <div className="flex items-center gap-3">
+              <div className={`p-2.5 rounded-xl shrink-0 ${
+                isCampfire ? 'bg-amber-500/20 text-amber-400' : 'bg-emerald-100 text-emerald-700'
+              }`}>
+                <Lightbulb className="w-5 h-5 animate-pulse" />
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-stone-900 dark:text-stone-100 mb-0.5">
+                  יש לך רעיון לחידה או הצעה לייעול?
+                </h4>
+                <p className="text-[11px] text-stone-500 dark:text-stone-400">
+                  נשמח לשמוע! אנחנו קוראים כל הצעה של מדריכים ומעדכנים את הפק"ל באופן שוטף.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={openFeedbackDrawer}
+              className={`px-3 py-2 rounded-xl font-bold text-xs shrink-0 transition-all shadow-sm ${
+                isCampfire
+                  ? 'bg-amber-600 hover:bg-amber-500 text-white active:scale-95'
+                  : 'bg-emerald-600 hover:bg-emerald-500 text-white active:scale-95'
+              }`}
+            >
+              הצעת שיפור 💡
+            </button>
           </div>
         </>
       )}

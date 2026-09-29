@@ -84,3 +84,22 @@ export interface VisualRiddle {
   answer: string;                  // הפתרון המלא
   explanation: string;             // הסבר למה זה הפתרון ואיך פותרים
 }
+
+// --- Feedback & Suggestions Module Types ---
+export type FeedbackCategory = 'riddle-idea' | 'site-improvement' | 'bug-report' | 'general';
+
+export interface FeedbackSubmission {
+  name: string;
+  message: string;
+  category: FeedbackCategory;
+  email?: string;
+  organization?: string;
+  currentScreen?: string;
+  clientTimestamp?: number;
+  bot_trap?: string;
+}
+
+export interface StoredFeedbackItem extends FeedbackSubmission {
+  id: string;
+  createdAt: number;
+}

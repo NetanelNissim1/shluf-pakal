@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Flame, SunMedium, Volume2, VolumeX, Wifi, WifiOff, Compass } from 'lucide-react';
+import { Flame, SunMedium, Volume2, VolumeX, Wifi, WifiOff, Compass, Lightbulb } from 'lucide-react';
 import { usePakalStore } from '../../store/usePakalStore';
 
 export const Header: React.FC = () => {
@@ -9,7 +9,8 @@ export const Header: React.FC = () => {
     soundEnabled, 
     toggleSound, 
     textSize, 
-    setTextSize 
+    setTextSize,
+    openFeedbackDrawer
   } = usePakalStore();
   const [showTextMenu, setShowTextMenu] = useState(false);
   const textMenuRef = useRef<HTMLDivElement>(null);
@@ -226,6 +227,20 @@ export const Header: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* Feedback & Suggestion Drawer Button */}
+          <button
+            onClick={openFeedbackDrawer}
+            aria-label="הצעת ייעול, רעיון לחידה או משוב מהשטח"
+            title="הצעת ייעול, רעיון לחידה או משוב מהשטח"
+            className={`p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
+              isCampfire
+                ? 'text-amber-400 hover:bg-stone-900 hover:text-amber-300'
+                : 'text-amber-700 hover:bg-amber-100/70 hover:text-amber-900'
+            }`}
+          >
+            <Lightbulb className="w-5 h-5" />
+          </button>
 
           {/* Sound Toggle */}
           <button

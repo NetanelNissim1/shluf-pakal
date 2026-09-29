@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CategoryId, SituationFilter, ThemeMode, TextSize } from '../types';
+import { CategoryId, SituationFilter, ThemeMode, TextSize, FeedbackSubmission, StoredFeedbackItem } from '../types';
 import { triggerHaptic } from '../lib/haptics';
 import { sanitizeSearchQuery } from '../lib/security';
 
@@ -50,6 +50,17 @@ interface PakalState {
   isRandomizerOpen: boolean;
   openRandomizer: () => void;
   closeRandomizer: () => void;
+
+  // Feedback & Suggestions (Quick Drawer & Offline Outbox)
+  isFeedbackDrawerOpen: boolean;
+  openFeedbackDrawer: () => void;
+  closeFeedbackDrawer: () => void;
+  savedFeedbackUser: { name: string; email: string; organization: string };
+  saveFeedbackUserInfo: (info: { name: string; email?: string; organization?: string }) => void;
+  pendingFeedbackQueue: StoredFeedbackItem[];
+  queuePendingFeedback: (item: FeedbackSubmission) => StoredFeedbackItem;
+  removePendingFeedback: (id: string) => void;
+  clearPendingFeedbackQueue: () => void;
 }
 
 export const usePakalStore = create<PakalState>()(
@@ -152,14 +163,53 @@ export const usePakalStore = create<PakalState>()(
         set({ isRandomizerOpen: true });
       },
       closeRandomizer: () => set({ isRandomizerOpen: false }),
+
+      // Feedback & Suggestions
+      isFeedbackDrawerOpen: false,
+      openFeedbackDrawer: () => {
+        if (get().hapticsEnabled) triggerHaptic(25);
+        set({ isFeedbackDrawerOpen: true });
+      },
+      closeFeedbackDrawer: () => set({ isFeedbackDrawerOpen: false }),
+      savedFeedbackUser: { name: '', email: '', organization: '' },
+      saveFeedbackUserInfo: (info) => {
+        set(() => ({
+          savedFeedbackUser: {
+            name: info.name.trim(),
+            email: (info.email || '').trim(),
+            organization: (info.organization || '').trim()
+          }
+        }));
+      },
+      pendingFeedbackQueue: [],
+      queuePendingFeedback: (item) => {
+        const newItem: StoredFeedbackItem = {
+          ...item,
+          id: 'fb-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
+          createdAt: Date.now()
+        };
+        set((state) => ({
+          pendingFeedbackQueue: [newItem, ...state.pendingFeedbackQueue]
+        }));
+        return newItem;
+      },
+      removePendingFeedback: (id) => {
+        set((state) => ({
+          pendingFeedbackQueue: state.pendingFeedbackQueue.filter((fb) => fb.id !== id)
+        }));
+      },
+      clearPendingFeedbackQueue: () => set({ pendingFeedbackQueue: [] }),
     }),
     {
       name: 'shluf-storage',
       partialize: (state) => ({
         themeMode: state.themeMode,
+        textSize: state.textSize,
         soundEnabled: state.soundEnabled,
         hapticsEnabled: state.hapticsEnabled,
-        favorites: state.favorites
+        favorites: state.favorites,
+        savedFeedbackUser: state.savedFeedbackUser,
+        pendingFeedbackQueue: state.pendingFeedbackQueue
       })
     }
   )

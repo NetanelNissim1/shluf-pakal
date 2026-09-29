@@ -9,9 +9,11 @@ import { ODTPage } from './pages/ODTPage';
 import { VisualRiddlesPage } from './pages/VisualRiddlesPage';
 import { StudentViewerPage } from './components/visual/StudentViewerPage';
 import { RandomizerModal } from './components/randomizer/RandomizerModal';
+import { FeedbackDrawer } from './components/common/FeedbackDrawer';
 import { usePakalStore } from './store/usePakalStore';
 import { CategoryId } from './types';
 import { initContentProtection } from './lib/security';
+import { initFeedbackSync } from './lib/feedback';
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
@@ -34,9 +36,10 @@ export const App: React.FC = () => {
     return undefined;
   });
 
-  // Initialize anti-scraping and content protection barriers
+  // Initialize anti-scraping and content protection barriers & feedback sync
   useEffect(() => {
     const cleanupProtection = initContentProtection();
+    initFeedbackSync();
     return () => {
       cleanupProtection();
     };
@@ -148,6 +151,9 @@ export const App: React.FC = () => {
 
       {/* Floating Randomizer Modal */}
       <RandomizerModal />
+
+      {/* Quick Feedback & Suggestions Drawer */}
+      <FeedbackDrawer />
 
       {/* Fixed Bottom Navigation Bar with Center FAB */}
       <BottomNav currentTab={currentTab} onTabChange={setCurrentTab} />

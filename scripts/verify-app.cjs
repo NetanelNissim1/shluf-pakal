@@ -376,6 +376,64 @@ const headerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components
 const headerHasStepper = headerCode.includes('textButtonRef') && headerCode.includes('showTextMenu') && headerCode.includes('setTextSize(\'normal\')') && headerCode.includes('setTextSize(\'large\')') && headerCode.includes('setTextSize(\'huge\')');
 assert(headerHasStepper, 'סרגל העליון (Header.tsx) מכיל בקר Quick Stepper עם בועית בחירה בין 3 הדרגות');
 
+// Cycle 17: Feedback & Suggestions System, Security & Zero Email Leakage
+console.log('\n[מחזור 17]: בדיקת מערכת משוב והצעות ייעול שטח, אבטחה ואי-חשיפת מייל הנהלה');
+
+// 1. Verify zero leakage of admin email in src/ (client-side)
+const srcDir = path.join(__dirname, '..', 'src');
+let clientEmailLeaks = 0;
+function scanForEmailLeaks(dir) {
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    const fullPath = path.join(dir, file);
+    if (fs.statSync(fullPath).isDirectory()) {
+      scanForEmailLeaks(fullPath);
+    } else if (/\.(tsx?|jsx?|html|css|json)$/.test(file)) {
+      const content = fs.readFileSync(fullPath, 'utf8');
+      if (content.includes('info.shluf.pakal@gmail.com')) {
+        clientEmailLeaks++;
+      }
+    }
+  }
+}
+scanForEmailLeaks(srcDir);
+assert(clientEmailLeaks === 0, `כתובת המייל info.shluf.pakal@gmail.com אינה חשופה באף קובץ לקוח ב-src (נמצאו דליפות: ${clientEmailLeaks})`);
+
+// 2. Verify FeedbackDrawer.tsx components and optional email
+const drawerPath = path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx');
+assert(fs.existsSync(drawerPath), 'רכיב מגירת המשוב (FeedbackDrawer.tsx) קיים במערכת');
+const drawerCode = fs.readFileSync(drawerPath, 'utf8');
+const hasPillCategories = drawerCode.includes('riddle-idea') && drawerCode.includes('site-improvement') && drawerCode.includes('bug-report') && drawerCode.includes('general');
+const hasHoneypot = drawerCode.includes('bot_trap');
+const hasOptionalEmail = drawerCode.includes('feedback-email') && drawerCode.includes('רשות');
+const hasOrgField = drawerCode.includes('feedback-org');
+assert(hasPillCategories && hasHoneypot && hasOptionalEmail && hasOrgField, 'מגירת המשוב מכילה צ\'יפס נושאים, מלכודת בוטים Honeypot, שדות חובה, ושדות רשות (מייל וארגון הדרכה)');
+
+// 3. Verify Offline Outbox resilience in src/lib/feedback.ts & usePakalStore.ts
+const feedbackLibPath = path.join(__dirname, '..', 'src', 'lib', 'feedback.ts');
+assert(fs.existsSync(feedbackLibPath), 'קובץ שירות המשוב (src/lib/feedback.ts) קיים במערכת');
+const feedbackLibCode = fs.readFileSync(feedbackLibPath, 'utf8');
+const hasOfflineQueue = feedbackLibCode.includes('queuePendingFeedback') && feedbackLibCode.includes('flushPendingFeedbackQueue');
+const hasOnlineListener = feedbackLibCode.includes('window.addEventListener(\'online\'');
+assert(hasOfflineQueue && hasOnlineListener, 'מנגנון תור אופליין (Offline Outbox) וסנכרון בחזרה לרשת מיושם באופן מלא');
+
+// 4. Verify Serverless API Function (api/feedback.ts) security
+const apiFeedbackPath = path.join(__dirname, '..', 'api', 'feedback.ts');
+assert(fs.existsSync(apiFeedbackPath), 'פונקציית צד-שרת Vercel (api/feedback.ts) קיימת במערכת');
+const apiFeedbackCode = fs.readFileSync(apiFeedbackPath, 'utf8');
+const apiHasHoneypot = apiFeedbackCode.includes('bot_trap');
+const apiHasRateLimit = apiFeedbackCode.includes('ipRequestsMap') || apiFeedbackCode.includes('RATE_LIMIT');
+assert(apiHasHoneypot && apiHasRateLimit, 'פונקציית השרת כוללת בדיקת מלכודת בוטים (Honeypot) ומנגנון הגבלת קצב (Rate Limiting)');
+
+// 5. Verify Enhanced Security Headers in vercel.json
+const vercelConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vercel.json'), 'utf8'));
+const hasApiRewrite = vercelConfig.rewrites && vercelConfig.rewrites.some(r => r.source === '/api/(.*)');
+const headersList = vercelConfig.headers?.[0]?.headers || [];
+const hasNosniff = headersList.some(h => h.key === 'X-Content-Type-Options' && h.value === 'nosniff');
+const hasFrameDeny = headersList.some(h => h.key === 'X-Frame-Options' && h.value === 'DENY');
+const hasReferrer = headersList.some(h => h.key === 'Referrer-Policy');
+assert(hasApiRewrite && hasNosniff && hasFrameDeny && hasReferrer, 'הגדרות vercel.json כוללות ניתוב ל-api/ וכותרות אבטחה מחמירות (nosniff, DENY, Referrer-Policy)');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');
