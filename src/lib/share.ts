@@ -133,6 +133,89 @@ export async function shareToWhatsApp(text: string, directUrl?: string): Promise
   return false;
 }
 
+export async function convertSvgUrlToPngBlob(svgUrl: string): Promise<Blob> {
+  const resp = await fetch(svgUrl);
+  const svgText = await resp.text();
+  const blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+  const objectUrl = URL.createObjectURL(blob);
+
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1800;
+      canvas.height = 1100;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        URL.revokeObjectURL(objectUrl);
+        return reject(new Error('Canvas context unavailable'));
+      }
+      ctx.fillStyle = '#09090b';
+      ctx.fillRect(0, 0, 1800, 1100);
+      ctx.drawImage(img, 0, 0, 1800, 1100);
+      URL.revokeObjectURL(objectUrl);
+
+      canvas.toBlob((pngBlob) => {
+        if (pngBlob) resolve(pngBlob);
+        else reject(new Error('Failed to create PNG blob'));
+      }, 'image/png');
+    };
+    img.onerror = (e) => {
+      URL.revokeObjectURL(objectUrl);
+      reject(e);
+    };
+    img.src = objectUrl;
+  });
+}
+
+export async function shareVisualImageToWhatsApp(
+  svgUrl: string, 
+  categoryLabel: string, 
+  studentUrl: string
+): Promise<boolean> {
+  const text = formatVisualRiddleForWhatsApp(categoryLabel, studentUrl);
+
+  // Try native file share first (sends actual PNG image directly to WhatsApp)
+  if (typeof navigator !== 'undefined' && navigator.share && navigator.canShare) {
+    try {
+      const pngBlob = await convertSvgUrlToPngBlob(svgUrl);
+      const file = new File([pngBlob], 'shluf-riddle.png', { type: 'image/png' });
+
+      if (navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'חידה בציורים - שלוף',
+          text: text
+        });
+        return true;
+      }
+    } catch {
+      // User cancelled or file sharing failed, fallback to link share
+    }
+  }
+
+  // Fallback: share text + student link
+  return await shareToWhatsApp(text, studentUrl);
+}
+
+export async function downloadVisualAsPng(svgUrl: string, filename: string): Promise<void> {
+  try {
+    const pngBlob = await convertSvgUrlToPngBlob(svgUrl);
+    const url = URL.createObjectURL(pngBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    const cleanName = filename.replace(/\.svg$/i, '');
+    link.download = `${cleanName}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch {
+    downloadVisualImage(svgUrl, filename);
+  }
+}
+
 export function downloadVisualImage(imageUrl: string, filename: string): void {
   if (typeof window === 'undefined') return;
   const link = document.createElement('a');

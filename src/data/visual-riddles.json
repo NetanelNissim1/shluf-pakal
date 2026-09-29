@@ -5,7 +5,7 @@
     "mainCategory": "holidays",
     "holidayTag": "rosh-hashana",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-01.svg",
+    "imageUrl": "/assets/visual_riddles/hol-01.svg?v=clean2",
     "rebusFormulaDescription": "`[ציור של תפוח] + [אות ב'] + [ציור צנצנת דבש]`",
     "hints": [
       "הברכה המתוקה והמפורסמת ביותר של פתיחת השנה."
@@ -19,7 +19,7 @@
     "mainCategory": "holidays",
     "holidayTag": "rosh-hashana",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-02.svg",
+    "imageUrl": "/assets/visual_riddles/hol-02.svg?v=clean2",
     "rebusFormulaDescription": "`[לוח שנה] + [בוהן מורמת / חיוך] + [סוכרייה]`",
     "hints": [
       "האיחול שמחליפים בין כולם בחודש תשרי."
@@ -33,7 +33,7 @@
     "mainCategory": "holidays",
     "holidayTag": "yom-kippur",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/hol-03.svg",
+    "imageUrl": "/assets/visual_riddles/hol-03.svg?v=clean2",
     "rebusFormulaDescription": "`[קו גמר] + [עט חותם על חוזה] + [סימן V ירוק]`",
     "hints": [
       "הברכה המסורתית שמברכים בין כסה לעשור."
@@ -47,7 +47,7 @@
     "mainCategory": "holidays",
     "holidayTag": "sukkot",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-04.svg",
+    "imageUrl": "/assets/visual_riddles/hol-04.svg?v=clean2",
     "rebusFormulaDescription": "`[ספרה 4] + [סמלי זכר ונקבה]`",
     "hints": [
       "מנענעים אותם בסוכה."
@@ -61,7 +61,7 @@
     "mainCategory": "holidays",
     "holidayTag": "sukkot",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-05.svg",
+    "imageUrl": "/assets/visual_riddles/hol-05.svg?v=clean2",
     "rebusFormulaDescription": "`[יונת שלום + י\"ת] + [פטיש ומסמר] + [סוכה]`",
     "hints": [
       "שיר ילדים מפורסם של נעמי שמר."
@@ -75,7 +75,7 @@
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-06.svg",
+    "imageUrl": "/assets/visual_riddles/hol-06.svg?v=clean2",
     "rebusFormulaDescription": "`[כוס נס קפה] + [ענק/פיל] + [איור של פה]`",
     "hints": [
       "האותיות נ' ג' ה' פ' שעל הסביבון הישראלי."
@@ -89,7 +89,7 @@
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-07.svg",
+    "imageUrl": "/assets/visual_riddles/hol-07.svg?v=clean2",
     "rebusFormulaDescription": "`[טיפת דמעה] + [חנוכייה]`",
     "hints": [
       "מטבעות השוקולד שהסבים וההורים מחלקים לילדים בחג."
@@ -103,7 +103,7 @@
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-08.svg",
+    "imageUrl": "/assets/visual_riddles/hol-08.svg?v=clean2",
     "rebusFormulaDescription": "`[ספוג מטבח] + [נ\"י] + [ריבת תות]`",
     "hints": [
       "המאכל המטוגן המסורתי של חודש כסלו."
@@ -117,7 +117,7 @@
     "mainCategory": "holidays",
     "holidayTag": "tu-bishvat",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/hol-09.svg",
+    "imageUrl": "/assets/visual_riddles/hol-09.svg?v=clean2",
     "rebusFormulaDescription": "`[Key] + [אדם] + [עץ] + [שדה חרוש]`",
     "hints": [
       "פסוק מספר דברים ושיר מפורסם של נתן זך ושלום חנוך."
@@ -131,7 +131,7 @@
     "mainCategory": "holidays",
     "holidayTag": "tu-bishvat",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-10.svg",
+    "imageUrl": "/assets/visual_riddles/hol-10.svg?v=clean2",
     "rebusFormulaDescription": "`[האות צ' עטורת כתר] + [עץ דקל תמר] + [פרח מלבלב]`",
     "hints": [
       "פסוק מתהילים המושר בכל שבת."
@@ -145,7 +145,7 @@
     "mainCategory": "holidays",
     "holidayTag": "purim",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/hol-11.svg",
+    "imageUrl": "/assets/visual_riddles/hol-11.svg?v=clean2",
     "rebusFormulaDescription": "`[דלת נפתחת פנימה] + [עלה אדר] + [הרבה אנשים מחייכים]`",
     "hints": [
       "הכלל המפורסם של חודש אדר."
@@ -159,7 +159,7 @@
     "mainCategory": "holidays",
     "holidayTag": "purim",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-12.svg",
+    "imageUrl": "/assets/visual_riddles/hol-12.svg?v=clean2",
     "rebusFormulaDescription": "`[שליח דואר עם חבילה] + [צלחות ארוחה]`",
     "hints": [
       "אחת מארבע מצוות החג שנותנים לאיש ורעהו."
@@ -173,7 +173,7 @@
     "mainCategory": "holidays",
     "holidayTag": "purim",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-13.svg",
+    "imageUrl": "/assets/visual_riddles/hol-13.svg?v=clean2",
     "rebusFormulaDescription": "`[ציור של אוזן] + [דמות רשע עם כובע משולש]`",
     "hints": [
       "המאפה המשולש עם פרג או שוקולד."
@@ -187,7 +187,7 @@
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-14.svg",
+    "imageUrl": "/assets/visual_riddles/hol-14.svg?v=clean2",
     "rebusFormulaDescription": "`[שלט EXIT] + [פירמידות]`",
     "hints": [
       "האירוע המרכזי אותו מספרים בהגדה בליל הסדר."
@@ -201,7 +201,7 @@
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-15.svg",
+    "imageUrl": "/assets/visual_riddles/hol-15.svg?v=clean2",
     "rebusFormulaDescription": "`[אזיקים שבורים] + [שלד עצמות / חרות]`",
     "hints": [
       "פיוט מפורסם הפותח את סיפור יציאת מצרים בהגדה."
@@ -215,7 +215,7 @@
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-16.svg",
+    "imageUrl": "/assets/visual_riddles/hol-16.svg?v=clean2",
     "rebusFormulaDescription": "`[קערה] + [ליל ירח מלא] + [חצים מסודרים בסדר מופתי]`",
     "hints": [
       "עליה מונחים הזרוע, הביצה, המרור והחרוסת."
@@ -229,7 +229,7 @@
     "mainCategory": "holidays",
     "holidayTag": "independence-day",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-17.svg",
+    "imageUrl": "/assets/visual_riddles/hol-17.svg?v=clean2",
     "rebusFormulaDescription": "`[מגן] + [דוד המלך] + [צבעי כחול-לבן]`",
     "hints": [
       "הסמל הלאומי במרכז הדגל."
@@ -243,7 +243,7 @@
     "mainCategory": "holidays",
     "holidayTag": "shavuot",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/hol-18.svg",
+    "imageUrl": "/assets/visual_riddles/hol-18.svg?v=clean2",
     "rebusFormulaDescription": "`[סל טנא פירות] + [מגל קוצר תבואה] + [שיבולת חיטה]`",
     "hints": [
       "שם נוסף לחג מתן תורה ועונת השנה החקלאית."
@@ -257,7 +257,7 @@
     "mainCategory": "holidays",
     "holidayTag": "rosh-hashana",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-19.svg",
+    "imageUrl": "/assets/visual_riddles/hol-19.svg?v=clean2",
     "rebusFormulaDescription": "`[שופר איל] + [תווי נגינה ותרועה]`",
     "hints": [
       "המצווה המרכזית ביום הדין שמשמיעה קול תרועה."
@@ -271,7 +271,7 @@
     "mainCategory": "holidays",
     "holidayTag": "rosh-hashana",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-20.svg",
+    "imageUrl": "/assets/visual_riddles/hol-20.svg?v=clean2",
     "rebusFormulaDescription": "`[מעטפת כרטיס] + [כוכב ברכה זוהר]`",
     "hints": [
       "\"שנה טובה\" שהיינו נוהגים לשלוח בדואר לקרובים."
@@ -285,7 +285,7 @@
     "mainCategory": "holidays",
     "holidayTag": "yom-kippur",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-21.svg",
+    "imageUrl": "/assets/visual_riddles/hol-21.svg?v=clean2",
     "rebusFormulaDescription": "`[פה חתום ברוכסן] + [נוצה קלה]`",
     "hints": [
       "הברכה הנפוצה ביותר שמברכים זה את זה בערב יום הכיפורים."
@@ -299,7 +299,7 @@
     "mainCategory": "holidays",
     "holidayTag": "yom-kippur",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-22.svg",
+    "imageUrl": "/assets/visual_riddles/hol-22.svg?v=clean2",
     "rebusFormulaDescription": "`[ספר פתוח] + [עץ החיים הירוק]`",
     "hints": [
       "תפילה מרכזית בימים נוראים: \"בספר חיים ברכה ושלום נזכר ונכתב\"."
@@ -313,7 +313,7 @@
     "mainCategory": "holidays",
     "holidayTag": "sukkot",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/hol-23.svg",
+    "imageUrl": "/assets/visual_riddles/hol-23.svg?v=clean2",
     "rebusFormulaDescription": "`[אורחים נכנסים] + [כתר קדושה]`",
     "hints": [
       "שבעת האורחים הרוחניים שמזמינים לסוכה בכל ערב."
@@ -327,7 +327,7 @@
     "mainCategory": "holidays",
     "holidayTag": "sukkot",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-24.svg",
+    "imageUrl": "/assets/visual_riddles/hol-24.svg?v=clean2",
     "rebusFormulaDescription": "`[מעגל מסתובב] + [ספרה 2]`",
     "hints": [
       "הריקודים המסורתיים עם ספרי התורה במוצאי החג."
@@ -341,7 +341,7 @@
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-25.svg",
+    "imageUrl": "/assets/visual_riddles/hol-25.svg?v=clean2",
     "rebusFormulaDescription": "`[מבצר סלע] + [גלגל הצלה]`",
     "hints": [
       "הפיוט המרכזי ששרים כולם מיד לאחר הדלקת הנרות בחנוכה."
@@ -355,7 +355,7 @@
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-26.svg",
+    "imageUrl": "/assets/visual_riddles/hol-26.svg?v=clean2",
     "rebusFormulaDescription": "`[נר] + [איש] + [בית]`",
     "hints": [
       "הגדרת חז\"ל בתלמוד למצוות היסוד של הדלקת נרות חנוכה."
@@ -369,7 +369,7 @@
     "mainCategory": "holidays",
     "holidayTag": "tu-bishvat",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-27.svg",
+    "imageUrl": "/assets/visual_riddles/hol-27.svg?v=clean2",
     "rebusFormulaDescription": "`[ענף שקדייה] + [שמש זוהרת]`",
     "hints": [
       "השיר המפורסם: \"...ושמש פז זורחת, ציפורים מראש כל גג\"."
@@ -383,7 +383,7 @@
     "mainCategory": "holidays",
     "holidayTag": "tu-bishvat",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-28.svg",
+    "imageUrl": "/assets/visual_riddles/hol-28.svg?v=clean2",
     "rebusFormulaDescription": "`[סלסילת פירות] + [שמש יובש מדברית]`",
     "hints": [
       "תאנים, תמרים, צימוקים וחרובים שאוכלים בסדר החג."
@@ -397,7 +397,7 @@
     "mainCategory": "holidays",
     "holidayTag": "purim",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/hol-29.svg",
+    "imageUrl": "/assets/visual_riddles/hol-29.svg?v=clean2",
     "rebusFormulaDescription": "`[סוס מלכות] + [כתר זהב] + [חץ הכרזה]`",
     "hints": [
       "מה שקרא המן ברחובות שושן הבירה לפני מרדכי."
@@ -411,7 +411,7 @@
     "mainCategory": "holidays",
     "holidayTag": "purim",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-30.svg",
+    "imageUrl": "/assets/visual_riddles/hol-30.svg?v=clean2",
     "rebusFormulaDescription": "`[חבית יין] + [סימן שאלה/אי-ידיעה]`",
     "hints": [
       "מצוות המשתה והעדלאידע המפורסמת של פורים."
@@ -425,7 +425,7 @@
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-31.svg",
+    "imageUrl": "/assets/visual_riddles/hol-31.svg?v=clean2",
     "rebusFormulaDescription": "`[?] + [זיקית משנה צבע] + [מצה]`",
     "hints": [
       "ארבע הקושיות שפותח בהן הילד הצעיר בליל הסדר."
@@ -439,7 +439,7 @@
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/hol-32.svg",
+    "imageUrl": "/assets/visual_riddles/hol-32.svg?v=clean2",
     "rebusFormulaDescription": "`[ברק מכה] + [מספר 1 - בכור]`",
     "hints": [
       "המכה העשירית והקשה מכולן במצרים שגרמה לפרעה לשלח את בני ישראל."
@@ -453,7 +453,7 @@
     "mainCategory": "holidays",
     "holidayTag": "independence-day",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-33.svg",
+    "imageUrl": "/assets/visual_riddles/hol-33.svg?v=clean2",
     "rebusFormulaDescription": "`[צופר אזעקה] + [אדם עומד דום]`",
     "hints": [
       "שתי דקות של עמידה ברחבי הארץ להתייחדות עם זכר הנופלים."
@@ -467,7 +467,7 @@
     "mainCategory": "holidays",
     "holidayTag": "shavuot",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/hol-34.svg",
+    "imageUrl": "/assets/visual_riddles/hol-34.svg?v=clean2",
     "rebusFormulaDescription": "`[מתנה] + [לוחות הברית]`",
     "hints": [
       "המאורע המכונן בהר סיני הנחגג בחג השבועות."
@@ -481,7 +481,7 @@
     "mainCategory": "general",
     "generalTag": "`מוסר השכל`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-01.svg",
+    "imageUrl": "/assets/visual_riddles/gen-01.svg?v=clean2",
     "rebusFormulaDescription": "`[The End] + [בנאי עובד] + [בועת מחשבה] + [ספרה 1]`",
     "hints": [
       "פיוט \"לכה דודי\" - עצה לחשוב היטב לפני שפועלים."
@@ -495,7 +495,7 @@
     "mainCategory": "general",
     "generalTag": "`עולם החי והצומח`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-02.svg",
+    "imageUrl": "/assets/visual_riddles/gen-02.svg?v=clean2",
     "rebusFormulaDescription": "`[איקס אדום על דובים] + [איקס אדום על עצי יער]`",
     "hints": [
       "ביטוי שאומר: הדבר לא קרה מעולם, שקר מוחלט."
@@ -509,7 +509,7 @@
     "mainCategory": "general",
     "generalTag": "`חכמה וזיכרון`",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/gen-03.svg",
+    "imageUrl": "/assets/visual_riddles/gen-03.svg?v=clean2",
     "rebusFormulaDescription": "`[בור לבן מסויד] + [טיפת מים עם מגן]`",
     "hints": [
       "כינוי במסכת אבות לתלמיד בעל זיכרון פנומנלי (רבי אליעזר בן הורקנוס)."
@@ -523,7 +523,7 @@
     "mainCategory": "general",
     "generalTag": "`התנהגות`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-04.svg",
+    "imageUrl": "/assets/visual_riddles/gen-04.svg?v=clean2",
     "rebusFormulaDescription": "`[פטיש שובר צלחת וכוס]`",
     "hints": [
       "החליט להפסיק לשתף פעולה, \"שוברים את הכלים ולא משחקים\"."
@@ -537,7 +537,7 @@
     "mainCategory": "general",
     "generalTag": "`עצלנות`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-05.svg",
+    "imageUrl": "/assets/visual_riddles/gen-05.svg?v=clean2",
     "rebusFormulaDescription": "`[כף יד קבורה בתוך צלחת מרק]`",
     "hints": [
       "ביטוי מספר משלי שמתאר אדם פסיבי ועצלן שאינו עושה דבר."
@@ -551,7 +551,7 @@
     "mainCategory": "general",
     "generalTag": "`הבנה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-06.svg",
+    "imageUrl": "/assets/visual_riddles/gen-06.svg?v=clean2",
     "rebusFormulaDescription": "`[אסימון נופל בחריץ] + [נורת חשמל צהובה]`",
     "hints": [
       "הביטוי העממי שמתאר את הרגע שבו אדם הבין סוף סוף משהו מסובך."
@@ -565,7 +565,7 @@
     "mainCategory": "general",
     "generalTag": "`דיבור ותקשורת`",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/gen-07.svg",
+    "imageUrl": "/assets/visual_riddles/gen-07.svg?v=clean2",
     "rebusFormulaDescription": "`[סמיילי חיים + סמל מוות] + [יד אוחזת לשון]`",
     "hints": [
       "פתגם מספר משלי המדגיש את כוחן של המילים לבנות או להרוס."
@@ -579,7 +579,7 @@
     "mainCategory": "general",
     "generalTag": "`אופי והתנהגות`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-08.svg",
+    "imageUrl": "/assets/visual_riddles/gen-08.svg?v=clean2",
     "rebusFormulaDescription": "`[מים שקטים] + [חץ יורד לעומק]`",
     "hints": [
       "פתגם המתאר אדם שקט וצנוע אך בעל עוצמה והשפעה רבה."
@@ -593,7 +593,7 @@
     "mainCategory": "general",
     "generalTag": "`רגשות וכעס`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-09.svg",
+    "imageUrl": "/assets/visual_riddles/gen-09.svg?v=clean2",
     "rebusFormulaDescription": "`[חץ למעלה] + [טיפת דם] + [ראש אדם]`",
     "hints": [
       "ביטוי שמתאר התפרצות בלתי נשלטת של כעס ורוגז."
@@ -607,7 +607,7 @@
     "mainCategory": "general",
     "generalTag": "`צניעות`",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/gen-10.svg",
+    "imageUrl": "/assets/visual_riddles/gen-10.svg?v=clean2",
     "rebusFormulaDescription": "`[אופה/נחתום] + [איקס אדום] + [בצק/עיסה]`",
     "hints": [
       "פתגם חז\"ל: יוצר המוצר אינו יכול לשבח בעצמו את מעשה ידיו."
@@ -621,7 +621,7 @@
     "mainCategory": "general",
     "generalTag": "`הקלה ושמחה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-11.svg",
+    "imageUrl": "/assets/visual_riddles/gen-11.svg?v=clean2",
     "rebusFormulaDescription": "`[סלע מתגלגל] + [לב משוחרר]`",
     "hints": [
       "ביטוי לתחושת הקלה ורווחה עצומה לאחר שדאגה כבדה הוסרה."
@@ -635,7 +635,7 @@
     "mainCategory": "general",
     "generalTag": "`ראייה כוללת`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-12.svg",
+    "imageUrl": "/assets/visual_riddles/gen-12.svg?v=clean2",
     "rebusFormulaDescription": "`[הרבה עצי יער] + [עיניים עם איקס]`",
     "hints": [
       "מצב שבו מתעמקים יותר מדי בפרטים הטכניים ושוכחים את המטרה הגדולה."
@@ -649,7 +649,7 @@
     "mainCategory": "general",
     "generalTag": "`יחסים והתנהגות`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-13.svg",
+    "imageUrl": "/assets/visual_riddles/gen-13.svg?v=clean2",
     "rebusFormulaDescription": "`[מכשול רגליים במסלול]`",
     "hints": [
       "חיבל בכוונה בהתקדמותו או בהצלחתו של אדם אחר."
@@ -663,7 +663,7 @@
     "mainCategory": "general",
     "generalTag": "`שבילים והובלה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-14.svg",
+    "imageUrl": "/assets/visual_riddles/gen-14.svg?v=clean2",
     "rebusFormulaDescription": "`[דרך סלולה] + [כתר מלך]`",
     "hints": [
       "הדרך הראשית, הישרה והנכונה ביותר להגיע אל המטרה."
@@ -677,7 +677,7 @@
     "mainCategory": "general",
     "generalTag": "`מידה ושיקול דעת`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-15.svg",
+    "imageUrl": "/assets/visual_riddles/gen-15.svg?v=clean2",
     "rebusFormulaDescription": "`[עומס חפצים מרובים] + [ספרה 0]`",
     "hints": [
       "כלל חז\"ל מפורסם: מי שמנסה לקחת או להשיג יותר מדי – נשאר בידיים ריקות."
@@ -691,7 +691,7 @@
     "mainCategory": "general",
     "generalTag": "`אושר ורוח`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-16.svg",
+    "imageUrl": "/assets/visual_riddles/gen-16.svg?v=clean2",
     "rebusFormulaDescription": "`[מטבע זהב] + [חיוך שמח] + [פרוסת עוגה]`",
     "hints": [
       "מאמר חז\"ל ממסכת אבות: מיהו האדם המאושר באמת בעולמו."
@@ -705,7 +705,7 @@
     "mainCategory": "general",
     "generalTag": "`דינמיקה והתפתחות`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-17.svg",
+    "imageUrl": "/assets/visual_riddles/gen-17.svg?v=clean2",
     "rebusFormulaDescription": "`[כדור שלג מתגלגל]`",
     "hints": [
       "תהליך קטן שהחל בפשטות והתפתח במהירות לסערה או משבר גדול."
@@ -719,7 +719,7 @@
     "mainCategory": "general",
     "generalTag": "`תקשורת וגיבוש`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-18.svg",
+    "imageUrl": "/assets/visual_riddles/gen-18.svg?v=clean2",
     "rebusFormulaDescription": "`[פטיש שובר] + [קוביית קרח]`",
     "hints": [
       "הפגת המבוכה, הריחוק והמתח בתחילתו של מפגש קבוצתי."
@@ -733,7 +733,7 @@
     "mainCategory": "general",
     "generalTag": "`דיבור ואמונה`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-19.svg",
+    "imageUrl": "/assets/visual_riddles/gen-19.svg?v=clean2",
     "rebusFormulaDescription": "`[פה פתוח] + [שד עם קרניים]`",
     "hints": [
       "אזהרה עממית שלא לדבר על אסון או צרה כדי לא לזמן אותם במילים."
@@ -747,7 +747,7 @@
     "mainCategory": "general",
     "generalTag": "`הבנה ומחשבה`",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/gen-20.svg",
+    "imageUrl": "/assets/visual_riddles/gen-20.svg?v=clean2",
     "rebusFormulaDescription": "`[סולם יורד] + [מוח חושב]`",
     "hints": [
       "הצליח להבין לעומק ובדיוק את כוונתו של אדם אחר."
@@ -761,7 +761,7 @@
     "mainCategory": "general",
     "generalTag": "`כדאיות וכלכלה`",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/gen-21.svg",
+    "imageUrl": "/assets/visual_riddles/gen-21.svg?v=clean2",
     "rebusFormulaDescription": "`[שכר (+)] + [הפסד גדול (-)]`",
     "hints": [
       "הנזק, הטרחה וההפסד גדולים בהרבה מהתועלת הקטנה שהופקה."
@@ -775,7 +775,7 @@
     "mainCategory": "general",
     "generalTag": "`אומץ וגבורה`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-22.svg",
+    "imageUrl": "/assets/visual_riddles/gen-22.svg?v=clean2",
     "rebusFormulaDescription": "`[לב/נפש] + [כף יד פתוחה]`",
     "hints": [
       "ביטוי תנ\"כי המתאר אדם שלקח סיכון גדול עד כדי סכנת חיים ממש."
@@ -789,7 +789,7 @@
     "mainCategory": "general",
     "generalTag": "`סבלנות והתמדה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/gen-23.svg",
+    "imageUrl": "/assets/visual_riddles/gen-23.svg?v=clean2",
     "rebusFormulaDescription": "`[עקב נעל] + [אגודל רגל]`",
     "hints": [
       "התקדמות איטית, זהירה ומחושבת צעד אחר צעד."
@@ -803,7 +803,7 @@
     "mainCategory": "general",
     "generalTag": "`סקרנות והשפעה`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/gen-24.svg",
+    "imageUrl": "/assets/visual_riddles/gen-24.svg?v=clean2",
     "rebusFormulaDescription": "`[עין מציצה] + [כוכב פגיעה]`",
     "hints": [
       "נחשף לעולם חדש, התלהב והושפע ממנו באופן ששינה את דרכו."
@@ -817,7 +817,7 @@
     "mainCategory": "general",
     "generalTag": "`קשיים ותלאות`",
     "difficulty": "hard",
-    "imageUrl": "/assets/visual_riddles/gen-25.svg",
+    "imageUrl": "/assets/visual_riddles/gen-25.svg?v=clean2",
     "rebusFormulaDescription": "`[ספרה 7] + [להבות אש גיהנום]`",
     "hints": [
       "מסכת ייסורים, תלאות וקשיים רבים שאדם עבר עד שהגיע לתוצאה הרצויה."
@@ -831,7 +831,7 @@
     "mainCategory": "geography",
     "generalTag": "`ערים במרכז`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-01.svg",
+    "imageUrl": "/assets/visual_riddles/geo-01.svg?v=clean2",
     "rebusFormulaDescription": "`[דלת פתוחה] + [בלון מחשבה עם ציור כוכב משאלות]`",
     "hints": [
       "\"אם המושבות\" שנוסדה ב-1878."
@@ -845,7 +845,7 @@
     "mainCategory": "geography",
     "generalTag": "`הגליל`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-02.svg",
+    "imageUrl": "/assets/visual_riddles/geo-02.svg?v=clean2",
     "rebusFormulaDescription": "`[ציור של ראש אדם] + [חץ לפינה של חדר]`",
     "hints": [
       "מושבה גלילית ציורית למרגלות צפת (\"אבן מאסו הבונים הייתה ל...\")."
@@ -859,7 +859,7 @@
     "mainCategory": "geography",
     "generalTag": "`הנגב`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-03.svg",
+    "imageUrl": "/assets/visual_riddles/geo-03.svg?v=clean2",
     "rebusFormulaDescription": "`[באר מים] + [ספרה 7]`",
     "hints": [
       "בירת הנגב ועיר האבות."
@@ -873,7 +873,7 @@
     "mainCategory": "geography",
     "generalTag": "`ים המלח ומדבר יהודה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-04.svg",
+    "imageUrl": "/assets/visual_riddles/geo-04.svg?v=clean2",
     "rebusFormulaDescription": "`[איור עין] + [איור גדי עזים]`",
     "hints": [
       "נווה מדבר מפורסם לחופי ים המלח עם מפל מים ויעלים."
@@ -887,7 +887,7 @@
     "mainCategory": "geography",
     "generalTag": "`צפון`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-05.svg",
+    "imageUrl": "/assets/visual_riddles/geo-05.svg?v=clean2",
     "rebusFormulaDescription": "`[מגדל גבוה] + [ציור עמק ירוק בין הרים]`",
     "hints": [
       "עיר במחוז הצפון המשקיפה על עמק יזרעאל."
@@ -901,7 +901,7 @@
     "mainCategory": "geography",
     "generalTag": "`הגליל`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-06.svg",
+    "imageUrl": "/assets/visual_riddles/geo-06.svg?v=clean2",
     "rebusFormulaDescription": "`[כרם ענבים] + [אותיות אֵל]`",
     "hints": [
       "העיר המרכזית בבקעת בית הכרם בגליל, עיר מחולות מפורסמת."
@@ -915,7 +915,7 @@
     "mainCategory": "geography",
     "generalTag": "`מישור החוף הצפוני`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-07.svg",
+    "imageUrl": "/assets/visual_riddles/geo-07.svg?v=clean2",
     "rebusFormulaDescription": "`[נהר זורם] + [אותיות יָהּ]`",
     "hints": [
       "עיר החוף הצפונית אשר נחל געתון חוצה את שדרתה המרכזית."
@@ -929,7 +929,7 @@
     "mainCategory": "geography",
     "generalTag": "`הכרמל וחיפה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-08.svg",
+    "imageUrl": "/assets/visual_riddles/geo-08.svg?v=clean2",
     "rebusFormulaDescription": "`[איור נשר פורש כנפיים]`",
     "hints": [
       "עיר למרגלות הכרמל הידועה בפארק הגשרים התלויים מעל נחל קטיע."
@@ -943,7 +943,7 @@
     "mainCategory": "geography",
     "generalTag": "`השרון`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-09.svg",
+    "imageUrl": "/assets/visual_riddles/geo-09.svg?v=clean2",
     "rebusFormulaDescription": "`[בתי כפר] + [דמות סבא]`",
     "hints": [
       "עיר מרכזית בדרום השרון שהוקמה כמושבה חקלאית ב-1903."
@@ -957,7 +957,7 @@
     "mainCategory": "geography",
     "generalTag": "`השרון`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-10.svg",
+    "imageUrl": "/assets/visual_riddles/geo-10.svg?v=clean2",
     "rebusFormulaDescription": "`[רמה מוגבהת] + [תות שדה של השרון]`",
     "hints": [
       "עיר בשרון הגובלת בתל אביב והרצליה, מפורסמת בשדות התותים שלה."
@@ -971,7 +971,7 @@
     "mainCategory": "geography",
     "generalTag": "`השפלה והרי יהודה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-11.svg",
+    "imageUrl": "/assets/visual_riddles/geo-11.svg?v=clean2",
     "rebusFormulaDescription": "`[בית] + [שמש]`",
     "hints": [
       "עיר היסטורית בשפלת יהודה מול הרי ירושלים (\"מנחל שורק עד עמק האלה\")."
@@ -985,7 +985,7 @@
     "mainCategory": "geography",
     "generalTag": "`הנגב הצפוני`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-12.svg",
+    "imageUrl": "/assets/visual_riddles/geo-12.svg?v=clean2",
     "rebusFormulaDescription": "`[שבילי נתיבות מתפצלים]`",
     "hints": [
       "עיר בנגב המערבי הידועה כעיר הקדושה בה קבור הבאבא סאלי."
@@ -999,7 +999,7 @@
     "mainCategory": "geography",
     "generalTag": "`רמת הגולן`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-13.svg",
+    "imageUrl": "/assets/visual_riddles/geo-13.svg?v=clean2",
     "rebusFormulaDescription": "`[סרגל קצר] + [אותיות יִין]`",
     "hints": [
       "היישוב המרכזי והבירה הלא-רשמית של רמת הגולן."
@@ -1013,7 +1013,7 @@
     "mainCategory": "geography",
     "generalTag": "`אצבע הגליל`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-14.svg",
+    "imageUrl": "/assets/visual_riddles/geo-14.svg?v=clean2",
     "rebusFormulaDescription": "`[טלטול מעגלי] + [האות הּ]`",
     "hints": [
       "המושבה הצפונית ביותר בישראל, סמוך למפל התנור ולגבול לבנון."
@@ -1027,7 +1027,7 @@
     "mainCategory": "geography",
     "generalTag": "`מדבר יהודה והבקעה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-15.svg",
+    "imageUrl": "/assets/visual_riddles/geo-15.svg?v=clean2",
     "rebusFormulaDescription": "`[גלי ים] + [מלחייה]`",
     "hints": [
       "ימת המלח הסגורה והמקום הנמוך ביותר על פני כדור הארץ."
@@ -1041,7 +1041,7 @@
     "mainCategory": "geography",
     "generalTag": "`הגליל התחתון`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-16.svg",
+    "imageUrl": "/assets/visual_riddles/geo-16.svg?v=clean2",
     "rebusFormulaDescription": "`[הר כיפתי] + [כנסיית ההשתנות בתבור]`",
     "hints": [
       "הר מבודד וכיפתי מרשים המתנשא מעל עמק יזרעאל."
@@ -1055,7 +1055,7 @@
     "mainCategory": "geography",
     "generalTag": "`מדבר יהודה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-17.svg",
+    "imageUrl": "/assets/visual_riddles/geo-17.svg?v=clean2",
     "rebusFormulaDescription": "`[מבצר בצוק מבודד] + [שביל הנחש]`",
     "hints": [
       "מבצר הורדוס וסמל עמידתם ההירואית של הקנאים מול הלגיון הרומי."
@@ -1069,7 +1069,7 @@
     "mainCategory": "geography",
     "generalTag": "`הערבה והדרום`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-18.svg",
+    "imageUrl": "/assets/visual_riddles/geo-18.svg?v=clean2",
     "rebusFormulaDescription": "`[איילה] + [דולפין בים סוף]`",
     "hints": [
       "עיר הנמל והנופש הדרומית ביותר בישראל לחופי מפרץ אילת."
@@ -1083,7 +1083,7 @@
     "mainCategory": "geography",
     "generalTag": "`גוש דן והמרכז`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-19.svg",
+    "imageUrl": "/assets/visual_riddles/geo-19.svg?v=clean2",
     "rebusFormulaDescription": "`[דיונת חול] + [אותיות וֹן]`",
     "hints": [
       "עיר במחוז תל אביב שהוקמה על גבי חולות נודדים, וידועה כ\"עיר הילדים\"."
@@ -1097,7 +1097,7 @@
     "mainCategory": "geography",
     "generalTag": "`מדבר יהודה ובנימין`",
     "difficulty": "medium",
-    "imageUrl": "/assets/visual_riddles/geo-20.svg",
+    "imageUrl": "/assets/visual_riddles/geo-20.svg?v=clean2",
     "rebusFormulaDescription": "`[מדרגות מעלה] + [צבע אדום]`",
     "hints": [
       "עיר במדבר יהודה על הדרך העולה מיריחו ומים המלח לירושלים."
@@ -1111,7 +1111,7 @@
     "mainCategory": "geography",
     "generalTag": "`הרי יהודה ושפלה`",
     "difficulty": "easy",
-    "imageUrl": "/assets/visual_riddles/geo-21.svg",
+    "imageUrl": "/assets/visual_riddles/geo-21.svg?v=clean2",
     "rebusFormulaDescription": "`[שער קשת] + [עמק גיא עם משוריין]`",
     "hints": [
       "באב אל-וואד - פתח המעבר הצר והמפורסם בדרך ההיסטורית לירושלים."

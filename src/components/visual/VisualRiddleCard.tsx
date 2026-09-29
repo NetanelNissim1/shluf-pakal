@@ -16,7 +16,7 @@ import {
 import { VisualRiddle } from '../../types';
 import { usePakalStore } from '../../store/usePakalStore';
 import { triggerHaptic } from '../../lib/haptics';
-import { formatVisualRiddleForWhatsApp, shareToWhatsApp, getStudentShareUrl } from '../../lib/share';
+import { formatVisualRiddleForWhatsApp, shareVisualImageToWhatsApp, getStudentShareUrl } from '../../lib/share';
 
 interface VisualRiddleCardProps {
   riddle: VisualRiddle;
@@ -72,8 +72,7 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
     if (hapticsEnabled) triggerHaptic(25);
     const studentUrl = getStudentShareUrl(riddle.id);
     const catLabel = riddle.mainCategory === 'holidays' ? 'חגי ישראל' : riddle.mainCategory === 'geography' ? 'אתרים בארץ' : 'ביטויים ופתגמים';
-    const text = formatVisualRiddleForWhatsApp(catLabel, studentUrl);
-    await shareToWhatsApp(text, studentUrl);
+    await shareVisualImageToWhatsApp(riddle.imageUrl, catLabel, studentUrl);
     setCopiedWhatsApp(true);
     setTimeout(() => setCopiedWhatsApp(false), 2000);
   };

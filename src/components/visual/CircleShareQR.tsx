@@ -7,7 +7,9 @@ import {
   copyToClipboard, 
   formatVisualRiddleForWhatsApp, 
   shareToWhatsApp, 
+  shareVisualImageToWhatsApp,
   downloadVisualImage,
+  downloadVisualAsPng,
   getStudentShareUrl,
   getBaseShareUrl
 } from '../../lib/share';
@@ -138,13 +140,12 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
 
         {/* Action Buttons: WhatsApp Group Share, Copy Link, and Download Image */}
         <div className="space-y-2">
-          {/* Direct WhatsApp Share Button */}
+          {/* Direct WhatsApp Share Button (shares clean PNG image + link) */}
           <button
             onClick={async () => {
               if (hapticsEnabled) triggerHaptic(30);
               const catLabel = riddle.mainCategory === 'holidays' ? 'חגי ישראל' : riddle.mainCategory === 'geography' ? 'אתרים בארץ' : 'ביטויים ופתגמים';
-              const text = formatVisualRiddleForWhatsApp(catLabel, shareUrl);
-              await shareToWhatsApp(text, shareUrl);
+              await shareVisualImageToWhatsApp(riddle.imageUrl, catLabel, shareUrl);
             }}
             className="w-full py-3.5 px-4 rounded-xl font-black text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white shadow-md shadow-emerald-950/20 transition-all touch-press"
           >
@@ -174,11 +175,11 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
             )}
           </button>
 
-          {/* Download Image Button */}
+          {/* Download Image Button (Downloads clean high-res PNG) */}
           <button
-            onClick={() => {
+            onClick={async () => {
               if (hapticsEnabled) triggerHaptic(20);
-              downloadVisualImage(riddle.imageUrl, `shluf-${riddle.id}.svg`);
+              await downloadVisualAsPng(riddle.imageUrl, `shluf-${riddle.id}.png`);
             }}
             className={`w-full py-2 px-3 rounded-xl font-bold text-[11px] flex items-center justify-center gap-1.5 border transition-all touch-press ${
               isCampfire
@@ -187,7 +188,7 @@ export const CircleShareQR: React.FC<CircleShareQRProps> = ({ riddle, onClose })
             }`}
           >
             <Download className="w-3.5 h-3.5 text-amber-500" />
-            <span>הורד איור לשליחה כקובץ תמונה</span>
+            <span>הורד איור כתמונה (PNG נקי ללא מילים)</span>
           </button>
         </div>
 

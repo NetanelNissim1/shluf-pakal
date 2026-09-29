@@ -211,7 +211,7 @@ const visualRiddles = deobfuscateData(encryptedRaw.visual);
 assert(Array.isArray(visualRiddles), 'פריקת חידות בציורים מחזירה מערך תקין');
 assert(visualRiddles.length === 80, `כמות החידות בציורים היא בדיוק 80 (נמצאו: ${visualRiddles.length})`);
 assert(visualRiddles.every(r => r.id && r.title && r.mainCategory && r.rebusFormulaDescription && r.answer), 'כל חידה בציורים מכילה שדות חובה מלאים');
-const allSvgsExist = visualRiddles.every(r => fs.existsSync(path.join(__dirname, '..', 'public', r.imageUrl)));
+const allSvgsExist = visualRiddles.every(r => fs.existsSync(path.join(__dirname, '..', 'public', r.imageUrl.split('?')[0])));
 assert(allSvgsExist, 'כל 80 קובצי ה-SVG של החידות בציורים קיימים פיזית בתיקיית public');
 const holidayVisuals = visualRiddles.filter(r => r.mainCategory === 'holidays');
 assert(holidayVisuals.length === 34, `חידות בציורים לחגי ישראל מכילות 34 רבוסים (נמצאו: ${holidayVisuals.length})`);
@@ -227,7 +227,7 @@ console.log('\n[מחזור 12]: בדיקת מוכנות 100% Offline ואבטח�
 const swPath = path.join(__dirname, '..', 'dist', 'sw.js');
 if (fs.existsSync(swPath)) {
   const swContent = fs.readFileSync(swPath, 'utf8');
-  const allSvgsCached = visualRiddles.every(r => swContent.includes(r.imageUrl.replace(/^\//, '')));
+  const allSvgsCached = visualRiddles.every(r => swContent.includes(r.imageUrl.split('?')[0].replace(/^\//, '')));
   assert(allSvgsCached, 'כל 80 קובצי ה-SVG של החידות בציורים רשומים ב-Precache של ה-Service Worker');
 } else {
   assert(true, 'קובץ ה-Service Worker ייבדק לאחר ה-Build');

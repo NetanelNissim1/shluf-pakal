@@ -472,7 +472,7 @@ function parseVisualRiddles() {
         holidayTag,
         generalTag,
         difficulty,
-        imageUrl: '/assets/visual_riddles/' + id + '.svg',
+        imageUrl: '/assets/visual_riddles/' + id + '.svg?v=clean2',
         rebusFormulaDescription,
         hints,
         answer,

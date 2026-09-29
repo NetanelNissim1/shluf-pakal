@@ -38,7 +38,12 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+        dontCacheBustURLsMatching: /-[a-zA-Z0-9_-]{8}\./,
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
+        ignoreURLParametersMatching: [/.*/]
       }
     })
   ]
