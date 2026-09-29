@@ -199,23 +199,35 @@ ${message}
       }
     }
 
-    // 6. Send via Web3Forms if WEB3FORMS_ACCESS_KEY is available
-    if (process.env.WEB3FORMS_ACCESS_KEY) {
-      await fetch('https://api.web3forms.com/submit', {
+    // 6. Send via Web3Forms (Secure Server-Side Dispatch)
+    const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY || 'b0e565eb-1234-4926-b21a-fe2d600ec143';
+    if (web3formsKey) {
+      const web3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Origin': 'https://shluf-pakal.org',
-          'Referer': 'https://shluf-pakal.org/'
+          'Referer': 'https://shluf-pakal.org/',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         },
         body: JSON.stringify({
-          access_key: process.env.WEB3FORMS_ACCESS_KEY,
+          access_key: web3formsKey,
           name,
           email: email || undefined,
+          from_name: 'שלוף פק"ל',
           subject,
           message: textContent
         })
       });
+
+      const resData = await web3Res.json().catch(() => null);
+      if (!web3Res.ok || (resData && !resData.success)) {
+        console.error('Web3Forms dispatch error:', resData);
+        return res.status(500).json({
+          success: false,
+          message: 'שגיאה בשליחת המייל דרך שרת המשוב.'
+        });
+      }
     }
 
     // Return success to the client
