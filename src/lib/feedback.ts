@@ -12,45 +12,54 @@ const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const ACCESS_KEY = 'b0e565eb-1234-4926-b21a-fe2d600ec143';
 
 const CATEGORY_HEBREW_MAP: Record<string, string> = {
-  'riddle-idea': '💡 רעיון לחידה או תוכן',
-  'site-improvement': '⚡ הצעה לייעול האתר',
-  'bug-report': '🐛 דיווח על שיבוש/תקלה',
-  'general': '💬 משוב כללי'
+  'riddle-idea': 'רעיון לחידה או תוכן',
+  'site-improvement': 'הצעה לייעול האתר',
+  'bug-report': 'דיווח על שיבוש או תקלה',
+  'general': 'משוב כללי'
 };
 
 function createFeedbackFormData(data: FeedbackSubmission): FormData {
   const categoryTitle = CATEGORY_HEBREW_MAP[data.category] || data.category;
   const formattedDate = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
 
+  // Clean, professional plain text without spam-triggering ASCII dividers or emoji floods
   const formattedMessage = `
-התקבלה הצעת ייעול חדשה מאתר שלוף פק"ל:
-======================================================
-👤 שם הפונה: ${data.name.trim()}
-🏢 מסגרת הדרכה / חברה: ${data.organization?.trim() || 'לא צוין'}
-📧 מייל לחזרה: ${data.email?.trim() || 'לא צוין (פנייה לידיעה בלבד)'}
-🏷️ נושא הפנייה: ${categoryTitle}
-📍 נשלח מתוך מסך: ${data.currentScreen || 'ראשי'}
-⏱️ תאריך ושעה: ${formattedDate}
-======================================================
-📝 תוכן ההצעה:
+שלום,
+
+התקבלה פנייה חדשה ממערכת המשוב של אתר שלוף פק"ל:
+
+• שם הפונה: ${data.name.trim()}
+• מסגרת הדרכה / חברה: ${data.organization?.trim() || 'לא צוין'}
+• מייל לחזרה: ${data.email?.trim() || 'לא צוין על ידי המשתמש (פנייה לידיעה בלבד)'}
+• נושא הפנייה: ${categoryTitle}
+• נשלח מתוך מסך: ${data.currentScreen || 'דף ראשי'}
+• תאריך ושעה: ${formattedDate}
+
+תוכן ההצעה:
 ${data.message.trim()}
-======================================================
+
+---
+הודעה זו נשלחה אוטומטית מטופס המשוב באתר שלוף פק"ל (shluf-pakal.org)
   `.trim();
 
   const formData = new FormData();
   formData.append('access_key', ACCESS_KEY);
-  formData.append('from_name', 'שלוף פק״ל');
-  formData.append('subject', `💡 ${categoryTitle} - מאת ${data.name.trim()}`);
+  formData.append('from_name', 'שלוף פקל');
+  // Clean subject without emojis (prevents spam scoring triggers)
+  formData.append('subject', `הצעת ייעול חדשה: ${categoryTitle} מאת ${data.name.trim()}`);
   formData.append('name', data.name.trim());
-  if (data.email?.trim()) {
-    formData.append('email', data.email.trim());
-  }
+  
+  // Web3Forms requires a valid email to avoid flagging submission as missing sender/spam
+  const senderEmail = data.email?.trim() || 'feedback-guest@shluf-pakal.org';
+  formData.append('email', senderEmail);
+  
   formData.append('category', categoryTitle);
   formData.append('organization', data.organization?.trim() || 'לא צוין');
   formData.append('message', formattedMessage);
 
-  if (data.bot_trap) {
-    formData.append('botcheck', data.bot_trap);
+  // Honeypot field for bot trapping
+  if (data.bot_trap && data.bot_trap.trim().length > 0) {
+    formData.append('botcheck', data.bot_trap.trim());
   }
 
   return formData;
