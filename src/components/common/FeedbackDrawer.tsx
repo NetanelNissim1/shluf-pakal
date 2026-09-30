@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Lightbulb, 
   Send, 
@@ -7,7 +7,6 @@ import {
   Building2, 
   Mail, 
   User, 
-  Sparkles, 
   WifiOff, 
   MessageSquare,
   AlertTriangle,
@@ -16,9 +15,8 @@ import {
 import confetti from 'canvas-confetti';
 import { usePakalStore } from '../../store/usePakalStore';
 import { FeedbackCategory, FeedbackSubmission } from '../../types';
+import { sendFeedback } from '../../lib/feedback';
 import { triggerHaptic } from '../../lib/haptics';
-
-const ACCESS_KEY = 'b0e565eb-1234-4926-b21a-fe2d600ec143';
 
 const CATEGORIES: { id: FeedbackCategory; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
   { id: 'riddle-idea', label: '💡 רעיון לחידה או תוכן', icon: Lightbulb },
@@ -32,8 +30,6 @@ export const FeedbackDrawer: React.FC = () => {
     isFeedbackDrawerOpen, 
     closeFeedbackDrawer, 
     savedFeedbackUser, 
-    saveFeedbackUserInfo,
-    queuePendingFeedback,
     themeMode,
     hapticsEnabled 
   } = usePakalStore();
@@ -48,7 +44,6 @@ export const FeedbackDrawer: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitResult, setSubmitResult] = useState<{ success: boolean; offline: boolean; message?: string } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const formRef = useRef<HTMLFormElement>(null);
 
   // Initialize saved values when drawer opens
   useEffect(() => {
@@ -67,98 +62,63 @@ export const FeedbackDrawer: React.FC = () => {
 
   if (!isFeedbackDrawerOpen) return null;
 
-  const currentCategoryLabel = CATEGORIES.find(c => c.id === category)?.label || '💡 משוב כללי';
-  const formattedDate = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
-
-  const formattedMessage = `
-התקבלה הצעת ייעול חדשה משלוף פק"ל:
-======================================================
-👤 שם הפונה: ${name.trim()}
-🏢 מסגרת הדרכה / חברה: ${organization.trim() || 'לא צוין'}
-📧 מייל לחזרה: ${email.trim() || 'לא צוין (פנייה לידיעה בלבד)'}
-🏷️ נושא הפנייה: ${currentCategoryLabel}
-📍 נשלח מתוך מסך: ${typeof window !== 'undefined' ? window.location.pathname : 'ראשי'}
-⏱️ תאריך ושעה: ${formattedDate}
-======================================================
-📝 תוכן ההצעה:
-${message.trim()}
-======================================================
-  `.trim();
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setErrorMessage(null);
 
     // Basic validation
     if (!name.trim()) {
-      e.preventDefault();
       setErrorMessage('נא למלא שם ושם משפחה');
       if (hapticsEnabled) triggerHaptic([50, 50]);
       return;
     }
 
     if (!message.trim()) {
-      e.preventDefault();
       setErrorMessage('נא לכתוב את תוכן ההצעה או המשוב');
       if (hapticsEnabled) triggerHaptic([50, 50]);
       return;
     }
 
-    // Save user info for future submissions
-    saveFeedbackUserInfo({
-      name: name.trim(),
-      email: email.trim(),
-      organization: organization.trim()
-    });
-
+    setIsSubmitting(true);
     if (hapticsEnabled) triggerHaptic(20);
 
-    // Check if offline (Field trail with zero reception)
-    if (typeof navigator !== 'undefined' && !navigator.onLine) {
-      e.preventDefault();
-      queuePendingFeedback({
-        name: name.trim(),
-        message: message.trim(),
-        category,
-        email: email.trim() || undefined,
-        organization: organization.trim() || undefined,
-        currentScreen: window.location.pathname
-      });
-      setSubmitResult({
-        success: true,
-        offline: true,
-        message: 'ההצעה נשמרה בהצלחה! היא תישלח אוטומטית כשתחזור לקליטה.'
-      });
-      return;
-    }
+    const submission: FeedbackSubmission = {
+      name: name.trim(),
+      message: message.trim(),
+      category,
+      email: email.trim() || undefined,
+      organization: organization.trim() || undefined,
+      bot_trap: botTrap,
+      currentScreen: typeof window !== 'undefined' ? window.location.pathname : 'ראשי'
+    };
 
-    // ONLINE MODE:
-    // Let the native form submit silently to the hidden iframe target="web3forms_sink"!
-    // This completely bypasses CORS preflights, Cloudflare fetch blocks, and never fails!
-    setIsSubmitting(true);
-    setSubmitResult({
-      success: true,
-      offline: false
-    });
-
-    if (hapticsEnabled) triggerHaptic([30, 50, 40]);
-
-    // Fire celebratory confetti on success
     try {
-      confetti({
-        particleCount: 55,
-        spread: 65,
-        origin: { y: 0.8 },
-        colors: ['#22c55e', '#3b82f6', '#eab308']
-      });
-    } catch {
-      // Confetti fallback
-    }
-
-    // Auto close after 2.5 seconds
-    setTimeout(() => {
-      closeFeedbackDrawer();
+      const result = await sendFeedback(submission);
       setIsSubmitting(false);
-    }, 2500);
+      setSubmitResult(result);
+
+      if (hapticsEnabled) triggerHaptic([30, 50, 40]);
+
+      // Fire celebratory confetti on success
+      try {
+        confetti({
+          particleCount: 55,
+          spread: 65,
+          origin: { y: 0.8 },
+          colors: ['#22c55e', '#3b82f6', '#eab308']
+        });
+      } catch {
+        // Confetti fallback
+      }
+
+      // Auto close after 2.5 seconds
+      setTimeout(() => {
+        closeFeedbackDrawer();
+      }, 2500);
+    } catch {
+      setIsSubmitting(false);
+      setErrorMessage('אירעה שגיאה בשליחת המשוב. אנא נסו שוב.');
+    }
   };
 
   const isCampfire = themeMode === 'campfire';
@@ -170,14 +130,6 @@ ${message.trim()}
         className="fixed inset-0" 
         onClick={() => !isSubmitting && closeFeedbackDrawer()}
         aria-hidden="true" 
-      />
-
-      {/* Hidden iframe sink for silent native form submission (bypasses CORS and Cloudflare blocks 100%) */}
-      <iframe
-        name="web3forms_sink"
-        id="web3forms_sink"
-        title="Web3Forms Sink"
-        style={{ display: 'none', position: 'absolute', width: 0, height: 0, border: 'none' }}
       />
 
       {/* Drawer / Modal Container */}
@@ -250,30 +202,7 @@ ${message.trim()}
             </div>
           ) : (
             /* Form Input State */
-            <form
-              ref={formRef}
-              action="https://api.web3forms.com/submit"
-              method="POST"
-              target="web3forms_sink"
-              onSubmit={handleSubmit}
-              className="space-y-4"
-            >
-              {/* Web3Forms Hidden Integration Fields */}
-              <input type="hidden" name="access_key" value={ACCESS_KEY} />
-              <input type="hidden" name="from_name" value="שלוף פק״ל" />
-              <input type="hidden" name="subject" value={`💡 ${currentCategoryLabel} - מאת ${name.trim() || 'מדריך בשטח'}`} />
-              <input type="hidden" name="name" value={name.trim()} />
-              <input type="hidden" name="email" value={email.trim()} />
-              <input type="hidden" name="category" value={currentCategoryLabel} />
-              <input type="hidden" name="organization" value={organization.trim() || 'לא צוין'} />
-              <textarea
-                name="message"
-                readOnly
-                value={formattedMessage}
-                style={{ display: 'none' }}
-                aria-hidden="true"
-              />
-
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Invisible Honeypot for Bot Protection */}
               <input
                 type="text"

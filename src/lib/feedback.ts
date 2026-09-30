@@ -18,38 +18,46 @@ const CATEGORY_HEBREW_MAP: Record<string, string> = {
   'general': '💬 משוב כללי'
 };
 
-function formatPayload(data: FeedbackSubmission) {
+function createFeedbackFormData(data: FeedbackSubmission): FormData {
   const categoryTitle = CATEGORY_HEBREW_MAP[data.category] || data.category;
   const formattedDate = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
 
   const formattedMessage = `
 התקבלה הצעת ייעול חדשה מאתר שלוף פק"ל:
 ======================================================
-👤 שם הפונה: ${data.name}
-🏢 מסגרת הדרכה / חברה: ${data.organization || 'לא צוין'}
-📧 מייל לחזרה: ${data.email || 'לא צוין (פנייה לידיעה בלבד)'}
+👤 שם הפונה: ${data.name.trim()}
+🏢 מסגרת הדרכה / חברה: ${data.organization?.trim() || 'לא צוין'}
+📧 מייל לחזרה: ${data.email?.trim() || 'לא צוין (פנייה לידיעה בלבד)'}
 🏷️ נושא הפנייה: ${categoryTitle}
 📍 נשלח מתוך מסך: ${data.currentScreen || 'ראשי'}
 ⏱️ תאריך ושעה: ${formattedDate}
 ======================================================
 📝 תוכן ההצעה:
-${data.message}
+${data.message.trim()}
 ======================================================
   `.trim();
 
-  return {
-    access_key: ACCESS_KEY,
-    from_name: 'שלוף פק"ל',
-    subject: `💡 ${categoryTitle} - מאת ${data.name}`,
-    name: data.name,
-    email: data.email || undefined,
-    message: formattedMessage,
-    botcheck: data.bot_trap || ''
-  };
+  const formData = new FormData();
+  formData.append('access_key', ACCESS_KEY);
+  formData.append('from_name', 'שלוף פק״ל');
+  formData.append('subject', `💡 ${categoryTitle} - מאת ${data.name.trim()}`);
+  formData.append('name', data.name.trim());
+  if (data.email?.trim()) {
+    formData.append('email', data.email.trim());
+  }
+  formData.append('category', categoryTitle);
+  formData.append('organization', data.organization?.trim() || 'לא צוין');
+  formData.append('message', formattedMessage);
+
+  if (data.bot_trap) {
+    formData.append('botcheck', data.bot_trap);
+  }
+
+  return formData;
 }
 
 /**
- * Send user feedback directly to secure forms endpoint or store in local outbox if offline.
+ * Send user feedback directly to secure Web3Forms endpoint or store in local outbox if offline.
  */
 export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackResult> {
   const store = usePakalStore.getState();
@@ -72,15 +80,12 @@ export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackRe
   }
 
   try {
-    const payload = formatPayload(data);
+    const formData = createFeedbackFormData(data);
 
+    // Direct simple CORS request (No custom headers -> NO preflight -> No Cloudflare block!)
     const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
+      body: formData
     });
 
     const resData = await res.json().catch(() => null);
@@ -119,14 +124,10 @@ export async function flushPendingFeedbackQueue(): Promise<void> {
 
   for (const item of queue) {
     try {
-      const payload = formatPayload(item);
+      const formData = createFeedbackFormData(item);
       const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        body: formData
       });
 
       const resData = await res.json().catch(() => null);
