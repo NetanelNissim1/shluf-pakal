@@ -7,8 +7,49 @@ export interface FeedbackResult {
   message?: string;
 }
 
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+// Anonymous Access Key tied securely on Web3Forms server to recipient inbox
+const ACCESS_KEY = 'b0e565eb-1234-4926-b21a-fe2d600ec143';
+
+const CATEGORY_HEBREW_MAP: Record<string, string> = {
+  'riddle-idea': '💡 רעיון לחידה או תוכן',
+  'site-improvement': '⚡ הצעה לייעול האתר',
+  'bug-report': '🐛 דיווח על שיבוש/תקלה',
+  'general': '💬 משוב כללי'
+};
+
+function formatPayload(data: FeedbackSubmission) {
+  const categoryTitle = CATEGORY_HEBREW_MAP[data.category] || data.category;
+  const formattedDate = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
+
+  const formattedMessage = `
+התקבלה הצעת ייעול חדשה מאתר שלוף פק"ל:
+======================================================
+👤 שם הפונה: ${data.name}
+🏢 מסגרת הדרכה / חברה: ${data.organization || 'לא צוין'}
+📧 מייל לחזרה: ${data.email || 'לא צוין (פנייה לידיעה בלבד)'}
+🏷️ נושא הפנייה: ${categoryTitle}
+📍 נשלח מתוך מסך: ${data.currentScreen || 'ראשי'}
+⏱️ תאריך ושעה: ${formattedDate}
+======================================================
+📝 תוכן ההצעה:
+${data.message}
+======================================================
+  `.trim();
+
+  return {
+    access_key: ACCESS_KEY,
+    from_name: 'שלוף פק"ל',
+    subject: `💡 ${categoryTitle} - מאת ${data.name}`,
+    name: data.name,
+    email: data.email || undefined,
+    message: formattedMessage,
+    botcheck: data.bot_trap || ''
+  };
+}
+
 /**
- * Send user feedback or store in local outbox if offline.
+ * Send user feedback directly to secure forms endpoint or store in local outbox if offline.
  */
 export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackResult> {
   const store = usePakalStore.getState();
@@ -31,13 +72,9 @@ export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackRe
   }
 
   try {
-    const payload = {
-      ...data,
-      clientTimestamp: Date.now(),
-      currentScreen: data.currentScreen || (typeof window !== 'undefined' ? window.location.pathname : '')
-    };
+    const payload = formatPayload(data);
 
-    const res = await fetch('/api/feedback', {
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +83,9 @@ export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackRe
       body: JSON.stringify(payload)
     });
 
-    if (res.ok) {
+    const resData = await res.json().catch(() => null);
+
+    if (res.ok && resData && resData.success) {
       return { success: true, offline: false };
     }
 
@@ -69,7 +108,7 @@ export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackRe
 }
 
 /**
- * Sync all pending feedback items to the server when connection is restored.
+ * Sync all pending feedback items when connection is restored.
  */
 export async function flushPendingFeedbackQueue(): Promise<void> {
   if (typeof navigator !== 'undefined' && !navigator.onLine) return;
@@ -80,16 +119,18 @@ export async function flushPendingFeedbackQueue(): Promise<void> {
 
   for (const item of queue) {
     try {
-      const res = await fetch('/api/feedback', {
+      const payload = formatPayload(item);
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(item)
+        body: JSON.stringify(payload)
       });
 
-      if (res.ok) {
+      const resData = await res.json().catch(() => null);
+      if (res.ok && resData && resData.success) {
         store.removePendingFeedback(item.id);
       }
     } catch {
