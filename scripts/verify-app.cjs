@@ -490,6 +490,47 @@ const appHasTourMount = tourAppCode.includes('<OnboardingTour />') || tourAppCod
 const appHasFirstVisitTrigger = tourAppCode.includes('shluf_onboarding_completed') && tourAppCode.includes('startTour');
 assert(appHasTourMount && appHasFirstVisitTrigger, 'קובץ App.tsx מעגן את OnboardingTour ומפעיל טריגר בכניסה ראשונה בלבד');
 
+// ======================================================
+// מחזור 19: בדיקת פישוט חוויית משתמש (הסרת אינדיקטור אינטרנט, סגירה מיידית של משוב, והסבר אופליין ב-Tour)
+// ======================================================
+console.log('\n[מחזור 19]: בדיקת פישוט ממשק המשתמש (UX Simplification & Security)');
+
+// 1. Verify Header has no Wifi or isOnline indicator
+const headerSrc = fs.readFileSync(tourHeaderPath, 'utf8');
+const hasNoWifiImport = !headerSrc.includes('Wifi,') && !headerSrc.includes('WifiOff');
+const hasNoIsOnlineState = !headerSrc.includes('isOnline');
+const hasNoWifiMarkup = !headerSrc.includes('<Wifi') && !headerSrc.includes('<WifiOff');
+assert(hasNoWifiImport && hasNoIsOnlineState && hasNoWifiMarkup, 'אינדיקטור האינטרנט/Wifi הוסר לחלוטין מ-Header.tsx (נקי מעומס מיותר)');
+
+// 2. Verify FeedbackDrawer closes immediately without delay or technical offline jargon
+const drawerSrc = fs.readFileSync(drawerPath, 'utf8');
+const hasNoSubmitDelay = !drawerSrc.includes('2500') && !drawerSrc.includes('setTimeout');
+const hasNoSubmitResultScreen = !drawerSrc.includes('submitResult');
+const hasNoTechnicalOfflineJargon = !drawerSrc.includes('זיהינו שאין קליטה סלולרית') && !drawerSrc.includes('נשמר בהצלחה לשטח');
+const hasInstantToastAndClose = drawerSrc.includes('closeFeedbackDrawer()') && drawerSrc.includes('showToast(');
+assert(hasNoSubmitDelay && hasNoSubmitResultScreen && hasNoTechnicalOfflineJargon && hasInstantToastAndClose, 'מגירת המשוב נסגרת באופן מיידי ללא מסך המתנה, ללא ז\'רגון טכני על חיבור לרשת, ומציגה הודעת Toast קלילה');
+
+// 3. Verify Toast Notification implementation in Store & App
+const storeSrc = fs.readFileSync(storePath, 'utf8');
+const appSrc = fs.readFileSync(tourAppPath, 'utf8');
+const storeHasToast = storeSrc.includes('toastMessage') && storeSrc.includes('showToast');
+const appRendersToast = appSrc.includes('toastMessage &&') && appSrc.includes('hideToast');
+assert(storeHasToast && appRendersToast, 'מנגנון Toast חיווי קל ובלתי-חוסם מיושם ב-Store ומעוגן בתצוגת App.tsx');
+
+// 4. Verify Onboarding Tour highlights 100% offline field capability
+const tourSrc = fs.readFileSync(tourPath, 'utf8');
+const hasOfflineInTour = tourSrc.includes('100% אופליין') && tourSrc.includes('ללא אינטרנט כלל');
+assert(hasOfflineInTour, 'הסברי ה-Tooltips ב-Onboarding מדגישים בצורה ברורה שהאפליקציה פועלת 100% אופליין בשטח ללא אינטרנט');
+
+// 5. Strict security verification: Check production dist for zero email leak and CSP
+const distIndexPath = path.join(__dirname, '..', 'dist', 'index.html');
+if (fs.existsSync(distIndexPath)) {
+  const distHtml = fs.readFileSync(distIndexPath, 'utf8');
+  const distHasNoEmail = !distHtml.includes('info.shluf.pakal@gmail.com');
+  const distHasCSP = distHtml.includes('Content-Security-Policy');
+  assert(distHasNoEmail && distHasCSP, 'קובץ dist/index.html נקי מדליפות דוא"ל ומכיל כותרת CSP מוגנת');
+}
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

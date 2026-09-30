@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Flame, SunMedium, Volume2, VolumeX, Wifi, WifiOff, Compass, Lightbulb, HelpCircle } from 'lucide-react';
+import { Flame, SunMedium, Volume2, VolumeX, Compass, Lightbulb, HelpCircle } from 'lucide-react';
 import { usePakalStore } from '../../store/usePakalStore';
 
 export const Header: React.FC = () => {
@@ -16,9 +16,6 @@ export const Header: React.FC = () => {
   const [showTextMenu, setShowTextMenu] = useState(false);
   const textMenuRef = useRef<HTMLDivElement>(null);
   const textButtonRef = useRef<HTMLButtonElement>(null);
-  const [isOnline, setIsOnline] = useState<boolean>(
-    typeof navigator !== 'undefined' ? navigator.onLine : true
-  );
 
   // Close text menu on click outside
   useEffect(() => {
@@ -41,19 +38,6 @@ export const Header: React.FC = () => {
       document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [showTextMenu]);
-
-  useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
 
   const isCampfire = themeMode === 'campfire';
 
@@ -94,34 +78,8 @@ export const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Action Controls: Offline Status, Sound, Theme */}
+        {/* Action Controls: Help, Text Size, Sound, Theme, Feedback */}
         <div className="flex items-center gap-1.5">
-          {/* Offline/Online Indicator */}
-          <div 
-            title={isOnline ? 'מחובר לרשת (התוכן נשמר גם אופליין)' : 'פועל אופליין מלא ללא קליטה'}
-            className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold border transition-all ${
-              isOnline 
-                ? isCampfire 
-                  ? 'bg-emerald-950/60 text-emerald-400 border-emerald-800/40' 
-                  : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                : isCampfire
-                  ? 'bg-amber-950/70 text-amber-300 border-amber-700'
-                  : 'bg-amber-100 text-amber-800 border-amber-300'
-            }`}
-          >
-            {isOnline ? (
-              <>
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <Wifi className="w-3 h-3" />
-              </>
-            ) : (
-              <>
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
-                <WifiOff className="w-3 h-3" />
-                <span className="hidden sm:inline">אופליין</span>
-              </>
-            )}
-          </div>
 
           {/* Quick Text Scaling Stepper (A- / A / A+) */}
           <div className="relative">

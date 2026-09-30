@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { 
   Lightbulb, 
   Send, 
-  CheckCircle2, 
   X, 
   Building2, 
   Mail, 
   User, 
-  WifiOff, 
-  MessageSquare,
-  AlertTriangle,
-  Zap
+  MessageSquare, 
+  AlertTriangle, 
+  Zap 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { usePakalStore } from '../../store/usePakalStore';
@@ -30,6 +28,8 @@ export const FeedbackDrawer: React.FC = () => {
     isFeedbackDrawerOpen, 
     closeFeedbackDrawer, 
     savedFeedbackUser, 
+    saveFeedbackUserInfo,
+    showToast,
     themeMode,
     hapticsEnabled 
   } = usePakalStore();
@@ -40,9 +40,6 @@ export const FeedbackDrawer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
   const [botTrap, setBotTrap] = useState('');
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<{ success: boolean; offline: boolean; message?: string } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Initialize saved values when drawer opens
@@ -53,16 +50,14 @@ export const FeedbackDrawer: React.FC = () => {
       setOrganization(savedFeedbackUser.organization || '');
       setMessage('');
       setCategory('riddle-idea');
-      setSubmitResult(null);
       setErrorMessage(null);
       setBotTrap('');
-      setIsSubmitting(false);
     }
   }, [isFeedbackDrawerOpen, savedFeedbackUser]);
 
   if (!isFeedbackDrawerOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
 
@@ -79,9 +74,6 @@ export const FeedbackDrawer: React.FC = () => {
       return;
     }
 
-    setIsSubmitting(true);
-    if (hapticsEnabled) triggerHaptic(20);
-
     const submission: FeedbackSubmission = {
       name: name.trim(),
       message: message.trim(),
@@ -92,33 +84,37 @@ export const FeedbackDrawer: React.FC = () => {
       currentScreen: typeof window !== 'undefined' ? window.location.pathname : 'ראשי'
     };
 
+    // Save user info for future submissions
+    saveFeedbackUserInfo({
+      name: name.trim(),
+      email: email.trim() || undefined,
+      organization: organization.trim() || undefined
+    });
+
+    if (hapticsEnabled) triggerHaptic([30, 50, 40]);
+
+    // Close the drawer immediately
+    closeFeedbackDrawer();
+
+    // Show friendly, non-blocking toast notification
+    showToast('✨ תודה! ההצעה התקבלה בהצלחה 👍');
+
+    // Confetti celebration
     try {
-      const result = await sendFeedback(submission);
-      setIsSubmitting(false);
-      setSubmitResult(result);
-
-      if (hapticsEnabled) triggerHaptic([30, 50, 40]);
-
-      // Fire celebratory confetti on success
-      try {
-        confetti({
-          particleCount: 55,
-          spread: 65,
-          origin: { y: 0.8 },
-          colors: ['#22c55e', '#3b82f6', '#eab308']
-        });
-      } catch {
-        // Confetti fallback
-      }
-
-      // Auto close after 2.5 seconds
-      setTimeout(() => {
-        closeFeedbackDrawer();
-      }, 2500);
+      confetti({
+        particleCount: 45,
+        spread: 60,
+        origin: { y: 0.85 },
+        colors: ['#22c55e', '#3b82f6', '#f59e0b']
+      });
     } catch {
-      setIsSubmitting(false);
-      setErrorMessage('אירעה שגיאה בשליחת המשוב. אנא נסו שוב.');
+      // Confetti fallback
     }
+
+    // Dispatch silently in background (automatically queued if offline)
+    sendFeedback(submission).catch((err) => {
+      console.warn('Background feedback dispatch note:', err);
+    });
   };
 
   const isCampfire = themeMode === 'campfire';
@@ -128,7 +124,7 @@ export const FeedbackDrawer: React.FC = () => {
       {/* Backdrop click to close */}
       <div 
         className="fixed inset-0" 
-        onClick={() => !isSubmitting && closeFeedbackDrawer()}
+        onClick={() => closeFeedbackDrawer()}
         aria-hidden="true" 
       />
 
@@ -166,7 +162,6 @@ export const FeedbackDrawer: React.FC = () => {
           </div>
           <button
             onClick={() => closeFeedbackDrawer()}
-            disabled={isSubmitting}
             className={`p-2 rounded-full transition-colors ${
               isCampfire ? 'hover:bg-stone-800 text-stone-400' : 'hover:bg-stone-100 text-stone-500'
             }`}
@@ -178,36 +173,12 @@ export const FeedbackDrawer: React.FC = () => {
 
         {/* Content Area */}
         <div className="p-6 overflow-y-auto space-y-4">
-          {submitResult ? (
-            /* Success / Offline Saved State */
-            <div className="py-8 text-center space-y-4">
-              <div className="inline-flex p-4 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
-                {submitResult.offline ? (
-                  <WifiOff className="w-12 h-12 animate-bounce" />
-                ) : (
-                  <CheckCircle2 className="w-12 h-12" />
-                )}
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
-                  {submitResult.offline ? 'נשמר בהצלחה לשטח!' : 'תודה רבה! ההצעה נשלחה בהצלחה'}
-                </h3>
-                <p className={`text-sm max-w-sm mx-auto ${isCampfire ? 'text-stone-300' : 'text-stone-600'}`}>
-                  {submitResult.offline 
-                    ? 'זיהינו שאין קליטה סלולרית במסלול. ההצעה נשמרה בזיכרון המכשיר ותישלח למערכת באופן אוטומטי ברגע שתחזור לקליטה.'
-                    : 'אנחנו מעריכים מאוד את השיתוף שלך. כל הצעה נבדקת בקפידה כדי להפוך את שלוף פק"ל לכלי השטח הטוב ביותר.'
-                  }
-                </p>
-              </div>
-            </div>
-          ) : (
-            /* Form Input State */
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Invisible Honeypot for Bot Protection */}
-              <input
-                type="text"
-                name="bot_trap"
-                value={botTrap}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Invisible Honeypot for Bot Protection */}
+            <input
+              type="text"
+              name="bot_trap"
+              value={botTrap}
                 onChange={(e) => setBotTrap(e.target.value)}
                 tabIndex={-1}
                 autoComplete="off"
@@ -364,30 +335,17 @@ export const FeedbackDrawer: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
                   className={`w-full py-3 px-4 rounded-xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 ${
-                    isSubmitting
-                      ? 'opacity-70 cursor-not-allowed'
-                      : isCampfire
-                        ? 'bg-amber-600 hover:bg-amber-500 text-white active:scale-[0.98]'
-                        : 'bg-emerald-600 hover:bg-emerald-500 text-white active:scale-[0.98]'
+                    isCampfire
+                      ? 'bg-amber-600 hover:bg-amber-500 text-white active:scale-[0.98]'
+                      : 'bg-emerald-600 hover:bg-emerald-500 text-white active:scale-[0.98]'
                   }`}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>שולח...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 rotate-180" />
-                      <span>שליחת הצעה למערכת</span>
-                    </>
-                  )}
+                  <Send className="w-4 h-4 rotate-180" />
+                  <span>שליחת הצעה למערכת</span>
                 </button>
               </div>
             </form>
-          )}
         </div>
       </div>
     </div>

@@ -24,7 +24,9 @@ export const App: React.FC = () => {
     setActiveCategory, 
     activeSituation,
     hasCompletedOnboarding,
-    startTour 
+    startTour,
+    toastMessage,
+    hideToast
   } = usePakalStore();
 
   // Check for student viewer mode (from Circle Share QR or direct link: ?riddle=id or ?mode=student)
@@ -183,6 +185,18 @@ export const App: React.FC = () => {
 
       {/* Onboarding Coach Marks Tour */}
       <OnboardingTour />
+
+      {/* Non-blocking Toast Notification Pill */}
+      {toastMessage && (
+        <div 
+          onClick={hideToast}
+          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-full shadow-2xl text-xs sm:text-sm font-bold flex items-center gap-2 cursor-pointer animate-fade-in transition-all border border-emerald-500/40 bg-stone-900/95 text-emerald-400 dark:bg-stone-900/95 dark:text-emerald-300 dark:border-emerald-600/40 backdrop-blur-md select-none touch-press"
+          role="status"
+          aria-live="polite"
+        >
+          <span>{toastMessage}</span>
+        </div>
+      )}
 
       {/* Fixed Bottom Navigation Bar with Center FAB */}
       <BottomNav currentTab={currentTab} onTabChange={setCurrentTab} />

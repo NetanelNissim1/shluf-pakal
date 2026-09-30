@@ -63,6 +63,11 @@ interface PakalState {
   removePendingFeedback: (id: string) => void;
   clearPendingFeedbackQueue: () => void;
 
+  // Non-blocking Toast Notification
+  toastMessage: string | null;
+  showToast: (msg: string, duration?: number) => void;
+  hideToast: () => void;
+
   // Onboarding Tour & Coach Marks (First Visit Guide)
   hasCompletedOnboarding: boolean;
   isOnboardingActive: boolean;
@@ -210,6 +215,18 @@ export const usePakalStore = create<PakalState>()(
         }));
       },
       clearPendingFeedbackQueue: () => set({ pendingFeedbackQueue: [] }),
+
+      // Non-blocking Toast Notification
+      toastMessage: null,
+      showToast: (msg: string, duration = 3200) => {
+        set({ toastMessage: msg });
+        setTimeout(() => {
+          if (get().toastMessage === msg) {
+            set({ toastMessage: null });
+          }
+        }, duration);
+      },
+      hideToast: () => set({ toastMessage: null }),
 
       // Onboarding Tour & Coach Marks
       hasCompletedOnboarding: false,

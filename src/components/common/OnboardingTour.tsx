@@ -16,7 +16,7 @@ const TOUR_STEPS: TourStep[] = [
     targetSelector: '[data-tour="tour-fab"]',
     title: 'שליפה מהירה למעגל',
     icon: '🎲',
-    description: 'נמצאים באמצע צעידה בשביל או בהפסקת קפה? לחיצה כאן שולפת מיד שאלה אקראית לשבירת שגרה בלי צורך לחפש.',
+    description: 'נמצאים באמצע צעידה בשביל או בהפסקת קפה? לחיצה כאן שולפת מיד שאלה אקראית לשבירת שגרה. האפליקציה פועלת 100% אופליין – חלקה לחלוטין גם בעומק נחל או במדבר ללא טיפת קליטה!',
     preferredPosition: 'top',
     roundedClass: 'rounded-full'
   },
@@ -40,7 +40,7 @@ const TOUR_STEPS: TourStep[] = [
     targetSelector: '[data-tour="tour-feedback"]',
     title: 'יש לך רעיון לחידה או שיפור?',
     icon: '💡',
-    description: 'יש לך רעיון לחידה מוצלחת מהמסלול או הצעה לייעול? שלח לנו כאן ישירות! המשוב נשמר גם אם אין קליטה במסלול ונשלח ברגע שחוזרים לקליטה.',
+    description: 'יש לך רעיון לחידה מוצלחת מהמסלול או הצעה לייעול? שלח לנו כאן ישירות! המשלוח מתבצע ברקע בלחיצה אחת מבלי לעכב אותך בשטח.',
     preferredPosition: 'bottom',
     roundedClass: 'rounded-xl'
   },
@@ -56,7 +56,7 @@ const TOUR_STEPS: TourStep[] = [
     targetSelector: '[data-tour="tour-pakal"]',
     title: 'הפק"ל האישי שלך למסלול',
     icon: '⭐',
-    description: 'סמן כל חידה או הפעלה בכוכב כדי לבנות מערך הדרכה אישי ומוכן מראש למחר. הכל זמין גם ללא קליטה.',
+    description: 'סמן כל חידה או הפעלה בכוכב כדי לבנות מערך הדרכה אישי ומוכן מראש למסלול. כל התוכן שמור אצלך בטלפון ועובד חלק בכל מקום ללא אינטרנט כלל!',
     preferredPosition: 'top',
     roundedClass: 'rounded-2xl'
   }
