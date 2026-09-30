@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Flame, SunMedium, Volume2, VolumeX, Wifi, WifiOff, Compass, Lightbulb } from 'lucide-react';
+import { Flame, SunMedium, Volume2, VolumeX, Wifi, WifiOff, Compass, Lightbulb, HelpCircle } from 'lucide-react';
 import { usePakalStore } from '../../store/usePakalStore';
 
 export const Header: React.FC = () => {
@@ -10,7 +10,8 @@ export const Header: React.FC = () => {
     toggleSound, 
     textSize, 
     setTextSize,
-    openFeedbackDrawer
+    openFeedbackDrawer,
+    startTour
   } = usePakalStore();
   const [showTextMenu, setShowTextMenu] = useState(false);
   const textMenuRef = useRef<HTMLDivElement>(null);
@@ -127,6 +128,7 @@ export const Header: React.FC = () => {
             <button
               ref={textButtonRef}
               onClick={() => setShowTextMenu(prev => !prev)}
+              data-tour="tour-text-size"
               aria-label="שנה גודל טקסט לקריאה בשטח"
               title="שנה גודל טקסט לקריאה בשטח (רגיל / גדול / ענק)"
               className={`p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
@@ -231,6 +233,7 @@ export const Header: React.FC = () => {
           {/* Feedback & Suggestion Drawer Button */}
           <button
             onClick={openFeedbackDrawer}
+            data-tour="tour-feedback"
             aria-label="הצעת ייעול, רעיון לחידה או משוב מהשטח"
             title="הצעת ייעול, רעיון לחידה או משוב מהשטח"
             className={`p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
@@ -240,6 +243,20 @@ export const Header: React.FC = () => {
             }`}
           >
             <Lightbulb className="w-5 h-5" />
+          </button>
+
+          {/* Quick Onboarding Tour Help Button */}
+          <button
+            onClick={() => startTour(true)}
+            aria-label="סיור הדרכה מהיר באתר"
+            title="סיור הדרכה מהיר באתר (איך להשתמש בשלוף פק״ל)"
+            className={`p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
+              isCampfire
+                ? 'text-stone-400 hover:bg-stone-900 hover:text-orange-300'
+                : 'text-stone-500 hover:bg-amber-100/70 hover:text-stone-800'
+            }`}
+          >
+            <HelpCircle className="w-5 h-5" />
           </button>
 
           {/* Sound Toggle */}
@@ -262,6 +279,7 @@ export const Header: React.FC = () => {
           {/* Sun / Campfire Mode Toggle */}
           <button
             onClick={toggleTheme}
+            data-tour="tour-campfire"
             aria-label={isCampfire ? 'מעבר למצב שמש ישירה' : 'מעבר למצב מדורה ולילה'}
             className={`p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
               isCampfire

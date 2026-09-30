@@ -434,6 +434,62 @@ const hasFrameDeny = headersList.some(h => h.key === 'X-Frame-Options' && h.valu
 const hasReferrer = headersList.some(h => h.key === 'Referrer-Policy');
 assert(hasApiRewrite && hasNosniff && hasFrameDeny && hasReferrer, 'הגדרות vercel.json כוללות ניתוב ל-api/ וכותרות אבטחה מחמירות (nosniff, DENY, Referrer-Policy)');
 
+// ======================================================
+// מחזור 18: בדיקת מערכת Onboarding Tooltips & Coach Marks לקליטת משתמש
+// ======================================================
+console.log('\n[מחזור 18]: בדיקת מערכת Onboarding Tooltips & Coach Marks (כניסה ראשונה בלבד)');
+
+// 1. Verify OnboardingTour component exists and contains 6 stations
+const tourPath = path.join(__dirname, '..', 'src', 'components', 'common', 'OnboardingTour.tsx');
+assert(fs.existsSync(tourPath), 'רכיב ההדרכה (src/components/common/OnboardingTour.tsx) קיים במערכת');
+const tourCode = fs.readFileSync(tourPath, 'utf8');
+const has6Stations = tourCode.includes('tour-fab') &&
+                     tourCode.includes('tour-text-size') &&
+                     tourCode.includes('tour-campfire') &&
+                     tourCode.includes('tour-feedback') &&
+                     tourCode.includes('tour-situations') &&
+                     tourCode.includes('tour-pakal');
+assert(has6Stations, 'רכיב ההדרכה מכיל את כל 6 התחנות המודרכות (שלוף, טקסט, מדורה, משוב, מצבי שטח, פק"ל)');
+
+// 2. Verify Store state & actions in usePakalStore.ts
+const storePath = path.join(__dirname, '..', 'src', 'store', 'usePakalStore.ts');
+const tourStoreCode = fs.readFileSync(storePath, 'utf8');
+const hasTourState = tourStoreCode.includes('hasCompletedOnboarding') &&
+                     tourStoreCode.includes('isOnboardingActive') &&
+                     tourStoreCode.includes('currentTourStep') &&
+                     tourStoreCode.includes('startTour') &&
+                     tourStoreCode.includes('nextTourStep') &&
+                     tourStoreCode.includes('skipTour') &&
+                     tourStoreCode.includes('completeTour');
+const hasStoragePersistence = tourStoreCode.includes('shluf_onboarding_completed');
+assert(hasTourState && hasStoragePersistence, 'חנות הנתונים usePakalStore כוללת ניהול מצב סיור ושמירה קבועה ב-localStorage');
+
+// 3. Verify data-tour tags on targeted elements
+const tourHeaderPath = path.join(__dirname, '..', 'src', 'components', 'layout', 'Header.tsx');
+const tourHeaderCode = fs.readFileSync(tourHeaderPath, 'utf8');
+const hasHeaderTags = tourHeaderCode.includes('data-tour="tour-text-size"') &&
+                      tourHeaderCode.includes('data-tour="tour-campfire"') &&
+                      tourHeaderCode.includes('data-tour="tour-feedback"') &&
+                      tourHeaderCode.includes('startTour(true)');
+assert(hasHeaderTags, 'סרגל עליון Header כולל תגיות הדרכה וכפתור עזרה יזום (?) להפעלה חוזרת');
+
+const tourBottomNavPath = path.join(__dirname, '..', 'src', 'components', 'layout', 'BottomNav.tsx');
+const tourBottomNavCode = fs.readFileSync(tourBottomNavPath, 'utf8');
+const hasBottomNavTags = tourBottomNavCode.includes('data-tour="tour-fab"') &&
+                         tourBottomNavCode.includes('data-tour="tour-pakal"');
+assert(hasBottomNavTags, 'סרגל ניווט תחתון BottomNav כולל תגיות הדרכה עבור כפתור שלוף והפק"ל האישי');
+
+const tourHomePagePath = path.join(__dirname, '..', 'src', 'pages', 'HomePage.tsx');
+const tourHomePageCode = fs.readFileSync(tourHomePagePath, 'utf8');
+assert(tourHomePageCode.includes('data-tour="tour-situations"'), 'דף הבית HomePage כולל תגית הדרכה עבור צ\'יפס מצבי שטח');
+
+// 4. Verify App.tsx mounts OnboardingTour and implements first-visit trigger
+const tourAppPath = path.join(__dirname, '..', 'src', 'App.tsx');
+const tourAppCode = fs.readFileSync(tourAppPath, 'utf8');
+const appHasTourMount = tourAppCode.includes('<OnboardingTour />') || tourAppCode.includes('<OnboardingTour/>');
+const appHasFirstVisitTrigger = tourAppCode.includes('shluf_onboarding_completed') && tourAppCode.includes('startTour');
+assert(appHasTourMount && appHasFirstVisitTrigger, 'קובץ App.tsx מעגן את OnboardingTour ומפעיל טריגר בכניסה ראשונה בלבד');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

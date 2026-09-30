@@ -64,6 +64,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onTabChange })
         <div className="flex-1 flex justify-center -mt-7">
           <button
             onClick={openRandomizer}
+            data-tour="tour-fab"
             aria-label="שלוף שאלה אקראית"
             className={`w-13 h-13 rounded-full flex flex-col items-center justify-center shadow-xl border-4 transition-all transform active:scale-95 ${
               isCampfire
@@ -105,6 +106,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onTabChange })
         {/* Tab 6: My Pakal */}
         <button
           onClick={() => onTabChange('pakal')}
+          data-tour="tour-pakal"
           className={`flex flex-col items-center justify-center flex-1 h-full relative transition-all touch-press ${
             currentTab === 'pakal'
               ? isCampfire ? 'text-orange-400 font-bold' : 'text-amber-600 font-bold'

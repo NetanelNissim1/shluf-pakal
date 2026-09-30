@@ -10,6 +10,7 @@ import { VisualRiddlesPage } from './pages/VisualRiddlesPage';
 import { StudentViewerPage } from './components/visual/StudentViewerPage';
 import { RandomizerModal } from './components/randomizer/RandomizerModal';
 import { FeedbackDrawer } from './components/common/FeedbackDrawer';
+import { OnboardingTour } from './components/common/OnboardingTour';
 import { usePakalStore } from './store/usePakalStore';
 import { CategoryId } from './types';
 import { initContentProtection } from './lib/security';
@@ -17,7 +18,14 @@ import { initFeedbackSync } from './lib/feedback';
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
-  const { themeMode, textSize, setActiveCategory, activeSituation } = usePakalStore();
+  const { 
+    themeMode, 
+    textSize, 
+    setActiveCategory, 
+    activeSituation,
+    hasCompletedOnboarding,
+    startTour 
+  } = usePakalStore();
 
   // Check for student viewer mode (from Circle Share QR or direct link: ?riddle=id or ?mode=student)
   const [studentMode, setStudentMode] = useState<boolean>(() => {
@@ -44,6 +52,24 @@ export const App: React.FC = () => {
       cleanupProtection();
     };
   }, []);
+
+  // Check and trigger Onboarding Tour on first visit
+  useEffect(() => {
+    // Only trigger if onboarding has not been completed, and not in student mode
+    if (!studentMode && !hasCompletedOnboarding && currentTab === 'home') {
+      let isCompletedInStorage = false;
+      try {
+        isCompletedInStorage = localStorage.getItem('shluf_onboarding_completed') === 'true';
+      } catch {}
+
+      if (!isCompletedInStorage) {
+        const timer = setTimeout(() => {
+          startTour(false);
+        }, 850);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [hasCompletedOnboarding, studentMode, currentTab, startTour]);
 
   // Apply theme class to <html> tag
   useEffect(() => {
@@ -154,6 +180,9 @@ export const App: React.FC = () => {
 
       {/* Quick Feedback & Suggestions Drawer */}
       <FeedbackDrawer />
+
+      {/* Onboarding Coach Marks Tour */}
+      <OnboardingTour />
 
       {/* Fixed Bottom Navigation Bar with Center FAB */}
       <BottomNav currentTab={currentTab} onTabChange={setCurrentTab} />

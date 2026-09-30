@@ -119,7 +119,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       </div>
 
       {/* Field Situation Chips */}
-      <div>
+      <div data-tour="tour-situations">
         <SituationChips />
       </div>
 

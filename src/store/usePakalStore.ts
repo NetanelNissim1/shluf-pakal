@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import confetti from 'canvas-confetti';
 import { CategoryId, SituationFilter, ThemeMode, TextSize, FeedbackSubmission, StoredFeedbackItem } from '../types';
 import { triggerHaptic } from '../lib/haptics';
 import { sanitizeSearchQuery } from '../lib/security';
@@ -61,6 +62,16 @@ interface PakalState {
   queuePendingFeedback: (item: FeedbackSubmission) => StoredFeedbackItem;
   removePendingFeedback: (id: string) => void;
   clearPendingFeedbackQueue: () => void;
+
+  // Onboarding Tour & Coach Marks (First Visit Guide)
+  hasCompletedOnboarding: boolean;
+  isOnboardingActive: boolean;
+  currentTourStep: number;
+  startTour: (manual?: boolean) => void;
+  nextTourStep: () => void;
+  prevTourStep: () => void;
+  skipTour: () => void;
+  completeTour: () => void;
 }
 
 export const usePakalStore = create<PakalState>()(
@@ -199,6 +210,52 @@ export const usePakalStore = create<PakalState>()(
         }));
       },
       clearPendingFeedbackQueue: () => set({ pendingFeedbackQueue: [] }),
+
+      // Onboarding Tour & Coach Marks
+      hasCompletedOnboarding: false,
+      isOnboardingActive: false,
+      currentTourStep: 0,
+      startTour: (manual = false) => {
+        if (!manual && get().hasCompletedOnboarding) return;
+        if (get().hapticsEnabled) triggerHaptic([30, 20]);
+        set({ isOnboardingActive: true, currentTourStep: 0 });
+      },
+      nextTourStep: () => {
+        const current = get().currentTourStep;
+        if (current < 5) {
+          if (get().hapticsEnabled) triggerHaptic(15);
+          set({ currentTourStep: current + 1 });
+        } else {
+          get().completeTour();
+        }
+      },
+      prevTourStep: () => {
+        const current = get().currentTourStep;
+        if (current > 0) {
+          if (get().hapticsEnabled) triggerHaptic(15);
+          set({ currentTourStep: current - 1 });
+        }
+      },
+      skipTour: () => {
+        if (get().hapticsEnabled) triggerHaptic(20);
+        try {
+          localStorage.setItem('shluf_onboarding_completed', 'true');
+        } catch {}
+        set({ isOnboardingActive: false, hasCompletedOnboarding: true });
+      },
+      completeTour: () => {
+        if (get().hapticsEnabled) triggerHaptic([30, 50, 40]);
+        try {
+          localStorage.setItem('shluf_onboarding_completed', 'true');
+          confetti({
+            particleCount: 55,
+            spread: 65,
+            origin: { y: 0.8 },
+            colors: ['#f59e0b', '#10b981', '#3b82f6']
+          });
+        } catch {}
+        set({ isOnboardingActive: false, hasCompletedOnboarding: true });
+      },
     }),
     {
       name: 'shluf-storage',
@@ -209,7 +266,8 @@ export const usePakalStore = create<PakalState>()(
         hapticsEnabled: state.hapticsEnabled,
         favorites: state.favorites,
         savedFeedbackUser: state.savedFeedbackUser,
-        pendingFeedbackQueue: state.pendingFeedbackQueue
+        pendingFeedbackQueue: state.pendingFeedbackQueue,
+        hasCompletedOnboarding: state.hasCompletedOnboarding
       })
     }
   )
