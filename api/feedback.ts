@@ -225,7 +225,9 @@ ${message}
         console.error('Web3Forms dispatch error:', resData);
         return res.status(500).json({
           success: false,
-          message: 'שגיאה בשליחת המייל דרך שרת המשוב.'
+          message: 'שגיאה בשליחת המייל דרך שרת המשוב.',
+          httpStatus: web3Res.status,
+          resData: resData
         });
       }
     }
