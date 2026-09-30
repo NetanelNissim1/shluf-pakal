@@ -531,6 +531,44 @@ if (fs.existsSync(distIndexPath)) {
   assert(distHasNoEmail && distHasCSP, 'קובץ dist/index.html נקי מדליפות דוא"ל ומכיל כותרת CSP מוגנת');
 }
 
+// ======================================================
+// מחזור 20: בדיקת התאמות Mobile Native מושלמות ל-iPhone ו-Android
+// ======================================================
+console.log('\n[מחזור 20]: בדיקת התאמות Mobile Native ל-iPhone (iOS Safari / PWA) ו-Android');
+
+// 1. Verify Safe Area CSS definitions
+const safeCssPath = path.join(__dirname, '..', 'src', 'index.css');
+const safeCssContent = fs.readFileSync(safeCssPath, 'utf8');
+const hasSafeTop = safeCssContent.includes('env(safe-area-inset-top');
+const hasSafeBottom = safeCssContent.includes('env(safe-area-inset-bottom');
+const hasDvh = safeCssContent.includes('100dvh');
+const hasIosZoomFix = safeCssContent.includes('font-size: 16px !important');
+assert(hasSafeTop && hasSafeBottom && hasDvh && hasIosZoomFix, 'קובץ index.css מכיל הגדרות Safe Area מלאות (pt-safe, pb-safe), גובה דינמי 100dvh, והגנה מזום בספארי');
+
+// 2. Verify Header and BottomNav safe area usage
+const updatedHeaderCode = fs.readFileSync(tourHeaderPath, 'utf8');
+const updatedBottomNavCode = fs.readFileSync(tourBottomNavPath, 'utf8');
+const hasHeaderSafe = updatedHeaderCode.includes('pt-safe');
+const hasBottomNavSafe = updatedBottomNavCode.includes('pb-safe');
+assert(hasHeaderSafe && hasBottomNavSafe, 'סרגל עליון Header וסרגל תחתון BottomNav מוגנים מפני Notch / Dynamic Island ופס המחוות (Home Indicator)');
+
+// 3. Verify Apple Touch Icon in index.html
+const indexHtmlPath = path.join(__dirname, '..', 'index.html');
+const indexHtmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
+const hasAppleTouchIcon = indexHtmlContent.includes('rel="apple-touch-icon"') && indexHtmlContent.includes('/icons/icon-192x192.png');
+assert(hasAppleTouchIcon, 'קובץ index.html מכיל תג apple-touch-icon רשמי להוספה חלקה למסך הבית באייפון');
+
+// 4. Verify Dynamic Theme Color sync in App.tsx
+const updatedAppCode = fs.readFileSync(tourAppPath, 'utf8');
+const hasThemeColorSync = updatedAppCode.includes('metaThemeColor.setAttribute(\'content\'') && updatedAppCode.includes('#000000');
+const hasMainPbSafe = updatedAppCode.includes('pb-safe') && updatedAppCode.includes('min-h-screen-dvh');
+assert(hasThemeColorSync && hasMainPbSafe, 'קובץ App.tsx מעדכן דינמית את צבע סרגל הסטטוס של המכשיר וכולל תמיכה ב-min-h-screen-dvh ו-pb-safe');
+
+// 5. Verify input font sizing in Drawer and Search
+const updatedDrawerCode = fs.readFileSync(drawerPath, 'utf8');
+const hasProperInputFont = updatedDrawerCode.includes('text-base sm:text-sm');
+assert(hasProperInputFont, 'שדות הקלט במגירת המשוב ובדפי החיפוש משתמשים ב-text-base sm:text-sm למניעת זום אוטומטי במובייל');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

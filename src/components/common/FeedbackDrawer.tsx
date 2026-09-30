@@ -130,7 +130,7 @@ export const FeedbackDrawer: React.FC = () => {
 
       {/* Drawer / Modal Container */}
       <div 
-        className={`relative w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl z-10 max-h-[92vh] flex flex-col overflow-hidden transition-all transform ${
+        className={`relative w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl z-10 max-h-[92vh] max-h-[92dvh] pb-safe flex flex-col overflow-hidden transition-all transform ${
           isCampfire 
             ? 'bg-stone-900 border border-amber-900/40 text-stone-100' 
             : 'bg-white border border-stone-200 text-stone-800'
@@ -236,7 +236,7 @@ export const FeedbackDrawer: React.FC = () => {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="למשל: דני לוי"
                     maxLength={70}
-                    className={`w-full pr-9 pl-3 py-2 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full pr-9 pl-3 py-2 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
                       isCampfire
                         ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
                         : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
@@ -263,7 +263,7 @@ export const FeedbackDrawer: React.FC = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="רשמו כאן את הרעיון לחידה, שיפור רצוי או כל משוב שחשוב לכם בשטח..."
                   maxLength={2000}
-                  className={`w-full p-3 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors resize-none ${
+                  className={`w-full p-3 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors resize-none ${
                     isCampfire
                       ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
                       : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
@@ -287,7 +287,7 @@ export const FeedbackDrawer: React.FC = () => {
                     onChange={(e) => setOrganization(e.target.value)}
                     placeholder="למשל: מורה דרך עצמאי, מדריך של&quot;ח, קק&quot;ל, תנועת נוער..."
                     maxLength={100}
-                    className={`w-full pr-9 pl-3 py-2 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full pr-9 pl-3 py-2 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
                       isCampfire
                         ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
                         : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
@@ -312,7 +312,7 @@ export const FeedbackDrawer: React.FC = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@example.com (אם תרצו שנוכל לענות לכם)"
                     maxLength={100}
-                    className={`w-full pr-9 pl-3 py-2 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full pr-9 pl-3 py-2 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
                       isCampfire
                         ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
                         : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'

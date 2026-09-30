@@ -166,7 +166,7 @@ export const CategoryPage: React.FC = () => {
             value={localSearch}
             onChange={(e) => setLocalSearch(e.target.value)}
             placeholder={`חפש בתוך ${currentCategoryMeta.title}...`}
-            className={`w-full py-2 pr-9 pl-9 rounded-xl text-sm border focus:outline-none transition-all ${
+            className={`w-full py-2 pr-9 pl-9 rounded-xl text-base sm:text-sm border focus:outline-none transition-all ${
               isCampfire
                 ? 'bg-stone-950 border-stone-800 text-orange-100 focus:border-orange-500'
                 : 'bg-stone-50 border-stone-200 text-stone-900 focus:border-amber-500 focus:bg-white'

@@ -42,7 +42,7 @@ export const Header: React.FC = () => {
   const isCampfire = themeMode === 'campfire';
 
   return (
-    <header className={`sticky top-0 z-40 transition-colors duration-200 border-b backdrop-blur-md ${
+    <header className={`sticky top-0 z-40 pt-safe transition-colors duration-200 border-b backdrop-blur-md ${
       isCampfire 
         ? 'bg-black/90 border-campfire-border/60 text-orange-100' 
         : 'bg-amber-50/95 border-amber-200/80 text-stone-900 shadow-sm'

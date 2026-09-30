@@ -73,15 +73,22 @@ export const App: React.FC = () => {
     }
   }, [hasCompletedOnboarding, studentMode, currentTab, startTour]);
 
-  // Apply theme class to <html> tag
+  // Apply theme class to <html> tag & sync browser status bar meta theme-color
   useEffect(() => {
     const root = document.documentElement;
-    if (themeMode === 'campfire') {
+    const isCamp = themeMode === 'campfire';
+    if (isCamp) {
       root.classList.add('campfire', 'dark');
       root.style.backgroundColor = '#000000';
     } else {
       root.classList.remove('campfire', 'dark');
       root.style.backgroundColor = '#fffdf7';
+    }
+
+    // Sync mobile browser status bar color (Safari iOS & Chrome Android)
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', isCamp ? '#000000' : '#f59e0b');
     }
   }, [themeMode]);
 
@@ -146,14 +153,14 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 select-none ${
+    <div className={`min-h-screen min-h-screen-dvh flex flex-col font-sans transition-colors duration-200 select-none ${
       themeMode === 'campfire' ? 'bg-black text-orange-100' : 'bg-[#fffdf7] text-stone-900'
     }`}>
       {/* Top Header */}
       <Header />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full max-w-lg mx-auto px-3.5 sm:px-4 pt-3.5">
+      <main className="flex-1 w-full max-w-lg mx-auto px-3.5 sm:px-4 pt-3.5 pb-safe">
         {currentTab === 'home' && (
           <HomePage
             onNavigateCategory={handleNavigateCategory}
