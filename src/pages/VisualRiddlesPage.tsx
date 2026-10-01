@@ -10,13 +10,15 @@ import {
   CalendarDays, 
   Compass, 
   Shuffle, 
-  Maximize2 
+  Maximize2,
+  HelpCircle
 } from 'lucide-react';
 import { visualData } from '../data/content';
 import { VisualRiddle, HolidayTag } from '../types';
 import { VisualRiddleCard } from '../components/visual/VisualRiddleCard';
 import { PresenterModal } from '../components/visual/PresenterModal';
 import { CircleShareQR } from '../components/visual/CircleShareQR';
+import { VisualInstructionsModal } from '../components/visual/VisualInstructionsModal';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 import { playShuffle } from '../lib/sound';
@@ -36,6 +38,7 @@ export const VisualRiddlesPage: React.FC = () => {
   // Modal states
   const [presenterRiddle, setPresenterRiddle] = useState<VisualRiddle | null>(null);
   const [qrRiddle, setQrRiddle] = useState<VisualRiddle | null>(null);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   const holidaysList: { id: HolidayTag | 'all'; label: string }[] = [
     { id: 'all', label: 'כל החגים' },
@@ -47,6 +50,8 @@ export const VisualRiddlesPage: React.FC = () => {
     { id: 'purim', label: 'פורים' },
     { id: 'pesach', label: 'פסח' },
     { id: 'independence-day', label: 'יום העצמאות' },
+    { id: 'lag-baomer', label: 'ל"ג בעומר' },
+    { id: 'jerusalem-day', label: 'יום ירושלים' },
     { id: 'shavuot', label: 'שבועות' },
   ];
 
@@ -111,7 +116,7 @@ export const VisualRiddlesPage: React.FC = () => {
                 <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
                   isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-amber-100 text-amber-800'
                 }`}>
-                  30 חידות ויזואליות
+                  {allRiddles.length} חידות ויזואליות
                 </span>
               </div>
               <p className="text-xs text-stone-400">
@@ -120,17 +125,32 @@ export const VisualRiddlesPage: React.FC = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleRandomRiddle}
-            title="שלוף חידה בציורים למסך מלא"
-            className={`p-2.5 rounded-xl border transition-all touch-press ${
-              isCampfire
-                ? 'bg-stone-900 border-stone-800 text-orange-400 hover:bg-stone-800'
-                : 'bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100'
-            }`}
-          >
-            <Shuffle className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsHelpOpen(true)}
+              title="איך פותרים ומפעילים חידות בציורים?"
+              className={`p-2.5 rounded-xl border transition-all touch-press flex items-center gap-1.5 text-xs font-bold ${
+                isCampfire
+                  ? 'bg-stone-900 border-stone-800 text-orange-400 hover:bg-stone-800'
+                  : 'bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100'
+              }`}
+            >
+              <HelpCircle className="w-5 h-5 text-amber-500" />
+              <span className="hidden sm:inline">איך פותרים?</span>
+            </button>
+
+            <button
+              onClick={handleRandomRiddle}
+              title="שלוף חידה בציורים למסך מלא"
+              className={`p-2.5 rounded-xl border transition-all touch-press ${
+                isCampfire
+                  ? 'bg-stone-900 border-stone-800 text-orange-400 hover:bg-stone-800'
+                  : 'bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100'
+              }`}
+            >
+              <Shuffle className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Live Search Bar */}
@@ -314,6 +334,12 @@ export const VisualRiddlesPage: React.FC = () => {
           onClose={() => setQrRiddle(null)}
         />
       )}
+
+      {/* Visual Instructions Modal */}
+      <VisualInstructionsModal
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
+      />
 
     </div>
   );

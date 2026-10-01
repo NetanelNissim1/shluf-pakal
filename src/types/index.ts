@@ -64,6 +64,8 @@ export type HolidayTag =
   | 'purim' 
   | 'pesach' 
   | 'independence-day' 
+  | 'lag-baomer'
+  | 'jerusalem-day'
   | 'shavuot';
 
 export type GeneralCategory = 

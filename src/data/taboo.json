@@ -196,7 +196,807 @@
       "קפה",
       "ידית",
       "הרתחה",
-      "פינג'אן"
+      "שחור"
+    ]
+  },
+  {
+    "id": "taboo-21",
+    "targetWord": "שלוקר",
+    "forbiddenWords": [
+      "שקית",
+      "צינורית",
+      "מים",
+      "גב"
+    ]
+  },
+  {
+    "id": "taboo-22",
+    "targetWord": "לדרמן",
+    "forbiddenWords": [
+      "אולר",
+      "כלי",
+      "פלאייר",
+      "פתיחה"
+    ]
+  },
+  {
+    "id": "taboo-23",
+    "targetWord": "סיר פויקה",
+    "forbiddenWords": [
+      "ברזל",
+      "כבד",
+      "בישול",
+      "בשר"
+    ]
+  },
+  {
+    "id": "taboo-24",
+    "targetWord": "יתד",
+    "forbiddenWords": [
+      "אוהל",
+      "פטיש",
+      "אדמה",
+      "תקיעה"
+    ]
+  },
+  {
+    "id": "taboo-25",
+    "targetWord": "חבל כפיתות",
+    "forbiddenWords": [
+      "קשירה",
+      "סנאדות",
+      "מבנה",
+      "צופים"
+    ]
+  },
+  {
+    "id": "taboo-26",
+    "targetWord": "מזרון שטח",
+    "forbiddenWords": [
+      "שינה",
+      "קצף",
+      "בידוד",
+      "קמפינג"
+    ]
+  },
+  {
+    "id": "taboo-27",
+    "targetWord": "צילייה",
+    "forbiddenWords": [
+      "צל",
+      "שמש",
+      "עמודים",
+      "חוף"
+    ]
+  },
+  {
+    "id": "taboo-28",
+    "targetWord": "שמיכת מילוט",
+    "forbiddenWords": [
+      "כסף",
+      "קור",
+      "חום",
+      "הצלה"
+    ]
+  },
+  {
+    "id": "taboo-29",
+    "targetWord": "אולר שוויצרי",
+    "forbiddenWords": [
+      "להב",
+      "כיס",
+      "אדום",
+      "חיתוך"
+    ]
+  },
+  {
+    "id": "taboo-30",
+    "targetWord": "תרמיל מוצ'ילה",
+    "forbiddenWords": [
+      "תיק",
+      "גדול",
+      "גב",
+      "מסע"
+    ]
+  },
+  {
+    "id": "taboo-31",
+    "targetWord": "גפרורים עמידים במים",
+    "forbiddenWords": [
+      "אש",
+      "קופסה",
+      "הצתה",
+      "הדלקה"
+    ]
+  },
+  {
+    "id": "taboo-32",
+    "targetWord": "רשת צל",
+    "forbiddenWords": [
+      "שמש",
+      "יריעה",
+      "מתיחה",
+      "חום"
+    ]
+  },
+  {
+    "id": "taboo-33",
+    "targetWord": "צידנית",
+    "forbiddenWords": [
+      "קרח",
+      "קר",
+      "אוכל",
+      "שתייה"
+    ]
+  },
+  {
+    "id": "taboo-34",
+    "targetWord": "ביגוד תרמי",
+    "forbiddenWords": [
+      "חם",
+      "חורף",
+      "לבוש",
+      "קור"
+    ]
+  },
+  {
+    "id": "taboo-35",
+    "targetWord": "מגבת מיקרופייבר",
+    "forbiddenWords": [
+      "ייבוש",
+      "ניגוב",
+      "מקלחת",
+      "בד"
+    ]
+  },
+  {
+    "id": "taboo-36",
+    "targetWord": "שקית אטומה למים",
+    "forbiddenWords": [
+      "רטוב",
+      "בריכה",
+      "טלפון",
+      "נחל"
+    ]
+  },
+  {
+    "id": "taboo-37",
+    "targetWord": "מסור מתקפל",
+    "forbiddenWords": [
+      "ענפים",
+      "חיתוך",
+      "עץ",
+      "שיניים"
+    ]
+  },
+  {
+    "id": "taboo-38",
+    "targetWord": "כסא מתקפל",
+    "forbiddenWords": [
+      "ישיבה",
+      "בד",
+      "קמפינג",
+      "רגליים"
+    ]
+  },
+  {
+    "id": "taboo-39",
+    "targetWord": "סוללה ניידת",
+    "forbiddenWords": [
+      "מטען",
+      "טלפון",
+      "חשמל",
+      "כבל"
+    ]
+  },
+  {
+    "id": "taboo-40",
+    "targetWord": "שרוך נעליים",
+    "forbiddenWords": [
+      "קשירה",
+      "נעל",
+      "הליכה",
+      "פרימה"
+    ]
+  },
+  {
+    "id": "taboo-41",
+    "targetWord": "רוג'ום",
+    "forbiddenWords": [
+      "אבנים",
+      "גל",
+      "שביל",
+      "סימון"
+    ]
+  },
+  {
+    "id": "taboo-42",
+    "targetWord": "שביל ישראל",
+    "forbiddenWords": [
+      "תלתן",
+      "צבעים",
+      "חוצה",
+      "הליכה"
+    ]
+  },
+  {
+    "id": "taboo-43",
+    "targetWord": "אוכף",
+    "forbiddenWords": [
+      "הרים",
+      "שקע",
+      "מעבר",
+      "גבעה"
+    ]
+  },
+  {
+    "id": "taboo-44",
+    "targetWord": "שלוחה",
+    "forbiddenWords": [
+      "רכס",
+      "ירידה",
+      "קו גובה",
+      "כיפה"
+    ]
+  },
+  {
+    "id": "taboo-45",
+    "targetWord": "גב מים",
+    "forbiddenWords": [
+      "סלע",
+      "גשם",
+      "שחייה",
+      "מדבר"
+    ]
+  },
+  {
+    "id": "taboo-46",
+    "targetWord": "מכתש רמון",
+    "forbiddenWords": [
+      "נגב",
+      "קיר",
+      "ארוזיה",
+      "מצפה"
+    ]
+  },
+  {
+    "id": "taboo-47",
+    "targetWord": "אזימוט",
+    "forbiddenWords": [
+      "מעלות",
+      "מצפן",
+      "כיוון",
+      "צפון"
+    ]
+  },
+  {
+    "id": "taboo-48",
+    "targetWord": "סימון שבילים",
+    "forbiddenWords": [
+      "פסים",
+      "צבע",
+      "ועדה",
+      "מפה"
+    ]
+  },
+  {
+    "id": "taboo-49",
+    "targetWord": "נביעה",
+    "forbiddenWords": [
+      "מעיין",
+      "מים",
+      "זרימה",
+      "אדמה"
+    ]
+  },
+  {
+    "id": "taboo-50",
+    "targetWord": "ואדי",
+    "forbiddenWords": [
+      "ערוץ",
+      "נחל",
+      "שיטפון",
+      "אכזב"
+    ]
+  },
+  {
+    "id": "taboo-51",
+    "targetWord": "מצוק",
+    "forbiddenWords": [
+      "קיר",
+      "תהום",
+      "טיפוס",
+      "גובה"
+    ]
+  },
+  {
+    "id": "taboo-52",
+    "targetWord": "קווי גובה",
+    "forbiddenWords": [
+      "מפה",
+      "צפיפות",
+      "שיפוע",
+      "עלייה"
+    ]
+  },
+  {
+    "id": "taboo-53",
+    "targetWord": "נחל אכזב",
+    "forbiddenWords": [
+      "יבש",
+      "קיץ",
+      "מים",
+      "שיטפון"
+    ]
+  },
+  {
+    "id": "taboo-54",
+    "targetWord": "עין מים",
+    "forbiddenWords": [
+      "בריכה",
+      "טבילה",
+      "מעיין",
+      "צלול"
+    ]
+  },
+  {
+    "id": "taboo-55",
+    "targetWord": "מערה",
+    "forbiddenWords": [
+      "חושך",
+      "סלע",
+      "עטלפים",
+      "פתח"
+    ]
+  },
+  {
+    "id": "taboo-56",
+    "targetWord": "כוכב הצפון",
+    "forbiddenWords": [
+      "שמיים",
+      "לילה",
+      "ניווט",
+      "דובה"
+    ]
+  },
+  {
+    "id": "taboo-57",
+    "targetWord": "שיטפון",
+    "forbiddenWords": [
+      "גשם",
+      "סחף",
+      "מדבר",
+      "מים"
+    ]
+  },
+  {
+    "id": "taboo-58",
+    "targetWord": "מפל מים",
+    "forbiddenWords": [
+      "ירידה",
+      "זרימה",
+      "גובה",
+      "בריכה"
+    ]
+  },
+  {
+    "id": "taboo-59",
+    "targetWord": "כיפת הר",
+    "forbiddenWords": [
+      "פסגה",
+      "ראש",
+      "תצפית",
+      "עלייה"
+    ]
+  },
+  {
+    "id": "taboo-60",
+    "targetWord": "עמוד ענן",
+    "forbiddenWords": [
+      "מפה",
+      "אתר",
+      "אפליקציה",
+      "ניווט"
+    ]
+  },
+  {
+    "id": "taboo-61",
+    "targetWord": "יעל נובי",
+    "forbiddenWords": [
+      "קרניים",
+      "מצוקים",
+      "זכר",
+      "עין גדי"
+    ]
+  },
+  {
+    "id": "taboo-62",
+    "targetWord": "שפן סלעים",
+    "forbiddenWords": [
+      "פרווה",
+      "שיניים",
+      "סלע",
+      "חיה"
+    ]
+  },
+  {
+    "id": "taboo-63",
+    "targetWord": "עקרב צהוב",
+    "forbiddenWords": [
+      "עקיצה",
+      "צבתות",
+      "ארס",
+      "אבן"
+    ]
+  },
+  {
+    "id": "taboo-64",
+    "targetWord": "צפע ארצישראלי",
+    "forbiddenWords": [
+      "נחש",
+      "משולש",
+      "הכשה",
+      "ארסי"
+    ]
+  },
+  {
+    "id": "taboo-65",
+    "targetWord": "עץ שיטה",
+    "forbiddenWords": [
+      "מדבר",
+      "קוצים",
+      "סוואנה",
+      "צל"
+    ]
+  },
+  {
+    "id": "taboo-66",
+    "targetWord": "מרווה משולשת",
+    "forbiddenWords": [
+      "תה",
+      "ריח",
+      "עלים",
+      "צמח"
+    ]
+  },
+  {
+    "id": "taboo-67",
+    "targetWord": "כלנית מצויה",
+    "forbiddenWords": [
+      "אדום",
+      "דרום",
+      "חורף",
+      "פרח"
+    ]
+  },
+  {
+    "id": "taboo-68",
+    "targetWord": "דורבן",
+    "forbiddenWords": [
+      "קוצים",
+      "לילה",
+      "מחילה",
+      "בעל חיים"
+    ]
+  },
+  {
+    "id": "taboo-69",
+    "targetWord": "חזיר בר",
+    "forbiddenWords": [
+      "ניבים",
+      "חיה",
+      "יער",
+      "חיפה"
+    ]
+  },
+  {
+    "id": "taboo-70",
+    "targetWord": "עיט זהוב",
+    "forbiddenWords": [
+      "עוף",
+      "דורס",
+      "כנפיים",
+      "שמיים"
+    ]
+  },
+  {
+    "id": "taboo-71",
+    "targetWord": "שקדייה",
+    "forbiddenWords": [
+      "פריחה",
+      "לבן",
+      "ט\"ו בשבט",
+      "עץ"
+    ]
+  },
+  {
+    "id": "taboo-72",
+    "targetWord": "רקפת מצויה",
+    "forbiddenWords": [
+      "ורוד",
+      "סלע",
+      "חורף",
+      "בכי"
+    ]
+  },
+  {
+    "id": "taboo-73",
+    "targetWord": "נענע משולשת",
+    "forbiddenWords": [
+      "מים",
+      "תה",
+      "ריח",
+      "ירוק"
+    ]
+  },
+  {
+    "id": "taboo-74",
+    "targetWord": "צבי ארץ-ישראלי",
+    "forbiddenWords": [
+      "קרניים",
+      "אייל",
+      "ריצה",
+      "שמורה"
+    ]
+  },
+  {
+    "id": "taboo-75",
+    "targetWord": "תן זהוב",
+    "forbiddenWords": [
+      "יללה",
+      "לילה",
+      "כלב",
+      "טורף"
+    ]
+  },
+  {
+    "id": "taboo-76",
+    "targetWord": "עץ אלון",
+    "forbiddenWords": [
+      "בלוטים",
+      "עתיק",
+      "גליל",
+      "יער"
+    ]
+  },
+  {
+    "id": "taboo-77",
+    "targetWord": "חרוב מצוי",
+    "forbiddenWords": [
+      "תרמיל",
+      "מתוק",
+      "שוקולד",
+      "עץ"
+    ]
+  },
+  {
+    "id": "taboo-78",
+    "targetWord": "קיפוד מצוי",
+    "forbiddenWords": [
+      "קוצים",
+      "כדור",
+      "לילה",
+      "עקיצות"
+    ]
+  },
+  {
+    "id": "taboo-79",
+    "targetWord": "סביון אביבי",
+    "forbiddenWords": [
+      "צהוב",
+      "סבא",
+      "פרח",
+      "רוח"
+    ]
+  },
+  {
+    "id": "taboo-80",
+    "targetWord": "חיפושית שחורה",
+    "forbiddenWords": [
+      "חרק",
+      "חול",
+      "הליכה",
+      "זחילה"
+    ]
+  },
+  {
+    "id": "taboo-81",
+    "targetWord": "מורל",
+    "forbiddenWords": [
+      "צעקות",
+      "שיר",
+      "גרון",
+      "שבט"
+    ]
+  },
+  {
+    "id": "taboo-82",
+    "targetWord": "מסדר בוקר",
+    "forbiddenWords": [
+      "ח' (חית",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": "taboo-83",
+    "targetWord": "שמירת לילה",
+    "forbiddenWords": [
+      "תורנות",
+      "עייפות",
+      "חושך",
+      "פנס"
+    ]
+  },
+  {
+    "id": "taboo-84",
+    "targetWord": "צ'יזבט",
+    "forbiddenWords": [
+      "סיפור",
+      "הפחדה",
+      "מדורה",
+      "שקר"
+    ]
+  },
+  {
+    "id": "taboo-85",
+    "targetWord": "אש לילה",
+    "forbiddenWords": [
+      "פעילות",
+      "חושך",
+      "שקט",
+      "זחילות"
+    ]
+  },
+  {
+    "id": "taboo-86",
+    "targetWord": "חפ\"ק",
+    "forbiddenWords": [
+      "פיקוד",
+      "קשר",
+      "מפקדה",
+      "ניהול"
+    ]
+  },
+  {
+    "id": "taboo-87",
+    "targetWord": "קפה בוץ",
+    "forbiddenWords": [
+      "שחור",
+      "גרגירים",
+      "כוס",
+      "רותח"
+    ]
+  },
+  {
+    "id": "taboo-88",
+    "targetWord": "מסע כומתה",
+    "forbiddenWords": [
+      "צה\"ל",
+      "סיום",
+      "הליכה",
+      "אלונקה"
+    ]
+  },
+  {
+    "id": "taboo-89",
+    "targetWord": "זריחה במצדה",
+    "forbiddenWords": [
+      "בוקר",
+      "שביל הנחש",
+      "ים המלח",
+      "שמש"
+    ]
+  },
+  {
+    "id": "taboo-90",
+    "targetWord": "כפיתה מרובעת",
+    "forbiddenWords": [
+      "חבל",
+      "סנאדות",
+      "קשר",
+      "עמוד"
+    ]
+  },
+  {
+    "id": "taboo-91",
+    "targetWord": "שעת ט\"ש",
+    "forbiddenWords": [
+      "שינה",
+      "צבא",
+      "אוהל",
+      "מקלחת"
+    ]
+  },
+  {
+    "id": "taboo-92",
+    "targetWord": "מעגל שיח",
+    "forbiddenWords": [
+      "דיבור",
+      "שיתוף",
+      "ישיבה",
+      "קבוצה"
+    ]
+  },
+  {
+    "id": "taboo-93",
+    "targetWord": "סנפלינג",
+    "forbiddenWords": [
+      "חבל",
+      "ירידה",
+      "מצוק",
+      "רתמה"
+    ]
+  },
+  {
+    "id": "taboo-94",
+    "targetWord": "כתב חידה",
+    "forbiddenWords": [
+      "משימה",
+      "רמז",
+      "פענוח",
+      "תחנה"
+    ]
+  },
+  {
+    "id": "taboo-95",
+    "targetWord": "מקלחת שדה",
+    "forbiddenWords": [
+      "מים",
+      "ג'ריקן",
+      "שמפו",
+      "סבון"
+    ]
+  },
+  {
+    "id": "taboo-96",
+    "targetWord": "תה צמחים",
+    "forbiddenWords": [
+      "עשבים",
+      "נענע",
+      "מרווה",
+      "סוכר"
+    ]
+  },
+  {
+    "id": "taboo-97",
+    "targetWord": "חוליית חוד",
+    "forbiddenWords": [
+      "הובלה",
+      "ניווט",
+      "קדימה",
+      "ראשונים"
+    ]
+  },
+  {
+    "id": "taboo-98",
+    "targetWord": "תורנות שטיפת כלים",
+    "forbiddenWords": [
+      "סקוטש",
+      "סבון",
+      "מחנה",
+      "סירים"
+    ]
+  },
+  {
+    "id": "taboo-99",
+    "targetWord": "סיר פויקה שרוף",
+    "forbiddenWords": [
+      "אפר",
+      "גירוד",
+      "שחור",
+      "אורז"
+    ]
+  },
+  {
+    "id": "taboo-100",
+    "targetWord": "תדריך יציאה",
+    "forbiddenWords": [
+      "מפה",
+      "בטיחות",
+      "כללים",
+      "מפקד"
     ]
   }
 ]

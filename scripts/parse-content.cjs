@@ -408,6 +408,10 @@ function parseVisualRiddles() {
     'פורים': 'purim',
     'פסח': 'pesach',
     'יום העצמאות': 'independence-day',
+    'יום הזיכרון': 'independence-day',
+    'ל"ג בעומר': 'lag-baomer',
+    'לג בעומר': 'lag-baomer',
+    'יום ירושלים': 'jerusalem-day',
     'שבועות': 'shavuot'
   };
 

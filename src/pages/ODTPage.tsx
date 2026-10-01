@@ -7,12 +7,14 @@ import {
   Shuffle, 
   Compass, 
   Layers,
-  ChevronDown
+  ChevronDown,
+  HelpCircle
 } from 'lucide-react';
 import { odtData } from '../data/content';
 import { ODTActivity } from '../types';
 import { ODTCard } from '../components/odt/ODTCard';
 import { ODTFilters, ODTFilterState } from '../components/odt/ODTFilters';
+import { ODTInstructionsModal } from '../components/odt/ODTInstructionsModal';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 import { playShuffle } from '../lib/sound';
@@ -26,6 +28,7 @@ export const ODTPage: React.FC = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [displayLimit, setDisplayLimit] = useState(25);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [filters, setFilters] = useState<ODTFilterState>({
     equipmentFilter: 'all',
     durationFilter: 'all',
@@ -145,17 +148,32 @@ export const ODTPage: React.FC = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleRandomActivity}
-            title="שלוף פעילות אקראית"
-            className={`p-2.5 rounded-xl border transition-all touch-press ${
-              isCampfire
-                ? 'bg-stone-900 border-stone-800 text-orange-400 hover:bg-stone-800'
-                : 'bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100'
-            }`}
-          >
-            <Shuffle className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsHelpOpen(true)}
+              title="איך מפעילים מתודת ODT?"
+              className={`p-2.5 rounded-xl border transition-all touch-press flex items-center gap-1.5 text-xs font-bold ${
+                isCampfire
+                  ? 'bg-stone-900 border-stone-800 text-orange-400 hover:bg-stone-800'
+                  : 'bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100'
+              }`}
+            >
+              <HelpCircle className="w-5 h-5 text-amber-500" />
+              <span className="hidden sm:inline">איך מפעילים?</span>
+            </button>
+
+            <button
+              onClick={handleRandomActivity}
+              title="שלוף פעילות אקראית"
+              className={`p-2.5 rounded-xl border transition-all touch-press ${
+                isCampfire
+                  ? 'bg-stone-900 border-stone-800 text-orange-400 hover:bg-stone-800'
+                  : 'bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100'
+              }`}
+            >
+              <Shuffle className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Live Search Bar */}
@@ -246,6 +264,12 @@ export const ODTPage: React.FC = () => {
           )}
         </div>
       )}
+
+      {/* Instructions Modal */}
+      <ODTInstructionsModal 
+        isOpen={isHelpOpen} 
+        onClose={() => setIsHelpOpen(false)} 
+      />
 
     </div>
   );

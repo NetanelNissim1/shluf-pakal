@@ -65,7 +65,7 @@ const decryptedTaboo = deobfuscateData(encryptedRaw.taboo);
 assert(Array.isArray(decryptedRiddles), 'פריקת החידות מחזירה מערך תקין');
 assert(decryptedRiddles.length === 1813, `כמות החידות היא בדיוק 1,813 (נמצאו: ${decryptedRiddles.length})`);
 assert(Array.isArray(decryptedTaboo), 'פריקת כרטיסי הטאבו מחזירה מערך תקין');
-assert(decryptedTaboo.length === 20, `כמות כרטיסי הטאבו היא בדיוק 20 (נמצאו: ${decryptedTaboo.length})`);
+assert(decryptedTaboo.length === 100, `כמות כרטיסי הטאבו היא בדיוק 100 (נמצאו: ${decryptedTaboo.length})`);
 
 // Cycle 2: Data Schema and Integrity Check
 console.log('\n[מחזור 2]: בדיקת שלמות מבנה הנתונים (Data Integrity)');
@@ -83,7 +83,7 @@ decryptedTaboo.forEach((t) => {
     allTabooValid = false;
   }
 });
-assert(allTabooValid, 'כל 20 כרטיסי הטאבו מכילים מילת מטרה ו-4 מילים אסורות תקניות');
+assert(allTabooValid, 'כל 100 כרטיסי הטאבו מכילים מילת מטרה ו-4 מילים אסורות תקניות');
 
 // Cycle 3: Instant Search & Sanitization Test
 console.log('\n[מחזור 3]: בדיקת מנוע החיפוש החי והגנה מפני ReDoS / Injection');
@@ -123,7 +123,7 @@ assert(tabooDeck[0].forbiddenWords.includes('לינה'), 'מילים אסורו�
 
 // Shuffle test
 const shuffled = [...tabooDeck].sort(() => Math.random() - 0.5);
-assert(shuffled.length === 20, 'ערבוב כרטיסים שומר על גודל החפיסה');
+assert(shuffled.length === 100, 'ערבוב כרטיסים שומר על גודל החפיסה');
 
 // Cycle 6: Personal Pakal & WhatsApp Export Test
 console.log('\n[מחזור 6]: בדיקת ניהול "הפק"ל שלי" ויצוא לוואטסאפ');
@@ -209,12 +209,12 @@ assert(waterActivities.length >= 5, `סינון סביבת מים ונחלים �
 console.log('\n[מחזור 11]: בדיקת מודול חידות בציורים (Visual Riddles & Rebus)');
 const visualRiddles = deobfuscateData(encryptedRaw.visual);
 assert(Array.isArray(visualRiddles), 'פריקת חידות בציורים מחזירה מערך תקין');
-assert(visualRiddles.length === 80, `כמות החידות בציורים היא בדיוק 80 (נמצאו: ${visualRiddles.length})`);
+assert(visualRiddles.length === 154, `כמות החידות בציורים היא בדיוק 154 (נמצאו: ${visualRiddles.length})`);
 assert(visualRiddles.every(r => r.id && r.title && r.mainCategory && r.rebusFormulaDescription && r.answer), 'כל חידה בציורים מכילה שדות חובה מלאים');
 const allSvgsExist = visualRiddles.every(r => fs.existsSync(path.join(__dirname, '..', 'public', r.imageUrl.split('?')[0])));
-assert(allSvgsExist, 'כל 80 קובצי ה-SVG של החידות בציורים קיימים פיזית בתיקיית public');
+assert(allSvgsExist, 'כל 154 קובצי ה-SVG של החידות בציורים קיימים פיזית בתיקיית public');
 const holidayVisuals = visualRiddles.filter(r => r.mainCategory === 'holidays');
-assert(holidayVisuals.length === 34, `חידות בציורים לחגי ישראל מכילות 34 רבוסים (נמצאו: ${holidayVisuals.length})`);
+assert(holidayVisuals.length === 108, `חידות בציורים לחגי ישראל מכילות 108 רבוסים (נמצאו: ${holidayVisuals.length})`);
 const idiomVisuals = visualRiddles.filter(r => r.mainCategory === 'general');
 assert(idiomVisuals.length === 25, `חידות בציורים לפתגמים וביטויים מכילות 25 רבוסים (נמצאו: ${idiomVisuals.length})`);
 const geoVisuals = visualRiddles.filter(r => r.mainCategory === 'geography');
@@ -228,7 +228,7 @@ const swPath = path.join(__dirname, '..', 'dist', 'sw.js');
 if (fs.existsSync(swPath)) {
   const swContent = fs.readFileSync(swPath, 'utf8');
   const allSvgsCached = visualRiddles.every(r => swContent.includes(r.imageUrl.split('?')[0].replace(/^\//, '')));
-  assert(allSvgsCached, 'כל 80 קובצי ה-SVG של החידות בציורים רשומים ב-Precache של ה-Service Worker');
+  assert(allSvgsCached, `כל ${visualRiddles.length} קובצי ה-SVG של החידות בציורים רשומים ב-Precache של ה-Service Worker`);
 } else {
   assert(true, 'קובץ ה-Service Worker ייבדק לאחר ה-Build');
 }
@@ -311,7 +311,7 @@ visualRiddles.forEach(v => {
   if (!v.title || !v.answer || !v.explanation || !v.rebusFormulaDescription) visualSpellErrors++;
   if (v.title.includes('  ') || v.answer.includes('  ')) visualSpellErrors++;
 });
-assert(visualSpellErrors === 0, `כל 80 החידות בציורים בעלות כתיב עברי תקין, ללא רווחים כפולים וללא שדות חסרים (נמצאו: ${visualSpellErrors})`);
+assert(visualSpellErrors === 0, `כל ${visualRiddles.length} החידות בציורים בעלות כתיב עברי תקין, ללא רווחים כפולים וללא שדות חסרים (נמצאו: ${visualSpellErrors})`);
 
 // 3. ODT Activities grammar & Hebrew text
 let odtGrammarErrors = 0;
@@ -323,7 +323,7 @@ assert(odtGrammarErrors === 0, `כל 101 פעילויות ה-ODT בעלות ני
 // Cycle 15: Visual Riddles Mystery & Anti-Spoiler Purity
 console.log('\n[מחזור 15]: בדיקת טוהר החידות החזותיות (אי-הסגרת תשובות ב-SVG, בתצוגת חניך ובשיתוף)');
 
-// 1. Verify 80 SVGs have 0 bottom spoiler labels
+// 1. Verify 154 SVGs have 0 bottom spoiler labels
 let svgSpoilerCount = 0;
 const visualDir = path.join(__dirname, '..', 'public', 'assets', 'visual_riddles');
 const svgFiles = fs.readdirSync(visualDir).filter(f => f.endsWith('.svg'));
@@ -333,8 +333,8 @@ svgFiles.forEach(f => {
     svgSpoilerCount++;
   }
 });
-assert(svgFiles.length === 80, `כל 80 קובצי ה-SVG של החידות בציורים קיימים (נמצאו: ${svgFiles.length})`);
-assert(svgSpoilerCount === 0, `כל 80 קובצי ה-SVG נקיים מתוויות טקסט מסגירות בתחתית הציור (נמצאו חריגות: ${svgSpoilerCount})`);
+assert(svgFiles.length === 154, `כל 154 קובצי ה-SVG של החידות בציורים קיימים (נמצאו: ${svgFiles.length})`);
+assert(svgSpoilerCount === 0, `כל 154 קובצי ה-SVG נקיים מתוויות טקסט מסגירות בתחתית הציור (נמצאו חריגות: ${svgSpoilerCount})`);
 
 // 2. Verify StudentViewerPage does not leak riddle title in header
 const studentViewerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'visual', 'StudentViewerPage.tsx'), 'utf8');
@@ -605,6 +605,44 @@ const hasTeamCompetitionMode = tabooGameCode.includes('isTeamMode') && tabooGame
 const hasInstructionsTrigger = tabooGameCode.includes('setIsHelpOpen(true)') && tabooGameCode.includes('TabooInstructionsModal');
 const hasSummaryTrigger = tabooGameCode.includes('TabooRoundSummaryModal') && tabooGameCode.includes('handleTimeUp');
 assert(hasDurationOptions && hasTeamCompetitionMode && hasInstructionsTrigger && hasSummaryTrigger, 'משחק הטאבו משלב בחירת זמנים (30/60/90 שנ\'), תחרות קבוצות א\' מול ב\', כפתור עזרה ומסך סיכום');
+
+// Cycle 22: Content Expansion & Cross-Game Guidance Verification
+console.log('\n[מחזור 22]: בדיקת הרחבת תכנים והסברי הפעלה לכלל המשחקים (100 טאבו, 154 חידות בציורים, הדרכות ODT ורבוס)');
+
+// 1. Verify 100 Taboo cards and clusters
+assert(decryptedTaboo.length === 100, `חפיסת טאבו שטח הוגדלה בהצלחה ל-100 כרטיסים בדיוק (נמצאו: ${decryptedTaboo.length})`);
+const tabooUniqueWords = new Set(decryptedTaboo.map(t => t.targetWord));
+assert(tabooUniqueWords.size === 100, 'כל 100 כרטיסי הטאבו הם בעלי מילות מטרה ייחודיות ללא אף כפילות');
+
+// 2. Verify 154 Visual Riddles and over 100 Holiday riddles
+assert(visualRiddles.length === 154, `מאגר החידות בציורים הורחב בהצלחה ל-154 חידות (נמצאו: ${visualRiddles.length})`);
+const holidayVisualRiddles = visualRiddles.filter(v => v.mainCategory === 'holidays');
+assert(holidayVisualRiddles.length === 108, `מאגר חידות החגים מכיל בדיוק 108 חידות בציורים (נמצאו: ${holidayVisualRiddles.length})`);
+
+// Verify all Jewish holidays are covered
+const coveredHolidays = new Set(holidayVisualRiddles.map(v => v.holidayTag));
+const allExpectedHolidayTags = ['rosh-hashana', 'yom-kippur', 'sukkot', 'chanukah', 'tu-bishvat', 'purim', 'pesach', 'independence-day', 'lag-baomer', 'jerusalem-day', 'shavuot'];
+const allVisualHolidaysCovered = allExpectedHolidayTags.every(h => coveredHolidays.has(h));
+assert(allVisualHolidaysCovered, 'כל 11 מועדי ישראל (כולל ל"ג בעומר ויום ירושלים) מיוצגים במאגר החידות החזותיות');
+
+// 3. Verify ODT Instructions Modal and page integration
+const odtModalPath = path.join(__dirname, '..', 'src', 'components', 'odt', 'ODTInstructionsModal.tsx');
+assert(fs.existsSync(odtModalPath), 'רכיב מודאל הדרכת ODT קיים במערכת (ODTInstructionsModal.tsx)');
+const odtPagePath = path.join(__dirname, '..', 'src', 'pages', 'ODTPage.tsx');
+const odtPageContent = fs.readFileSync(odtPagePath, 'utf8');
+assert(odtPageContent.includes('ODTInstructionsModal') && odtPageContent.includes('isHelpOpen'), 'דף פעילויות ODT כולל כפתור הפעלה ומודאל הדרכה למדריך');
+
+// 4. Verify Visual Instructions Modal and page integration
+const visualModalPath = path.join(__dirname, '..', 'src', 'components', 'visual', 'VisualInstructionsModal.tsx');
+assert(fs.existsSync(visualModalPath), 'רכיב מודאל הדרכת רבוס קיים במערכת (VisualInstructionsModal.tsx)');
+const visualPagePath = path.join(__dirname, '..', 'src', 'pages', 'VisualRiddlesPage.tsx');
+const visualPageContent = fs.readFileSync(visualPagePath, 'utf8');
+assert(visualPageContent.includes('VisualInstructionsModal') && visualPageContent.includes('isHelpOpen') && visualPageContent.includes('{allRiddles.length} חידות ויזואליות'), 'דף חידות בציורים כולל כפתור הדרכה לרבוס ומונה חידות דינמי');
+
+// 5. Verify Randomizer guidance
+const randomizerPath = path.join(__dirname, '..', 'src', 'components', 'randomizer', 'RandomizerModal.tsx');
+const randomizerContent = fs.readFileSync(randomizerPath, 'utf8');
+assert(randomizerContent.includes('שבירת שתיקה'), 'מודאל שלוף מהיר כולל הסבר פשוט וקולע למדריך');
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
