@@ -19,6 +19,7 @@ export const TabooTimer: React.FC<TabooTimerProps> = ({
   totalSeconds,
   onTogglePlay,
   onReset,
+  onTimeUp,
 }) => {
   const { themeMode, soundEnabled, hapticsEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
@@ -36,8 +37,9 @@ export const TabooTimer: React.FC<TabooTimerProps> = ({
     } else if (secondsLeft === 0) {
       if (soundEnabled) playTimerEnd();
       if (hapticsEnabled) triggerHaptic([100, 100, 200]);
+      if (onTimeUp) onTimeUp();
     }
-  }, [secondsLeft, isRunning, soundEnabled, hapticsEnabled]);
+  }, [secondsLeft, isRunning, soundEnabled, hapticsEnabled, onTimeUp]);
 
   const getColorClass = () => {
     if (secondsLeft <= 10) return 'text-red-500 stroke-red-500';
@@ -85,7 +87,7 @@ export const TabooTimer: React.FC<TabooTimerProps> = ({
         </div>
 
         <div>
-          <div className="text-xs font-bold text-stone-400">טיימר 60 שניות</div>
+          <div className="text-xs font-bold text-stone-400">טיימר {totalSeconds} שניות</div>
           <div className={`text-sm font-extrabold ${secondsLeft === 0 ? 'text-red-500 animate-pulse' : ''}`}>
             {secondsLeft === 0 ? 'הזמן תם!' : isRunning ? 'רץ ברקע...' : 'מוכן להזנקה'}
           </div>

@@ -569,6 +569,43 @@ const updatedDrawerCode = fs.readFileSync(drawerPath, 'utf8');
 const hasProperInputFont = updatedDrawerCode.includes('text-base sm:text-sm');
 assert(hasProperInputFont, 'שדות הקלט במגירת המשוב ובדפי החיפוש משתמשים ב-text-base sm:text-sm למניעת זום אוטומטי במובייל');
 
+// ======================================================
+// מחזור 21: בדיקת שדרוג משחק טאבו שטח (הוראות, באנר הסתרה, סיכום סיבוב, וזמנים)
+// ======================================================
+console.log('\n[מחזור 21]: בדיקת שדרוג משחק טאבו שטח (חוויית משתמש ובהירות חוקים)');
+
+// 1. Verify TabooInstructionsModal exists and covers key rules
+const instructionsPath = path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooInstructionsModal.tsx');
+assert(fs.existsSync(instructionsPath), 'רכיב מודאל ההוראות (TabooInstructionsModal.tsx) קיים במערכת');
+const instructionsCode = fs.readFileSync(instructionsPath, 'utf8');
+const hasStealthRule = instructionsCode.includes('רק המסביר מביט במסך');
+const hasTabooForbiddenRule = instructionsCode.includes('המילים האסורות');
+const hasFoulRules = instructionsCode.includes('חוקי פסילה');
+assert(hasStealthRule && hasTabooForbiddenRule && hasFoulRules, 'מודאל ההוראות מפרט באופן ברור את כלל הברזל, מילת המטרה, המילים האסורות וחוקי הפסילה');
+
+// 2. Verify TabooRoundSummaryModal exists and handles round end
+const summaryModalPath = path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooRoundSummaryModal.tsx');
+assert(fs.existsSync(summaryModalPath), 'רכיב מודאל סיכום הסיבוב (TabooRoundSummaryModal.tsx) קיים במערכת');
+const summaryModalCode = fs.readFileSync(summaryModalPath, 'utf8');
+const hasTimeUpText = summaryModalCode.includes('הזמן נגמר');
+const hasTeamScoreboard = summaryModalCode.includes('לוח תוצאות מצטבר') && summaryModalCode.includes('קבוצה א');
+assert(hasTimeUpText && hasTeamScoreboard, 'מודאל סיום הסיבוב מציג פירוט הצלחות/פסילות וטבלת ניקוד מצטברת לקבוצות');
+
+// 3. Verify TabooCardView has stealth reminder banner
+const tabooCardViewPath = path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooCardView.tsx');
+const tabooCardViewCode = fs.readFileSync(tabooCardViewPath, 'utf8');
+const hasCardStealthBanner = tabooCardViewCode.includes('שמור את המסך מוסתר מהחניכים');
+assert(hasCardStealthBanner, 'כרטיס הטאבו מכיל באנר בולט המזכיר לשמור את המסך מוסתר מהמעגל');
+
+// 4. Verify TabooGame integration with timer options and team competition
+const tabooGamePath = path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooGame.tsx');
+const tabooGameCode = fs.readFileSync(tabooGamePath, 'utf8');
+const hasDurationOptions = tabooGameCode.includes('selectedDuration') && tabooGameCode.includes('30') && tabooGameCode.includes('90');
+const hasTeamCompetitionMode = tabooGameCode.includes('isTeamMode') && tabooGameCode.includes('teamScores');
+const hasInstructionsTrigger = tabooGameCode.includes('setIsHelpOpen(true)') && tabooGameCode.includes('TabooInstructionsModal');
+const hasSummaryTrigger = tabooGameCode.includes('TabooRoundSummaryModal') && tabooGameCode.includes('handleTimeUp');
+assert(hasDurationOptions && hasTeamCompetitionMode && hasInstructionsTrigger && hasSummaryTrigger, 'משחק הטאבו משלב בחירת זמנים (30/60/90 שנ\'), תחרות קבוצות א\' מול ב\', כפתור עזרה ומסך סיכום');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');
