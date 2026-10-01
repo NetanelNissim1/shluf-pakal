@@ -5,14 +5,17 @@ import {
   Search, 
   X, 
   ChevronDown, 
-  Layers 
+  Layers,
+  Sparkles,
+  Play
 } from 'lucide-react';
-import { riddlesData } from '../data/content';
+import { allCombinedRiddles } from '../data/content';
 import { CATEGORIES } from '../data/categories';
 import { RiddleItem, CategoryId } from '../types';
 import { SubCategoryTabs } from '../components/riddles/SubCategoryTabs';
 import { RiddleCard } from '../components/riddles/RiddleCard';
 import { DifficultyFilter } from '../components/common/DifficultyFilter';
+import { HeSheGameModal } from '../components/heshe/HeSheGameModal';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 
@@ -30,7 +33,8 @@ export const CategoryPage: React.FC = () => {
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
-  const allRiddles = riddlesData as RiddleItem[];
+  const allRiddles = allCombinedRiddles as RiddleItem[];
+  const [isHeSheGameOpen, setIsHeSheGameOpen] = useState(false);
 
   const [localSearch, setLocalSearch] = useState('');
   const [displayLimit, setDisplayLimit] = useState(30);
@@ -156,6 +160,20 @@ export const CategoryPage: React.FC = () => {
           </span>
         </div>
 
+        {/* Quick Launch He-She Arena Mode Button */}
+        {currentCategoryId === 'he-and-she' && (
+          <div className="mt-3">
+            <button
+              onClick={() => setIsHeSheGameOpen(true)}
+              className="w-full py-2.5 px-4 rounded-xl font-black text-xs sm:text-sm bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 text-white shadow-md flex items-center justify-center gap-2 touch-press hover:opacity-95 transition-all"
+            >
+              <Play className="w-4 h-4 fill-current" />
+              <span>הפעל משחק שטח במצב כרטיסיות (Flashcards)</span>
+              <Sparkles className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
         {/* Local Category Search Input */}
         <div className="mt-3 relative">
           <div className="absolute right-3 top-2.5 text-stone-400">
@@ -263,6 +281,12 @@ export const CategoryPage: React.FC = () => {
         </div>
       )}
 
+      {/* Interactive He-She Arena Game Modal */}
+      <HeSheGameModal 
+        isOpen={isHeSheGameOpen} 
+        onClose={() => setIsHeSheGameOpen(false)} 
+        initialPart={activeSubCategory || undefined}
+      />
     </div>
   );
 };

@@ -10,7 +10,7 @@ import {
   Compass,
   MessageCircle
 } from 'lucide-react';
-import { riddlesData } from '../data/content';
+import { allCombinedRiddles } from '../data/content';
 import { RiddleItem } from '../types';
 import { RiddleCard } from '../components/riddles/RiddleCard';
 import { usePakalStore } from '../store/usePakalStore';
@@ -31,7 +31,7 @@ export const MyPakalPage: React.FC<MyPakalPageProps> = ({ onExploreClick }) => {
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
-  const allRiddles = riddlesData as RiddleItem[];
+  const allRiddles = allCombinedRiddles as RiddleItem[];
 
   const [copied, setCopied] = useState(false);
   const [showConfirmClear, setShowConfirmClear] = useState(false);

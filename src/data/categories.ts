@@ -54,5 +54,14 @@ export const CATEGORIES: CategoryMeta[] = [
     color: 'from-amber-600 via-orange-600 to-red-600',
     accent: 'amber',
     description: 'חידות, מנהגים, סודות וסיפורים לכל מועדי השנה - עם סינון מהיר לפי כל חג'
+  },
+  {
+    id: 'he-and-she',
+    title: 'חידות ומשחק "הוא והיא"',
+    subtitle: 'טבע, חפצים, גוף, ומקצועות (205 חידות שנינה)',
+    iconName: 'Sparkles',
+    color: 'from-sky-500 via-blue-600 to-indigo-700',
+    accent: 'sky',
+    description: 'משחק הלשון הקלאסי שבו הזכר והנקבה נגזרים מאותה מילה ומקבלים משמעויות מפתיעות'
   }
 ];

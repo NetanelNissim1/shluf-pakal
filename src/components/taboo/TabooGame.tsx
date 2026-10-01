@@ -216,6 +216,11 @@ export const TabooGame: React.FC = () => {
           <h2 className="text-xl font-extrabold flex items-center gap-2">
             <Trophy className="w-5 h-5 text-amber-500" />
             <span>טאבו שטח</span>
+            <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
+              isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-amber-100 text-amber-800'
+            }`}>
+              {cards.length} כרטיסים
+            </span>
           </h2>
           <p className="text-xs text-stone-500">
             הסבר את המושג למעגל מבלי להגיד את המילים האסורות!

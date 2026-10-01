@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Sparkles, X, RotateCw, Filter } from 'lucide-react';
-import { riddlesData } from '../../data/content';
+import { allCombinedRiddles } from '../../data/content';
 import { RiddleItem, CategoryId } from '../../types';
 import { RiddleCard } from '../riddles/RiddleCard';
 import { usePakalStore } from '../../store/usePakalStore';
@@ -20,7 +20,7 @@ export const RandomizerModal: React.FC = () => {
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
-  const allRiddles = riddlesData as RiddleItem[];
+  const allRiddles = allCombinedRiddles as RiddleItem[];
 
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | 'all'>(
     activeCategory || 'all'

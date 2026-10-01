@@ -259,6 +259,9 @@ function determineDifficulty(categoryId, subCategory, questionText) {
   // --- Parse Visual Riddles ---
   const allVisualRiddles = parseVisualRiddles();
 
+  // --- Parse He and She Riddles ---
+  const allHeSheRiddles = parseHeAndSheRiddles();
+
   if (!fs.existsSync(OUTPUT_DATA_DIR)) {
     fs.mkdirSync(OUTPUT_DATA_DIR, { recursive: true });
   }
@@ -288,13 +291,20 @@ function determineDifficulty(categoryId, subCategory, questionText) {
     'utf8'
   );
 
+  fs.writeFileSync(
+    path.join(OUTPUT_DATA_DIR, 'heshe.json'),
+    JSON.stringify(allHeSheRiddles, null, 2),
+    'utf8'
+  );
+
   // 2. Write Obfuscated / Encrypted bundle for production security
   const encryptedPayload = {
     riddles: obfuscateData(JSON.stringify(allRiddles)),
     taboo: obfuscateData(JSON.stringify(allTabooCards)),
     odt: obfuscateData(JSON.stringify(allODTActivities)),
     visual: obfuscateData(JSON.stringify(allVisualRiddles)),
-    checksum: allRiddles.length ^ allTabooCards.length ^ allODTActivities.length ^ allVisualRiddles.length
+    heshe: obfuscateData(JSON.stringify(allHeSheRiddles)),
+    checksum: allRiddles.length ^ allTabooCards.length ^ allODTActivities.length ^ allVisualRiddles.length ^ allHeSheRiddles.length
   };
 
   fs.writeFileSync(
@@ -308,6 +318,7 @@ function determineDifficulty(categoryId, subCategory, questionText) {
   console.log(`  - ${allTabooCards.length} taboo cards`);
   console.log(`  - ${allODTActivities.length} ODT activities`);
   console.log(`  - ${allVisualRiddles.length} visual riddles`);
+  console.log(`  - ${allHeSheRiddles.length} he-and-she riddles`);
 }
 
 function parseODTActivities() {
@@ -488,5 +499,65 @@ function parseVisualRiddles() {
   return riddles;
 }
 
+function parseHeAndSheRiddles() {
+  const filePath = path.join(CONTENT_DIR, 'he_and_she_riddles.md');
+  if (!fs.existsSync(filePath)) return [];
+  const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
+
+  const questions = {};
+  const answers = {};
+  let currentPart = '';
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line.startsWith('## חלק ')) {
+      currentPart = cleanHebrewText(line.replace(/^##\s+חלק\s+[א-ת]\':\s*/, '').replace(/\s*\(\d+.*$/, ''));
+      continue;
+    }
+
+    const qMatch = line.match(/^(\d+)\.\s*(.+?)\s*\[קושי:\s*(easy|medium|hard)\]\s*\[תגיות:\s*([^\]]+)\]/);
+    if (qMatch) {
+      const num = parseInt(qMatch[1]);
+      questions[num] = {
+        num,
+        part: currentPart,
+        question: cleanHebrewText(qMatch[2]),
+        difficulty: qMatch[3].trim(),
+        tags: qMatch[4].split(',').map(t => cleanHebrewText(t)).filter(Boolean)
+      };
+      continue;
+    }
+
+    const aMatch = line.match(/^(\d+)\.\s*\*\*הוא:\*\*\s*(.+?)\s*\|\s*\*\*היא:\*\*\s*(.+)$/);
+    if (aMatch) {
+      const num = parseInt(aMatch[1]);
+      answers[num] = {
+        he: cleanHebrewText(aMatch[2]),
+        she: cleanHebrewText(aMatch[3])
+      };
+      continue;
+    }
+  }
+
+  const items = [];
+  for (let num = 1; num <= 205; num++) {
+    const q = questions[num];
+    const a = answers[num];
+    if (q && a) {
+      items.push({
+        id: 'heshe-' + String(num).padStart(3, '0'),
+        num,
+        part: q.part,
+        question: q.question,
+        heAnswer: a.he,
+        sheAnswer: a.she,
+        answer: `הוא: ${a.he} | היא: ${a.she}`,
+        difficulty: q.difficulty,
+        tags: q.tags
+      });
+    }
+  }
+  return items;
+}
 
 parseMarkdownFiles();

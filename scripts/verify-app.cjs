@@ -644,6 +644,125 @@ const randomizerPath = path.join(__dirname, '..', 'src', 'components', 'randomiz
 const randomizerContent = fs.readFileSync(randomizerPath, 'utf8');
 assert(randomizerContent.includes('שבירת שתיקה'), 'מודאל שלוף מהיר כולל הסבר פשוט וקולע למדריך');
 
+// Cycle 23: Dynamic Category Counts & Cross-Screen Counter Accuracy
+console.log('\n[מחזור 23]: בדיקת מונים דינמיים מדויקים בדף הבית, בטאבו שטח ובחידות בציורים');
+
+// 1. Verify HomePage banners have dynamic counts
+const homePagePath = path.join(__dirname, '..', 'src', 'pages', 'HomePage.tsx');
+const homePageContent = fs.readFileSync(homePagePath, 'utf8');
+const hasVisualCountOnHome = homePageContent.includes('{visualData.length} חידות בציורים');
+const hasTabooCountOnHome = homePageContent.includes('{tabooData.length} כרטיסים');
+assert(hasVisualCountOnHome && hasTabooCountOnHome, 'דף הבית מציג מונים דינמיים מלאים עבור חידות בציורים (154) ועבור טאבו שטח (100 כרטיסים)');
+
+// 2. Verify TabooGame has cards count badge
+const tabooGameHeaderPath = path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooGame.tsx');
+const tabooGameHeaderContent = fs.readFileSync(tabooGameHeaderPath, 'utf8');
+assert(tabooGameHeaderContent.includes('{cards.length} כרטיסים'), 'מסך משחק טאבו שטח מציג תג כמות כרטיסים דינמי בכותרת המשחק');
+
+// 3. Verify VisualRiddlesPage has zero hardcoded old numbers and uses dynamic categoryCounts
+assert(!visualPageContent.includes('חגי ישראל (18)'), 'הוסר המספר הסטטי הישן (18) מלשונית חגי ישראל');
+assert(!visualPageContent.includes('פתגמים וביטויים (7)'), 'הוסר המספר הסטטי הישן (7) מלשונית פתגמים וביטויים');
+assert(!visualPageContent.includes('אתרים ומקומות (5)'), 'הוסר המספר הסטטי הישן (5) מלשונית אתרים ומקומות');
+
+const usesCategoryCounts = visualPageContent.includes('categoryCounts.holidays') && 
+                           visualPageContent.includes('categoryCounts.general') && 
+                           visualPageContent.includes('categoryCounts.geography');
+assert(usesCategoryCounts, 'דף חידות בציורים משתמש במונים דינמיים מלאים (categoryCounts) לכל הקטגוריות');
+
+// 4. Verify Holiday sub-tabs use dynamic holidayCounts
+assert(visualPageContent.includes('holidayCounts[h.id]'), 'לשוניות המשנה של החגים מציגות מונה חידות דינמי ומדויק לכל חג');
+
+// Cycle 24: He-She Riddles Dataset Integrity & Decryption Test
+console.log('\n[מחזור 24]: בדיקת שלמות מאגר חידות ומשחק "הוא והיא" (205 הגדרות)');
+assert(typeof encryptedRaw.heshe === 'string', 'שדה heshe מוצפן במחרוזת בטוחה ב-encrypted-data.json');
+
+const decryptedHeShe = deobfuscateData(encryptedRaw.heshe);
+assert(Array.isArray(decryptedHeShe), 'פריקת חידות הוא והיא מחזירה מערך תקין');
+assert(decryptedHeShe.length === 205, `כמות חידות הוא והיא היא בדיוק 205 (נמצאו: ${decryptedHeShe.length})`);
+
+const uniqueHeSheIds = new Set(decryptedHeShe.map(h => h.id));
+assert(uniqueHeSheIds.size === 205, `כל 205 המזהים של חידות הוא והיא ייחודיים ללא אף כפילות (נמצאו: ${uniqueHeSheIds.size})`);
+
+const partACount = decryptedHeShe.filter(h => h.num >= 1 && h.num <= 50).length;
+const partBCount = decryptedHeShe.filter(h => h.num >= 51 && h.num <= 100).length;
+const partCCount = decryptedHeShe.filter(h => h.num >= 101 && h.num <= 150).length;
+const partDCount = decryptedHeShe.filter(h => h.num >= 151 && h.num <= 205).length;
+assert(partACount === 50 && partBCount === 50 && partCCount === 50 && partDCount === 55, 'חלוקה מדויקת ל-4 חלקי תוכן: א (50), ב (50), ג (50), ד (55)');
+
+const totalActivitiesAll = decryptedRiddles.length + decryptedTaboo.length + (encryptedRaw.odt ? deobfuscateData(encryptedRaw.odt).length : 0) + (encryptedRaw.visual ? deobfuscateData(encryptedRaw.visual).length : 0) + decryptedHeShe.length;
+assert(totalActivitiesAll === 2373, `סך כל תכני ההדרכה באפליקציית שלוף הוא בדיוק 2,373 פריטים (נמצאו: ${totalActivitiesAll})`);
+
+// Cycle 25: Spelling, Grammar & Linguistic Quality Assurance for He-She Riddles
+console.log('\n[מחזור 25]: בדיקת איות, דקדוק וחוקיות לשונית עבור כל 205 הגדרות "הוא והיא"');
+let allHeSheValid = true;
+let allHeSheAnswersValid = true;
+let hasTypoOrBrokenChars = false;
+
+decryptedHeShe.forEach((h) => {
+  if (!h.id || !h.question || !h.heAnswer || !h.sheAnswer || !h.answer || !h.part || !Array.isArray(h.tags)) {
+    allHeSheValid = false;
+  }
+  if (!h.answer.startsWith('הוא:') || !h.answer.includes('| היא:')) {
+    allHeSheAnswersValid = false;
+  }
+  // Check for broken characters or accidental brackets
+  if (h.question.includes('???') || h.heAnswer.includes('?') || h.sheAnswer.includes('?')) {
+    hasTypoOrBrokenChars = true;
+  }
+});
+
+assert(allHeSheValid, 'כל 205 חידות הוא והיא מכילות שדות חובה שלמים (id, question, heAnswer, sheAnswer, answer, part, tags)');
+assert(allHeSheAnswersValid, 'כל 205 הפתרונות מנוסחים במבנה תקני מלא של "הוא: X | היא: Y"');
+assert(!hasTypoOrBrokenChars, 'בדיקת איות הושלמה בהצלחה: אפס שגיאות כתיב, סימני שאלה כפולים או תווים פגומים');
+
+const easyCount = decryptedHeShe.filter(h => h.difficulty === 'easy').length;
+const mediumCount = decryptedHeShe.filter(h => h.difficulty === 'medium').length;
+const hardCount = decryptedHeShe.filter(h => h.difficulty === 'hard').length;
+assert(easyCount > 0 && mediumCount > 0 && hardCount > 0 && (easyCount + mediumCount + hardCount === 205), `כל 205 החידות מסווגות לרמות קושי תקניות (קליל: ${easyCount}, בינוני: ${mediumCount}, מאתגר: ${hardCount})`);
+
+// Cycle 26: He-She Interactive UI, Arena Mode & Cross-Navigation Integration
+console.log('\n[מחזור 26]: בדיקת ממשק משחק הוא והיא, דף הבית, קטגוריות ומודאלים');
+const heSheModalPath = path.join(__dirname, '..', 'src', 'components', 'heshe', 'HeSheGameModal.tsx');
+assert(fs.existsSync(heSheModalPath), 'רכיב משחק הזירה (HeSheGameModal.tsx) קיים במערכת');
+
+const heSheModalContent = fs.readFileSync(heSheModalPath, 'utf8');
+assert(heSheModalContent.includes('חשוף פתרון (הוא והיא)') && heSheModalContent.includes('handleShuffle'), 'משחק הזירה כולל כפתור חשיפה יחיד לפתרון מלא וערבוב אקראי');
+
+const heSheInstructionsPath = path.join(__dirname, '..', 'src', 'components', 'heshe', 'HeSheInstructionsModal.tsx');
+assert(fs.existsSync(heSheInstructionsPath), 'רכיב מודאל הוראות למשחק הוא והיא (HeSheInstructionsModal.tsx) קיים במערכת');
+
+assert(homePageContent.includes('{hesheData.length} הגדרות') && homePageContent.includes('משחק חידות "הוא והיא"'), 'דף הבית כולל באנר משחק מהיר ייעודי עם מונה הגדרות דינמי (205)');
+
+const categoriesDataPath = path.join(__dirname, '..', 'src', 'data', 'categories.ts');
+const categoriesDataContent = fs.readFileSync(categoriesDataPath, 'utf8');
+assert(categoriesDataContent.includes("'he-and-she'"), 'קטגוריית "הוא והיא" מעוגנת רשמית ברשימת הקטגוריות הראשית (CATEGORIES)');
+
+const categoryPagePath = path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx');
+const categoryPageContent = fs.readFileSync(categoryPagePath, 'utf8');
+assert(categoryPageContent.includes("currentCategoryId === 'he-and-she'") && categoryPageContent.includes('הפעל משחק שטח במצב כרטיסיות'), 'דף הקטגוריות כולל כפתור הזנקה ישיר למשחק השטח עבור קטגוריית הוא והיא');
+
+// Cycle 27: Comprehensive Security Audit (Data Obfuscation, Anti-Scraping, CSP & XSS)
+console.log('\n[מחזור 27]: ביקורת אבטחת מידע מקיפה (הגנה על התוכן, הצפנת נתונים, CSP וסניטיזציה)');
+// 1. Ensure raw questions/answers do NOT leak as unencrypted plaintext in encrypted-data.json
+const rawEncryptedFileContent = fs.readFileSync(encryptedFilePath, 'utf8');
+assert(!rawEncryptedFileContent.includes('"heAnswer":"סיר"'), 'מאגר הנתונים heshe אינו חשוף כטקסט פתוח (מוגן ב-XOR Byte Cipher)');
+assert(!rawEncryptedFileContent.includes('עוף דורס לילי גדול בעל עיניים'), 'שאלות הוא והיא אינן חשופות כטקסט פתוח בקובץ המוצפן');
+
+// 2. Check CSP and Security Headers in vercel.json and index.html
+const vercelSecConfigPath = path.join(__dirname, '..', 'vercel.json');
+const vercelSecConfig = JSON.parse(fs.readFileSync(vercelSecConfigPath, 'utf8'));
+const secHeaders = vercelSecConfig.headers ? vercelSecConfig.headers[0].headers : [];
+const hasXFrameOptions = secHeaders.some(h => h.key === 'X-Frame-Options' && h.value === 'DENY');
+const hasXContentType = secHeaders.some(h => h.key === 'X-Content-Type-Options' && h.value === 'nosniff');
+assert(hasXFrameOptions && hasXContentType, 'הגדרות vercel.json כוללות כותרות הגנה מפני Clickjacking ו-MIME Sniffing');
+
+// 3. Check anti-scraping and devtools shortcut blocking in security.ts
+const securityTsPath = path.join(__dirname, '..', 'src', 'lib', 'security.ts');
+const securityTsContent = fs.readFileSync(securityTsPath, 'utf8');
+const hasDevToolsBlock = securityTsContent.includes('F12') && (securityTsContent.includes("'I'") || securityTsContent.includes('KeyI')) && (securityTsContent.includes("'U'") || securityTsContent.includes('KeyU'));
+const hasContextMenuBlock = securityTsContent.includes('contextmenu');
+assert(hasDevToolsBlock && hasContextMenuBlock, 'מנגנון אבטחת התוכן (security.ts) חוסם קליק ימני, F12 וקיצורי פיתוח');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

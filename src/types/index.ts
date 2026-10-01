@@ -5,8 +5,21 @@ export type CategoryId =
   | 'logic-language'   // היגיון ולשון (מתוך language_and_logic.md)
   | 'songs-culture'    // שירים, תרבות וטאבו (מתוך culture_and_songs.md)
   | 'israeli-holidays' // חגי ומועדי ישראל (מתוך jewish_holidays.md)
+  | 'he-and-she'       // חידות ומשחק "הוא והיא" (מתוך he_and_she_riddles.md)
   | 'games-activities' // משחקים והפעלות
   | 'stories';         // סיפורים וקטעי קריאה
+
+export interface HeSheRiddle {
+  id: string;
+  num: number;
+  part: string;
+  question: string;
+  heAnswer: string;
+  sheAnswer: string;
+  answer: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  tags: string[];
+}
 
 export type SituationFilter = 'all' | 'odt' | 'visual' | 'holidays' | 'bus' | 'walking' | 'campfire' | 'icebreaker' | 'pakal';
 
