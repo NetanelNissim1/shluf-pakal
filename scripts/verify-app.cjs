@@ -720,33 +720,30 @@ const mediumCount = decryptedHeShe.filter(h => h.difficulty === 'medium').length
 const hardCount = decryptedHeShe.filter(h => h.difficulty === 'hard').length;
 assert(easyCount > 0 && mediumCount > 0 && hardCount > 0 && (easyCount + mediumCount + hardCount === 205), `כל 205 החידות מסווגות לרמות קושי תקניות (קליל: ${easyCount}, בינוני: ${mediumCount}, מאתגר: ${hardCount})`);
 
-// Cycle 26: He-She Interactive UI, Arena Mode & Cross-Navigation Integration
-console.log('\n[מחזור 26]: בדיקת ממשק משחק הוא והיא, דף הבית, קטגוריות ומודאלים');
-const heSheModalPath = path.join(__dirname, '..', 'src', 'components', 'heshe', 'HeSheGameModal.tsx');
-assert(fs.existsSync(heSheModalPath), 'רכיב משחק הזירה (HeSheGameModal.tsx) קיים במערכת');
-
-const heSheModalContent = fs.readFileSync(heSheModalPath, 'utf8');
-assert(heSheModalContent.includes('חשוף פתרון (הוא והיא)') && heSheModalContent.includes('handleShuffle'), 'משחק הזירה כולל כפתור חשיפה יחיד לפתרון מלא וערבוב אקראי');
-
-const heSheInstructionsPath = path.join(__dirname, '..', 'src', 'components', 'heshe', 'HeSheInstructionsModal.tsx');
-assert(fs.existsSync(heSheInstructionsPath), 'רכיב מודאל הוראות למשחק הוא והיא (HeSheInstructionsModal.tsx) קיים במערכת');
-
-assert(homePageContent.includes('{hesheData.length} הגדרות') && homePageContent.includes('משחק חידות "הוא והיא"'), 'דף הבית כולל באנר משחק מהיר ייעודי עם מונה הגדרות דינמי (205)');
+// Cycle 26: He-She UX Refinement (Category-Only, No Popups, Clean HomePage)
+console.log('\n[מחזור 26]: בדיקת ממשק משחק הוא והיא מעודכן (מיקוד בלעדי בקטגוריות שטח, ביטול מודאל קופץ ודף בית נקי)');
 
 const categoriesDataPath = path.join(__dirname, '..', 'src', 'data', 'categories.ts');
 const categoriesDataContent = fs.readFileSync(categoriesDataPath, 'utf8');
 assert(categoriesDataContent.includes("'he-and-she'"), 'קטגוריית "הוא והיא" מעוגנת רשמית ברשימת הקטגוריות הראשית (CATEGORIES)');
 
+// Verify HomePage is clean (no He-She banner or modal popups)
+assert(!homePageContent.includes('משחק חידות "הוא והיא"'), 'דף הבית נקי מבאנר של הוא והיא (מיקוד בלעדי בתוך קטגוריות שטח)');
+assert(!homePageContent.includes('HeSheGameModal'), 'דף הבית אינו מכיל מודאל קופץ של הוא והיא');
+
+// Verify CategoryPage presents He-She smoothly as native cards
 const categoryPagePath = path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx');
 const categoryPageContent = fs.readFileSync(categoryPagePath, 'utf8');
-assert(categoryPageContent.includes("currentCategoryId === 'he-and-she'") && categoryPageContent.includes('הפעל משחק שטח במצב כרטיסיות'), 'דף הקטגוריות כולל כפתור הזנקה ישיר למשחק השטח עבור קטגוריית הוא והיא');
+assert(!categoryPageContent.includes('HeSheGameModal'), 'בוטל המודאל הקופץ של משחק הוא והיא בדף הקטגוריות');
+assert(categoryPageContent.includes('RiddleCard'), 'דף הקטגוריות מציג את חידות הוא והיא ככרטיסיות שטח אינטגרליות וזורמות');
+assert(decryptedHeShe.length === 205, 'כל 205 חידות הוא והיא זמינות ישירות ברשימת הקטגוריה');
 
 // Cycle 27: Comprehensive Security Audit (Data Obfuscation, Anti-Scraping, CSP & XSS)
 console.log('\n[מחזור 27]: ביקורת אבטחת מידע מקיפה (הגנה על התוכן, הצפנת נתונים, CSP וסניטיזציה)');
 // 1. Ensure raw questions/answers do NOT leak as unencrypted plaintext in encrypted-data.json
 const rawEncryptedFileContent = fs.readFileSync(encryptedFilePath, 'utf8');
-assert(!rawEncryptedFileContent.includes('"heAnswer":"סיר"'), 'מאגר הנתונים heshe אינו חשוף כטקסט פתוח (מוגן ב-XOR Byte Cipher)');
-assert(!rawEncryptedFileContent.includes('עוף דורס לילי גדול בעל עיניים'), 'שאלות הוא והיא אינן חשופות כטקסט פתוח בקובץ המוצפן');
+assert(!rawEncryptedFileContent.includes('"heAnswer":"מלון"'), 'מאגר הנתונים heshe אינו חשוף כטקסט פתוח (מוגן ב-XOR Byte Cipher)');
+assert(!rawEncryptedFileContent.includes('הוא פרי קיץ עסיסי ומתוק'), 'שאלות הוא והיא אינן חשופות כטקסט פתוח בקובץ המוצפן');
 
 // 2. Check CSP and Security Headers in vercel.json and index.html
 const vercelSecConfigPath = path.join(__dirname, '..', 'vercel.json');

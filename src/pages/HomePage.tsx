@@ -22,7 +22,6 @@ import { SearchBar } from '../components/common/SearchBar';
 import { SituationChips } from '../components/common/SituationChips';
 import { DifficultyFilter } from '../components/common/DifficultyFilter';
 import { RiddleCard } from '../components/riddles/RiddleCard';
-import { HeSheGameModal } from '../components/heshe/HeSheGameModal';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 
@@ -64,7 +63,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
-  const [isHeSheModalOpen, setIsHeSheModalOpen] = React.useState(false);
   const allRiddles = allCombinedRiddles as RiddleItem[];
 
   // Filter logic
@@ -287,40 +285,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
               </div>
             </div>
-
-            {/* 4. He-She Game Banner */}
-            <div 
-              onClick={() => setIsHeSheModalOpen(true)}
-              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
-                isCampfire
-                  ? 'bg-gradient-to-r from-blue-950 via-campfire-card to-stone-950 border-sky-600/70 shadow-fire'
-                  : 'bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 text-white border-sky-400 shadow-md shadow-sky-600/20'
-              }`}
-            >
-              <div className="flex items-center justify-between relative z-10">
-                <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
-                    isCampfire ? 'bg-sky-600 text-white' : 'bg-white text-sky-600 shadow-md'
-                  }`}>
-                    <Sparkles className="w-5 h-5 stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-black text-base sm:text-lg">משחק חידות "הוא והיא"</span>
-                      <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
-                        {hesheData.length} הגדרות
-                      </span>
-                    </div>
-                    <p className={`text-xs ${isCampfire ? 'text-sky-200/80' : 'text-sky-100'}`}>
-                      משחק לשון ושנינה שנון למעגל – 4 קטגוריות שטח וחשיפת פתרון מיידית
-                    </p>
-                  </div>
-                </div>
-                <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-              </div>
-            </div>
           </div>
-
 
           {/* 5 Main Content Categories */}
           <div>
@@ -427,12 +392,6 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </>
       )}
-
-      {/* Interactive He-She Arena Game Modal */}
-      <HeSheGameModal 
-        isOpen={isHeSheModalOpen} 
-        onClose={() => setIsHeSheModalOpen(false)} 
-      />
     </div>
   );
 };
