@@ -171,7 +171,12 @@ export const App: React.FC = () => {
           />
         )}
 
-        {currentTab === 'categories' && <CategoryPage />}
+        {currentTab === 'categories' && (
+          <CategoryPage 
+            onNavigateVisual={handleNavigateVisual}
+            onNavigateTaboo={handleNavigateTaboo}
+          />
+        )}
 
         {currentTab === 'odt' && <ODTPage />}
 

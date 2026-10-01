@@ -11,7 +11,7 @@
 [![ODT Activities](https://img.shields.io/badge/ODT-101-forestgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Visual Riddles](https://img.shields.io/badge/חידות%20בציורים-154-purple)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Taboo Cards](https://img.shields.io/badge/טאבו-100-red)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Tests](https://img.shields.io/badge/בדיקות-145%2F145%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Tests](https://img.shields.io/badge/בדיקות-153%2F153%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
 

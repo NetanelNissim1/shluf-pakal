@@ -5,9 +5,11 @@ import {
   Search, 
   X, 
   ChevronDown, 
-  Layers
+  Layers,
+  Palette,
+  Trophy
 } from 'lucide-react';
-import { allCombinedRiddles } from '../data/content';
+import { allCombinedRiddles, visualData, tabooData } from '../data/content';
 import { CATEGORIES } from '../data/categories';
 import { RiddleItem, CategoryId } from '../types';
 import { SubCategoryTabs } from '../components/riddles/SubCategoryTabs';
@@ -16,7 +18,15 @@ import { DifficultyFilter } from '../components/common/DifficultyFilter';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 
-export const CategoryPage: React.FC = () => {
+interface CategoryPageProps {
+  onNavigateVisual?: () => void;
+  onNavigateTaboo?: () => void;
+}
+
+export const CategoryPage: React.FC<CategoryPageProps> = ({
+  onNavigateVisual,
+  onNavigateTaboo,
+}) => {
   const { 
     themeMode, 
     activeCategory, 
@@ -43,6 +53,14 @@ export const CategoryPage: React.FC = () => {
   const categoryRiddles = useMemo(() => {
     return allRiddles.filter((r) => r.categoryId === currentCategoryId);
   }, [allRiddles, currentCategoryId]);
+
+  // Overall counts per category for badges
+  const categoryCounts = useMemo(() => {
+    return CATEGORIES.reduce((acc, cat) => {
+      acc[cat.id] = allRiddles.filter((r) => r.categoryId === cat.id).length;
+      return acc;
+    }, {} as Record<string, number>);
+  }, [allRiddles]);
 
   // Unique subcategories with counts
   const subCategoryList = useMemo(() => {
@@ -107,6 +125,7 @@ export const CategoryPage: React.FC = () => {
         <div className="flex items-center gap-1.5 px-1 min-w-max">
           {CATEGORIES.map((cat) => {
             const isActive = cat.id === currentCategoryId;
+            const count = categoryCounts[cat.id] || 0;
             return (
               <button
                 key={cat.id}
@@ -126,9 +145,42 @@ export const CategoryPage: React.FC = () => {
                 }`}
               >
                 <span>{cat.title}</span>
+                <span className="text-[10px] opacity-80 font-bold">({count})</span>
               </button>
             );
           })}
+
+          {/* Quick Category Access: חידות בציורים */}
+          {onNavigateVisual && (
+            <button
+              onClick={onNavigateVisual}
+              className={`px-3 py-2 rounded-xl text-xs font-black transition-all touch-press border flex items-center gap-1.5 ${
+                isCampfire
+                  ? 'bg-stone-900 text-purple-300 border-purple-800/80 hover:bg-purple-950/60'
+                  : 'bg-purple-50 text-purple-800 border-purple-200 hover:bg-purple-100'
+              }`}
+            >
+              <Palette className="w-3.5 h-3.5 text-purple-500" />
+              <span>חידות בציורים</span>
+              <span className="text-[10px] opacity-80 font-bold">({visualData.length})</span>
+            </button>
+          )}
+
+          {/* Quick Category Access: משחק טאבו */}
+          {onNavigateTaboo && (
+            <button
+              onClick={onNavigateTaboo}
+              className={`px-3 py-2 rounded-xl text-xs font-black transition-all touch-press border flex items-center gap-1.5 ${
+                isCampfire
+                  ? 'bg-stone-900 text-orange-300 border-orange-800/80 hover:bg-orange-950/60'
+                  : 'bg-orange-50 text-orange-800 border-orange-200 hover:bg-orange-100'
+              }`}
+            >
+              <Trophy className="w-3.5 h-3.5 text-orange-500" />
+              <span>טאבו שטח</span>
+              <span className="text-[10px] opacity-80 font-bold">({tabooData.length})</span>
+            </button>
+          )}
         </div>
       </div>
 

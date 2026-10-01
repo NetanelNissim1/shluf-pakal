@@ -39,12 +39,12 @@ export const CATEGORIES: CategoryMeta[] = [
   },
   {
     id: 'songs-culture',
-    title: 'תרבות, שירים ישראליים וטאבו',
+    title: 'תרבות ושירים ישראליים',
     subtitle: 'שירים ישראליים, מפורסמים ותרגום מצחיק',
     iconName: 'Music',
     color: 'from-rose-500 to-red-600',
     accent: 'rose',
-    description: 'קלאסיקות ישראליות, שירים מסביב למדורה, חידות מפורסמים ומשחק הטאבו'
+    description: 'קלאסיקות ישראליות, שירים מסביב למדורה וחידות מפורסמים'
   },
   {
     id: 'israeli-holidays',

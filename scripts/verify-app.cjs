@@ -760,6 +760,62 @@ const hasDevToolsBlock = securityTsContent.includes('F12') && (securityTsContent
 const hasContextMenuBlock = securityTsContent.includes('contextmenu');
 assert(hasDevToolsBlock && hasContextMenuBlock, 'מנגנון אבטחת התוכן (security.ts) חוסם קליק ימני, F12 וקיצורי פיתוח');
 
+// Cycle 28: Visual Riddles Deduplication, Exact Category Counts & Taboo Integration
+console.log('\n[מחזור 28]: בדיקת ייחודיות מוחלטת של חידות בציורים ואינטגרציית מונים בקטגוריות');
+
+// 1. Verify 154 Visual Riddles have ZERO duplicate titles and ZERO duplicate answers
+const uniqueVisualTitles = new Set(visualRiddles.map(r => r.title.replace(/\s+/g, '')));
+const uniqueVisualAnswers = new Set(visualRiddles.map(r => r.answer.replace(/[^\u0590-\u05FF]/g, '')));
+assert(uniqueVisualTitles.size === 154, `כל 154 החידות בציורים בעלות כותרות ייחודיות לחלוטין (נמצאו: ${uniqueVisualTitles.size})`);
+assert(uniqueVisualAnswers.size === 154, `כל 154 החידות בציורים בעלות פתרונות ייחודיים לחלוטין (נמצאו: ${uniqueVisualAnswers.size})`);
+
+// 2. Verify Mathematical Sums
+const visualHolidaysCount = visualRiddles.filter(r => r.mainCategory === 'holidays').length;
+const visualGeneralCount = visualRiddles.filter(r => r.mainCategory === 'general').length;
+const visualGeoCount = visualRiddles.filter(r => r.mainCategory === 'geography').length;
+assert(visualHolidaysCount === 108 && visualGeneralCount === 25 && visualGeoCount === 21, 'התפלגות מדויקת: 108 חגים + 25 פתגמים + 21 אתרים = 154');
+assert(visualHolidaysCount + visualGeneralCount + visualGeoCount === 154, 'סכום שלושת הנושאים שווה במדויק לסך כל 154 החידות');
+
+// 3. Verify holiday tags breakdown equals exactly 108
+const expectedHolidayCounts = {
+  'rosh-hashana': 10,
+  'yom-kippur': 8,
+  'sukkot': 12,
+  'chanukah': 13,
+  'tu-bishvat': 11,
+  'purim': 13,
+  'pesach': 14,
+  'independence-day': 9,
+  'shavuot': 9,
+  'lag-baomer': 5,
+  'jerusalem-day': 4
+};
+let allHolidaysAccurate = true;
+let sumTags = 0;
+for (const [tag, expCount] of Object.entries(expectedHolidayCounts)) {
+  const actualCount = visualRiddles.filter(r => r.holidayTag === tag).length;
+  sumTags += actualCount;
+  if (actualCount !== expCount) allHolidaysAccurate = false;
+}
+assert(allHolidaysAccurate && sumTags === 108, 'כל 11 תתי-החגים מכילים כמות מדויקת ומסתכמים בדיוק ל-108');
+
+// 4. Verify VisualRiddlesPage resets activeHoliday to 'all' on main tab click
+const freshVisualPageCode = fs.readFileSync(visualPagePath, 'utf8');
+const resetsHolidayOnTabClick = freshVisualPageCode.includes("setActiveMainCat('holidays');") && freshVisualPageCode.includes("setActiveHoliday('all');");
+assert(resetsHolidayOnTabClick, 'לחיצה על לשונית חגי ישראל מאפסת את בחירת תת-החג ל-all לסנכרון מושלם');
+
+// 5. Verify HomePage categories grid includes Visual Riddles and Taboo with count badges
+const freshHomePageCode = fs.readFileSync(homePagePath, 'utf8');
+const hasVisualInGrid = freshHomePageCode.includes('{visualData.length} חידות בציורים') && freshHomePageCode.includes('חידות בציורים ורבוסים');
+const hasTabooInGrid = freshHomePageCode.includes('{tabooData.length} כרטיסים') && freshHomePageCode.includes('משחק טאבו שטח');
+assert(hasVisualInGrid && hasTabooInGrid, 'גריד קטגוריות תוכן שטח כולל כרטיסים ייעודיים עבור חידות בציורים (154) וטאבו שטח (100 כרטיסים)');
+
+// 6. Verify CategoryPage switcher has category counts and quick pills
+const categoryPageFilePath = path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx');
+const freshCategoryPageCode = fs.readFileSync(categoryPageFilePath, 'utf8');
+const hasSwitcherCounts = freshCategoryPageCode.includes('categoryCounts[cat.id]') && freshCategoryPageCode.includes('onNavigateVisual') && freshCategoryPageCode.includes('onNavigateTaboo');
+assert(hasSwitcherCounts, 'סרגל הקטגוריות ב-CategoryPage מציג מונה פריטים לכל קטגוריה וגישה מהירה לציורים ולטאבו');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

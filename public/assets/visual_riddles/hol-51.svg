@@ -45,18 +45,20 @@
   
     <g transform="translate(280, 260)" filter="url(#shadow)">
       
-        <rect x="-35" y="-50" width="70" height="100" rx="10" fill="#1e3a8a" stroke="#fbbf24" stroke-width="4"/>
-        <rect x="-45" y="-65" width="20" height="130" rx="6" fill="#78350f"/>
-        <rect x="25" y="-65" width="20" height="130" rx="6" fill="#78350f"/>
-        <polygon points="0,-15 15,10 -15,10" fill="#fbbf24"/>
-        <polygon points="0,15 15,-10 -15,-10" fill="#fbbf24"/>
+        <ellipse cx="-45" cy="0" rx="30" ry="18" fill="none" stroke="#ef4444" stroke-width="10" transform="rotate(-20 -45 0)"/>
+        <ellipse cx="-15" cy="0" rx="30" ry="18" fill="none" stroke="#3b82f6" stroke-width="10" transform="rotate(20 -15 0)"/>
+        <ellipse cx="15" cy="0" rx="30" ry="18" fill="none" stroke="#10b981" stroke-width="10" transform="rotate(-20 15 0)"/>
+        <ellipse cx="45" cy="0" rx="30" ry="18" fill="none" stroke="#f59e0b" stroke-width="10" transform="rotate(20 45 0)"/>
       
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
     <g transform="translate(620, 260)" filter="url(#shadow)">
       
-        <text x="0" y="45" font-family="Rubik, sans-serif" font-size="120" font-weight="900" fill="url(#goldGrad)" text-anchor="middle">2</text>
+        <line x1="0" y1="-80" x2="0" y2="-45" stroke="#94a3b8" stroke-width="3"/>
+        <polygon points="-30,-45 30,-45 40,30 -40,30" fill="url(#goldGrad)" stroke="#b45309" stroke-width="4"/>
+        <circle cx="0" cy="-5" r="18" fill="#fef08a"/>
+        <polygon points="-25,30 25,30 0,65" fill="#b45309"/>
       
     </g>
 </svg>

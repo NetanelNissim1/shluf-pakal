@@ -221,7 +221,10 @@ export const VisualRiddlesPage: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveMainCat('holidays')}
+            onClick={() => {
+              setActiveMainCat('holidays');
+              setActiveHoliday('all');
+            }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all touch-press border flex items-center gap-1.5 ${
               activeMainCat === 'holidays'
                 ? isCampfire
@@ -312,7 +315,15 @@ export const VisualRiddlesPage: React.FC = () => {
       {/* Results Header */}
       <div className="flex items-center justify-between px-1">
         <span className="text-xs font-bold text-stone-400">
-          מוצגות {filteredRiddles.length} חידות בציורים
+          {activeMainCat === 'holidays' && activeHoliday !== 'all' ? (
+            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.holidays} חידות חגים ({holidaysList.find(h => h.id === activeHoliday)?.label})</>
+          ) : activeMainCat === 'general' ? (
+            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.general} חידות פתגמים וביטויים</>
+          ) : activeMainCat === 'geography' ? (
+            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.geography} חידות אתרים ומקומות</>
+          ) : (
+            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.all} חידות בציורים</>
+          )}
         </span>
       </div>
 

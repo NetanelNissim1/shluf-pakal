@@ -341,6 +341,76 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
                 );
               })}
+
+              {/* Category Card: חידות בציורים ורבוסים */}
+              <div
+                onClick={onNavigateVisual}
+                className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                  isCampfire
+                    ? 'bg-campfire-card border-campfire-border hover:border-purple-500/80 hover:bg-stone-900 shadow-fire'
+                    : 'bg-white border-amber-200/90 hover:border-purple-400 hover:shadow-md shadow-field'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white bg-gradient-to-br from-amber-600 via-rose-600 to-purple-600 shadow-md shrink-0">
+                      <Palette className="w-5 h-5 stroke-[2.2]" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-base leading-tight mb-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                        חידות בציורים ורבוסים
+                      </h3>
+                      <p className="text-xs text-stone-400 line-clamp-1 mb-2">
+                        חגים (108), פתגמים (25) ואתרים (21)
+                      </p>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-lg border ${
+                        isCampfire 
+                          ? 'bg-stone-950 text-purple-400 border-stone-800' 
+                          : 'bg-purple-50 text-purple-800 border-purple-200'
+                      }`}>
+                        {visualData.length} חידות בציורים
+                      </span>
+                    </div>
+                  </div>
+
+                  <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:-translate-x-1 transition-all shrink-0 mt-2" />
+                </div>
+              </div>
+
+              {/* Category Card: משחק טאבו שטח */}
+              <div
+                onClick={onNavigateTaboo}
+                className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                  isCampfire
+                    ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 hover:bg-stone-900 shadow-fire'
+                    : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 shadow-md shrink-0">
+                      <Trophy className="w-5 h-5 stroke-[2.2]" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-base leading-tight mb-1 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                        משחק טאבו שטח
+                      </h3>
+                      <p className="text-xs text-stone-400 line-clamp-1 mb-2">
+                        מילים אסורות, טיימר שטח ותחרות קבוצות
+                      </p>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-lg border ${
+                        isCampfire 
+                          ? 'bg-stone-950 text-orange-400 border-stone-800' 
+                          : 'bg-orange-50 text-orange-800 border-orange-200'
+                      }`}>
+                        {tabooData.length} כרטיסים
+                      </span>
+                    </div>
+                  </div>
+
+                  <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 group-hover:-translate-x-1 transition-all shrink-0 mt-2" />
+                </div>
+              </div>
             </div>
           </div>
 

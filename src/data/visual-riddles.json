@@ -575,17 +575,17 @@
   },
   {
     "id": "hol-42",
-    "title": "צום קל",
+    "title": "ונתנה תוקף",
     "mainCategory": "holidays",
     "holidayTag": "yom-kippur",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "imageUrl": "/assets/visual_riddles/hol-42.svg?v=clean2",
-    "rebusFormulaDescription": "`[צלחת עם איסור אכילה] + [נוצה קלה]`",
+    "rebusFormulaDescription": "`[ספר פתוח] + [שופר מוזהב] + [חותם מלכותי]`",
     "hints": [
-      "האיחול הנפוץ ביותר ערב יום הכיפורים."
+      "הפיוט המרטיט ביותר בתפילות הימים הנוראים ויום הכיפורים."
     ],
-    "answer": "צום קל.",
-    "explanation": "צום + נוצה קלה = צום קל."
+    "answer": "ונתנה תוקף.",
+    "explanation": "ספר פתוח ושופר + חותם תוקף = ונתנה תוקף."
   },
   {
     "id": "hol-43",
@@ -603,17 +603,17 @@
   },
   {
     "id": "hol-44",
-    "title": "ספר החיים",
+    "title": "סעודה מפסקת",
     "mainCategory": "holidays",
     "holidayTag": "yom-kippur",
     "difficulty": "medium",
     "imageUrl": "/assets/visual_riddles/hol-44.svg?v=clean2",
-    "rebusFormulaDescription": "`[ספר פתוח] + [עץ החיים]`",
+    "rebusFormulaDescription": "`[שולחן סעודה ערוך] + [שעון שקיעה ועצור]`",
     "hints": [
-      "תפילה: \"בספר חיים, ברכה ושלום ניזכר וניכתב\"."
+      "הסעודה האחרונה והחגיגית שאוכלים בערב יום הכיפורים לפני כניסת הצום."
     ],
-    "answer": "ספר החיים.",
-    "explanation": "ספר + חיים = ספר החיים."
+    "answer": "סעודה מפסקת.",
+    "explanation": "סעודה + הפסקת אכילה = סעודה מפסקת."
   },
   {
     "id": "hol-45",
@@ -631,17 +631,17 @@
   },
   {
     "id": "hol-46",
-    "title": "אושפיזין",
+    "title": "נענועי לולב",
     "mainCategory": "holidays",
     "holidayTag": "sukkot",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-46.svg?v=clean2",
-    "rebusFormulaDescription": "`[שבעה כתרים/כיסאות] + [סוכה מקושטת]`",
+    "rebusFormulaDescription": "`[לולב ירוק תמיר] + [חיצי תנועה לארבע רוחות]`",
     "hints": [
-      "שבעת האורחים הרוחניים המוזמנים לסוכה בכל לילה (אברהם, יצחק, יעקב...)."
+      "המצווה לנענע את ארבעת המינים לכל הכיוונים בסוכה ובתפילה."
     ],
-    "answer": "אושפיזין.",
-    "explanation": "אורחים קדושים בסוכה = אושפיזין."
+    "answer": "נענועי לולב.",
+    "explanation": "לולב + חיצי כיוון = נענועי לולב."
   },
   {
     "id": "hol-47",
@@ -701,17 +701,17 @@
   },
   {
     "id": "hol-51",
-    "title": "הקפות שניות",
+    "title": "קישוטי סוכה",
     "mainCategory": "holidays",
     "holidayTag": "sukkot",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-51.svg?v=clean2",
-    "rebusFormulaDescription": "`[ספר תורה במעגל] + [הספרה 2 מוזהבת]`",
+    "rebusFormulaDescription": "`[שרשרת נייר צבעונית] + [פנס זוהר תלוי]`",
     "hints": [
-      "החגיגות במוצאי שמחת תורה עם תזמורות וריקודים ברחובות."
+      "השרשראות, הרימונים והפנסים שתולים הילדים וההורים מתחת לסכך."
     ],
-    "answer": "הקפות שניות.",
-    "explanation": "הקפות תורה + הספרה 2 = הקפות שניות."
+    "answer": "קישוטי סוכה.",
+    "explanation": "שרשרת צבעונית + פנס ורימון = קישוטי סוכה."
   },
   {
     "id": "hol-52",
@@ -757,17 +757,17 @@
   },
   {
     "id": "hol-55",
-    "title": "סופגנייה עם ריבה",
+    "title": "לביבות חמות",
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-55.svg?v=clean2",
-    "rebusFormulaDescription": "`[סופגנייה עם אבקת סוכר] + [צנצנת ריבה אדומה]`",
+    "rebusFormulaDescription": "`[תפוחי אדמה ומגררת] + [מחבת רוחשת לביבות]`",
     "hints": [
-      "המאכל המתוק והמטוגן ביותר של חנוכה."
+      "המאכל המטוגן בשמן ששרים עליו \"קמח קמח מן השק, שמן מן הכד...\"."
     ],
-    "answer": "סופגנייה עם ריבה.",
-    "explanation": "סופגנייה + ריבה = סופגנייה עם ריבה."
+    "answer": "לביבות חמות.",
+    "explanation": "תפוחי אדמה + מחבת שמן = לביבות חמות."
   },
   {
     "id": "hol-56",
@@ -813,31 +813,31 @@
   },
   {
     "id": "hol-59",
-    "title": "מעוז צור ישועתי",
+    "title": "הנרות הללו",
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "medium",
     "imageUrl": "/assets/visual_riddles/hol-59.svg?v=clean2",
-    "rebusFormulaDescription": "`[מבצר סלעי צור] + [תווי נגינה]`",
+    "rebusFormulaDescription": "`[שמונה להבות נר] + [ספר פיוטים פתוח]`",
     "hints": [
-      "הפיוט המושר בסיום הדלקת הנרות: \"מעוז צור ישועתי, לך נאה לשבח...\"."
+      "המזמור הנאמר מיד לאחר הדלקת הנרות: \"...אנו מדליקין על הניסים ועל הנפלאות\"."
     ],
-    "answer": "מעוז צור ישועתי.",
-    "explanation": "מבצר צור + שיר ישועה = מעוז צור ישועתי."
+    "answer": "הנרות הללו.",
+    "explanation": "נרות דולקים + פיוט = הנרות הללו."
   },
   {
     "id": "hol-60",
-    "title": "דמי חנוכה",
+    "title": "יהודה המכבי",
     "mainCategory": "holidays",
     "holidayTag": "chanukah",
     "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-60.svg?v=clean2",
-    "rebusFormulaDescription": "`[מטבעות זהב / כסף] + [סביבון חנוכה]`",
+    "rebusFormulaDescription": "`[אריה יהודה] + [מקבת / פטיש קרב]`",
     "hints": [
-      "מתנה כספית שנותנים לילדים בחנוכה לקיום מצוות צדקה ומשחק."
+      "המצביא הנועז מנהיג מרד החשמונאים ששחרר את ירושלים וטיהר את בית המקדש."
     ],
-    "answer": "דמי חנוכה.",
-    "explanation": "מטבעות כסף + חנוכה = דמי חנוכה."
+    "answer": "יהודה המכבי.",
+    "explanation": "אריה יהודה + מקבת (פטיש) = יהודה המכבי."
   },
   {
     "id": "hol-61",
@@ -869,31 +869,31 @@
   },
   {
     "id": "hol-63",
-    "title": "פירות יבשים",
+    "title": "סדר ט\"ו בשבט",
     "mainCategory": "holidays",
     "holidayTag": "tu-bishvat",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "imageUrl": "/assets/visual_riddles/hol-63.svg?v=clean2",
-    "rebusFormulaDescription": "`[צלחת פירות] + [שמש מייבשת / פירות יבשים]`",
+    "rebusFormulaDescription": "`[ארבע כוסות יין גוונים] + [קערת שבעת המינים]`",
     "hints": [
-      "המאכלים המתוקים שנוהגים לאכול בסדר ט״ו בשבט."
+      "המסורת המיוחדת מטבריה וצפת שבה שותים ארבע כוסות יין וטועמים מפירות הארץ."
     ],
-    "answer": "פירות יבשים.",
-    "explanation": "פירות + יבשים = פירות יבשים."
+    "answer": "סדר ט\"ו בשבט.",
+    "explanation": "4 כוסות יין צבעוניות + פירות הארץ = סדר ט\"ו בשבט."
   },
   {
     "id": "hol-64",
-    "title": "השקדיה פורחת",
+    "title": "עץ שתול על מים",
     "mainCategory": "holidays",
     "holidayTag": "tu-bishvat",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "imageUrl": "/assets/visual_riddles/hol-64.svg?v=clean2",
-    "rebusFormulaDescription": "`[ענף פרחי שקד] + [שמש זורחת]`",
+    "rebusFormulaDescription": "`[עץ עבות פורח] + [פלג מים זורם]`",
     "hints": [
-      "שיר הילדים המפורסם: \"... ושמש פז זורחת, ציפורים מראש כל גג...\"."
+      "המשל מתהילים א׳ לאדם צדיק ומבורך: \"והיה כעץ שתול על פלגי מים...\"."
     ],
-    "answer": "השקדיה פורחת.",
-    "explanation": "עץ שקד + פרחים ושמש = השקדיה פורחת."
+    "answer": "עץ שתול על מים.",
+    "explanation": "עץ פורח + פלג מים = עץ שתול על מים."
   },
   {
     "id": "hol-65",
@@ -953,17 +953,17 @@
   },
   {
     "id": "hol-69",
-    "title": "משלוח מנות",
+    "title": "ונהפך הוא",
     "mainCategory": "holidays",
     "holidayTag": "purim",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "imageUrl": "/assets/visual_riddles/hol-69.svg?v=clean2",
-    "rebusFormulaDescription": "`[צלחת ממתקים עם צלופן] + [סרט מתנה]`",
+    "rebusFormulaDescription": "`[חצי היפוך 180 מעלות] + [מסכת פורים ותחפושת]`",
     "hints": [
-      "אחת מארבע מצוות פורים: איש לרעהו."
+      "הפסוק ממגילת אסתר: \"אשר נהפך להם מיגון לשמחה ומאבל ליום טוב\"."
     ],
-    "answer": "משלוח מנות.",
-    "explanation": "מנות ארוזות כמתנה = משלוח מנות."
+    "answer": "ונהפך הוא.",
+    "explanation": "היפוך חיצים + מסכה ושמחה = ונהפך הוא."
   },
   {
     "id": "hol-70",
@@ -1051,17 +1051,17 @@
   },
   {
     "id": "hol-76",
-    "title": "עד דלא ידע",
+    "title": "תענית אסתר",
     "mainCategory": "holidays",
     "holidayTag": "purim",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-76.svg?v=clean2",
-    "rebusFormulaDescription": "`[אדם מבושם מיין] + [סימני שאלה - לא ידע]`",
+    "rebusFormulaDescription": "`[כתר אסתר המלכה] + [צלחת צום נעולה]`",
     "hints": [
-      "החיוב הפורימי: עד שלא יבחין בין ארור המן לברוך מרדכי (וגם שם העדלאידע)."
+      "הצום שנקבע ביום י\"ג באדר לזכר שלושת ימי הצום שגזרה אסתר בשושן."
     ],
-    "answer": "עד דלא ידע.",
-    "explanation": "שתייה + חוסר ידיעה בין המן למרדכי = עד דלא ידע."
+    "answer": "תענית אסתר.",
+    "explanation": "כתר אסתר + צלחת צום = תענית אסתר."
   },
   {
     "id": "hol-77",
@@ -1079,31 +1079,31 @@
   },
   {
     "id": "hol-78",
-    "title": "קערת ליל הסדר",
+    "title": "עשר המכות",
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-78.svg?v=clean2",
-    "rebusFormulaDescription": "`[קערת סדר עגולה עם שישה סימנים]`",
+    "rebusFormulaDescription": "`[הספרה 10 באדום] + [דם וצפרדע]`",
     "hints": [
-      "מרכז שולחן ליל הסדר המכיל את כל סמלי החג והעבדות."
+      "העונשים והאותות שהונחתו על פרעה ומצרים עד שהסכים לשלח את בני ישראל."
     ],
-    "answer": "קערת ליל הסדר.",
-    "explanation": "קערה עם ששת המאכלים = קערת ליל הסדר."
+    "answer": "עשר המכות.",
+    "explanation": "10 + דם וצפרדע = עשר המכות."
   },
   {
     "id": "hol-79",
-    "title": "עבדים היינו",
+    "title": "חג האביב",
     "mainCategory": "holidays",
     "holidayTag": "pesach",
     "difficulty": "easy",
     "imageUrl": "/assets/visual_riddles/hol-79.svg?v=clean2",
-    "rebusFormulaDescription": "`[שרשראות ברזל נשברות] + [ידיים חופשיות]`",
+    "rebusFormulaDescription": "`[שיבולי אביב ירוקות] + [פרפר ופרחי שדה]`",
     "hints": [
-      "פתיחת סיפור ההגדה: \"...לפרעה במצרים, ויוציאנו ה׳ אלוהינו משם\"."
+      "הכינוי המקראי המפורסם של חג הפסח על שם עונת פריחת וחידוש הטבע."
     ],
-    "answer": "עבדים היינו.",
-    "explanation": "שלשלאות עבדות נשברות = עבדים היינו ויצאנו לחירות."
+    "answer": "חג האביב.",
+    "explanation": "שיבולים ירוקות + פרחים ופרפר = חג האביב."
   },
   {
     "id": "hol-80",

@@ -406,7 +406,7 @@ function parseVisualRiddles() {
   const filePath = path.join(CONTENT_DIR, 'visual_riddles_database.md');
   if (!fs.existsSync(filePath)) return [];
   const content = fs.readFileSync(filePath, 'utf8');
-  const blocks = content.split(/####\s+חידה\s+/).slice(1);
+  const blocks = content.split(/(?=####\s+חידה)/).slice(1);
   const riddles = [];
 
   const holidayMap = {
@@ -428,8 +428,8 @@ function parseVisualRiddles() {
 
   blocks.forEach(b => {
     const lines = b.trim().split('\n');
-    const titleLine = lines[0];
-    const title = cleanHebrewText(titleLine.split(':')[1] || titleLine);
+    const rawTitle = lines[0].replace(/^####\s+חידה[\s\d\.:]*/, '').trim();
+    const title = cleanHebrewText(rawTitle.split(':')[1] || rawTitle);
 
     const idMatch = b.match(/\*\*מזהה \(ID\):\*\*\s*`([^`]+)`/);
     const id = idMatch ? idMatch[1].trim() : '';
