@@ -7,9 +7,10 @@ import {
   ChevronDown, 
   Layers,
   Palette,
-  Trophy
+  Trophy,
+  CheckCircle2
 } from 'lucide-react';
-import { allCombinedRiddles, visualData, tabooData } from '../data/content';
+import { allCombinedRiddles, visualData, tabooData, trueFalseData } from '../data/content';
 import { CATEGORIES } from '../data/categories';
 import { RiddleItem, CategoryId } from '../types';
 import { SubCategoryTabs } from '../components/riddles/SubCategoryTabs';
@@ -21,11 +22,13 @@ import { sanitizeSearchQuery } from '../lib/security';
 interface CategoryPageProps {
   onNavigateVisual?: () => void;
   onNavigateTaboo?: () => void;
+  onNavigateTrueFalse?: () => void;
 }
 
 export const CategoryPage: React.FC<CategoryPageProps> = ({
   onNavigateVisual,
   onNavigateTaboo,
+  onNavigateTrueFalse,
 }) => {
   const { 
     themeMode, 
@@ -179,6 +182,22 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
               <Trophy className="w-3.5 h-3.5 text-orange-500" />
               <span>טאבו שטח</span>
               <span className="text-[10px] opacity-80 font-bold">({tabooData.length})</span>
+            </button>
+          )}
+
+          {/* Quick Category Access: משחק נכון / לא נכון */}
+          {onNavigateTrueFalse && (
+            <button
+              onClick={onNavigateTrueFalse}
+              className={`px-3 py-2 rounded-xl text-xs font-black transition-all touch-press border flex items-center gap-1.5 ${
+                isCampfire
+                  ? 'bg-stone-900 text-emerald-300 border-emerald-800/80 hover:bg-emerald-950/60'
+                  : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
+              }`}
+            >
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+              <span>נכון / לא נכון</span>
+              <span className="text-[10px] opacity-80 font-bold">({trueFalseData.length})</span>
             </button>
           )}
         </div>

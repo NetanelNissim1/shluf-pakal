@@ -13,8 +13,9 @@ import {
 import confetti from 'canvas-confetti';
 import { usePakalStore } from '../../store/usePakalStore';
 import { FeedbackCategory, FeedbackSubmission } from '../../types';
-import { sendFeedback } from '../../lib/feedback';
+import { sendFeedback, checkFeedbackRateLimit } from '../../lib/feedback';
 import { triggerHaptic } from '../../lib/haptics';
+import { CATEGORIES as APP_CATEGORIES } from '../../data/categories';
 
 const CATEGORIES: { id: FeedbackCategory; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
   { id: 'riddle-idea', label: '💡 רעיון לחידה או תוכן', icon: Lightbulb },
@@ -74,6 +75,31 @@ export const FeedbackDrawer: React.FC = () => {
       return;
     }
 
+    // Rate Limiting check
+    const rateLimit = checkFeedbackRateLimit();
+    if (!rateLimit.allowed) {
+      setErrorMessage(`נשלחו מספר פניות בזמן קצר. תודה על השיתוף! המערכת תאפשר שליחה נוספת בעוד ${rateLimit.remainingMinutes} דקות.`);
+      if (hapticsEnabled) triggerHaptic([50, 50]);
+      return;
+    }
+
+    const resolveCurrentScreenName = (): string => {
+      const store = usePakalStore.getState();
+      if (store.activeCategory) {
+        const cat = APP_CATEGORIES.find((c) => c.id === store.activeCategory);
+        return cat ? `קטגוריה: ${cat.title}` : `קטגוריה: ${store.activeCategory}`;
+      }
+      if (store.activeSituation === 'pakal') return 'הפק"ל שלי (מועדפים)';
+      if (store.activeSituation === 'bus') return 'סינון: נסיעה באוטובוס';
+      if (store.activeSituation === 'walking') return 'סינון: הליכה בשביל';
+      if (store.activeSituation === 'campfire') return 'סינון: סביב המדורה';
+      if (store.activeSituation === 'icebreaker') return 'סינון: שבירת קרח';
+      if (store.activeSituation === 'holidays') return 'סינון: חגי ישראל';
+      if (store.activeSituation === 'odt') return 'אימוני שטח ו-ODT';
+      if (store.activeSituation === 'visual') return 'חידות בציורים ורבוסים';
+      return 'דף הבית';
+    };
+
     const submission: FeedbackSubmission = {
       name: name.trim(),
       message: message.trim(),
@@ -81,7 +107,7 @@ export const FeedbackDrawer: React.FC = () => {
       email: email.trim() || undefined,
       organization: organization.trim() || undefined,
       bot_trap: botTrap,
-      currentScreen: typeof window !== 'undefined' ? window.location.pathname : 'ראשי'
+      currentScreen: resolveCurrentScreenName()
     };
 
     // Save user info for future submissions

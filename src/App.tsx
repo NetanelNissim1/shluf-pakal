@@ -7,6 +7,7 @@ import { TabooPage } from './pages/TabooPage';
 import { MyPakalPage } from './pages/MyPakalPage';
 import { ODTPage } from './pages/ODTPage';
 import { VisualRiddlesPage } from './pages/VisualRiddlesPage';
+import { TrueFalsePage } from './pages/TrueFalsePage';
 import { StudentViewerPage } from './components/visual/StudentViewerPage';
 import { RandomizerModal } from './components/randomizer/RandomizerModal';
 import { FeedbackDrawer } from './components/common/FeedbackDrawer';
@@ -126,6 +127,11 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateTrueFalse = () => {
+    setCurrentTab('true-false');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // If user clicks situational chips, switch to the respective tab
   useEffect(() => {
     if (activeSituation === 'pakal') {
@@ -168,6 +174,7 @@ export const App: React.FC = () => {
             onNavigatePakal={handleNavigatePakal}
             onNavigateODT={handleNavigateODT}
             onNavigateVisual={handleNavigateVisual}
+            onNavigateTrueFalse={handleNavigateTrueFalse}
           />
         )}
 
@@ -175,6 +182,7 @@ export const App: React.FC = () => {
           <CategoryPage 
             onNavigateVisual={handleNavigateVisual}
             onNavigateTaboo={handleNavigateTaboo}
+            onNavigateTrueFalse={handleNavigateTrueFalse}
           />
         )}
 
@@ -183,6 +191,10 @@ export const App: React.FC = () => {
         {currentTab === 'visual' && <VisualRiddlesPage />}
 
         {currentTab === 'taboo' && <TabooPage />}
+
+        {currentTab === 'true-false' && (
+          <TrueFalsePage onBack={() => setCurrentTab('home')} />
+        )}
 
         {currentTab === 'pakal' && (
           <MyPakalPage onExploreClick={() => setCurrentTab('home')} />

@@ -262,6 +262,9 @@ function determineDifficulty(categoryId, subCategory, questionText) {
   // --- Parse He and She Riddles ---
   const allHeSheRiddles = parseHeAndSheRiddles();
 
+  // --- Parse True or False Field Trivia ---
+  const allTrueFalse = parseTrueFalse();
+
   if (!fs.existsSync(OUTPUT_DATA_DIR)) {
     fs.mkdirSync(OUTPUT_DATA_DIR, { recursive: true });
   }
@@ -297,6 +300,12 @@ function determineDifficulty(categoryId, subCategory, questionText) {
     'utf8'
   );
 
+  fs.writeFileSync(
+    path.join(OUTPUT_DATA_DIR, 'true-false.json'),
+    JSON.stringify(allTrueFalse, null, 2),
+    'utf8'
+  );
+
   // 2. Write Obfuscated / Encrypted bundle for production security
   const encryptedPayload = {
     riddles: obfuscateData(JSON.stringify(allRiddles)),
@@ -304,7 +313,8 @@ function determineDifficulty(categoryId, subCategory, questionText) {
     odt: obfuscateData(JSON.stringify(allODTActivities)),
     visual: obfuscateData(JSON.stringify(allVisualRiddles)),
     heshe: obfuscateData(JSON.stringify(allHeSheRiddles)),
-    checksum: allRiddles.length ^ allTabooCards.length ^ allODTActivities.length ^ allVisualRiddles.length ^ allHeSheRiddles.length
+    trueFalse: obfuscateData(JSON.stringify(allTrueFalse)),
+    checksum: allRiddles.length ^ allTabooCards.length ^ allODTActivities.length ^ allVisualRiddles.length ^ allHeSheRiddles.length ^ allTrueFalse.length
   };
 
   fs.writeFileSync(
@@ -319,6 +329,7 @@ function determineDifficulty(categoryId, subCategory, questionText) {
   console.log(`  - ${allODTActivities.length} ODT activities`);
   console.log(`  - ${allVisualRiddles.length} visual riddles`);
   console.log(`  - ${allHeSheRiddles.length} he-and-she riddles`);
+  console.log(`  - ${allTrueFalse.length} true-or-false questions`);
 }
 
 function parseODTActivities() {
@@ -557,6 +568,87 @@ function parseHeAndSheRiddles() {
       });
     }
   }
+  return items;
+}
+
+function parseTrueFalse() {
+  const filePath = fs.existsSync(path.join(CONTENT_DIR, 'true_or_false_israel_trips.md'))
+    ? path.join(CONTENT_DIR, 'true_or_false_israel_trips.md')
+    : path.join(__dirname, '..', 'true_or_false_israel_trips.md');
+
+  if (!fs.existsSync(filePath)) return [];
+  const content = fs.readFileSync(filePath, 'utf8');
+
+  const regex = /(\d+)\.\s+\*\*הטענה:\*\*\s*(.+?)\r?\n\s+\*\s+\*\*תשובה:\*\*\s*\*\*(נכון|לא נכון)\.\*\*\s*(.*)/g;
+  let match;
+  const items = [];
+
+  while ((match = regex.exec(content)) !== null) {
+    const num = parseInt(match[1]);
+    const statement = cleanHebrewText(match[2]);
+    const isTrue = match[3] === 'נכון';
+    const explanation = cleanHebrewText(match[4]);
+
+    let category = 'regions';
+    let subCategory = 'צפון הארץ (גולן, גליל, עמקים והכרמל)';
+    let subSlug = 'north';
+    const tags = ['שטח', 'טריוויה'];
+
+    if (num <= 21) {
+      category = 'regions';
+      subCategory = 'צפון הארץ (גולן, גליל, עמקים והכרמל)';
+      subSlug = 'north';
+      tags.push('צפון', 'הליכה');
+    } else if (num <= 42) {
+      category = 'regions';
+      subCategory = 'מישור החוף, השרון והמרכז';
+      subSlug = 'center';
+      tags.push('מרכז', 'חוף');
+    } else if (num <= 63) {
+      category = 'regions';
+      subCategory = 'ירושלים והרי יהודה';
+      subSlug = 'jerusalem';
+      tags.push('ירושלים', 'הרים');
+    } else if (num <= 84) {
+      category = 'regions';
+      subCategory = 'הדרום, מדבר יהודה, הנגב והערבה';
+      subSlug = 'south';
+      tags.push('דרום', 'מדבר');
+    } else if (num <= 101) {
+      category = 'holidays';
+      subCategory = 'חגי תשרי (ראש השנה, כיפור, סוכות ושמחת תורה)';
+      subSlug = 'tishrei';
+      tags.push('תשרי', 'חגים');
+    } else if (num <= 118) {
+      category = 'holidays';
+      subCategory = 'חנוכה וט"ו בשבט';
+      subSlug = 'chanukah-tubishvat';
+      tags.push('חנוכה', 'טו-בשבט');
+    } else if (num <= 135) {
+      category = 'holidays';
+      subCategory = 'פורים ופסח';
+      subSlug = 'purim-pesach';
+      tags.push('פורים', 'פסח');
+    } else {
+      category = 'holidays';
+      subCategory = 'יום העצמאות, ל"ג בעומר ושבועות';
+      subSlug = 'iyar-sivan';
+      tags.push('עצמאות', 'שבועות');
+    }
+
+    items.push({
+      id: `tf-${String(num).padStart(3, '0')}`,
+      num,
+      category,
+      subCategory,
+      subSlug,
+      statement,
+      isTrue,
+      explanation,
+      tags
+    });
+  }
+
   return items;
 }
 

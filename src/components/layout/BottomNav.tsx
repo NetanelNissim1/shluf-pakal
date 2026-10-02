@@ -2,7 +2,7 @@ import React from 'react';
 import { Home, Layers, Sparkles, Trophy, Star, Compass, Palette } from 'lucide-react';
 import { usePakalStore } from '../../store/usePakalStore';
 
-export type NavTab = 'home' | 'categories' | 'odt' | 'visual' | 'taboo' | 'pakal';
+export type NavTab = 'home' | 'categories' | 'odt' | 'visual' | 'taboo' | 'true-false' | 'pakal';
 
 interface BottomNavProps {
   currentTab: NavTab;

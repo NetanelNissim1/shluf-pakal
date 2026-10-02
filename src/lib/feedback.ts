@@ -11,6 +11,42 @@ const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 // Anonymous Access Key tied securely on Web3Forms server to recipient inbox
 const ACCESS_KEY = 'b0e565eb-1234-4926-b21a-fe2d600ec143';
 
+// Anti-Spam Rate Limiting (max 3 submissions per 15 minutes)
+const RATE_LIMIT_KEY = 'shluf_feedback_timestamps';
+const MAX_SUBMISSIONS_PER_WINDOW = 3;
+const WINDOW_DURATION_MS = 15 * 60 * 1000;
+
+export function checkFeedbackRateLimit(): { allowed: boolean; remainingMinutes?: number } {
+  if (typeof window === 'undefined') return { allowed: true };
+  try {
+    const raw = localStorage.getItem(RATE_LIMIT_KEY);
+    const now = Date.now();
+    let timestamps: number[] = raw ? JSON.parse(raw) : [];
+    timestamps = timestamps.filter(t => (now - t) < WINDOW_DURATION_MS);
+    
+    if (timestamps.length >= MAX_SUBMISSIONS_PER_WINDOW) {
+      const oldestInWindow = Math.min(...timestamps);
+      const remainingMinutes = Math.ceil((WINDOW_DURATION_MS - (now - oldestInWindow)) / 60000);
+      return { allowed: false, remainingMinutes: Math.max(1, remainingMinutes) };
+    }
+    return { allowed: true };
+  } catch {
+    return { allowed: true };
+  }
+}
+
+export function recordFeedbackSubmissionTimestamp(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const raw = localStorage.getItem(RATE_LIMIT_KEY);
+    const now = Date.now();
+    let timestamps: number[] = raw ? JSON.parse(raw) : [];
+    timestamps = timestamps.filter(t => (now - t) < WINDOW_DURATION_MS);
+    timestamps.push(now);
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(timestamps));
+  } catch {}
+}
+
 const CATEGORY_HEBREW_MAP: Record<string, string> = {
   'riddle-idea': 'רעיון לחידה או תוכן',
   'site-improvement': 'הצעה לייעול האתר',
@@ -70,6 +106,19 @@ ${data.message.trim()}
  */
 export async function sendFeedback(data: FeedbackSubmission): Promise<FeedbackResult> {
   const store = usePakalStore.getState();
+
+  // Rate Limiting Check
+  const rateLimit = checkFeedbackRateLimit();
+  if (!rateLimit.allowed) {
+    return {
+      success: false,
+      offline: false,
+      message: `נשלחו מספר פניות בזמן קצר. תודה על השיתוף! ניתן לשלוח שוב בעוד ${rateLimit.remainingMinutes} דקות.`
+    };
+  }
+
+  // Record submission timestamp
+  recordFeedbackSubmissionTimestamp();
 
   // Save user profile for next time
   store.saveFeedbackUserInfo({

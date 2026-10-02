@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "node scripts/parse-content.cjs && tsc && vite build",
     "preview": "vite preview",
-    "parse": "node scripts/parse-content.cjs"
+    "parse": "node scripts/parse-content.cjs",
+    "test": "node scripts/verify-app.cjs && node scripts/verify-security.cjs"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",

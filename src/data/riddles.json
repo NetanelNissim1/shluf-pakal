@@ -172,8 +172,8 @@
     "sourceFile": "word_chains_riddles.md",
     "categoryId": "word-chains",
     "subCategory": "חידות אותיות",
-    "question": "איזו אות היא בעל חיים?",
-    "answer": "ק'",
+    "question": "איזו אות היא בעל חיים שמטפס על עצים?",
+    "answer": "ק' - קוף",
     "tags": [
       "אוטובוס",
       "שבירת-קרח",
@@ -4981,14 +4981,14 @@
     "sourceFile": "nature_and_animals.md",
     "categoryId": "nature-animals",
     "subCategory": "חידות חיות לפי הא'-ב'",
-    "question": "סוג של חיידק / יונק אוסטרלי",
+    "question": "מחולל מחלות מיקרוסקופי / יונק כיס אוסטרלי",
     "answer": "וירוס / וומבט",
     "tags": [
       "הליכה",
       "ילדים",
       "שבירת-קרח"
     ],
-    "difficulty": "easy"
+    "difficulty": "medium"
   },
   {
     "id": "riddle-356",
@@ -8074,7 +8074,7 @@
     "sourceFile": "israel_history_places.md",
     "categoryId": "israel-history",
     "subCategory": "חידות חוצה ישראל",
-    "question": "מהי העיר הכי צפונית בארץ?",
+    "question": "מהו היישוב היהודי הכי צפוני בארץ?",
     "answer": "מטולה",
     "tags": [
       "אוטובוס",
@@ -8088,8 +8088,8 @@
     "sourceFile": "israel_history_places.md",
     "categoryId": "israel-history",
     "subCategory": "חידות חוצה ישראל",
-    "question": "מהו ההר השלישי בגובהו בארץ?",
-    "answer": "הר רמון - 1035 מ'",
+    "question": "מהו ההר הגבוה ביותר בהר הנגב ובדרום הארץ?",
+    "answer": "הר רמון - 1037 מ'",
     "tags": [
       "אוטובוס",
       "הליכה",

@@ -689,8 +689,9 @@ const partCCount = decryptedHeShe.filter(h => h.num >= 101 && h.num <= 150).leng
 const partDCount = decryptedHeShe.filter(h => h.num >= 151 && h.num <= 205).length;
 assert(partACount === 50 && partBCount === 50 && partCCount === 50 && partDCount === 55, 'חלוקה מדויקת ל-4 חלקי תוכן: א (50), ב (50), ג (50), ד (55)');
 
-const totalActivitiesAll = decryptedRiddles.length + decryptedTaboo.length + (encryptedRaw.odt ? deobfuscateData(encryptedRaw.odt).length : 0) + (encryptedRaw.visual ? deobfuscateData(encryptedRaw.visual).length : 0) + decryptedHeShe.length;
-assert(totalActivitiesAll === 2373, `סך כל תכני ההדרכה באפליקציית שלוף הוא בדיוק 2,373 פריטים (נמצאו: ${totalActivitiesAll})`);
+const decryptedTrueFalse = encryptedRaw.trueFalse ? deobfuscateData(encryptedRaw.trueFalse) : [];
+const totalActivitiesAll = decryptedRiddles.length + decryptedTaboo.length + (encryptedRaw.odt ? deobfuscateData(encryptedRaw.odt).length : 0) + (encryptedRaw.visual ? deobfuscateData(encryptedRaw.visual).length : 0) + decryptedHeShe.length + decryptedTrueFalse.length;
+assert(totalActivitiesAll === 2525, `סך כל תכני ההדרכה באפליקציית שלוף הוא בדיוק 2,525 פריטים (נמצאו: ${totalActivitiesAll})`);
 
 // Cycle 25: Spelling, Grammar & Linguistic Quality Assurance for He-She Riddles
 console.log('\n[מחזור 25]: בדיקת איות, דקדוק וחוקיות לשונית עבור כל 205 הגדרות "הוא והיא"');
@@ -815,6 +816,71 @@ const categoryPageFilePath = path.join(__dirname, '..', 'src', 'pages', 'Categor
 const freshCategoryPageCode = fs.readFileSync(categoryPageFilePath, 'utf8');
 const hasSwitcherCounts = freshCategoryPageCode.includes('categoryCounts[cat.id]') && freshCategoryPageCode.includes('onNavigateVisual') && freshCategoryPageCode.includes('onNavigateTaboo');
 assert(hasSwitcherCounts, 'סרגל הקטגוריות ב-CategoryPage מציג מונה פריטים לכל קטגוריה וגישה מהירה לציורים ולטאבו');
+
+// Cycle 29: True or False Field Trivia Integrity & Decryption Test (152 questions)
+console.log('\n[מחזור 29]: בדיקת שלמות מאגר משחק "נכון / לא נכון" (152 שאלות, הצפנה וחלוקת נושאים)');
+assert(typeof encryptedRaw.trueFalse === 'string', 'שדה trueFalse מוצפן במחרוזת בטוחה ב-encrypted-data.json');
+assert(Array.isArray(decryptedTrueFalse), 'פריקת שאלות נכון/לא נכון מחזירה מערך תקין');
+assert(decryptedTrueFalse.length === 152, `כמות שאלות נכון/לא נכון היא בדיוק 152 (נמצאו: ${decryptedTrueFalse.length})`);
+
+const uniqueTfIds = new Set(decryptedTrueFalse.map(t => t.id));
+assert(uniqueTfIds.size === 152, `כל 152 המזהים של שאלות נכון/לא נכון ייחודיים ללא אף כפילות (נמצאו: ${uniqueTfIds.size})`);
+
+const tfRegions = decryptedTrueFalse.filter(t => t.category === 'regions');
+const tfHolidays = decryptedTrueFalse.filter(t => t.category === 'holidays');
+assert(tfRegions.length === 84 && tfHolidays.length === 68, `התפלגות מדויקת: 84 שאלות אזורים + 68 שאלות מועדים = 152`);
+
+const tfNorth = decryptedTrueFalse.filter(t => t.subSlug === 'north').length;
+const tfCenter = decryptedTrueFalse.filter(t => t.subSlug === 'center').length;
+const tfJerusalem = decryptedTrueFalse.filter(t => t.subSlug === 'jerusalem').length;
+const tfSouth = decryptedTrueFalse.filter(t => t.subSlug === 'south').length;
+assert(tfNorth === 21 && tfCenter === 21 && tfJerusalem === 21 && tfSouth === 21, 'ארבעת אזורי הארץ מכילים בדיוק 21 שאלות כל אחד (סה"כ 84)');
+
+const tfTishrei = decryptedTrueFalse.filter(t => t.subSlug === 'tishrei').length;
+const tfChanukah = decryptedTrueFalse.filter(t => t.subSlug === 'chanukah-tubishvat').length;
+const tfPurim = decryptedTrueFalse.filter(t => t.subSlug === 'purim-pesach').length;
+const tfIyar = decryptedTrueFalse.filter(t => t.subSlug === 'iyar-sivan').length;
+assert(tfTishrei === 17 && tfChanukah === 17 && tfPurim === 17 && tfIyar === 17, 'ארבעת תתי-מועדי ישראל מכילים בדיוק 17 שאלות כל אחד (סה"כ 68)');
+
+const tfTrueCount = decryptedTrueFalse.filter(t => t.isTrue === true).length;
+const tfFalseCount = decryptedTrueFalse.filter(t => t.isTrue === false).length;
+assert(tfTrueCount === 93 && tfFalseCount === 59, `התפלגות תשובות מדויקת: 93 נכון ו-59 לא נכון (איזון שטח מעולה)`);
+
+const tfHasEmptyFields = decryptedTrueFalse.some(t => !t.statement || !t.explanation || t.isTrue === undefined);
+assert(!tfHasEmptyFields, 'כל 152 שאלות נכון/לא נכון כוללות טענה ברורה, ערך בוליאני והסבר לימודי מלא');
+
+// Cycle 30: Anti-Spam Rate Limiter & Screen Identification in Feedback
+console.log('\n[מחזור 30]: בדיקת מנגנון מניעת הצפות בדוא"ל המשוב (Anti-Spam Rate Limiter) וזיהוי מסך דינמי');
+const feedbackTsCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'lib', 'feedback.ts'), 'utf8');
+assert(feedbackTsCode.includes('checkFeedbackRateLimit') && feedbackTsCode.includes('recordFeedbackSubmissionTimestamp'), 'קובץ feedback.ts מיישם מנגנון בדיקת Rate Limit ושמירת חותמות זמן ב-localStorage');
+assert(feedbackTsCode.includes('MAX_SUBMISSIONS_PER_WINDOW = 3'), 'הגבלת שליחה מוגדרת ל-3 פניות בחלון זמן של 15 דקות למניעת הצפת תיבה');
+
+const feedbackDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
+assert(feedbackDrawerCode.includes('resolveCurrentScreenName'), 'מגירת המשוב מחלצת באופן דינמי את שם המסך/המשחק הנוכחי במקום נתיב סטטי /');
+assert(feedbackDrawerCode.includes('checkFeedbackRateLimit'), 'מגירת המשוב מבצעת בדיקת Rate Limit מוקדמת לפני שליחת הטופס');
+
+// Cycle 31: True or False UI Integration & Components Verification
+console.log('\n[מחזור 31]: בדיקת ממשק משתמש ואינטגרציית משחק "נכון / לא נכון" (דף בית, קטגוריות והוראות)');
+const tfModalPath = path.join(__dirname, '..', 'src', 'components', 'true-false', 'TrueFalseInstructionsModal.tsx');
+assert(fs.existsSync(tfModalPath), 'רכיב מודאל ההוראות לשטח (TrueFalseInstructionsModal.tsx) קיים במערכת');
+
+const tfModalContent = fs.readFileSync(tfModalPath, 'utf8');
+assert(tfModalContent.includes('גרסת הטור בהליכה') && tfModalContent.includes('גרסת הפסילות') && tfModalContent.includes('גרסת הבלוף'), 'מודאל ההוראות מפרט את 3 סגנונות ההפעלה בשטח (הליכה בטור, מעגל פסילות וגרסת הבלוף)');
+
+const tfPagePath = path.join(__dirname, '..', 'src', 'pages', 'TrueFalsePage.tsx');
+assert(fs.existsSync(tfPagePath), 'דף המשחק הייעודי (TrueFalsePage.tsx) קיים במערכת');
+
+const tfPageContent = fs.readFileSync(tfPagePath, 'utf8');
+assert(tfPageContent.includes('teamAScore') && tfPageContent.includes('timerSeconds') && tfPageContent.includes('handleShuffle'), 'דף המשחק כולל טיימר שטח משולב, ניקוד לקבוצות וכפתור ערבוב');
+
+const appTsxContent = fs.readFileSync(path.join(__dirname, '..', 'src', 'App.tsx'), 'utf8');
+assert(appTsxContent.includes('TrueFalsePage') && appTsxContent.includes('handleNavigateTrueFalse'), 'קובץ App.tsx מנתב כהלכה למשחק נכון/לא נכון');
+
+const homePageCheck = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'HomePage.tsx'), 'utf8');
+assert(homePageCheck.includes('{trueFalseData.length} טענות') && homePageCheck.includes('{trueFalseData.length} שאלות שטח'), 'דף הבית מציג באנר שטח ייעודי וכרטיס קטגוריה דינמי עבור משחק נכון/לא נכון');
+
+const catPageCheck = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx'), 'utf8');
+assert(catPageCheck.includes('onNavigateTrueFalse') && catPageCheck.includes('{trueFalseData.length}'), 'דף הקטגוריות כולל לחצן גישה מהיר למשחק נכון/לא נכון עם מונה מדויק');
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);

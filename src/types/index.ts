@@ -118,3 +118,17 @@ export interface StoredFeedbackItem extends FeedbackSubmission {
   id: string;
   createdAt: number;
 }
+
+// --- True or False Field Trivia Module Types ---
+export interface TrueFalseItem {
+  id: string;               // e.g. 'tf-001' ... 'tf-152'
+  num: number;              // 1 ... 152
+  category: 'regions' | 'holidays';
+  subCategory: string;      // e.g. 'צפון הארץ (גולן, גליל, עמקים והכרמל)'
+  subSlug: string;          // 'north' | 'center' | 'jerusalem' | 'south' | 'tishrei' | 'chanukah-tubishvat' | 'purim-pesach' | 'iyar-sivan'
+  statement: string;
+  isTrue: boolean;
+  explanation: string;
+  tags: string[];
+}
+

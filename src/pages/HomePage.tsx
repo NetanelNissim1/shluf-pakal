@@ -13,9 +13,10 @@ import {
   Sparkles, 
   CalendarDays,
   Palette,
-  Lightbulb
+  Lightbulb,
+  CheckCircle2
 } from 'lucide-react';
-import { riddlesData, tabooData, visualData, hesheData, allCombinedRiddles } from '../data/content';
+import { riddlesData, tabooData, visualData, hesheData, trueFalseData, allCombinedRiddles } from '../data/content';
 import { CATEGORIES } from '../data/categories';
 import { RiddleItem, CategoryId } from '../types';
 import { SearchBar } from '../components/common/SearchBar';
@@ -31,6 +32,7 @@ interface HomePageProps {
   onNavigatePakal: () => void;
   onNavigateODT?: () => void;
   onNavigateVisual?: () => void;
+  onNavigateTrueFalse?: () => void;
 }
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -49,6 +51,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigatePakal,
   onNavigateODT,
   onNavigateVisual,
+  onNavigateTrueFalse,
 }) => {
   const { 
     themeMode, 
@@ -285,6 +288,38 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
               </div>
             </div>
+
+            {/* 4. True or False Game Banner */}
+            <div 
+              onClick={onNavigateTrueFalse}
+              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+                isCampfire
+                  ? 'bg-gradient-to-r from-emerald-950 via-campfire-card to-stone-950 border-emerald-600/70 shadow-fire'
+                  : 'bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white border-emerald-400 shadow-md shadow-emerald-500/20'
+              }`}
+            >
+              <div className="flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                    isCampfire ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-700 shadow-md'
+                  }`}>
+                    <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-black text-base sm:text-lg">משחק נכון / לא נכון</span>
+                      <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
+                        {trueFalseData.length} טענות
+                      </span>
+                    </div>
+                    <p className={`text-xs ${isCampfire ? 'text-emerald-200/80' : 'text-emerald-100'}`}>
+                      טור בהליכה בשביל, מעגל פסילות, טיימר וניקוד קבוצות
+                    </p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+              </div>
+            </div>
           </div>
 
           {/* 5 Main Content Categories */}
@@ -409,6 +444,41 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
 
                   <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 group-hover:-translate-x-1 transition-all shrink-0 mt-2" />
+                </div>
+              </div>
+
+              {/* Category Card: משחק נכון / לא נכון */}
+              <div
+                onClick={onNavigateTrueFalse}
+                className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                  isCampfire
+                    ? 'bg-campfire-card border-campfire-border hover:border-emerald-500/80 hover:bg-stone-900 shadow-fire'
+                    : 'bg-white border-amber-200/90 hover:border-emerald-400 hover:shadow-md shadow-field'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-600 shadow-md shrink-0">
+                      <CheckCircle2 className="w-5 h-5 stroke-[2.2]" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-base leading-tight mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        משחק "נכון / לא נכון"
+                      </h3>
+                      <p className="text-xs text-stone-400 line-clamp-1 mb-2">
+                        חבלי ארץ (84) ומועדי ישראל (68)
+                      </p>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-lg border ${
+                        isCampfire 
+                          ? 'bg-stone-950 text-emerald-400 border-stone-800' 
+                          : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                      }`}>
+                        {trueFalseData.length} שאלות שטח
+                      </span>
+                    </div>
+                  </div>
+
+                  <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:-translate-x-1 transition-all shrink-0 mt-2" />
                 </div>
               </div>
             </div>

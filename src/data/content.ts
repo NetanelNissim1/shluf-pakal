@@ -1,6 +1,6 @@
 import { deobfuscateData } from '../lib/security';
 import encryptedPayload from './encrypted-data.json';
-import { RiddleItem, TabooCard, ODTActivity, VisualRiddle, HeSheRiddle } from '../types';
+import { RiddleItem, TabooCard, ODTActivity, VisualRiddle, HeSheRiddle, TrueFalseItem } from '../types';
 
 // In-memory decrypted content secured against plain text bundle inspection
 export const riddlesData: RiddleItem[] = deobfuscateData<RiddleItem[]>(encryptedPayload.riddles);
@@ -8,6 +8,7 @@ export const tabooData: TabooCard[] = deobfuscateData<TabooCard[]>(encryptedPayl
 export const odtData: ODTActivity[] = encryptedPayload.odt ? deobfuscateData<ODTActivity[]>(encryptedPayload.odt) : [];
 export const visualData: VisualRiddle[] = encryptedPayload.visual ? deobfuscateData<VisualRiddle[]>(encryptedPayload.visual) : [];
 export const hesheData: HeSheRiddle[] = encryptedPayload.heshe ? deobfuscateData<HeSheRiddle[]>(encryptedPayload.heshe) : [];
+export const trueFalseData: TrueFalseItem[] = encryptedPayload.trueFalse ? deobfuscateData<TrueFalseItem[]>(encryptedPayload.trueFalse) : [];
 
 // Adapter: convert HeShe items to RiddleItem format for category listing, search, favorites and randomizer
 export const hesheAsRiddles: RiddleItem[] = hesheData.map((h) => ({
