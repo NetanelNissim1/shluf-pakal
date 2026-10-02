@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 860" width="100%" height="100%">
+  <defs>
+    <linearGradient id="heshe-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf7"/>
+      <stop offset="100%" stop-color="#f0fdfa"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect x="5" y="5" width="410" height="850" rx="42" fill="#1e293b" stroke="#334155" stroke-width="4"/>
+  <rect x="15" y="15" width="390" height="830" rx="34" fill="url(#heshe-bg)"/>
+
+  <!-- Speaker & Notch -->
+  <rect x="160" y="24" width="100" height="6" rx="3" fill="#334155"/>
+  <circle cx="270" cy="27" r="3.5" fill="#334155"/>
+
+  <!-- Top App Header -->
+  <g transform="translate(15, 45)">
+    <rect x="0" y="0" width="390" height="52" fill="#ffffff" filter="url(#shadow)"/>
+    <text x="365" y="32" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" fill="#d97706" text-anchor="end">קטגוריות תוכן שטח</text>
+    <text x="25" y="33" font-size="14">🔍</text>
+  </g>
+
+  <!-- Category Horizontal Switcher Bar -->
+  <g transform="translate(30, 110)">
+    <!-- Active: He and She -->
+    <rect x="230" y="0" width="130" height="34" rx="12" fill="#0d9488" filter="url(#shadow)"/>
+    <text x="295" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="11.5" fill="#ffffff" text-anchor="middle">👫 הוא והיא (205)</text>
+
+    <!-- Holidays -->
+    <rect x="120" y="0" width="105" height="34" rx="12" fill="#ffffff" stroke="#e7e5e4" filter="url(#shadow)"/>
+    <text x="172" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#57534e" text-anchor="middle">חגי ישראל (318)</text>
+
+    <!-- Nature -->
+    <rect x="10" y="0" width="105" height="34" rx="12" fill="#ffffff" stroke="#e7e5e4" filter="url(#shadow)"/>
+    <text x="62" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#57534e" text-anchor="middle">טבע וחיות (207)</text>
+  </g>
+
+  <!-- Subcategory Parts Selector -->
+  <g transform="translate(30, 154)">
+    <rect x="235" y="0" width="125" height="30" rx="10" fill="#ccfbf1" stroke="#5eead4"/>
+    <text x="297" y="19" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10.5" fill="#115e59" text-anchor="middle">חלק א' - טבע (50)</text>
+
+    <rect x="105" y="0" width="125" height="30" rx="10" fill="#ffffff" stroke="#e7e5e4"/>
+    <text x="167" y="19" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#78716c" text-anchor="middle">חלק ב' - ציוד (50)</text>
+
+    <rect x="0" y="0" width="100" height="30" rx="10" fill="#ffffff" stroke="#e7e5e4"/>
+    <text x="50" y="19" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#78716c" text-anchor="middle">ג' - גוף ומזון (50)</text>
+  </g>
+
+  <!-- Difficulty Filter & Reveal All Toolbar -->
+  <g transform="translate(30, 196)">
+    <text x="360" y="20" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="12" fill="#44403c" text-anchor="end">50 חידות בסינון הנוכחי</text>
+    <rect x="0" y="4" width="95" height="26" rx="8" fill="#ffffff" stroke="#e7e5e4" filter="url(#shadow)"/>
+    <text x="47" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10.5" fill="#0d9488" text-anchor="middle">👁️ חשוף הכל</text>
+  </g>
+
+  <!-- Riddle Card 1: REVEALED He and She Card -->
+  <g transform="translate(30, 238)" filter="url(#card-shadow)">
+    <rect x="0" y="0" width="360" height="235" rx="20" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+
+    <!-- Card Top Meta -->
+    <g transform="translate(20, 22)">
+      <rect x="220" y="0" width="100" height="22" rx="7" fill="#f0fdfa"/>
+      <text x="270" y="15" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10" fill="#0f766e" text-anchor="middle">טבע ונופי הארץ</text>
+
+      <rect x="155" y="0" width="58" height="22" rx="7" fill="#dcfce7"/>
+      <text x="184" y="15" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10" fill="#15803d" text-anchor="middle">🟢 קליל</text>
+
+      <text x="140" y="15" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#a8a29e" text-anchor="end">#1</text>
+      <text x="35" y="17" font-size="14">📲</text>
+      <text x="5" y="17" font-size="14">⭐</text>
+    </g>
+
+    <!-- Riddle Question Text -->
+    <g transform="translate(20, 60)">
+      <text x="320" y="18" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14.5" fill="#1c1917" text-anchor="end">
+        הוא נחל הזורם בגליל העליון ונשפך
+      </text>
+      <text x="320" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14.5" fill="#1c1917" text-anchor="end">
+        לירדן, והיא שפירית מעופפת בעלת
+      </text>
+      <text x="320" y="58" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14.5" fill="#1c1917" text-anchor="end">
+        כנפיים שקופות וזוהרות...
+      </text>
+    </g>
+
+    <!-- Revealed Solution Box -->
+    <g transform="translate(20, 142)">
+      <rect x="0" y="0" width="320" height="66" rx="14" fill="#f0fdfa" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="300" y="24" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="14" fill="#0f766e" text-anchor="end">
+        הוא: דישון | היא: שפירית ✨
+      </text>
+      <text x="300" y="48" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="11" fill="#134e4a" text-anchor="end">
+        נחל דישון הוא מנחלי הגליל העליון, ושפירית מעופפת מעל מימיו.
+      </text>
+    </g>
+  </g>
+
+  <!-- Riddle Card 2: UNREVEALED He and She Card -->
+  <g transform="translate(30, 492)" filter="url(#card-shadow)">
+    <rect x="0" y="0" width="360" height="240" rx="20" fill="#ffffff" stroke="#e7e5e4" stroke-width="1.5"/>
+
+    <!-- Card Top Meta -->
+    <g transform="translate(20, 22)">
+      <rect x="220" y="0" width="100" height="22" rx="7" fill="#f0fdfa"/>
+      <text x="270" y="15" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10" fill="#0f766e" text-anchor="middle">חפצים וציוד שטח</text>
+
+      <rect x="155" y="0" width="58" height="22" rx="7" fill="#dcfce7"/>
+      <text x="184" y="15" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10" fill="#15803d" text-anchor="middle">🟢 קליל</text>
+
+      <text x="140" y="15" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#a8a29e" text-anchor="end">#51</text>
+      <text x="35" y="17" font-size="14">📲</text>
+      <text x="5" y="17" font-size="14">⭐</text>
+    </g>
+
+    <!-- Riddle Question Text -->
+    <g transform="translate(20, 60)">
+      <text x="320" y="18" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14.5" fill="#1c1917" text-anchor="end">
+        הוא מאיר לספינות בלב ים בלילה אפל,
+      </text>
+      <text x="320" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14.5" fill="#1c1917" text-anchor="end">
+        והיא מאירה לנו את חדר הבית...
+      </text>
+    </g>
+
+    <!-- Tap to Reveal Button (Unrevealed State) -->
+    <g transform="translate(20, 138)">
+      <rect x="0" y="0" width="320" height="52" rx="14" fill="#fafaf9" stroke="#d6d3d1" stroke-width="1.5"/>
+      <text x="280" y="32" font-size="16">👁️</text>
+      <text x="255" y="32" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#57534e" text-anchor="end">
+        לחץ לחשיפת הפתרון (או החזק להצצה זמנית)
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Navigation Bar & FAB -->
+  <g transform="translate(15, 775)">
+    <rect x="0" y="0" width="390" height="70" fill="#ffffff" filter="url(#shadow)"/>
+    <line x1="0" y1="0" x2="390" y2="0" stroke="#f5f5f4" stroke-width="1"/>
+    <text x="345" y="32" font-size="16" text-anchor="middle">🏠</text>
+    <text x="345" y="48" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10" fill="#78716c" text-anchor="middle">בית</text>
+    <text x="270" y="32" font-size="16" text-anchor="middle">📂</text>
+    <text x="270" y="48" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10" fill="#0d9488" text-anchor="middle">תוכן</text>
+    <circle cx="195" cy="18" r="26" fill="#d97706" stroke="#ffffff" stroke-width="4" filter="url(#card-shadow)"/>
+    <text x="195" y="26" font-size="22" text-anchor="middle" fill="#ffffff">🎲</text>
+    <text x="120" y="32" font-size="16" text-anchor="middle">⭐</text>
+    <text x="120" y="48" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10" fill="#78716c" text-anchor="middle">הפק"ל שלי</text>
+    <text x="45" y="32" font-size="16" text-anchor="middle">💡</text>
+    <text x="45" y="48" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10" fill="#78716c" text-anchor="middle">משוב</text>
+  </g>
+</svg>
