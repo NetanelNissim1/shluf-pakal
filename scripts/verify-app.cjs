@@ -849,15 +849,23 @@ assert(tfTrueCount === 93 && tfFalseCount === 59, `התפלגות תשובות �
 const tfHasEmptyFields = decryptedTrueFalse.some(t => !t.statement || !t.explanation || t.isTrue === undefined);
 assert(!tfHasEmptyFields, 'כל 152 שאלות נכון/לא נכון כוללות טענה ברורה, ערך בוליאני והסבר לימודי מלא');
 
-// Cycle 30: Anti-Spam Rate Limiter & Screen Identification in Feedback
-console.log('\n[מחזור 30]: בדיקת מנגנון מניעת הצפות בדוא"ל המשוב (Anti-Spam Rate Limiter) וזיהוי מסך דינמי');
+// Cycle 30: Anti-Spam Rate Limiter, Accurate Screen Context & Client Telemetry in Feedback
+console.log('\n[מחזור 30]: בדיקת מנגנון מניעת הצפות בדוא"ל המשוב, זיהוי מסך מדויק וטלמטריית מכשיר');
 const feedbackTsCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'lib', 'feedback.ts'), 'utf8');
 assert(feedbackTsCode.includes('checkFeedbackRateLimit') && feedbackTsCode.includes('recordFeedbackSubmissionTimestamp'), 'קובץ feedback.ts מיישם מנגנון בדיקת Rate Limit ושמירת חותמות זמן ב-localStorage');
 assert(feedbackTsCode.includes('MAX_SUBMISSIONS_PER_WINDOW = 3'), 'הגבלת שליחה מוגדרת ל-3 פניות בחלון זמן של 15 דקות למניעת הצפת תיבה');
+assert(feedbackTsCode.includes('getOrCreateClientId') && feedbackTsCode.includes('getFriendlyDeviceInfo'), 'קובץ feedback.ts מיישם פונקציות חילוץ מזהה לקוח ייחודי (Client ID) וזיהוי ידידותי של סוג המכשיר');
+assert(feedbackTsCode.includes('מסך / משחק באפליקציה:') && feedbackTsCode.includes('Client ID למניעת הצפות'), 'גוף המייל כולל ניסוח שקוף וברור של שם המסך/המשחק, סוג המכשיר ומזהה הלקוח למניעת ספאם');
 
 const feedbackDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
 assert(feedbackDrawerCode.includes('resolveCurrentScreenName'), 'מגירת המשוב מחלצת באופן דינמי את שם המסך/המשחק הנוכחי במקום נתיב סטטי /');
 assert(feedbackDrawerCode.includes('checkFeedbackRateLimit'), 'מגירת המשוב מבצעת בדיקת Rate Limit מוקדמת לפני שליחת הטופס');
+assert(feedbackDrawerCode.includes("currentTab === 'taboo'") && feedbackDrawerCode.includes("currentTab === 'true-false'"), 'מגירת המשוב מזהה במדויק את מסכי המשחקים טאבו ונכון/לא נכון לפי טאב פעיל');
+assert(feedbackDrawerCode.includes('getFriendlyDeviceInfo()') && feedbackDrawerCode.includes('getOrCreateClientId()'), 'מגירת המשוב מצרפת את פרטי המכשיר ומזהה הלקוח לטופס המשוב');
+
+const appTsCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'App.tsx'), 'utf8');
+assert(appTsCode.includes('<FeedbackDrawer currentTab={currentTab}'), 'קובץ App.tsx מעביר את הטאב הפעיל (currentTab) אל FeedbackDrawer לסנכרון מדויק');
+
 
 // Cycle 31: True or False UI Integration & Components Verification
 console.log('\n[מחזור 31]: בדיקת ממשק משתמש ואינטגרציית משחק "נכון / לא נכון" (דף בית, קטגוריות והוראות)');

@@ -47,6 +47,59 @@ export function recordFeedbackSubmissionTimestamp(): void {
   } catch {}
 }
 
+const CLIENT_ID_KEY = 'shluf_client_id';
+
+/**
+ * Retrieve or generate an anonymous, persistent Client ID for anti-spam tracking.
+ */
+export function getOrCreateClientId(): string {
+  if (typeof window === 'undefined') return 'server_client';
+  try {
+    let id = localStorage.getItem(CLIENT_ID_KEY);
+    if (!id) {
+      const rand = Math.random().toString(36).substring(2, 9);
+      id = `cl_${rand}_${Date.now().toString(36)}`;
+      localStorage.setItem(CLIENT_ID_KEY, id);
+    }
+    return id;
+  } catch {
+    return 'anonymous_client';
+  }
+}
+
+/**
+ * Generate a friendly human-readable device and environment description.
+ */
+export function getFriendlyDeviceInfo(): string {
+  if (typeof navigator === 'undefined') return 'לא זוהה';
+  const ua = navigator.userAgent || '';
+
+  // Operating system & device type
+  let device = 'מכשיר לא מזוהה';
+  if (/iPad/i.test(ua)) {
+    device = 'טאבלט iPad (iOS)';
+  } else if (/iPhone/i.test(ua)) {
+    device = 'טלפון נייד (iPhone • iOS)';
+  } else if (/Android/i.test(ua)) {
+    device = /Mobile/i.test(ua) ? 'טלפון נייד (Android)' : 'טאבלט (Android)';
+  } else if (/Win/i.test(ua)) {
+    device = 'מחשב שולחני (Windows)';
+  } else if (/Mac/i.test(ua)) {
+    device = 'מחשב (Mac OS)';
+  } else if (/Linux/i.test(ua)) {
+    device = 'מחשב (Linux)';
+  }
+
+  // Browser detection
+  let browser = '';
+  if (/Edg/i.test(ua)) browser = 'Edge';
+  else if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) browser = 'Chrome';
+  else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = 'Safari';
+  else if (/Firefox/i.test(ua)) browser = 'Firefox';
+
+  return browser ? `${device} • ${browser}` : device;
+}
+
 const CATEGORY_HEBREW_MAP: Record<string, string> = {
   'riddle-idea': 'רעיון לחידה או תוכן',
   'site-improvement': 'הצעה לייעול האתר',
@@ -58,7 +111,7 @@ function createFeedbackFormData(data: FeedbackSubmission): FormData {
   const categoryTitle = CATEGORY_HEBREW_MAP[data.category] || data.category;
   const formattedDate = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
 
-  // Clean, professional plain text without spam-triggering ASCII dividers or emoji floods
+  // Clean, professional plain text with clear screen context and client device details
   const formattedMessage = `
 שלום,
 
@@ -68,7 +121,9 @@ function createFeedbackFormData(data: FeedbackSubmission): FormData {
 • מסגרת הדרכה / חברה: ${data.organization?.trim() || 'לא צוין'}
 • מייל לחזרה: ${data.email?.trim() || 'לא צוין על ידי המשתמש (פנייה לידיעה בלבד)'}
 • נושא הפנייה: ${categoryTitle}
-• נשלח מתוך מסך: ${data.currentScreen || 'דף ראשי'}
+• מסך / משחק באפליקציה: ${data.currentScreen || 'דף הבית'}
+• סוג מכשיר וסביבה: ${data.deviceInfo || 'לא זוהה'}
+• מזהה מכשיר ייחודי (Client ID למניעת הצפות): ${data.clientId || 'לא זמין'}
 • תאריך ושעה: ${formattedDate}
 
 תוכן ההצעה:
@@ -92,6 +147,10 @@ ${data.message.trim()}
   formData.append('category', categoryTitle);
   formData.append('organization', data.organization?.trim() || 'לא צוין');
   formData.append('message', formattedMessage);
+
+  if (data.currentScreen) formData.append('current_screen', data.currentScreen);
+  if (data.deviceInfo) formData.append('device_info', data.deviceInfo);
+  if (data.clientId) formData.append('client_id', data.clientId);
 
   // Honeypot field for bot trapping
   if (data.bot_trap && data.bot_trap.trim().length > 0) {

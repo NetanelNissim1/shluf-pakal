@@ -13,9 +13,10 @@ import {
 import confetti from 'canvas-confetti';
 import { usePakalStore } from '../../store/usePakalStore';
 import { FeedbackCategory, FeedbackSubmission } from '../../types';
-import { sendFeedback, checkFeedbackRateLimit } from '../../lib/feedback';
+import { sendFeedback, checkFeedbackRateLimit, getFriendlyDeviceInfo, getOrCreateClientId } from '../../lib/feedback';
 import { triggerHaptic } from '../../lib/haptics';
 import { CATEGORIES as APP_CATEGORIES } from '../../data/categories';
+import { NavTab } from '../layout/BottomNav';
 
 const CATEGORIES: { id: FeedbackCategory; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
   { id: 'riddle-idea', label: '💡 רעיון לחידה או תוכן', icon: Lightbulb },
@@ -24,7 +25,11 @@ const CATEGORIES: { id: FeedbackCategory; label: string; icon: React.ComponentTy
   { id: 'general', label: '💬 משוב כללי', icon: MessageSquare }
 ];
 
-export const FeedbackDrawer: React.FC = () => {
+interface FeedbackDrawerProps {
+  currentTab?: NavTab;
+}
+
+export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'home' }) => {
   const { 
     isFeedbackDrawerOpen, 
     closeFeedbackDrawer, 
@@ -85,18 +90,33 @@ export const FeedbackDrawer: React.FC = () => {
 
     const resolveCurrentScreenName = (): string => {
       const store = usePakalStore.getState();
-      if (store.activeCategory) {
-        const cat = APP_CATEGORIES.find((c) => c.id === store.activeCategory);
-        return cat ? `קטגוריה: ${cat.title}` : `קטגוריה: ${store.activeCategory}`;
+
+      // Explicit Tab Resolution
+      if (currentTab === 'taboo') return 'משחק טאבו שטח';
+      if (currentTab === 'true-false') return 'משחק נכון / לא נכון';
+      if (currentTab === 'odt') return 'פעילויות שטח ואימוני ODT';
+      if (currentTab === 'visual') return 'חידות בציורים ורבוסים';
+      if (currentTab === 'pakal') return 'הפק"ל שלי (מועדפים)';
+
+      if (currentTab === 'categories') {
+        if (store.activeCategory) {
+          if (store.activeCategory === 'he-and-she') return 'קטגוריית שטח: חידות הוא והיא';
+          const cat = APP_CATEGORIES.find((c) => c.id === store.activeCategory);
+          return cat ? `קטגוריית שטח: ${cat.title}` : `קטגוריית שטח: ${store.activeCategory}`;
+        }
+        return 'קטגוריות תוכן שטח';
       }
+
+      // Check situation filters if on home tab
       if (store.activeSituation === 'pakal') return 'הפק"ל שלי (מועדפים)';
       if (store.activeSituation === 'bus') return 'סינון: נסיעה באוטובוס';
       if (store.activeSituation === 'walking') return 'סינון: הליכה בשביל';
       if (store.activeSituation === 'campfire') return 'סינון: סביב המדורה';
       if (store.activeSituation === 'icebreaker') return 'סינון: שבירת קרח';
       if (store.activeSituation === 'holidays') return 'סינון: חגי ישראל';
-      if (store.activeSituation === 'odt') return 'אימוני שטח ו-ODT';
+      if (store.activeSituation === 'odt') return 'פעילויות שטח ואימוני ODT';
       if (store.activeSituation === 'visual') return 'חידות בציורים ורבוסים';
+
       return 'דף הבית';
     };
 
@@ -107,7 +127,9 @@ export const FeedbackDrawer: React.FC = () => {
       email: email.trim() || undefined,
       organization: organization.trim() || undefined,
       bot_trap: botTrap,
-      currentScreen: resolveCurrentScreenName()
+      currentScreen: resolveCurrentScreenName(),
+      deviceInfo: getFriendlyDeviceInfo(),
+      clientId: getOrCreateClientId()
     };
 
     // Save user info for future submissions

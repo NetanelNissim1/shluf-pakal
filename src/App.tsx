@@ -205,7 +205,7 @@ export const App: React.FC = () => {
       <RandomizerModal />
 
       {/* Quick Feedback & Suggestions Drawer */}
-      <FeedbackDrawer />
+      <FeedbackDrawer currentTab={currentTab} />
 
       {/* Onboarding Coach Marks Tour */}
       <OnboardingTour />

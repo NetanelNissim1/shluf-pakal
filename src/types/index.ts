@@ -110,6 +110,8 @@ export interface FeedbackSubmission {
   email?: string;
   organization?: string;
   currentScreen?: string;
+  deviceInfo?: string;
+  clientId?: string;
   clientTimestamp?: number;
   bot_trap?: string;
 }
