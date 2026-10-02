@@ -872,6 +872,7 @@ assert(fs.existsSync(tfPagePath), 'דף המשחק הייעודי (TrueFalsePage
 
 const tfPageContent = fs.readFileSync(tfPagePath, 'utf8');
 assert(tfPageContent.includes('teamAScore') && tfPageContent.includes('timerSeconds') && tfPageContent.includes('handleShuffle'), 'דף המשחק כולל טיימר שטח משולב, ניקוד לקבוצות וכפתור ערבוב');
+assert(tfPageContent.includes('isUserCorrect') && tfPageContent.includes('border-emerald-500') && tfPageContent.includes('צדקתם! תשובה מעולה! 🎯'), 'דף המשחק מציג חיווי ירוק ומעודד בכל פעם שהמשתמש עונה נכון (גם כאשר הטענה אינה נכונה)');
 
 const appTsxContent = fs.readFileSync(path.join(__dirname, '..', 'src', 'App.tsx'), 'utf8');
 assert(appTsxContent.includes('TrueFalsePage') && appTsxContent.includes('handleNavigateTrueFalse'), 'קובץ App.tsx מנתב כהלכה למשחק נכון/לא נכון');

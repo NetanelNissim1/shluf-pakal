@@ -510,43 +510,91 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
             </div>
           ) : (
             /* Revealed Answer & Explanation */
-            <div className="space-y-3 pt-2 animate-fade-in">
-              <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 ${
-                currentItem.isTrue
-                  ? isCampfire 
-                    ? 'bg-emerald-950/50 border-emerald-600 text-emerald-200' 
-                    : 'bg-emerald-50 border-emerald-500 text-emerald-900'
-                  : isCampfire 
-                    ? 'bg-rose-950/50 border-rose-600 text-rose-200' 
-                    : 'bg-rose-50 border-rose-500 text-rose-900'
-              }`}>
-                {currentItem.isTrue ? (
-                  <CheckCircle2 className="w-7 h-7 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5 stroke-[2.5]" />
-                ) : (
-                  <XCircle className="w-7 h-7 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5 stroke-[2.5]" />
-                )}
+            (() => {
+              const isUserCorrect = selectedAnswer !== null ? selectedAnswer === currentItem.isTrue : null;
 
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-base sm:text-lg font-black">
-                      התשובה היא: {currentItem.isTrue ? 'נכון!' : 'לא נכון!'}
-                    </span>
-                    {selectedAnswer !== null && (
-                      <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
-                        selectedAnswer === currentItem.isTrue 
-                          ? 'bg-emerald-600 text-white' 
-                          : 'bg-rose-600 text-white'
-                      }`}>
-                        {selectedAnswer === currentItem.isTrue ? 'צדקתם! 🎯' : 'טעיתם! 😅'}
-                      </span>
-                    )}
+              // 1. User answered correctly (celebratory green styling whether statement was true or false)
+              if (isUserCorrect === true) {
+                return (
+                  <div className="space-y-3 pt-2 animate-fade-in">
+                    <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
+                      isCampfire 
+                        ? 'bg-emerald-950/60 border-emerald-500 text-emerald-100 shadow-emerald-950/50' 
+                        : 'bg-emerald-50/95 border-emerald-500 text-emerald-950 shadow-emerald-600/10'
+                    }`}>
+                      <CheckCircle2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5 stroke-[2.5]" />
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                          <span className="text-base sm:text-lg font-black text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
+                            <span>צדקתם! תשובה מעולה! 🎯</span>
+                          </span>
+                          <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-emerald-600 text-white border border-emerald-700 shadow-sm">
+                            הטענה אכן {currentItem.isTrue ? 'נכונה ✅' : 'אינה נכונה ❌'}
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
+                          {currentItem.explanation}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
-                    {currentItem.explanation}
-                  </p>
+                );
+              }
+
+              // 2. User made a mistake (rose / red error styling)
+              if (isUserCorrect === false) {
+                return (
+                  <div className="space-y-3 pt-2 animate-fade-in">
+                    <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
+                      isCampfire 
+                        ? 'bg-rose-950/60 border-rose-600 text-rose-100 shadow-rose-950/50' 
+                        : 'bg-rose-50/95 border-rose-500 text-rose-950 shadow-rose-600/10'
+                    }`}>
+                      <XCircle className="w-8 h-8 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5 stroke-[2.5]" />
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                          <span className="text-base sm:text-lg font-black text-rose-700 dark:text-rose-300 flex items-center gap-1.5">
+                            <span>הפעם לא צדקתם... 😅</span>
+                          </span>
+                          <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-rose-600 text-white border border-rose-700 shadow-sm">
+                            התשובה הנכונה: {currentItem.isTrue ? 'נכון ✅' : 'לא נכון ❌'}
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
+                          {currentItem.explanation}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              // 3. Guide directly revealed without an answer selection (neutral objective styling)
+              return (
+                <div className="space-y-3 pt-2 animate-fade-in">
+                  <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
+                    isCampfire 
+                      ? 'bg-stone-900/90 border-amber-500/70 text-amber-100 shadow-amber-950/50' 
+                      : 'bg-amber-50/95 border-amber-400 text-amber-950 shadow-amber-600/10'
+                  }`}>
+                    <Sparkles className="w-8 h-8 text-amber-500 shrink-0 mt-0.5 stroke-[2.2]" />
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                        <span className="text-base sm:text-lg font-black text-stone-900 dark:text-stone-100">
+                          התשובה היא: {currentItem.isTrue ? 'נכון! ✅' : 'לא נכון! ❌'}
+                        </span>
+                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-400/40">
+                          חשיפת מדריך 💡
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
+                        {currentItem.explanation}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })()
           )}
 
           {/* Guide Controls Toolbar */}
