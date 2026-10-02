@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הדמיה ויזואלית: שדרוג ממשק המשחקים וסיור הקליטה - שלוף פק"ל</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800;900&display=swap');
+    body {
+      font-family: 'Assistant', system-ui, -apple-system, sans-serif;
+    }
+    .pulse-ring {
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen p-4 sm:p-6 select-none">
+
+  <!-- Top Navigation & Controls Header -->
+  <header class="max-w-4xl mx-auto mb-6 bg-slate-800/90 border border-slate-700/80 rounded-2xl p-4 shadow-xl backdrop-blur-md">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">📱</span>
+          <h1 class="text-xl sm:text-2xl font-black text-amber-400">הדמיה חיה: שדרוגי ממשק ומשחקים</h1>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1">
+          תצוגה מקדימה אינטראקטיבית של השינויים המוצעים — <strong class="text-emerald-400">ללא שום שינוי בקוד האתר</strong>!
+        </p>
+      </div>
+
+      <!-- Theme Mode Toggle inside Simulator -->
+      <div class="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-xl border border-slate-700">
+        <span class="text-xs font-bold text-slate-400">ערכת נושא:</span>
+        <button id="theme-sun-btn" onclick="setSimTheme('sun')" class="px-3 py-1 rounded-lg text-xs font-bold transition-all bg-amber-500 text-white shadow-sm">
+          ☀️ שמש
+        </button>
+        <button id="theme-camp-btn" onclick="setSimTheme('campfire')" class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white">
+          ⛺ מדורה
+        </button>
+      </div>
+    </div>
+
+    <!-- Simulator Tabs Switcher -->
+    <div class="flex items-center gap-1.5 overflow-x-auto pt-4 mt-2 border-t border-slate-700/60 pb-1 text-xs font-bold">
+      <button onclick="switchTab('taboo')" id="tab-btn-taboo" class="tab-btn px-3 py-2 rounded-xl border transition-all whitespace-nowrap bg-amber-500 text-slate-950 border-amber-400 font-black shadow-sm">
+        🏆 טאבו שטח (מסך הסתרה)
+      </button>
+      <button onclick="switchTab('truefalse')" id="tab-btn-truefalse" class="tab-btn px-3 py-2 rounded-xl border transition-all whitespace-nowrap bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+        ❓ נכון / לא נכון (התקדמות וכפתור ענק)
+      </button>
+      <button onclick="switchTab('tour')" id="tab-btn-tour" class="tab-btn px-3 py-2 rounded-xl border transition-all whitespace-nowrap bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+        🌟 סיור קליטה מעודכן (Tooltips)
+      </button>
+      <button onclick="switchTab('visual')" id="tab-btn-visual" class="tab-btn px-3 py-2 rounded-xl border transition-all whitespace-nowrap bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+        🎨 חידות בציורים (רצף במעגל)
+      </button>
+      <button onclick="switchTab('heshe')" id="tab-btn-heshe" class="tab-btn px-3 py-2 rounded-xl border transition-all whitespace-nowrap bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+        👫 הוא והיא (באנר ושליפה מהירה)
+      </button>
+      <button onclick="switchTab('randomizer')" id="tab-btn-randomizer" class="tab-btn px-3 py-2 rounded-xl border transition-all whitespace-nowrap bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+        🎲 שליפה אקראית רב-משחקית
+      </button>
+    </div>
+  </header>
+
+  <!-- Phone Screen Frame Simulator -->
+  <main class="max-w-md mx-auto">
+    <div id="phone-container" class="rounded-[40px] border-4 border-slate-700 bg-[#fffdf7] text-stone-900 shadow-2xl overflow-hidden min-h-[660px] flex flex-col transition-colors duration-300 relative">
+      
+      <!-- Top Speaker Notch -->
+      <div class="h-6 w-full flex items-center justify-center pt-2 pb-1 bg-transparent">
+        <div class="w-16 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></div>
+      </div>
+
+      <!-- App Header Mockup -->
+      <div id="sim-app-header" class="px-4 py-2 border-b border-stone-200 flex items-center justify-between bg-white text-stone-900 transition-colors">
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-black text-amber-600">שלוף פק"ל</span>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">100% אופליין</span>
+        </div>
+        <div class="flex items-center gap-2 text-stone-500">
+          <span class="text-xs">⛺</span>
+          <span class="text-xs">🔍</span>
+          <span class="text-xs">🔊</span>
+        </div>
+      </div>
+
+      <!-- Simulator Content Screen -->
+      <div id="sim-body" class="p-4 flex-1 overflow-y-auto space-y-4">
+        
+        <!-- ============================================== -->
+        <!-- VIEW 1: TABOO GAME (With Stealth Curtain & Mute) -->
+        <!-- ============================================== -->
+        <div id="view-taboo" class="sim-view space-y-4">
+          <!-- Game Header with Quick Mute -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <h2 class="text-lg font-extrabold text-stone-900 dark:text-orange-100 flex items-center gap-1">
+                  <span>🏆 טאבו שטח</span>
+                </h2>
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-orange-950 dark:text-orange-400">100 כרטיסים</span>
+              </div>
+              <p class="text-[11px] text-stone-400">הסבר את המושג בלי לומר מילים אסורות!</p>
+            </div>
+            
+            <div class="flex items-center gap-1">
+              <!-- NEW Quick Mute button directly in game -->
+              <button onclick="toggleTabooMute()" id="taboo-mute-btn" class="p-2 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 text-xs font-bold flex items-center gap-1 shadow-sm" title="השתקת צלילים באזורים שקטים">
+                <span id="taboo-mute-icon">🔊</span>
+              </button>
+              <button class="px-2.5 py-1.5 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 text-xs font-bold text-stone-700 dark:text-stone-300">
+                ❓ חוקים
+              </button>
+            </div>
+          </div>
+
+          <!-- NEW: Micro-Hint Bar -->
+          <div class="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/40 text-[11px] font-bold text-amber-900 dark:text-amber-300 flex items-center justify-between">
+            <span>💡 טיפ: החלק ימינה להצלחה 👉 או שמאלה לדילוג 👈</span>
+            <span class="text-[10px] opacity-75 font-mono">רווח = התחל</span>
+          </div>
+
+          <!-- Timer & Mode Switcher -->
+          <div class="flex items-center justify-between p-2 rounded-xl bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs">
+            <div class="flex items-center gap-1 font-bold">
+              <span>⏱️ זמן:</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500 text-white font-black">60ש'</span>
+              <span class="text-stone-400">30ש'</span>
+              <span class="text-stone-400">90ש'</span>
+            </div>
+            <div class="flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-bold">
+              <span>⚔️ תחרות קבוצות</span>
+            </div>
+          </div>
+
+          <!-- Interactive Taboo Card with Curtain Toggle -->
+          <div class="relative rounded-2xl border-2 border-amber-300 dark:border-orange-500/70 overflow-hidden shadow-lg min-h-[290px] flex flex-col justify-between bg-white dark:bg-stone-950">
+            
+            <!-- NEW: Stealth Round Curtain (Before Starting) -->
+            <div id="taboo-curtain" class="absolute inset-0 z-20 bg-stone-900/95 dark:bg-black/95 backdrop-blur-md p-6 flex flex-col items-center justify-center text-center transition-all duration-300">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center text-2xl mb-3 pulse-ring">
+                🔒
+              </div>
+              <h3 class="text-lg font-black text-white mb-1">הכרטיס מוסתר למניעת הצצה!</h3>
+              <p class="text-xs text-stone-300 mb-5 max-w-[240px]">
+                ודא שרק המסביר מביט במסך, ואז לחץ להפעלת הטיימר והצגת המילים.
+              </p>
+              <button onclick="startTabooRound()" class="w-full py-3.5 px-6 rounded-2xl font-black text-sm bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-xl shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                <span>צא לדרך! התחל 60 שניות 🚀</span>
+              </button>
+            </div>
+
+            <!-- The Real Card Behind Curtain -->
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between text-xs text-stone-400 mb-2">
+                  <span>כרטיס 1 מתוך 100</span>
+                  <span class="text-rose-500 font-bold">🚫 אסור לומר:</span>
+                </div>
+                
+                <!-- Target Word -->
+                <div class="py-3 px-4 rounded-xl bg-amber-50 dark:bg-stone-900 border border-amber-200 dark:border-stone-800 text-center mb-4">
+                  <h3 class="text-2xl font-black text-amber-900 dark:text-amber-400">פינג'אן</h3>
+                </div>
+
+                <!-- Forbidden Words -->
+                <div class="space-y-1.5 text-center font-bold text-sm text-stone-700 dark:text-stone-300">
+                  <div class="py-1.5 px-3 rounded-lg bg-stone-100 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 text-rose-600 dark:text-rose-400">קפה</div>
+                  <div class="py-1.5 px-3 rounded-lg bg-stone-100 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 text-rose-600 dark:text-rose-400">תה</div>
+                  <div class="py-1.5 px-3 rounded-lg bg-stone-100 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 text-rose-600 dark:text-rose-400">אש / גזייה</div>
+                  <div class="py-1.5 px-3 rounded-lg bg-stone-100 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 text-rose-600 dark:text-rose-400">פיקניק</div>
+                  <div class="py-1.5 px-3 rounded-lg bg-stone-100 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 text-rose-600 dark:text-rose-400">ערבי</div>
+                </div>
+              </div>
+
+              <!-- Stop / Pause button inside card -->
+              <div class="pt-3 border-t border-stone-200 dark:border-stone-800 text-center">
+                <button onclick="pauseTabooRound()" class="text-xs text-stone-400 hover:text-stone-600 underline">
+                  הסתר כרטיס והשהה ⏸️
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="grid grid-cols-2 gap-3">
+            <button class="py-3 px-4 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 font-bold text-stone-700 dark:text-stone-200 text-sm">
+              ⏭️ דלג / פסילה
+            </button>
+            <button class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-black text-white text-sm shadow-md">
+              ✅ הצלחה! (+1)
+            </button>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 2: TRUE / FALSE (Progress bar & Big CTA) -->
+        <!-- ============================================== -->
+        <div id="view-truefalse" class="sim-view space-y-3.5 hidden">
+          <!-- Header & Region -->
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-extrabold text-stone-900 dark:text-stone-100 text-base">משחק נכון / לא נכון</span>
+            <span class="px-2 py-0.5 rounded-lg bg-purple-100 text-purple-800 font-bold">צפון הארץ (21)</span>
+          </div>
+
+          <!-- NEW: Sleek Visual Progress Bar -->
+          <div class="space-y-1">
+            <div class="flex items-center justify-between text-[11px] font-bold text-stone-400">
+              <span>שאלה 4 מתוך 21</span>
+              <span>19% הושלמו</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-stone-200 dark:bg-stone-800 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500" style="width: 19%;"></div>
+            </div>
+          </div>
+
+          <!-- NEW: In-Situ Field Style Hint Banner -->
+          <div class="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300/80 dark:border-emerald-800/50 flex items-center gap-2 text-xs text-emerald-900 dark:text-emerald-200">
+            <span class="text-base">🚶‍♂️</span>
+            <div class="flex-1 text-[11px] leading-tight">
+              <strong>טיפ הפעלה בהליכה:</strong> צעד ימינה = נכון ✅ | צעד שמאלה = לא נכון ❌
+            </div>
+          </div>
+
+          <!-- Question Card -->
+          <div class="p-5 rounded-2xl border-2 border-amber-300 dark:border-stone-700 bg-white dark:bg-stone-950 shadow-md text-center space-y-4">
+            <div class="text-[11px] text-stone-400 font-bold">הטענה לדיון במעגל:</div>
+            <h3 class="text-xl font-black leading-relaxed text-stone-900 dark:text-stone-100">
+              "החרמון הוא ההר הגבוה ביותר בישראל"
+            </h3>
+
+            <!-- Answer Buttons or Answer Revealed -->
+            <div id="tf-choices" class="grid grid-cols-2 gap-2 pt-2">
+              <button onclick="revealTFAnswer(true)" class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow active:scale-95 transition-all">
+                נכון! ✅
+              </button>
+              <button onclick="revealTFAnswer(false)" class="py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-black text-base shadow active:scale-95 transition-all">
+                לא נכון! ❌
+              </button>
+            </div>
+
+            <!-- Answer Box (Adaptive Celebratory Green) -->
+            <div id="tf-revealed" class="space-y-3 pt-2 text-right hidden">
+              <div class="p-3.5 rounded-xl border-2 bg-emerald-50 dark:bg-emerald-950/60 border-emerald-500 text-emerald-950 dark:text-emerald-100">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-black text-sm text-emerald-700 dark:text-emerald-300">צדקתם! תשובה מעולה! 🎯</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white">הטענה נכונה ✅</span>
+                </div>
+                <p class="text-xs leading-relaxed opacity-90">
+                  פסגת החרמון הישראלית מתנשאת לגובה של 2,236 מטרים מעל פני הים, והיא הנקודה הגבוהה ביותר בארץ.
+                </p>
+              </div>
+
+              <!-- NEW: Giant Prominent "Next Question" CTA Button -->
+              <button onclick="resetTFQuestion()" class="w-full py-3.5 px-4 rounded-xl font-black text-sm bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
+                <span>לשאלה הבאה בטור ⬅️</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 3: ONBOARDING TOUR (Updated 6 Steps) -->
+        <!-- ============================================== -->
+        <div id="view-tour" class="sim-view space-y-3 hidden">
+          <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-300">
+            <strong>סיור קליטה מודרך מעודכן:</strong> ה-Tooltips החדשים מציגים ישירות את <strong>משחקי השטח המובילים</strong> במקום רק כפתורים טכניים!
+          </div>
+
+          <!-- Interactive Tour Step Controller -->
+          <div class="p-4 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 shadow-md space-y-3">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span id="tour-step-badge" class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-mono">תחנה 1 מתוך 6</span>
+              <span class="text-stone-400">הדמיית ה-Tooltip</span>
+            </div>
+
+            <!-- Spotlight Card with Simulated Tooltip -->
+            <div class="p-4 rounded-xl border-2 border-amber-400 bg-amber-50/50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 space-y-2 relative">
+              <div class="flex items-center gap-2">
+                <span id="tour-step-icon" class="text-2xl">🏆</span>
+                <h4 id="tour-step-title" class="font-extrabold text-sm text-stone-900 dark:text-white">משחקי שטח ותחרויות קבוצתיות</h4>
+              </div>
+              <p id="tour-step-desc" class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                טאבו שטח עם טיימר וצפצופים, משחק נכון/לא נכון להליכה בטור, וחידות בציורים. הכל מובנה ומוכן להפעלה מיידית במעגל ללא שום ציוד!
+              </p>
+
+              <!-- Progress Dots -->
+              <div class="flex items-center justify-between pt-2 border-t border-stone-200 dark:border-stone-800">
+                <div class="flex gap-1" id="tour-dots">
+                  <span class="w-4 h-1.5 rounded-full bg-amber-500"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+                </div>
+
+                <div class="flex items-center gap-1">
+                  <button onclick="prevTourStep()" class="px-2.5 py-1 rounded-lg border text-xs font-bold bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300">הקודם</button>
+                  <button onclick="nextTourStep()" class="px-3 py-1 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 font-black">הבא ⬅️</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 4: VISUAL RIDDLES (Full Carousel Mode) -->
+        <!-- ============================================== -->
+        <div id="view-visual" class="sim-view space-y-3.5 hidden">
+          <!-- Header -->
+          <div class="flex items-center justify-between">
+            <h3 class="font-extrabold text-base flex items-center gap-1.5">
+              <span>🎨 חידות בציורים ורבוסים</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">154 איורים</span>
+            </h3>
+          </div>
+
+          <!-- NEW: Play in Circle (Carousel / Presenter Mode) Banner -->
+          <button class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-600 text-white font-black text-xs sm:text-sm shadow-md flex items-center justify-between hover:brightness-105 active:scale-98 transition-all">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">▶️</span>
+              <div class="text-right">
+                <div class="font-extrabold">הפעלת חידות במעגל (מסך מלא)</div>
+                <div class="text-[10px] opacity-80 font-normal">דפדוף מהיר בין 154 חידות ללא גלילה מיותרת</div>
+              </div>
+            </div>
+            <span class="text-xs bg-white/20 px-2 py-1 rounded-lg">התחל עכשיו</span>
+          </button>
+
+          <!-- Rebus Card Preview -->
+          <div class="p-4 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 space-y-3">
+            <div class="flex items-center justify-between text-xs text-stone-400">
+              <span class="font-bold text-purple-600 dark:text-purple-400">חגי ישראל • פורים</span>
+              <span>חידה #42</span>
+            </div>
+
+            <!-- SVG Illustration Container -->
+            <div class="h-36 rounded-xl bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 flex items-center justify-center text-4xl">
+              🎭 🍷 📜
+            </div>
+
+            <!-- NEW: Progressive Hint Buttons -->
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <button class="py-2 px-3 rounded-xl border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-bold flex items-center justify-center gap-1">
+                <span>💡 רמז ראשון</span>
+              </button>
+              <button class="py-2 px-3 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-100 dark:bg-stone-900 font-bold flex items-center justify-center gap-1">
+                <span>👀 חשיפת פתרון</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 5: HE & SHE (Circle banner & Quick Draw) -->
+        <!-- ============================================== -->
+        <div id="view-heshe" class="sim-view space-y-3.5 hidden">
+          <!-- NEW: Dedicated Circle Game Intro Banner -->
+          <div class="p-3.5 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-md space-y-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-sm flex items-center gap-1.5">
+                <span>👫 משחק "הוא והיא" למעגל</span>
+              </h3>
+              <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">205 חידות לשון</span>
+            </div>
+            <p class="text-[11px] opacity-90 leading-relaxed">
+              הקריאו רמז להוא ורמז להיא — על המעגל לנחש את צמד המילים הדומות בצלילן!
+            </p>
+          </div>
+
+          <!-- NEW: Quick Shuffler Button for He and She -->
+          <button onclick="shuffleHeShe()" class="w-full py-3 px-4 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-900 dark:text-emerald-200 font-black text-xs flex items-center justify-center gap-2 hover:bg-emerald-100 transition-all">
+            <span>🎲 שלוף חידת "הוא והיא" אקראית למעגל!</span>
+          </button>
+
+          <!-- Interactive Card -->
+          <div class="p-4 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 shadow-sm space-y-3">
+            <div class="flex items-center justify-between text-xs text-stone-400">
+              <span class="font-bold text-emerald-600">טבע ונופי הארץ</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">רמה: קליל</span>
+            </div>
+
+            <p id="heshe-q" class="text-sm font-bold text-stone-800 dark:text-stone-200 leading-relaxed">
+              הוא נחל הזורם בגליל העליון, והיא שפירית מעופפת בעלת כנפיים זוהרות...
+            </p>
+
+            <button onclick="toggleHeSheAnswer()" id="heshe-ans-btn" class="w-full py-2 px-3 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-100 dark:bg-stone-900 font-bold text-xs text-stone-700 dark:text-stone-300">
+              👁️ חשוף פתרון
+            </button>
+
+            <div id="heshe-ans-box" class="p-2.5 rounded-xl bg-amber-50 dark:bg-stone-900 border border-amber-300 dark:border-amber-700 text-xs font-black text-amber-900 dark:text-amber-300 text-center hidden">
+              הוא: דישון | היא: שפירית
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 6: MULTI-GAME RANDOMIZER -->
+        <!-- ============================================== -->
+        <div id="view-randomizer" class="sim-view space-y-3.5 hidden">
+          <div class="text-center space-y-1">
+            <h3 class="text-lg font-black text-amber-500">שלוף לי! רולטת שטח</h3>
+            <p class="text-xs text-stone-400">שליפה אקראית מכל המשחקים והתכנים</p>
+          </div>
+
+          <!-- NEW: Category & Game Mode Filter Chips -->
+          <div class="space-y-1 text-xs">
+            <span class="text-[11px] font-bold text-stone-400">בחר מאיזה משחק לשלוף:</span>
+            <div class="grid grid-cols-2 gap-1.5 font-bold">
+              <button class="p-2 rounded-xl border bg-amber-500 text-slate-950 font-black border-amber-400 text-right">
+                🎲 כל המאגרים (2,525)
+              </button>
+              <button class="p-2 rounded-xl border bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 text-right">
+                🏆 טאבו שטח (100)
+              </button>
+              <button class="p-2 rounded-xl border bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 text-right">
+                ❓ נכון / לא נכון (152)
+              </button>
+              <button class="p-2 rounded-xl border bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 text-right">
+                🎨 חידות בציורים (154)
+              </button>
+            </div>
+          </div>
+
+          <!-- Roll Button -->
+          <button class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-all">
+            שלוף עכשיו! 🎯
+          </button>
+        </div>
+
+      </div>
+
+      <!-- App Bottom Bar Mockup with FAB -->
+      <div id="sim-bottom-bar" class="px-6 py-2.5 border-t border-stone-200 flex items-center justify-between bg-white text-stone-500 transition-colors">
+        <span class="text-xs">🏠 בית</span>
+        <span class="text-xs">📂 תוכן</span>
+        <div class="w-10 h-10 -mt-5 rounded-full bg-amber-500 text-slate-950 font-black flex items-center justify-center shadow-lg text-sm">🎲</div>
+        <span class="text-xs">⭐ פק"ל</span>
+        <span class="text-xs">💬 משוב</span>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      document.querySelectorAll('.sim-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('view-' + tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-amber-500', 'text-slate-950', 'border-amber-400', 'font-black');
+        btn.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+      });
+
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      activeBtn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+      activeBtn.classList.add('bg-amber-500', 'text-slate-950', 'border-amber-400', 'font-black');
+    }
+
+    // Theme switching logic inside phone frame
+    function setSimTheme(theme) {
+      const container = document.getElementById('phone-container');
+      const header = document.getElementById('sim-app-header');
+      const bottom = document.getElementById('sim-bottom-bar');
+      const sunBtn = document.getElementById('theme-sun-btn');
+      const campBtn = document.getElementById('theme-camp-btn');
+
+      if (theme === 'campfire') {
+        container.classList.remove('bg-[#fffdf7]', 'text-stone-900');
+        container.classList.add('bg-black', 'text-orange-100', 'dark');
+        header.classList.remove('bg-white', 'border-stone-200');
+        header.classList.add('bg-stone-950', 'border-stone-800');
+        bottom.classList.remove('bg-white', 'border-stone-200');
+        bottom.classList.add('bg-stone-950', 'border-stone-800');
+
+        campBtn.classList.add('bg-orange-600', 'text-white');
+        campBtn.classList.remove('text-slate-400');
+        sunBtn.classList.remove('bg-amber-500', 'text-white');
+        sunBtn.classList.add('text-slate-400');
+      } else {
+        container.classList.add('bg-[#fffdf7]', 'text-stone-900');
+        container.classList.remove('bg-black', 'text-orange-100', 'dark');
+        header.classList.add('bg-white', 'border-stone-200');
+        header.classList.remove('bg-stone-950', 'border-stone-800');
+        bottom.classList.add('bg-white', 'border-stone-200');
+        bottom.classList.remove('bg-stone-950', 'border-stone-800');
+
+        sunBtn.classList.add('bg-amber-500', 'text-white');
+        sunBtn.classList.remove('text-slate-400');
+        campBtn.classList.remove('bg-orange-600', 'text-white');
+        campBtn.classList.add('text-slate-400');
+      }
+    }
+
+    // Taboo Curtain controls
+    function startTabooRound() {
+      document.getElementById('taboo-curtain').classList.add('opacity-0', 'pointer-events-none');
+    }
+    function pauseTabooRound() {
+      document.getElementById('taboo-curtain').classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    let isMuted = false;
+    function toggleTabooMute() {
+      isMuted = !isMuted;
+      document.getElementById('taboo-mute-icon').textContent = isMuted ? '🔇' : '🔊';
+    }
+
+    // True/False controls
+    function revealTFAnswer(choice) {
+      document.getElementById('tf-choices').classList.add('hidden');
+      document.getElementById('tf-revealed').classList.remove('hidden');
+    }
+    function resetTFQuestion() {
+      document.getElementById('tf-choices').classList.remove('hidden');
+      document.getElementById('tf-revealed').classList.add('hidden');
+    }
+
+    // Onboarding Tour Steps Data
+    const tourData = [
+      {
+        step: 1,
+        title: "משחקי שטח ותחרויות קבוצתיות",
+        icon: "🏆",
+        desc: "טאבו שטח עם טיימר וצפצופים, משחק נכון/לא נכון להליכה בטור, וחידות בציורים. הכל מובנה ומוכן להפעלה מיידית במעגל ללא שום ציוד!"
+      },
+      {
+        step: 2,
+        title: "חידות בציורים ואימוני ODT",
+        icon: "🎨",
+        desc: "154 חידות ויזואליות עם זום ומצב מקרן, ו-101 מתודות שטח לפיתוח מנהיגות וגיבוש עם טיימר משימות משולב."
+      },
+      {
+        step: 3,
+        title: "שליפה מהירה למעגל",
+        icon: "🎲",
+        desc: "לחיצה אחת על הכפתור הצף שולפת רולטת תוכן אקראית לשבירת שגרה או עצירת קפה בשביל. פועל 100% אופליין גם במעמקי נחל ללא קליטה!"
+      },
+      {
+        step: 4,
+        title: "חידות מותאמות לרגע",
+        icon: "🧭",
+        desc: "סינון מהיר לפי הסיטואציה בשטח: נסיעה באוטובוס, הליכה בשביל, סביב המדורה, או משחקי שבירת קרח."
+      },
+      {
+        step: 5,
+        title: "הפק\"ל האישי שלך למסלול",
+        icon: "⭐",
+        desc: "סמנו כל חידה או משחק בכוכב כדי להרכיב מערך הדרכה אישי מראש. בלחיצה אחת תוכלו לשתף את כל המערך לוואטסאפ של המדריכים."
+      },
+      {
+        step: 6,
+        title: "התאמה מלאה לתנאי שטח",
+        icon: "⛺🔍",
+        desc: "השמש מסנוורת? הגדילו את הטקסט בלחיצה. פעילות לילה? עברו ל'מצב מדורה' שאינו פוגע בראיית הלילה של החניכים."
+      }
+    ];
+    let currentTourIdx = 0;
+
+    function updateTourDisplay() {
+      const item = tourData[currentTourIdx];
+      document.getElementById('tour-step-badge').textContent = `תחנה ${item.step} מתוך 6`;
+      document.getElementById('tour-step-icon').textContent = item.icon;
+      document.getElementById('tour-step-title').textContent = item.title;
+      document.getElementById('tour-step-desc').textContent = item.desc;
+
+      const dotsContainer = document.getElementById('tour-dots');
+      dotsContainer.innerHTML = tourData.map((_, i) => 
+        `<span class="${i === currentTourIdx ? 'w-4 bg-amber-500' : 'w-1.5 bg-stone-300 dark:bg-stone-700'} h-1.5 rounded-full transition-all"></span>`
+      ).join('');
+    }
+
+    function nextTourStep() {
+      currentTourIdx = (currentTourIdx + 1) % tourData.length;
+      updateTourDisplay();
+    }
+    function prevTourStep() {
+      currentTourIdx = (currentTourIdx - 1 + tourData.length) % tourData.length;
+      updateTourDisplay();
+    }
+
+    // He & She controls
+    const hesheQuestions = [
+      { q: "הוא נחל הזורם בגליל העליון, והיא שפירית מעופפת בעלת כנפיים זוהרות...", a: "הוא: דישון | היא: שפירית" },
+      { q: "הוא מאיר לספינות בלב ים, והיא מאירה לנו את הבית בלילה...", a: "הוא: מגדלור | היא: מנורה" },
+      { q: "הוא כלי עבודה לחפירה באדמה, והיא תלמידה בכיתה...", a: "הוא: מעדר | היא: מעדרה" }
+    ];
+    let hesheIdx = 0;
+    function shuffleHeShe() {
+      hesheIdx = (hesheIdx + 1) % hesheQuestions.length;
+      document.getElementById('heshe-q').textContent = hesheQuestions[hesheIdx].q;
+      document.getElementById('heshe-ans-box').textContent = hesheQuestions[hesheIdx].a;
+      document.getElementById('heshe-ans-box').classList.add('hidden');
+    }
+    function toggleHeSheAnswer() {
+      const box = document.getElementById('heshe-ans-box');
+      box.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
