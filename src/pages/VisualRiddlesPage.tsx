@@ -24,9 +24,10 @@ import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
 import { playShuffle } from '../lib/sound';
 import { triggerHaptic } from '../lib/haptics';
+import { seededShuffle, deriveTopicSeed } from '../lib/random';
 
 export const VisualRiddlesPage: React.FC = () => {
-  const { themeMode, soundEnabled, hapticsEnabled, uxMode } = usePakalStore();
+  const { themeMode, soundEnabled, hapticsEnabled, uxMode, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
 
   const allRiddles = visualData as VisualRiddle[];
@@ -56,7 +57,7 @@ export const VisualRiddlesPage: React.FC = () => {
     { id: 'shavuot', label: 'שבועות' },
   ];
 
-  // Filtering Logic
+  // Filtering Logic with Device-Based Seeded Shuffle within active category/holiday
   const filteredRiddles = useMemo(() => {
     let result = allRiddles;
 
@@ -82,8 +83,11 @@ export const VisualRiddlesPage: React.FC = () => {
       );
     }
 
-    return result;
-  }, [allRiddles, activeMainCat, activeHoliday, activeDifficulty, searchQuery]);
+    if (!randomOrderEnabled) return result;
+    const topicKey = `vr_${activeMainCat}_${activeHoliday}_${activeDifficulty}`;
+    const seed = deriveTopicSeed(deviceShuffleSeed, topicKey);
+    return seededShuffle(result, seed);
+  }, [allRiddles, activeMainCat, activeHoliday, activeDifficulty, searchQuery, randomOrderEnabled, deviceShuffleSeed]);
 
   // Dynamic Category and Holiday Counts
   const categoryCounts = useMemo(() => ({

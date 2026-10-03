@@ -18,6 +18,7 @@ import { RiddleCard } from '../components/riddles/RiddleCard';
 import { DifficultyFilter } from '../components/common/DifficultyFilter';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
+import { seededShuffle, deriveTopicSeed } from '../lib/random';
 
 interface CategoryPageProps {
   onNavigateVisual?: () => void;
@@ -40,7 +41,9 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
     revealedMap,
     revealAll,
     hideAll,
-    uxMode
+    uxMode,
+    deviceShuffleSeed,
+    randomOrderEnabled
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
@@ -93,8 +96,12 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
           r.subCategory.toLowerCase().includes(q)
       );
     }
-    return result;
-  }, [categoryRiddles, activeSubCategory, activeDifficulty, localSearch]);
+
+    if (!randomOrderEnabled) return result;
+    const topicKey = `cat_${currentCategoryId}_${activeSubCategory || 'all'}_${activeDifficulty}`;
+    const seed = deriveTopicSeed(deviceShuffleSeed, topicKey);
+    return seededShuffle(result, seed);
+  }, [categoryRiddles, activeSubCategory, activeDifficulty, localSearch, randomOrderEnabled, currentCategoryId, deviceShuffleSeed]);
 
   const difficultyCounts = useMemo(() => {
     let pool = categoryRiddles;

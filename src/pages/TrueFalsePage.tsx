@@ -22,6 +22,7 @@ import { usePakalStore } from '../store/usePakalStore';
 import { triggerHaptic } from '../lib/haptics';
 import { TrueFalseInstructionsModal } from '../components/true-false/TrueFalseInstructionsModal';
 import confetti from 'canvas-confetti';
+import { seededShuffle, deriveTopicSeed } from '../lib/random';
 
 interface TrueFalsePageProps {
   onBack?: () => void;
@@ -30,7 +31,7 @@ interface TrueFalsePageProps {
 type MainFilter = 'all' | 'regions' | 'holidays';
 
 export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
-  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, showToast, uxMode } = usePakalStore();
+  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, showToast, uxMode, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
 
   const [mainFilter, setMainFilter] = useState<MainFilter>('all');
@@ -39,6 +40,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
   const [selectedAnswer, setSelectedAnswer] = useState<boolean | null>(null);
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
   const [isInstructionsOpen, setIsInstructionsOpen] = useState<boolean>(false);
+  const [localShuffleNonce, setLocalShuffleNonce] = useState<number>(0);
 
   // Team competition scores
   const [showTeamScores, setShowTeamScores] = useState<boolean>(false);
@@ -50,14 +52,19 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
   const [timerActive, setTimerActive] = useState<boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Filtered dataset
+  // Filtered dataset (device-based seeded shuffle within topic/filter)
   const filteredItems = useMemo(() => {
-    return trueFalseData.filter(item => {
+    const raw = trueFalseData.filter(item => {
       if (mainFilter !== 'all' && item.category !== mainFilter) return false;
       if (subFilter !== 'all' && item.subSlug !== subFilter) return false;
       return true;
     });
-  }, [mainFilter, subFilter]);
+
+    if (!randomOrderEnabled) return raw;
+    const topicKey = `tf_${mainFilter}_${subFilter}_${localShuffleNonce}`;
+    const seed = deriveTopicSeed(deviceShuffleSeed, topicKey);
+    return seededShuffle(raw, seed);
+  }, [mainFilter, subFilter, randomOrderEnabled, deviceShuffleSeed, localShuffleNonce]);
 
   // Reset index and state on filter change
   useEffect(() => {
@@ -144,9 +151,8 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
   };
 
   const handleShuffle = () => {
-    if (filteredItems.length <= 1) return;
-    const nextIdx = Math.floor(Math.random() * filteredItems.length);
-    setCurrentIndex(nextIdx);
+    setLocalShuffleNonce((prev) => prev + 1);
+    setCurrentIndex(0);
     setSelectedAnswer(null);
     setIsRevealed(false);
     resetTimer();

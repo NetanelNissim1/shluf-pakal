@@ -1003,6 +1003,81 @@ assert(!homePageCode.includes('UX 2.0'), 'דף הבית נקי לחלוטין מ
 // 4. Verify Toggle switch button is cleanly labeled "משודרג ✨" / "קלאסי"
 assert(uxHeaderCode.includes('משודרג ✨') && uxHeaderCode.includes('קלאסי'), 'מתג החלפת העיצוב ב-Header מציג תוויות נקיות ("משודרג ✨" מול "קלאסי") ללא מספרי גרסה');
 
+// ==========================================
+// [מחזור 36]: בדיקת מנוע סדר שאלות אקראי ייחודי למכשיר (Device-Based Seeded Randomization)
+// ==========================================
+console.log('\n[מחזור 36]: בדיקת מנוע סדר שאלות אקראי ייחודי למכשיר, יציבות סשן וסדר ODT מוגן');
+
+// 1. Check src/lib/random.ts existence and algorithmic properties
+const randomLibPath = path.join(__dirname, '..', 'src', 'lib', 'random.ts');
+assert(fs.existsSync(randomLibPath), 'קובץ האלגוריתם random.ts קיים במערכת');
+
+const randomCode = fs.readFileSync(randomLibPath, 'utf8');
+assert(randomCode.includes('mulberry32') && randomCode.includes('seededShuffle') && randomCode.includes('deriveTopicSeed'), 'קובץ random.ts מיישם אלגוריתם Mulberry32, seededShuffle ו-deriveTopicSeed');
+
+// Replicate Mulberry32 & seededShuffle logic to test mathematical properties
+function testMulberry32(seed) {
+  let s = seed >>> 0;
+  return function () {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function testSeededShuffle(arr, seed) {
+  const copy = [...arr];
+  const prng = testMulberry32(seed);
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(prng() * (i + 1));
+    const temp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = temp;
+  }
+  return copy;
+}
+
+// 2. Determinism test: identical seeds produce 100% identical permutations
+const sampleList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const shuffle1 = testSeededShuffle(sampleList, 12345);
+const shuffle2 = testSeededShuffle(sampleList, 12345);
+assert(JSON.stringify(shuffle1) === JSON.stringify(shuffle2), 'אותו Seed מייצר תמיד בדיוק את אותו הסדר (100% יציבות בסשן)');
+
+// 3. Uniqueness test: two distinct devices (Seeds A and B) produce different permutations
+const shuffleDevA = testSeededShuffle(sampleList, 12345);
+const shuffleDevB = testSeededShuffle(sampleList, 98765);
+assert(JSON.stringify(shuffleDevA) !== JSON.stringify(shuffleDevB), 'שני מכשירים עם Seeds שונים מקבלים סדר שאלות שונה לחלוטין');
+
+// 4. Verify usePakalStore includes deviceShuffleSeed and randomOrderEnabled
+const pakalStoreCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'store', 'usePakalStore.ts'), 'utf8');
+assert(pakalStoreCode.includes('deviceShuffleSeed') && pakalStoreCode.includes('randomOrderEnabled'), 'חנות usePakalStore שומרת את deviceShuffleSeed ו-randomOrderEnabled');
+assert(pakalStoreCode.includes('reshuffleDeviceSeed') && pakalStoreCode.includes('toggleRandomOrder'), 'חנות usePakalStore מיישמת פעולות reshuffleDeviceSeed ו-toggleRandomOrder');
+
+// 5. Verify TabooGame integration
+const rndTabooCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooGame.tsx'), 'utf8');
+assert(rndTabooCode.includes('seededShuffle') && rndTabooCode.includes('deviceShuffleSeed'), 'משחק טאבו משתמש בסדר שאלות אקראי ייחודי למכשיר');
+
+// 6. Verify TrueFalsePage integration
+const rndTrueFalseCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'TrueFalsePage.tsx'), 'utf8');
+assert(rndTrueFalseCode.includes('seededShuffle') && rndTrueFalseCode.includes('deriveTopicSeed'), 'משחק נכון/לא נכון משתמש בערבוב אקראי למכשיר כולל תתי-נושאים');
+
+// 7. Verify VisualRiddlesPage integration
+const rndVisualCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'VisualRiddlesPage.tsx'), 'utf8');
+assert(rndVisualCode.includes('seededShuffle') && rndVisualCode.includes('deriveTopicSeed'), 'חידות בציורים משתמשות בערבוב אקראי למכשיר ולתתי-חגים');
+
+// 8. Verify CategoryPage integration
+const rndCatCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx'), 'utf8');
+assert(rndCatCode.includes('seededShuffle') && rndCatCode.includes('deriveTopicSeed'), 'קטגוריות תוכן והוא-והיא משתמשות בערבוב אקראי בתוך כל נושא');
+
+// 9. Verify ODT is preserved in original pedagogical order
+const rndOdtCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'ODTPage.tsx'), 'utf8');
+assert(!rndOdtCode.includes('seededShuffle'), 'פעילויות ODT נשמרות בסדר מתודולוגי מקורי (ללא ערבוב אקראי)');
+
+// 10. Verify FeedbackDrawer includes the settings toggle
+const rndDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
+assert(rndDrawerCode.includes('סדר שאלות אקראי למכשיר') && rndDrawerCode.includes('toggleRandomOrder'), 'מגירת ההגדרות כוללת מתג החלפת סדר שאלות אקראי למכשיר');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

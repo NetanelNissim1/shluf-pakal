@@ -4,12 +4,20 @@ import confetti from 'canvas-confetti';
 import { CategoryId, SituationFilter, ThemeMode, TextSize, UxMode, FeedbackSubmission, StoredFeedbackItem } from '../types';
 import { triggerHaptic } from '../lib/haptics';
 import { sanitizeSearchQuery } from '../lib/security';
+import { generateRandomSeed } from '../lib/random';
 
 interface PakalState {
   // UX Mode (Settings Toggle: Classic vs. Enhanced 2.0)
   uxMode: UxMode;
   setUxMode: (mode: UxMode) => void;
   toggleUxMode: () => void;
+
+  // Device-Based Dynamic Random Order
+  deviceShuffleSeed: number;
+  randomOrderEnabled: boolean;
+  reshuffleDeviceSeed: () => void;
+  toggleRandomOrder: () => void;
+  setRandomOrderEnabled: (enabled: boolean) => void;
 
   // Theme & Environment
   themeMode: ThemeMode;
@@ -104,6 +112,26 @@ export const usePakalStore = create<PakalState>()(
           2500
         );
       },
+
+      // Device-Based Dynamic Random Order
+      deviceShuffleSeed: generateRandomSeed(),
+      randomOrderEnabled: true,
+      reshuffleDeviceSeed: () => {
+        const nextSeed = generateRandomSeed();
+        if (get().hapticsEnabled) triggerHaptic([30, 40]);
+        set({ deviceShuffleSeed: nextSeed });
+        get().showToast('🎲 סדר השאלות עורבב מחדש למכשיר זה!', 2000);
+      },
+      toggleRandomOrder: () => {
+        const next = !get().randomOrderEnabled;
+        if (get().hapticsEnabled) triggerHaptic(25);
+        set({ randomOrderEnabled: next });
+        get().showToast(
+          next ? 'סדר השאלות הוגדר כאקראי ייחודי למכשיר 🎲' : 'סדר השאלות הוחזר לסדר הנושאי המקורי 📚',
+          2500
+        );
+      },
+      setRandomOrderEnabled: (enabled) => set({ randomOrderEnabled: enabled }),
 
       // Theme
       themeMode: 'sun',
@@ -308,7 +336,9 @@ export const usePakalStore = create<PakalState>()(
         savedFeedbackUser: state.savedFeedbackUser,
         pendingFeedbackQueue: state.pendingFeedbackQueue,
         hasCompletedOnboarding: state.hasCompletedOnboarding,
-        uxMode: state.uxMode
+        uxMode: state.uxMode,
+        deviceShuffleSeed: state.deviceShuffleSeed,
+        randomOrderEnabled: state.randomOrderEnabled
       })
     }
   )

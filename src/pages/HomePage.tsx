@@ -25,6 +25,7 @@ import { DifficultyFilter } from '../components/common/DifficultyFilter';
 import { RiddleCard } from '../components/riddles/RiddleCard';
 import { usePakalStore } from '../store/usePakalStore';
 import { sanitizeSearchQuery } from '../lib/security';
+import { seededShuffle, deriveTopicSeed } from '../lib/random';
 
 interface HomePageProps {
   onNavigateCategory: (catId: CategoryId) => void;
@@ -64,7 +65,9 @@ export const HomePage: React.FC<HomePageProps> = ({
     hideAll,
     openFeedbackDrawer,
     uxMode,
-    toggleUxMode
+    toggleUxMode,
+    deviceShuffleSeed,
+    randomOrderEnabled
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
@@ -105,6 +108,12 @@ export const HomePage: React.FC<HomePageProps> = ({
   }
 
   const isFiltering = searchQuery.trim().length > 0 || activeSituation !== 'all' || activeDifficulty !== 'all';
+
+  if (isFiltering && randomOrderEnabled) {
+    const seed = deriveTopicSeed(deviceShuffleSeed, `home_${activeSituation}_${activeDifficulty}`);
+    filteredRiddles = seededShuffle(filteredRiddles, seed);
+  }
+
   const displayedRiddles = filteredRiddles.slice(0, 40); // Fast initial rendering
 
   // Counts by category

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import confetti from 'canvas-confetti';
 import { 
   Check, 
@@ -26,12 +26,20 @@ import { TabooRoundSummaryModal } from './TabooRoundSummaryModal';
 import { usePakalStore } from '../../store/usePakalStore';
 import { playSuccess, playPass, playShuffle, playTimerEnd } from '../../lib/sound';
 import { triggerHaptic } from '../../lib/haptics';
+import { seededShuffle, deriveTopicSeed } from '../../lib/random';
 
 export const TabooGame: React.FC = () => {
-  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, uxMode } = usePakalStore();
+  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, uxMode, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
 
-  const [cards, setCards] = useState<TabooCard[]>(tabooData as TabooCard[]);
+  const [localShuffleNonce, setLocalShuffleNonce] = useState(0);
+
+  const cards = useMemo<TabooCard[]>(() => {
+    if (!randomOrderEnabled) return tabooData as TabooCard[];
+    const seed = deriveTopicSeed(deviceShuffleSeed + localShuffleNonce, 'taboo');
+    return seededShuffle(tabooData as TabooCard[], seed);
+  }, [deviceShuffleSeed, randomOrderEnabled, localShuffleNonce]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Duration settings (30s, 60s, 90s)
@@ -162,8 +170,7 @@ export const TabooGame: React.FC = () => {
   const handleShuffle = () => {
     if (soundEnabled) playShuffle();
     if (hapticsEnabled) triggerHaptic(40);
-    const shuffled = [...cards].sort(() => Math.random() - 0.5);
-    setCards(shuffled);
+    setLocalShuffleNonce((prev) => prev + 1);
     setCurrentIndex(0);
   };
 

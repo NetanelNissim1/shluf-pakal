@@ -9,7 +9,9 @@ import {
   MessageSquare, 
   AlertTriangle, 
   Zap,
-  Sparkles 
+  Sparkles,
+  Shuffle,
+  RotateCcw
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { usePakalStore } from '../../store/usePakalStore';
@@ -40,7 +42,10 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
     themeMode,
     hapticsEnabled,
     uxMode,
-    toggleUxMode
+    toggleUxMode,
+    randomOrderEnabled,
+    toggleRandomOrder,
+    reshuffleDeviceSeed
   } = usePakalStore();
 
   const [category, setCategory] = useState<FeedbackCategory>('riddle-idea');
@@ -251,6 +256,51 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
             >
               {uxMode === 'enhanced' ? 'משודרג ✨' : 'קלאסי'}
             </button>
+          </div>
+
+          {/* Quick Settings: Random Order Switch */}
+          <div className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
+            isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-blue-50/70 border-blue-200'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 rounded-lg bg-blue-500/20 text-blue-500">
+                <Shuffle className="w-4 h-4" />
+              </div>
+              <div>
+                <span className="text-xs font-black block">סדר שאלות אקראי למכשיר</span>
+                <span className="text-[11px] text-stone-400 block">סדר ייחודי למכשיר זה במשחקים ובנושאים</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              {randomOrderEnabled && (
+                <button
+                  type="button"
+                  onClick={reshuffleDeviceSeed}
+                  title="ערבב מחדש את השאלות"
+                  className={`p-1.5 rounded-xl border text-[11px] font-bold transition-all ${
+                    isCampfire 
+                      ? 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white' 
+                      : 'bg-white border-blue-200 text-blue-700 hover:bg-blue-100'
+                  }`}
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={toggleRandomOrder}
+                className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all ${
+                  randomOrderEnabled
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+                    : isCampfire
+                      ? 'bg-stone-900 border border-stone-800 text-stone-400'
+                      : 'bg-white border border-stone-300 text-stone-600'
+                }`}
+              >
+                {randomOrderEnabled ? 'אקראי 🎲' : 'מקורי 📚'}
+              </button>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
