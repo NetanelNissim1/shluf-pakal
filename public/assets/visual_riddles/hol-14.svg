@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Green EXIT Sign (יציאה) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <rect x="-100" y="-60" width="200" height="120" rx="16" fill="#15803d" stroke="#22c55e" stroke-width="4"/>
     <text x="0" y="15" font-family="Rubik, system-ui, sans-serif" font-size="44" font-weight="900" fill="#ffffff" text-anchor="middle">EXIT ➔</text>
   </g>
@@ -44,7 +44,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Pyramids of Giza (מצרים) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- Sand dunes -->
     <ellipse cx="0" cy="50" rx="110" ry="20" fill="#78350f"/>
     <!-- Big pyramid -->

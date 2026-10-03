@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Calendar: א תשרי -->
-  <g transform="translate(180, 260)" filter="url(#shadow)">
+  <g transform="translate(720, 260)" filter="url(#shadow)">
     <rect x="-85" y="-85" width="170" height="170" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
     <rect x="-85" y="-85" width="170" height="45" rx="16" fill="#ef4444"/>
     <circle cx="-50" cy="-62" r="5" fill="#ffffff"/>
@@ -45,19 +45,19 @@
   </g>
 
   <!-- Plus -->
-  <text x="350" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="550" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Thumbs Up / Like -->
-  <g transform="translate(480, 260)" filter="url(#shadow)">
+  <g transform="translate(420, 260)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="80" fill="url(#greenGrad)"/>
     <path d="M-30,15 L-30,-20 L-10,-20 L0,-50 C10,-50 15,-40 15,-20 L15,-10 L35,-10 C45,-10 45,5 35,15 L25,25 C25,35 15,35 5,35 L-30,35 Z" fill="#ffffff"/>
   </g>
 
   <!-- Plus -->
-  <text x="610" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="290" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Lollipop / Sweet -->
-  <g transform="translate(740, 260)" filter="url(#shadow)">
+  <g transform="translate(160, 260)" filter="url(#shadow)">
     <line x1="0" y1="20" x2="0" y2="90" stroke="#f1f5f9" stroke-width="10" stroke-linecap="round"/>
     <circle cx="0" cy="-20" r="65" fill="url(#goldGrad)"/>
     <path d="M-40,-20 C-40,-45 40,-45 40,-20 C40,5 -20,5 -20,-20 C-20,-30 10,-30 10,-20" stroke="#ef4444" stroke-width="8" fill="none" stroke-linecap="round"/>

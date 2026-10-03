@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <path d="M-55,-10 L55,-10 L45,55 L-45,55 Z" fill="#b45309" stroke="#78350f" stroke-width="4"/>
         <path d="M-40,-10 C-40,-65 40,-65 40,-10" fill="none" stroke="#78350f" stroke-width="6"/>
@@ -54,7 +54,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <circle cx="0" cy="0" r="45" fill="none" stroke="#22c55e" stroke-width="12"/>
         <circle cx="0" cy="-45" r="8" fill="#ef4444"/>

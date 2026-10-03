@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <g transform="translate(-45, 0) scale(0.6)">
           <path d="M-25,-40 L25,-40 L20,0 C20,20 -20,20 -20,0 Z" fill="url(#redGrad)"/>
@@ -69,7 +69,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <text x="0" y="45" font-family="Rubik, sans-serif" font-size="120" font-weight="900" fill="url(#goldGrad)" text-anchor="middle">4</text>
       

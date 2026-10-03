@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(220, 260)" filter="url(#shadow)">
+    <g transform="translate(680, 260)" filter="url(#shadow)">
       
         <path d="M-40,50 C-10,50 30,30 60,0 C30,-30 -10,-50 -40,-50 Z" fill="url(#blueGrad)"/>
         <circle cx="30" cy="-12" r="9" fill="#ffffff"/>
@@ -58,7 +58,7 @@
       <text x="0" y="38" font-family="Rubik, system-ui, sans-serif" font-size="70" font-weight="900" fill="url(#goldGrad)" text-anchor="middle">לֹא</text>
     </g>
 
-    <g transform="translate(680, 260)" filter="url(#shadow)">
+    <g transform="translate(220, 260)" filter="url(#shadow)">
       
         <path d="M40,0 L-30,-50 C-10,-20 -10,20 -30,50 Z" fill="url(#blueGrad)"/>
         <path d="M30,0 L-10,-30 M30,0 L-10,30" stroke="#93c5fd" stroke-width="3"/>

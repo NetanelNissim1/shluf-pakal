@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Human Head Profile (ראש) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <circle cx="0" cy="-10" r="60" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="4"/>
     <circle cx="0" cy="-25" r="30" fill="#38bdf8"/>
     <!-- Kova Tembel hat -->
@@ -47,7 +47,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Corner of 2 Walls (פינה) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- 3D Room Corner -->
     <polygon points="-80,-60 0,0 0,70 -80,10" fill="#334155"/>
     <polygon points="80,-60 0,0 0,70 80,10" fill="#1e293b"/>

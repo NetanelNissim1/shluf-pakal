@@ -124,7 +124,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <SearchBar totalMatches={isFiltering ? filteredRiddles.length : undefined} />
       </div>
 
-      {/* UX 2.0 Enhanced Mode Notification Banner */}
+      {/* Enhanced Mode Notification Banner */}
       {uxMode === 'enhanced' && !isFiltering && (
         <div className={`p-3 rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-card-pop ${
           isCampfire 
@@ -137,8 +137,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-xs font-black">ממשק משחקים משודרג (UX 2.0) פעיל!</span>
-                <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-amber-500 text-white shadow-xs">2.0 ✨</span>
+                <span className="text-xs font-black">ממשק משחקים משודרג פעיל!</span>
               </div>
               <p className="text-[11px] opacity-80 font-medium leading-tight mt-0.5">
                 מסך זינוק בטאבו, סרגל התקדמות וכפתור ענק בנכון/לא נכון, ומצגת במעגל
@@ -283,11 +282,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         {visualData.length} חידות בציורים
                       </span>
-                      {uxMode === 'enhanced' && (
-                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-amber-400 text-purple-950 flex items-center gap-0.5 shadow-xs">
-                          <Sparkles className="w-2.5 h-2.5" /> 2.0
-                        </span>
-                      )}
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-rose-200/80' : 'text-rose-100'}`}>
                       {uxMode === 'enhanced' ? 'הפעלה מהירה במעגל, שידור מקרן וסריקת QR לשטח' : 'זום למעגל החניכים, שידור מקרן וסריקת QR לשטח'}
@@ -320,11 +314,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         {tabooData.length} כרטיסים
                       </span>
-                      {uxMode === 'enhanced' && (
-                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-white text-amber-950 flex items-center gap-0.5 shadow-xs">
-                          <Sparkles className="w-2.5 h-2.5" /> 2.0
-                        </span>
-                      )}
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-orange-200/80' : 'text-amber-100'}`}>
                       {uxMode === 'enhanced' ? 'מסך זינוק והסתרה, השתקה מהירה, טיימר מונפש ותחרות קבוצות' : `${tabooData.length} כרטיסי שטח + טיימר 30/60/90 שנ', תחרות קבוצות וצפצוף`}
@@ -357,11 +346,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         {trueFalseData.length} טענות
                       </span>
-                      {uxMode === 'enhanced' && (
-                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-amber-400 text-emerald-950 flex items-center gap-0.5 shadow-xs">
-                          <Sparkles className="w-2.5 h-2.5" /> 2.0
-                        </span>
-                      )}
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-emerald-200/80' : 'text-emerald-100'}`}>
                       {uxMode === 'enhanced' ? 'סרגל התקדמות, כפתור ענק לאגודל וטיפים מתחלפים להפעלה בשטח' : 'טור בהליכה בשביל, מעגל פסילות, טיימר וניקוד קבוצות'}

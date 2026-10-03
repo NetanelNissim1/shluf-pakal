@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Lime Coated Well (בור סיד) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <rect x="-80" y="-50" width="160" height="110" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="6"/>
     <ellipse cx="0" cy="-50" rx="80" ry="24" fill="#e2e8f0"/>
     <ellipse cx="0" cy="-50" rx="60" ry="16" fill="#0f172a"/>
@@ -45,7 +45,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Protected Drop of Water (שאינו מאבד טיפה) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- Shield / Lock around drop -->
     <path d="M-65,-40 L65,-40 L65,20 Q65,75 0,95 Q-65,75 -65,20 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="4"/>
     <!-- Water drop inside -->

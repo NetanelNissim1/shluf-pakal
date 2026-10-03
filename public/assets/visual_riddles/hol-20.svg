@@ -40,14 +40,14 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: כַּרְטִיס (מַעֲטָפָה) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <rect x="-70" y="-45" width="140" height="90" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
               <polygon points="-70,-45 0,10 70,-45" fill="none" stroke="#38bdf8" stroke-width="3"/>
               <rect x="25" y="-35" width="35" height="40" fill="#f59e0b" rx="2"/>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: בְּרָכָה (כּוֹכָב זוֹהֵר) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <polygon points="0,-65 18,-18 65,-18 28,12 42,60 0,30 -42,60 -28,12 -65,-18 -18,-18" fill="url(#goldGrad)" stroke="#78350f" stroke-width="2"/>
               <circle cx="0" cy="0" r="18" fill="#fef08a"/>
   </g>

@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(250, 260)" filter="url(#shadow)">
+    <g transform="translate(650, 260)" filter="url(#shadow)">
       
         <path d="M20,-60 A60,60 0 1,0 60,40 A45,45 0 1,1 20,-60 Z" fill="url(#goldGrad)"/>
         <polygon points="45,-40 48,-30 58,-30 50,-24 53,-14 45,-20 37,-14 40,-24 32,-30 42,-30" fill="#fef08a"/>
@@ -51,7 +51,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(650, 260)" filter="url(#shadow)">
+    <g transform="translate(250, 260)" filter="url(#shadow)">
       
         <rect x="-65" y="-50" width="130" height="95" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="3"/>
         <line x1="0" y1="-50" x2="0" y2="45" stroke="#94a3b8" stroke-width="3"/>

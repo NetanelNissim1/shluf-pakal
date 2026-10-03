@@ -1197,30 +1197,31 @@ const riddlesData = [
 
 console.log(`Prepared ${riddlesData.length} holiday riddles to add.`);
 
-// 1. Append to visual_riddles_database.md
+// 1. Check if already appended to visual_riddles_database.md
 const dbPath = path.join(__dirname, '..', 'content', 'visual_riddles_database.md');
 let dbContent = fs.readFileSync(dbPath, 'utf8');
 
-let newMarkdownBlocks = '\n';
-riddlesData.forEach((r, idx) => {
-  const num = 19 + idx;
-  newMarkdownBlocks += `#### חידה 6.${num}: ${r.title}\n`;
-  newMarkdownBlocks += `* **מזהה (ID):** \`${r.id}\`\n`;
-  newMarkdownBlocks += `* **קטגוריה ראשית:** \`חגי ישראל\` | **חג:** \`${r.holiday}\` | **רמת קושי:** \`${r.difficulty}\`\n`;
-  newMarkdownBlocks += `* **תיאור הציור למאייר/AI:** ${r.desc}\n`;
-  newMarkdownBlocks += `* **נוסחת הרבוס:** \`${r.formula}\`\n`;
-  newMarkdownBlocks += `* **רמז:** ${r.hint}\n`;
-  newMarkdownBlocks += `* **פתרון:** ${r.answer}.\n`;
-  newMarkdownBlocks += `* **הסבר חזותי:** ${r.explanation}\n\n`;
-});
+if (!dbContent.includes('hol-35')) {
+  let newMarkdownBlocks = '\n';
+  riddlesData.forEach((r, idx) => {
+    const num = 19 + idx;
+    newMarkdownBlocks += `#### חידה 6.${num}: ${r.title}\n`;
+    newMarkdownBlocks += `* **מזהה (ID):** \`${r.id}\`\n`;
+    newMarkdownBlocks += `* **קטגוריה ראשית:** \`חגי ישראל\` | **חג:** \`${r.holiday}\` | **רמת קושי:** \`${r.difficulty}\`\n`;
+    newMarkdownBlocks += `* **תיאור הציור למאייר/AI:** ${r.desc}\n`;
+    newMarkdownBlocks += `* **נוסחת הרבוס:** \`${r.formula}\`\n`;
+    newMarkdownBlocks += `* **רמז:** ${r.hint}\n`;
+    newMarkdownBlocks += `* **פתרון:** ${r.answer}.\n`;
+    newMarkdownBlocks += `* **הסבר חזותי:** ${r.explanation}\n\n`;
+  });
 
-// Insert before '## חלק ב\':'
-if (dbContent.includes('## חלק ב\':')) {
-  dbContent = dbContent.replace('## חלק ב\':', newMarkdownBlocks + '## חלק ב\':');
-  fs.writeFileSync(dbPath, dbContent, 'utf8');
-  console.log(`Updated visual_riddles_database.md with ${riddlesData.length} new riddles!`);
+  if (dbContent.includes('## חלק ב\':')) {
+    dbContent = dbContent.replace('## חלק ב\':', newMarkdownBlocks + '## חלק ב\':');
+    fs.writeFileSync(dbPath, dbContent, 'utf8');
+    console.log(`Updated visual_riddles_database.md with ${riddlesData.length} new riddles!`);
+  }
 } else {
-  console.error('Could not find separator ## חלק ב\' in visual_riddles_database.md');
+  console.log('Database already contains holiday riddles, skipping markdown append.');
 }
 
 // 2. Generate SVG files in public/assets/visual_riddles/
@@ -2238,7 +2239,12 @@ function renderItemSvg(item) {
 }
 
 function generateSvgContent(riddle) {
-  const renderedItems = riddle.svgItems.map(renderItemSvg).join('\n');
+  // Invert X coordinates for natural Hebrew RTL layout (Right to Left): first item is on the right
+  const rtlItems = riddle.svgItems.map(item => ({
+    ...item,
+    x: 900 - item.x
+  }));
+  const renderedItems = rtlItems.map(renderItemSvg).join('\n');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" class="rebus-svg">
   <defs>

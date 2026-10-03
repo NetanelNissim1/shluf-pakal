@@ -40,18 +40,18 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: סוּס הַמַּלְכוּת -->
-  <g transform="translate(190, 250)" filter="url(#shadow)">
+  <g transform="translate(710, 250)" filter="url(#shadow)">
     <path d="M-40,40 Q-20,0 -30,-40 Q0,-50 20,-20 Q40,0 20,40 Z" fill="#78350f" stroke="#fbbf24" stroke-width="3"/>
               <polygon points="-5,-45 25,-40 10,-20" fill="#f59e0b"/>
   </g>
-  <text x="320" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="580" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: כֶּתֶר מַלְכוּת -->
   <g transform="translate(450, 250)" filter="url(#shadow)">
     <polygon points="-50,30 -40,-25 -15,0 0,-35 15,0 40,-25 50,30" fill="url(#goldGrad)" stroke="#78350f" stroke-width="2"/>
   </g>
-  <text x="580" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="320" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 3: יֵעָשֶׂה לָאִישׁ -->
-  <g transform="translate(710, 250)" filter="url(#shadow)">
+  <g transform="translate(190, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="60" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
               <polygon points="-20,-25 25,0 -20,25" fill="#38bdf8"/>
   </g>

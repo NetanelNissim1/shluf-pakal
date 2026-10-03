@@ -40,7 +40,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: מֵרוֹב עֵצִים -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <rect x="-45" y="10" width="12" height="40" fill="#78350f"/>
               <circle cx="-40" cy="-5" r="25" fill="#10b981"/>
               <rect x="-5" y="0" width="14" height="50" fill="#78350f"/>
@@ -50,7 +50,7 @@
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: לֹא רוֹאִים יַעַר -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="60" fill="#1e1b4b" stroke="#ef4444" stroke-width="4"/>
               <line x1="-40" y1="40" x2="40" y2="-40" stroke="#ef4444" stroke-width="8"/>
               <circle cx="-15" cy="0" r="14" stroke="#ffffff" stroke-width="4" fill="none"/>

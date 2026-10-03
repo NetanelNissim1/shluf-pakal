@@ -40,7 +40,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: שְׁקֵדִיָּה -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <rect x="-8" y="10" width="16" height="55" fill="#78350f" rx="3"/>
               <circle cx="-25" cy="-20" r="30" fill="#fbcfe8"/>
               <circle cx="25" cy="-20" r="30" fill="#fbcfe8"/>
@@ -49,7 +49,7 @@
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: פּוֹרַחַת (שֶׁמֶשׁ) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="45" fill="url(#goldGrad)"/>
               <line x1="0" y1="-65" x2="0" y2="-50" stroke="#f59e0b" stroke-width="6"/>
               <line x1="0" y1="50" x2="0" y2="65" stroke="#f59e0b" stroke-width="6"/>

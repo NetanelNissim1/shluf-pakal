@@ -40,12 +40,12 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: עָשִׁיר (זָהָב) -->
-  <g transform="translate(190, 250)" filter="url(#shadow)">
+  <g transform="translate(710, 250)" filter="url(#shadow)">
     <ellipse cx="0" cy="20" rx="45" ry="30" fill="#b45309"/>
               <circle cx="0" cy="-10" r="30" fill="url(#goldGrad)"/>
               <text x="0" y="2" font-size="30" font-weight="900" fill="#78350f" text-anchor="middle">₪</text>
   </g>
-  <text x="320" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="580" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: שָׂמֵחַ (חִיּוּךְ) -->
   <g transform="translate(450, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="55" fill="url(#greenGrad)"/>
@@ -53,9 +53,9 @@
               <circle cx="18" cy="-15" r="6" fill="#064e3b"/>
               <path d="M-25,12 Q0,35 25,12" stroke="#064e3b" stroke-width="5" fill="none"/>
   </g>
-  <text x="580" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="320" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 3: בְּחֶלְקוֹ (עוּגָה) -->
-  <g transform="translate(710, 250)" filter="url(#shadow)">
+  <g transform="translate(190, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="55" fill="#334155"/>
               <path d="M0,0 L55,0 A55,55 0 0,1 0,55 Z" fill="#60a5fa"/>
   </g>

@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <rect x="-45" y="-55" width="90" height="110" rx="8" fill="#1e3a8a" stroke="#fbbf24" stroke-width="4"/>
         <text x="0" y="15" font-family="Rubik, sans-serif" font-size="40" font-weight="900" fill="#fbbf24" text-anchor="middle">תנ״ך</text>
@@ -51,7 +51,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <circle cx="0" cy="0" r="50" fill="url(#blueGrad)" stroke="#1d4ed8" stroke-width="3"/>
         <path d="M-30,-20 Q-10,-40 20,-30 Q35,0 10,20 Q-20,40 -30,-20 Z" fill="#22c55e"/>

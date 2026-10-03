@@ -36,15 +36,15 @@
   <!-- Content Graphics Area -->
   
   <!-- Bowl (קערת) -->
-  <g transform="translate(180, 250)" filter="url(#shadow)">
+  <g transform="translate(720, 250)" filter="url(#shadow)">
     <path d="M-75,-10 C-75,60 75,60 75,-10 Z" fill="url(#blueGrad)"/>
     <ellipse cx="0" cy="-10" rx="75" ry="20" fill="#93c5fd"/>
   </g>
 
-  <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="560" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Full Moon Night (ליל) -->
-  <g transform="translate(480, 250)" filter="url(#shadow)">
+  <g transform="translate(420, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="70" fill="#0f172a" stroke="#334155" stroke-width="3"/>
     <circle cx="15" cy="-10" r="45" fill="#fef08a"/>
     <circle cx="5" cy="5" r="8" fill="#facc15" opacity="0.4"/>
@@ -54,10 +54,10 @@
     <polygon points="-40,15 -36,25 -46,21" fill="#ffffff"/>
   </g>
 
-  <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="280" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Ordered Numbers 1 2 3 (הסדר) -->
-  <g transform="translate(740, 250)" filter="url(#shadow)">
+  <g transform="translate(160, 250)" filter="url(#shadow)">
     <rect x="-65" y="-65" width="130" height="130" rx="20" fill="url(#cardGrad)" stroke="#22c55e" stroke-width="3"/>
     <text x="0" y="25" font-family="Rubik, system-ui, sans-serif" font-size="52" font-weight="900" fill="#4ade80" text-anchor="middle">1 2 3</text>
   </g>

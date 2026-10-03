@@ -36,13 +36,13 @@
   <!-- Content Graphics Area -->
   
   <!-- Life Tree (חיים) -->
-  <g transform="translate(180, 250)" filter="url(#shadow)">
+  <g transform="translate(720, 250)" filter="url(#shadow)">
     <circle cx="0" cy="-10" r="60" fill="url(#greenGrad)"/>
     <rect x="-10" y="25" width="20" height="45" fill="#78350f" rx="4"/>
   </g>
 
   <!-- Skull / Death (ומוות) -->
-  <g transform="translate(360, 250)" filter="url(#shadow)">
+  <g transform="translate(540, 250)" filter="url(#shadow)">
     <circle cx="0" cy="-15" r="45" fill="#f8fafc"/>
     <rect x="-25" y="10" width="50" height="35" rx="6" fill="#f8fafc"/>
     <!-- Eye sockets -->
@@ -55,7 +55,7 @@
   </g>
 
   <!-- Equal / In Hand of Tongue -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <!-- Hand -->
     <path d="M-60,70 L-60,20 C-60,-20 -30,-40 0,-10 C30,-40 60,-20 60,20 L60,70 Z" fill="#fbcfe8" stroke="#f472b6" stroke-width="4"/>
     <!-- Tongue resting in hand -->

@@ -9,16 +9,16 @@ if (!fs.existsSync(TARGET_DIR)) {
 
 function createSvg(elements, plusSigns = true) {
   const count = elements.length;
-  // Calculate X positions
+  // Calculate X positions for natural Hebrew RTL layout (Right-to-Left: first element on the right)
   let xPositions = [];
   if (count === 1) {
     xPositions = [450];
   } else if (count === 2) {
-    xPositions = [260, 640];
+    xPositions = [640, 260];
   } else if (count === 3) {
-    xPositions = [190, 450, 710];
+    xPositions = [710, 450, 190];
   } else if (count === 4) {
-    xPositions = [140, 340, 540, 740];
+    xPositions = [740, 540, 340, 140];
   }
 
   let content = '';

@@ -40,12 +40,12 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: הַר (כִּפָּה) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <path d="M-65,45 Q0,-65 65,45 Z" fill="#15803d" stroke="#34d399" stroke-width="3"/>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: תָּבוֹר (כְּנֵסִיָּה) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <rect x="-35" y="-20" width="70" height="65" fill="#334155" stroke="#fbbf24" stroke-width="2"/>
               <polygon points="0,-55 -35,-20 35,-20" fill="#b45309"/>
               <line x1="0" y1="-55" x2="0" y2="-65" stroke="#fbbf24" stroke-width="4"/>

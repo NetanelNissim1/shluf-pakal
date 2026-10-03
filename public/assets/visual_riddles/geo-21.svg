@@ -40,13 +40,13 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: שַׁעַר (קֶשֶׁת) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <path d="M-45,45 L-45,-10 Q0,-55 45,-10 L45,45 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
               <path d="M-25,45 L-25,5 Q0,-25 25,5 L25,45 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: הַגַּיְא (עֵמֶק וּמְשֻׁרְיָן) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <polygon points="-60,-30 -20,40 20,40 60,-30 60,50 -60,50" fill="#15803d"/>
               <rect x="-20" y="15" width="40" height="20" fill="#475569" rx="3"/>
   </g>

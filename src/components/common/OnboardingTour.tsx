@@ -105,9 +105,9 @@ const ENHANCED_TOUR_STEPS: TourStep[] = [
   },
   {
     targetSelector: '[data-tour="tour-ux-mode"]',
-    title: 'התאמה מלאה ועיצוב 2.0',
+    title: 'התאמה מלאה ועיצוב משודרג',
     icon: '✨',
-    description: 'החליפו בכל רגע בין עיצוב קלאסי לעיצוב 2.0 משודרג בלחיצה אחת! כאן גם תוכלו להגדיל את הטקסט בשמש או לעבור למצב מדורה בלילה.',
+    description: 'החליפו בכל רגע בין עיצוב קלאסי לעיצוב משודרג בלחיצה אחת! כאן גם תוכלו להגדיל את הטקסט בשמש או לעבור למצב מדורה בלילה.',
     preferredPosition: 'bottom',
     roundedClass: 'rounded-xl'
   }

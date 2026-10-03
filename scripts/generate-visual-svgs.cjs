@@ -6,8 +6,24 @@ if (!fs.existsSync(targetDir)) {
   fs.mkdirSync(targetDir, { recursive: true });
 }
 
-// Helper to create styled SVG wrapper
+// Helper to create styled SVG wrapper with natural Hebrew RTL positioning
 function createSvg(id, title, content) {
+  // Mirror canvas-level coordinates across the 900px center (x -> 900 - x) for natural Hebrew RTL layout
+  const rtlContent = content
+    .replace(/transform="translate\((\d+),\s*(\d+)\)"/g, (match, xStr, yStr) => {
+      const x = parseInt(xStr, 10);
+      const y = parseInt(yStr, 10);
+      if (x > 100) {
+        return `transform="translate(${900 - x}, ${y})"`;
+      }
+      return match;
+    })
+    .replace(/(<text[^>]*\bx=")(\d+)("[^>]*>\s*)([+➔])(\s*<\/text>)/g, (match, prefix, xStr, mid, symbol, suffix) => {
+      const x = parseInt(xStr, 10);
+      const newSymbol = symbol === '➔' ? '⟵' : symbol;
+      return `${prefix}${900 - x}${mid}${newSymbol}${suffix}`;
+    });
+
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" class="rebus-svg">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -44,7 +60,7 @@ function createSvg(id, title, content) {
   <rect x="15" y="15" width="870" height="520" rx="18" fill="none" stroke="#27272a" stroke-width="1.5" stroke-dasharray="6 6"/>
 
   <!-- Content Graphics Area -->
-  ${content}
+  ${rtlContent}
 </svg>`;
 }
 

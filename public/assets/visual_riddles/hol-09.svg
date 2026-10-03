@@ -36,20 +36,20 @@
   <!-- Content Graphics Area -->
   
   <!-- Key (כי / Key) -->
-  <g transform="translate(140, 250)" filter="url(#shadow)">
+  <g transform="translate(760, 250)" filter="url(#shadow)">
     <circle cx="-25" cy="-25" r="35" stroke="url(#goldGrad)" stroke-width="12" fill="none"/>
     <line x1="-5" y1="-5" x2="50" y2="50" stroke="url(#goldGrad)" stroke-width="12" stroke-linecap="round"/>
     <line x1="30" y1="30" x2="45" y2="15" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round"/>
   </g>
 
   <!-- Man Silhouette (האדם) -->
-  <g transform="translate(340, 250)" filter="url(#shadow)">
+  <g transform="translate(560, 250)" filter="url(#shadow)">
     <circle cx="0" cy="-55" r="22" fill="#38bdf8"/>
     <path d="M-25,-25 L25,-25 L35,45 L15,45 L10,85 L-10,85 L-15,45 L-35,45 Z" fill="#0284c7"/>
   </g>
 
   <!-- Tree (עץ) -->
-  <g transform="translate(540, 250)" filter="url(#shadow)">
+  <g transform="translate(360, 250)" filter="url(#shadow)">
     <rect x="-14" y="10" width="28" height="65" fill="#78350f" rx="4"/>
     <circle cx="0" cy="-25" r="60" fill="url(#greenGrad)"/>
     <circle cx="-30" cy="-10" r="40" fill="#15803d"/>
@@ -57,7 +57,7 @@
   </g>
 
   <!-- Furrowed Field (השדה) -->
-  <g transform="translate(740, 250)" filter="url(#shadow)">
+  <g transform="translate(160, 250)" filter="url(#shadow)">
     <polygon points="-70,60 70,60 40,-40 -40,-40" fill="#b45309"/>
     <line x1="0" y1="-40" x2="0" y2="60" stroke="#78350f" stroke-width="6"/>
     <line x1="-20" y1="-40" x2="-40" y2="60" stroke="#78350f" stroke-width="6"/>

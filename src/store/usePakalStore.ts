@@ -99,7 +99,7 @@ export const usePakalStore = create<PakalState>()(
         set({ uxMode: next });
         get().showToast(
           next === 'enhanced'
-            ? 'עברת לעיצוב משחקים 2.0 משודרג! ✨'
+            ? 'עברת לעיצוב משחקים משודרג! ✨'
             : 'חזרת לעיצוב הקלאסי של האתר 🏷️',
           2500
         );

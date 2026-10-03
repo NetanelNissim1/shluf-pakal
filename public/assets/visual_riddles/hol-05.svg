@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Peace Dove (שלום + י"ת = שלומית) -->
-  <g transform="translate(180, 250)" filter="url(#shadow)">
+  <g transform="translate(720, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="75" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="3"/>
     <path d="M-30,10 C-30,-20 0,-35 25,-10 C45,-25 50,-5 35,15 C20,30 -10,35 -30,10 Z" fill="#f8fafc"/>
     <path d="M25,-10 L45,-15 L35,-5 Z" fill="#f59e0b"/>
@@ -45,20 +45,20 @@
     <text x="0" y="55" font-family="Rubik, system-ui, sans-serif" font-size="22" font-weight="900" fill="#38bdf8" text-anchor="middle">+ י"ת</text>
   </g>
 
-  <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="560" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Hammer & Nail (בונה) -->
-  <g transform="translate(480, 250)" filter="url(#shadow)">
+  <g transform="translate(420, 250)" filter="url(#shadow)">
     <rect x="-10" y="-10" x2="20" width="20" height="90" rx="6" fill="#b45309"/>
     <rect x="-45" y="-45" width="90" height="35" rx="8" fill="#94a3b8" stroke="#475569" stroke-width="3"/>
     <line x1="-50" y1="20" x2="-20" y2="40" stroke="#f59e0b" stroke-width="4"/>
     <line x1="-40" y1="60" x2="50" y2="60" stroke="#d97706" stroke-width="8" stroke-linecap="round"/>
   </g>
 
-  <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="280" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Sukkah (סוכה) -->
-  <g transform="translate(750, 250)" filter="url(#shadow)">
+  <g transform="translate(150, 250)" filter="url(#shadow)">
     <rect x="-60" y="-40" width="120" height="100" rx="4" fill="#78350f" stroke="#451a03" stroke-width="3"/>
     <!-- Door -->
     <rect x="-20" y="10" width="40" height="50" rx="4" fill="#18181b"/>

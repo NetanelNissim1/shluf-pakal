@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <polygon points="-30,30 0,-30 30,30" fill="#15803d"/>
         <polygon points="-25,0 0,-50 25,0" fill="#16a34a"/>
@@ -52,7 +52,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <rect x="-35" y="-45" width="70" height="90" rx="8" fill="url(#blueGrad)" stroke="#1e3a8a" stroke-width="3"/>
         <rect x="-20" y="-35" width="40" height="6" rx="3" fill="#0f172a"/>

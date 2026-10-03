@@ -498,7 +498,7 @@ function parseVisualRiddles() {
         holidayTag,
         generalTag,
         difficulty,
-        imageUrl: '/assets/visual_riddles/' + id + '.svg?v=clean2',
+        imageUrl: '/assets/visual_riddles/' + id + '.svg?v=rtl1',
         rebusFormulaDescription,
         hints,
         answer,

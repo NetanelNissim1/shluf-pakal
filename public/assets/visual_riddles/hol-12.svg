@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Delivery Truck / Package (משלוח) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <!-- Truck body -->
     <rect x="-100" y="-30" width="130" height="80" rx="8" fill="#0284c7"/>
     <path d="M30,-5 L60,-5 L80,20 L80,50 L30,50 Z" fill="#38bdf8"/>
@@ -51,7 +51,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Restaurant Cloches / Dishes (מנות) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- Cloche 1 -->
     <path d="M-60,30 Q-60,-40 0,-40 Q60,-40 60,30 Z" fill="#94a3b8" stroke="#cbd5e1" stroke-width="3"/>
     <circle cx="0" cy="-45" r="10" fill="#f59e0b"/>

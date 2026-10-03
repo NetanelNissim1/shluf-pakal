@@ -224,7 +224,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
 
         {/* Content Area */}
         <div className="p-6 overflow-y-auto space-y-4">
-          {/* Quick Settings: UX Mode Switch (Option B: Classic vs. Enhanced 2.0) */}
+          {/* Quick Settings: UX Mode Switch: Classic vs. Enhanced */}
           <div className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
             isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-amber-50/70 border-amber-200'
           }`}>
@@ -233,7 +233,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-xs font-black block">ממשק משחקים משודרג (UX 2.0)</span>
+                <span className="text-xs font-black block">ממשק משחקים משודרג</span>
                 <span className="text-[11px] text-stone-400 block">מסכי זינוק, סרגלי התקדמות וכפתורי ענק</span>
               </div>
             </div>
@@ -249,7 +249,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                     : 'bg-white border border-stone-300 text-stone-600'
               }`}
             >
-              {uxMode === 'enhanced' ? 'פעיל (2.0) ✨' : 'קלאסי'}
+              {uxMode === 'enhanced' ? 'משודרג ✨' : 'קלאסי'}
             </button>
           </div>
 

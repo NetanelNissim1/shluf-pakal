@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Public Phone Slot with falling Asimon (אסימון) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <!-- Orange Public Phone box -->
     <rect x="-90" y="-90" width="180" height="180" rx="20" fill="#ea580c" stroke="#c2410c" stroke-width="4"/>
     <!-- Coin slot -->
@@ -51,10 +51,10 @@
     <polygon points="-12,50 0,68 12,50" fill="#fef08a"/>
   </g>
 
-  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">➔</text>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">⟵</text>
 
   <!-- Glowing Lightbulb Idea (הבנה פתאומית) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- Rays -->
     <line x1="0" y1="-80" x2="0" y2="-105" stroke="#facc15" stroke-width="8" stroke-linecap="round"/>
     <line x1="-60" y1="-60" x2="-80" y2="-80" stroke="#facc15" stroke-width="8" stroke-linecap="round"/>

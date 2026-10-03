@@ -40,7 +40,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: מַתָּן (מַתָּנָה) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <rect x="-50" y="-30" width="100" height="85" fill="#e11d48" rx="6"/>
               <rect x="-55" y="-45" width="110" height="20" fill="#be123c" rx="4"/>
               <line x1="0" y1="-45" x2="0" y2="55" stroke="#fef08a" stroke-width="14"/>
@@ -48,7 +48,7 @@
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: תּוֹרָה (לוּחוֹת הַבְּרִית) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <path d="M-55,45 L-55,-20 Q-28,-55 0,-20 Q28,-55 55,-20 L55,45 Z" fill="#334155" stroke="#94a3b8" stroke-width="3"/>
               <line x1="0" y1="-20" x2="0" y2="45" stroke="#94a3b8" stroke-width="3"/>
               <text x="-28" y="10" font-size="20" font-weight="900" fill="#fbbf24" text-anchor="middle">א-ה</text>

@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Broken Chains / Handcuffs (עבדים) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <circle cx="-50" cy="0" r="35" stroke="#94a3b8" stroke-width="12" fill="none"/>
     <circle cx="50" cy="0" r="35" stroke="#94a3b8" stroke-width="12" fill="none"/>
     <!-- Broken link in middle -->
@@ -49,7 +49,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Reclining Wine Cup of Freedom (היינו לחורין) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- Goblet tilted -->
     <g transform="rotate(25)">
       <path d="M-35,-50 L35,-50 L25,10 C25,30 -25,30 -25,10 Z" fill="url(#goldGrad)" stroke="#b45309" stroke-width="3"/>

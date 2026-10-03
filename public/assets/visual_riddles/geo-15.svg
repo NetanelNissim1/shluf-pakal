@@ -40,13 +40,13 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: יָם (גַּלִּים) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <path d="M-55,-10 Q-25,-30 0,-10 Q25,10 55,-10" stroke="#38bdf8" stroke-width="8" fill="none"/>
               <path d="M-55,20 Q-25,0 0,20 Q25,40 55,20" stroke="#0284c7" stroke-width="8" fill="none"/>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: מֶלַח (מַלְחִיָּה) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <rect x="-30" y="-30" width="60" height="75" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
               <rect x="-20" y="-45" width="40" height="15" rx="4" fill="#64748b"/>
               <circle cx="-10" cy="-38" r="2" fill="#000"/>

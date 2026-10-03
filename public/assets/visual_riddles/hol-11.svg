@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Door Opening Inward (משנכנס) -->
-  <g transform="translate(140, 250)" filter="url(#shadow)">
+  <g transform="translate(760, 250)" filter="url(#shadow)">
     <rect x="-40" y="-70" width="80" height="140" fill="#3f3f46" stroke="#71717a" stroke-width="4"/>
     <polygon points="-40,-70 20,-60 20,60 -40,70" fill="#b45309"/>
     <line x1="20" y1="0" x2="60" y2="0" stroke="#22c55e" stroke-width="8" stroke-linecap="round"/>
@@ -44,19 +44,19 @@
   </g>
 
   <!-- Maple Leaf (אדר) -->
-  <g transform="translate(340, 250)" filter="url(#shadow)">
+  <g transform="translate(560, 250)" filter="url(#shadow)">
     <path d="M0,-60 L15,-30 L45,-35 L30,-10 L60,10 L25,20 L35,50 L0,35 L-35,50 L-25,20 L-60,10 L-30,-10 L-45,-35 L-15,-30 Z" fill="#ea580c"/>
     <line x1="0" y1="35" x2="0" y2="70" stroke="#9a3412" stroke-width="8" stroke-linecap="round"/>
   </g>
 
   <!-- Giant Plus (מרבים) -->
-  <g transform="translate(540, 250)" filter="url(#shadow)">
+  <g transform="translate(360, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="70" fill="url(#blueGrad)"/>
-    <text x="0" y="32" font-family="Rubik, system-ui, sans-serif" font-size="110" font-weight="900" fill="#ffffff" text-anchor="middle">+</text>
+    <text x="900" y="32" font-family="Rubik, system-ui, sans-serif" font-size="110" font-weight="900" fill="#ffffff" text-anchor="middle">+</text>
   </g>
 
   <!-- Laughing Smiley (בשמחה) -->
-  <g transform="translate(740, 250)" filter="url(#shadow)">
+  <g transform="translate(160, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="70" fill="url(#goldGrad)"/>
     <!-- Laughing eyes -->
     <path d="M-35,-15 Q-20,-35 -5,-15" stroke="#78350f" stroke-width="7" fill="none" stroke-linecap="round"/>

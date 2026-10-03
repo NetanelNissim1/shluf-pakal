@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Tall Tower (מגדל) -->
-  <g transform="translate(260, 260)" filter="url(#shadow)">
+  <g transform="translate(640, 260)" filter="url(#shadow)">
     <!-- Tower body -->
     <polygon points="-40,75 -25,-60 25,-60 40,75" fill="#64748b" stroke="#334155" stroke-width="3"/>
     <!-- Roof spire -->
@@ -50,7 +50,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Green Valley between Mountains (העמק) -->
-  <g transform="translate(640, 260)" filter="url(#shadow)">
+  <g transform="translate(260, 260)" filter="url(#shadow)">
     <!-- Left Mountain -->
     <polygon points="-110,65 -60,-40 0,65" fill="#78350f"/>
     <!-- Right Mountain -->

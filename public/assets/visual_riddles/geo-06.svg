@@ -40,7 +40,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: כֶּרֶם (עֲנָבִים) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <circle cx="-15" cy="-20" r="14" fill="#9333ea"/>
               <circle cx="15" cy="-20" r="14" fill="#9333ea"/>
               <circle cx="0" cy="-5" r="14" fill="#9333ea"/>
@@ -51,7 +51,7 @@
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: אֵ-ל (קֹדֶשׁ) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="65" fill="#1e1b4b" stroke="#fbbf24" stroke-width="3"/>
               <text x="0" y="24" font-size="65" font-weight="900" fill="#fbbf24" text-anchor="middle">אֵל</text>
   </g>

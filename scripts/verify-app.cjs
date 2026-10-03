@@ -914,7 +914,7 @@ const uxHeaderCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'componen
 assert(uxHeaderCode.includes('data-tour="tour-ux-mode"') && uxHeaderCode.includes('toggleUxMode'), 'סרגל הניווט העליון כולל מתג מעבר מהיר בין עיצוב קלאסי ל-2.0');
 
 const uxDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
-assert(uxDrawerCode.includes('ממשק משחקים משודרג (UX 2.0)') && uxDrawerCode.includes('toggleUxMode'), 'מגירת ההגדרות והמשוב כוללת מתג החלפת עיצוב מלא עם הסבר');
+assert(uxDrawerCode.includes('ממשק משחקים משודרג') && uxDrawerCode.includes('toggleUxMode'), 'מגירת ההגדרות והמשוב כוללת מתג החלפת עיצוב מלא עם הסבר');
 
 const uxTabooCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooGame.tsx'), 'utf8');
 assert(uxTabooCode.includes('הסיבוב מוכן להזנקה!') && uxTabooCode.includes('התחל סיבוב! 🚀'), 'משחק טאבו שטח כולל מסך הסתרה וזינוק (Curtain) מקדים');
@@ -950,7 +950,7 @@ const ciWorkflowCode = fs.readFileSync(ciWorkflowPath, 'utf8');
 assert(ciWorkflowCode.includes('npm run test') && ciWorkflowCode.includes('npm run build'), 'תהליך ה-CI של GitHub Actions כולל הרצה אוטומטית של כלל מחזורי הבדיקות ובניית גרסת Production');
 
 const homePageCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'HomePage.tsx'), 'utf8');
-assert(homePageCode.includes('ממשק משחקים משודרג (UX 2.0) פעיל!') && homePageCode.includes('חזור לקלאסי'), 'דף הבית מציג באנר פתיחה בולט במצב UX 2.0 עם כפתור חזרה מהיר לקלאסי');
+assert(homePageCode.includes('ממשק משחקים משודרג פעיל!') && homePageCode.includes('חזור לקלאסי'), 'דף הבית מציג באנר פתיחה בולט במצב משודרג עם כפתור חזרה מהיר לקלאסי');
 
 assert(uxStoreCode.includes('uxMode: state.uxMode'), 'שדה uxMode נשמר לצמיתות ב-localStorage דרך partialize של usePakalStore');
 
@@ -958,7 +958,50 @@ const ssCurtain = path.join(__dirname, '..', 'docs', 'screenshots', '07_ux2_tabo
 const ssProgress = path.join(__dirname, '..', 'docs', 'screenshots', '08_ux2_true_false_progress.svg');
 const ssToggle = path.join(__dirname, '..', 'docs', 'screenshots', '09_ux2_settings_toggle.svg');
 const ssHome = path.join(__dirname, '..', 'docs', 'screenshots', '10_ux2_home_banner.svg');
-assert(fs.existsSync(ssCurtain) && fs.existsSync(ssProgress) && fs.existsSync(ssToggle) && fs.existsSync(ssHome), 'כל 4 צילומי המסך של UX 2.0 קיימים ב-docs/screenshots ומוצגים ב-README מול הממשק הקלאסי');
+assert(fs.existsSync(ssCurtain) && fs.existsSync(ssProgress) && fs.existsSync(ssToggle) && fs.existsSync(ssHome), 'כל 4 צילומי המסך של העיצוב המשודרג קיימים ב-docs/screenshots ומוצגים ב-README מול הממשק הקלאסי');
+
+// Cycle 35: Visual Riddles Natural Hebrew RTL Layout & Clutter-Free Game Cleanliness
+console.log('\n[מחזור 35]: בדיקת כיווניות חידות הציורים ל-RTL עברי טבעי וניקיון המשחקים מתגיות 2.0');
+
+// 1. Verify Visual Riddles RTL Positioning: First element must be on the right (higher X) than the last element
+function extractTranslatesX(svgContent) {
+  return Array.from(svgContent.matchAll(/translate\((\d+),\s*(\d+)\)/g), m => parseInt(m[1]));
+}
+
+const hol01Svg = fs.readFileSync(path.join(__dirname, '..', 'public', 'assets', 'visual_riddles', 'hol-01.svg'), 'utf8');
+const hol01Xs = extractTranslatesX(hol01Svg);
+assert(hol01Xs.length >= 3 && hol01Xs[0] > hol01Xs[hol01Xs.length - 1], `hol-01 (תפוח בדבש) מסודר מימין לשמאל (איבר ראשון ב-X=${hol01Xs[0]}, אחרון ב-X=${hol01Xs[hol01Xs.length - 1]})`);
+
+const hol06Svg = fs.readFileSync(path.join(__dirname, '..', 'public', 'assets', 'visual_riddles', 'hol-06.svg'), 'utf8');
+const hol06Xs = extractTranslatesX(hol06Svg);
+assert(hol06Xs.length >= 4 && hol06Xs[0] > hol06Xs[hol06Xs.length - 1], `hol-06 (נס גדול היה פה) מסודר מימין לשמאל (ראשון ב-X=${hol06Xs[0]}, אחרון ב-X=${hol06Xs[hol06Xs.length - 1]})`);
+
+const hol19Svg = fs.readFileSync(path.join(__dirname, '..', 'public', 'assets', 'visual_riddles', 'hol-19.svg'), 'utf8');
+const hol19Xs = extractTranslatesX(hol19Svg);
+assert(hol19Xs.length >= 2 && hol19Xs[0] > hol19Xs[hol19Xs.length - 1], `hol-19 (שופר תקיעה) מסודר מימין לשמאל (ראשון ב-X=${hol19Xs[0]}, אחרון ב-X=${hol19Xs[hol19Xs.length - 1]})`);
+
+const hol35Svg = fs.readFileSync(path.join(__dirname, '..', 'public', 'assets', 'visual_riddles', 'hol-35.svg'), 'utf8');
+const hol35Xs = extractTranslatesX(hol35Svg);
+assert(hol35Xs.length >= 3 && hol35Xs[0] > hol35Xs[hol35Xs.length - 1], `hol-35 (שופר של איל) מסודר מימין לשמאל (שופר ב-X=${hol35Xs[0]}, אייל ב-X=${hol35Xs[hol35Xs.length - 1]})`);
+
+const hol36Svg = fs.readFileSync(path.join(__dirname, '..', 'public', 'assets', 'visual_riddles', 'hol-36.svg'), 'utf8');
+const hol36Xs = extractTranslatesX(hol36Svg);
+assert(hol36Xs.length >= 3 && hol36Xs[0] > hol36Xs[hol36Xs.length - 1], `hol-36 (ראש ולא זנב) מסודר מימין לשמאל (ראש ב-X=${hol36Xs[0]}, זנב ב-X=${hol36Xs[hol36Xs.length - 1]})`);
+
+const geo01Svg = fs.readFileSync(path.join(__dirname, '..', 'public', 'assets', 'visual_riddles', 'geo-01.svg'), 'utf8');
+const geo01Xs = extractTranslatesX(geo01Svg);
+assert(geo01Xs.length >= 2 && geo01Xs[0] > geo01Xs[geo01Xs.length - 1], `geo-01 (פתח תקווה) מסודר מימין לשמאל (פתח ב-X=${geo01Xs[0]}, תקווה ב-X=${geo01Xs[geo01Xs.length - 1]})`);
+
+// 2. Verify all 154 visual riddles in data have ?v=rtl1 for browser cache busting
+const allRtl1 = visualRiddles.every(r => r.imageUrl.includes('?v=rtl1'));
+assert(allRtl1, 'כל 154 חידות הציורים ב-visual-riddles.json משתמשות במחרוזת ?v=rtl1 לעקיפת מטמון');
+
+// 3. Verify Games have ZERO "2.0" version badges/labels on game cards
+assert(!homePageCode.includes('> 2.0') && !homePageCode.includes('>2.0'), 'דף הבית אינו מכיל תגיות 2.0 על כרטיסיות המשחקים');
+assert(!homePageCode.includes('UX 2.0'), 'דף הבית נקי לחלוטין מכיתוב UX 2.0');
+
+// 4. Verify Toggle switch button is cleanly labeled "משודרג ✨" / "קלאסי"
+assert(uxHeaderCode.includes('משודרג ✨') && uxHeaderCode.includes('קלאסי'), 'מתג החלפת העיצוב ב-Header מציג תוויות נקיות ("משודרג ✨" מול "קלאסי") ללא מספרי גרסה');
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);

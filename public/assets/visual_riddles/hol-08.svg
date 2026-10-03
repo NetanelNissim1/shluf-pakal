@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Sponge (ספוג) -->
-  <g transform="translate(180, 260)" filter="url(#shadow)">
+  <g transform="translate(720, 260)" filter="url(#shadow)">
     <rect x="-70" y="-55" width="140" height="110" rx="20" fill="#facc15" stroke="#eab308" stroke-width="4"/>
     <!-- Sponge holes -->
     <circle cx="-35" cy="-20" r="10" fill="#ca8a04"/>
@@ -45,18 +45,18 @@
     <circle cx="35" cy="25" r="11" fill="#ca8a04"/>
   </g>
 
-  <text x="340" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="560" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Letters Nun-Yud (נִיָּה) -->
-  <g transform="translate(470, 260)" filter="url(#shadow)">
+  <g transform="translate(430, 260)" filter="url(#shadow)">
     <rect x="-55" y="-60" width="110" height="120" rx="16" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="4"/>
     <text x="0" y="25" font-family="Rubik, system-ui, sans-serif" font-size="70" font-weight="900" fill="#38bdf8" text-anchor="middle">נִיָּה</text>
   </g>
 
-  <text x="600" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="300" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Strawberry Jam (ריבה) -->
-  <g transform="translate(740, 260)" filter="url(#shadow)">
+  <g transform="translate(160, 260)" filter="url(#shadow)">
     <path d="M-45,-30 L45,-30 L40,65 C40,75 -40,75 -40,65 Z" fill="#e11d48"/>
     <ellipse cx="0" cy="-30" rx="45" ry="14" fill="#be123c"/>
     <rect x="-30" y="-55" width="60" height="20" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>

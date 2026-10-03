@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <path d="M-20,-35 L20,-35 L30,25 C30,45 -30,45 -30,25 Z" fill="#f8fafc" stroke="#94a3b8" stroke-width="3" transform="rotate(-40)"/>
         <path d="M15,10 C35,25 55,20 70,35" stroke="#f8fafc" stroke-width="12" fill="none" stroke-linecap="round"/>
@@ -51,7 +51,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <polygon points="0,-40 30,-20 30,20 0,40 -30,20 -30,-20" fill="url(#goldGrad)" stroke="#b45309" stroke-width="4"/>
         <circle cx="0" cy="50" r="6" fill="#f59e0b"/>

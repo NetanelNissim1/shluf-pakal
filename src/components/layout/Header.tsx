@@ -236,12 +236,12 @@ export const Header: React.FC = () => {
             {soundEnabled ? <Volume2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <VolumeX className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
           </button>
 
-          {/* UX Mode Switch (Option B: Classic vs. Enhanced 2.0) */}
+          {/* UX Mode Switch: Classic vs. Enhanced */}
           <button
             onClick={toggleUxMode}
             data-tour="tour-ux-mode"
-            aria-label={uxMode === 'enhanced' ? 'מעבר לעיצוב קלאסי' : 'מעבר לעיצוב משחקים 2.0 משודרג'}
-            title={uxMode === 'enhanced' ? 'עיצוב 2.0 פעיל ✨ (לחץ למעבר לעיצוב קלאסי)' : 'הפעל עיצוב 2.0 ✨ (לחץ להפעלת ממשק משחקים משודרג)'}
+            aria-label={uxMode === 'enhanced' ? 'מעבר לעיצוב קלאסי' : 'מעבר לעיצוב משודרג'}
+            title={uxMode === 'enhanced' ? 'עיצוב משודרג פעיל ✨ (לחץ למעבר לעיצוב קלאסי)' : 'הפעל עיצוב משודרג ✨ (לחץ להפעלת ממשק משחקים משודרג)'}
             className={`px-1.5 min-[380px]:px-2 py-1 min-[380px]:py-1.5 rounded-xl flex items-center justify-center gap-0.5 min-[380px]:gap-1 transition-all touch-press ${
               uxMode === 'enhanced'
                 ? isCampfire
@@ -253,7 +253,7 @@ export const Header: React.FC = () => {
             }`}
           >
             <Sparkles className={`w-3.5 h-3.5 ${uxMode === 'enhanced' ? 'animate-pulse' : ''}`} />
-            <span className="text-[10px] font-black">{uxMode === 'enhanced' ? '2.0 ✨' : 'קלאסי'}</span>
+            <span className="text-[10px] font-black">{uxMode === 'enhanced' ? 'משודרג ✨' : 'קלאסי'}</span>
           </button>
 
           {/* Sun / Campfire Mode Toggle */}

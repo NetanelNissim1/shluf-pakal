@@ -40,14 +40,14 @@
   <!-- Content Graphics Area -->
   
   <!-- Element 1: הֵצִיץ (עַיִן) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <path d="M-55,0 Q0,-40 55,0 Q0,40 -55,0 Z" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
               <circle cx="0" cy="0" r="22" fill="#0284c7"/>
               <circle cx="0" cy="0" r="10" fill="#000000"/>
   </g>
   <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
   <!-- Element 2: וְנִפְגַּע (כּוֹכָבִים) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <polygon points="0,-45 12,-12 45,0 12,12 0,45 -12,12 -45,0 -12,-12" fill="url(#goldGrad)"/>
   </g>
 </svg>

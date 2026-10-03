@@ -36,7 +36,7 @@
   <!-- Content Graphics Area -->
   
   <!-- Human Ear (אוזן) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
+  <g transform="translate(640, 250)" filter="url(#shadow)">
     <circle cx="0" cy="0" r="90" fill="url(#cardGrad)" stroke="#f43f5e" stroke-width="3"/>
     <path d="M-30,40 C-60,10 -50,-60 10,-60 C50,-60 50,-20 20,-10 C-10,0 -10,30 10,40" stroke="#fca5a5" stroke-width="14" fill="none" stroke-linecap="round"/>
   </g>
@@ -44,7 +44,7 @@
   <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Triangle Villain Hat / Bamba Guy (המן) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
+  <g transform="translate(260, 250)" filter="url(#shadow)">
     <!-- Triangular Hat -->
     <polygon points="0,-75 -85,55 85,55" fill="#3f3f46" stroke="#fbbf24" stroke-width="6"/>
     <!-- Evil eyes in shadow -->

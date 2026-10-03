@@ -36,15 +36,15 @@
   <!-- Content Graphics Area -->
   
   <!-- Knight Shield (מגן) -->
-  <g transform="translate(180, 250)" filter="url(#shadow)">
+  <g transform="translate(720, 250)" filter="url(#shadow)">
     <path d="M-60,-65 L60,-65 L60,10 Q60,65 0,85 Q-60,65 -60,10 Z" fill="#94a3b8" stroke="#e2e8f0" stroke-width="4"/>
     <path d="M-40,-45 L40,-45 L40,5 Q40,45 0,65 Q-40,45 -40,5 Z" fill="#475569"/>
   </g>
 
-  <text x="340" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="560" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- King David Harp & Crown (דוד) -->
-  <g transform="translate(480, 250)" filter="url(#shadow)">
+  <g transform="translate(420, 250)" filter="url(#shadow)">
     <!-- Crown -->
     <path d="M-35,-65 L-25,-45 L0,-60 L25,-45 L35,-65 L30,-35 L-30,-35 Z" fill="url(#goldGrad)"/>
     <!-- Harp -->
@@ -54,10 +54,10 @@
     <line x1="15" y1="-10" x2="15" y2="45" stroke="#fde047" stroke-width="3"/>
   </g>
 
-  <text x="620" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <text x="280" y="270" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
   <!-- Blue & White Paint Cans (כחול לבן) -->
-  <g transform="translate(740, 250)" filter="url(#shadow)">
+  <g transform="translate(160, 250)" filter="url(#shadow)">
     <!-- Blue can -->
     <rect x="-65" y="-30" width="55" height="75" rx="6" fill="#1d4ed8" stroke="#60a5fa" stroke-width="3"/>
     <!-- White can -->

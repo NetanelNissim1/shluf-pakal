@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <path d="M-45,45 Q0,0 45,-45" stroke="#78350f" stroke-width="5" fill="none"/>
         <ellipse cx="-15" cy="20" rx="10" ry="22" fill="#15803d" transform="rotate(-30 -15 20)"/>
@@ -54,7 +54,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <path d="M0,-55 C25,-15 40,5 40,25 C40,48 22,65 0,65 C-22,65 -40,48 -40,25 C-40,5 -25,-15 0,-55 Z" fill="url(#goldGrad)" stroke="#b45309" stroke-width="3"/>
         <circle cx="-12" cy="15" r="8" fill="#fef08a" opacity="0.6"/>

@@ -43,7 +43,7 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(280, 260)" filter="url(#shadow)">
+    <g transform="translate(620, 260)" filter="url(#shadow)">
       
         <path d="M-55,50 C-55,-20 0,-60 55,-20 C55,50 55,50 -55,50 Z" fill="#78716c"/>
         <ellipse cx="0" cy="20" rx="30" ry="30" fill="#1c1917"/>
@@ -51,7 +51,7 @@
     </g>
 <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
 
-    <g transform="translate(620, 260)" filter="url(#shadow)">
+    <g transform="translate(280, 260)" filter="url(#shadow)">
       
         <path d="M-55,50 C-55,-20 0,-60 55,-20 C55,50 55,50 -55,50 Z" fill="#78716c"/>
         <ellipse cx="0" cy="20" rx="30" ry="30" fill="#1c1917"/>
