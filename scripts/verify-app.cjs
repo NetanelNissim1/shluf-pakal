@@ -889,7 +889,20 @@ const homePageCheck = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages',
 assert(homePageCheck.includes('{trueFalseData.length} טענות') && homePageCheck.includes('{trueFalseData.length} שאלות שטח'), 'דף הבית מציג באנר שטח ייעודי וכרטיס קטגוריה דינמי עבור משחק נכון/לא נכון');
 
 const catPageCheck = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx'), 'utf8');
-assert(catPageCheck.includes('onNavigateTrueFalse') && catPageCheck.includes('{trueFalseData.length}'), 'דף הקטגוריות כולל לחצן גישה מהיר למשחק נכון/לא נכון עם מונה מדויק');
+// Cycle 32: Visual Riddles Anti-Spoiler Protection (Card title removal & presenter modal reveal button)
+console.log('\n[מחזור 32]: בדיקת הגנה מפני ספוילרים בחידות בציורים (הסרת כותרת מכרטיס, תצוגה מוגדלת נקייה וחשיפה בלחיצה בלבד)');
+const visualCardPath = path.join(__dirname, '..', 'src', 'components', 'visual', 'VisualRiddleCard.tsx');
+const visualCardCode = fs.readFileSync(visualCardPath, 'utf8');
+assert(!visualCardCode.includes('{riddle.title}'), 'כרטיסיית חידה בציורים אינה מציגה את משפט/כותרת הספוילר (riddle.title) מעל התמונה');
+assert(visualCardCode.includes('alt={`חידה בציורים #${(index ?? 0) + 1}`}'), 'תגית ה-alt של תמונת החידה בכרטיסייה הינה ניטרלית ואינה חושפת את התשובה');
+assert(visualCardCode.includes('לחץ לחשיפת הפתרון'), 'כרטיסיית החידה כוללת מנגנון חשיפת פתרון מפורש "לחץ לחשיפת הפתרון"');
+
+const presenterModalPath = path.join(__dirname, '..', 'src', 'components', 'visual', 'PresenterModal.tsx');
+const presenterModalCode = fs.readFileSync(presenterModalPath, 'utf8');
+assert(presenterModalCode.includes("isAnswerRevealed ? riddle.title : 'חידה בציורים'"), 'תצוגת מסך מלא/מקרן אינה חושפת את כותרת החידה בסרגל העליון ללא אישור חשיפה');
+assert(presenterModalCode.includes('alt={`חידה בציורים #${currentIndex + 1}`}'), 'תגית ה-alt של התמונה המוגדלת הינה ניטרלית ואינה חושפת את התשובה');
+assert(presenterModalCode.includes('<span>לחץ לחשיפת הפתרון</span>'), 'תצוגת מסך מלא כוללת כפתור מפורש "לחץ לחשיפת הפתרון"');
+assert(presenterModalCode.includes('פתרון מלא:') && presenterModalCode.includes('{riddle.answer}'), 'תצוגת מסך מלא חושפת את הפתרון המלא והמדויק רק לאחר לחיצה');
 
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);

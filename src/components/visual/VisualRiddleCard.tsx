@@ -163,11 +163,6 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
         </div>
       </div>
 
-      {/* Riddle Title */}
-      <h3 className="text-xl sm:text-2xl font-black tracking-tight leading-snug mb-3">
-        {riddle.title}
-      </h3>
-
       {/* Vector Illustration Thumbnail with Presenter Mode Click */}
       <div 
         onClick={() => onOpenPresenter(riddle)}
@@ -175,7 +170,7 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
       >
         <img
           src={riddle.imageUrl}
-          alt={riddle.title}
+          alt={`חידה בציורים #${(index ?? 0) + 1}`}
           className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-[1.02]"
           loading="lazy"
         />

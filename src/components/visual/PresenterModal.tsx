@@ -13,10 +13,8 @@ import {
   Timer, 
   Tv, 
   Share2, 
-  Lock,
-  Unlock,
-  Sparkles,
-  Maximize2,
+  Sparkles, 
+  Maximize2, 
   Minimize2
 } from 'lucide-react';
 import { VisualRiddle } from '../../types';
@@ -45,13 +43,11 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
   const [showHintTooltip, setShowHintTooltip] = useState(false);
   const [hintIndex, setHintIndex] = useState(0);
   const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
-  const [doubleTapCountdown, setDoubleTapCountdown] = useState(0);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [isCastModeActive, setIsCastModeActive] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const hintTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const doubleTapTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const presentationWindowRef = useRef<Window | null>(null);
 
   const currentIndex = allRiddles.findIndex(r => r.id === riddle.id);
@@ -102,7 +98,6 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
   useEffect(() => {
     setIsAnswerRevealed(false);
     setShowHintTooltip(false);
-    setDoubleTapCountdown(0);
     // Update cast window if open
     if (presentationWindowRef.current && !presentationWindowRef.current.closed) {
       presentationWindowRef.current.document.body.innerHTML = `
@@ -135,28 +130,16 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
     }, 4000); // 4 seconds
   };
 
-  // Double-tap protection to reveal answer
+  // Toggle answer reveal
   const handleRevealClick = () => {
-    if (isAnswerRevealed) {
-      setIsAnswerRevealed(false);
-      return;
-    }
-
-    if (doubleTapCountdown === 1) {
-      // Confirmed second tap
-      setIsAnswerRevealed(true);
-      setDoubleTapCountdown(0);
-      if (soundEnabled) playSuccess();
-      if (hapticsEnabled) triggerHaptic([50, 40]);
-    } else {
-      // First tap: trigger 2.5s timer
-      setDoubleTapCountdown(1);
-      if (hapticsEnabled) triggerHaptic(20);
-      if (doubleTapTimeoutRef.current) clearTimeout(doubleTapTimeoutRef.current);
-      doubleTapTimeoutRef.current = setTimeout(() => {
-        setDoubleTapCountdown(0);
-      }, 2500);
-    }
+    setIsAnswerRevealed(prev => {
+      const next = !prev;
+      if (next) {
+        if (soundEnabled) playSuccess();
+        if (hapticsEnabled) triggerHaptic([50, 40]);
+      }
+      return next;
+    });
   };
 
   // Navigation
@@ -217,7 +200,7 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
 
           <div>
             <h2 className="text-sm sm:text-base font-extrabold text-white flex items-center gap-2">
-              <span>{riddle.title}</span>
+              <span>{isAnswerRevealed ? riddle.title : 'חידה בציורים'}</span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
                 {currentIndex + 1} / {allRiddles.length}
               </span>
@@ -329,7 +312,7 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
               >
                 <img
                   src={riddle.imageUrl}
-                  alt={riddle.title}
+                  alt={`חידה בציורים #${currentIndex + 1}`}
                   className="max-w-full max-h-[82vh] object-contain drop-shadow-2xl select-none pointer-events-none"
                   draggable={false}
                 />
@@ -360,7 +343,7 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
           </button>
         </div>
 
-        {/* Anti-Peeking Solution Reveal Box with Double-Tap Safeguard */}
+        {/* Anti-Peeking Solution Reveal Box */}
         <div className="flex items-center gap-2">
           {isAnswerRevealed ? (
             <div className="flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/60 px-4 py-2 rounded-xl animate-fadeIn">
@@ -370,8 +353,9 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
               </div>
               <button
                 onClick={() => setIsAnswerRevealed(false)}
-                className="p-1 rounded-lg text-stone-400 hover:text-white"
+                className="p-1.5 rounded-lg text-stone-400 hover:text-white hover:bg-emerald-900/60 transition-colors"
                 title="הסתר פתרון"
+                aria-label="הסתר פתרון"
               >
                 <EyeOff className="w-4 h-4" />
               </button>
@@ -379,23 +363,10 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
           ) : (
             <button
               onClick={handleRevealClick}
-              className={`px-4 py-2.5 rounded-xl font-black text-xs flex items-center gap-1.5 transition-all touch-press border ${
-                doubleTapCountdown === 1
-                  ? 'bg-red-600 text-white border-red-500 animate-pulse'
-                  : 'bg-stone-900 hover:bg-stone-800 text-stone-300 border-stone-700'
-              }`}
+              className="px-4 py-2.5 rounded-xl font-black text-xs flex items-center gap-1.5 transition-all touch-press border bg-stone-900 hover:bg-stone-800 text-stone-200 border-stone-700 hover:border-amber-500"
             >
-              {doubleTapCountdown === 1 ? (
-                <>
-                  <Unlock className="w-4 h-4" />
-                  <span>לחץ שוב לאישור חשיפה!</span>
-                </>
-              ) : (
-                <>
-                  <Lock className="w-4 h-4" />
-                  <span>חשוף תשובה (לחיצה כפולה)</span>
-                </>
-              )}
+              <Eye className="w-4 h-4 text-amber-500" />
+              <span>לחץ לחשיפת הפתרון</span>
             </button>
           )}
         </div>
