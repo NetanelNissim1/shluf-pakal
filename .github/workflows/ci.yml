@@ -27,8 +27,8 @@ jobs:
       - name: Parse & Encrypt Content Datasets
         run: npm run parse
 
-      - name: Run Comprehensive Verification Test Suite & Cyber Security Checks
-        run: npm run test
-
       - name: Production TypeScript Check & Vite PWA Build
         run: npm run build
+
+      - name: Run Comprehensive Verification Test Suite & Cyber Security Checks
+        run: npm run test

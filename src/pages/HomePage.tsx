@@ -62,7 +62,9 @@ export const HomePage: React.FC<HomePageProps> = ({
     revealedMap,
     revealAll,
     hideAll,
-    openFeedbackDrawer 
+    openFeedbackDrawer,
+    uxMode,
+    toggleUxMode
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
@@ -121,6 +123,39 @@ export const HomePage: React.FC<HomePageProps> = ({
       <div>
         <SearchBar totalMatches={isFiltering ? filteredRiddles.length : undefined} />
       </div>
+
+      {/* UX 2.0 Enhanced Mode Notification Banner */}
+      {uxMode === 'enhanced' && !isFiltering && (
+        <div className={`p-3 rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-card-pop ${
+          isCampfire 
+            ? 'bg-gradient-to-r from-orange-950/60 via-stone-900 to-amber-950/60 border-orange-500/50 text-orange-200'
+            : 'bg-gradient-to-r from-amber-100 via-orange-50 to-amber-50 border-amber-300 text-stone-900'
+        }`}>
+          <div className="flex items-center gap-2.5">
+            <div className={`p-2 rounded-xl shrink-0 ${isCampfire ? 'bg-orange-600/30 text-amber-400' : 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-sm'}`}>
+              <Sparkles className="w-4 h-4 animate-pulse" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-xs font-black">ממשק משחקים משודרג (UX 2.0) פעיל!</span>
+                <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-amber-500 text-white shadow-xs">2.0 ✨</span>
+              </div>
+              <p className="text-[11px] opacity-80 font-medium leading-tight mt-0.5">
+                מסך זינוק בטאבו, סרגל התקדמות וכפתור ענק בנכון/לא נכון, ומצגת במעגל
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={toggleUxMode}
+            title="חזור לממשק קלאסי"
+            className={`text-[10px] font-black px-2.5 py-1.5 rounded-xl border shrink-0 transition-all ${
+              isCampfire ? 'bg-stone-900 border-stone-700 text-stone-300 hover:bg-stone-800' : 'bg-white border-amber-300 text-amber-900 hover:bg-amber-50 shadow-sm'
+            }`}
+          >
+            חזור לקלאסי
+          </button>
+        </div>
+      )}
 
       {/* Field Situation Chips */}
       <div data-tour="tour-situations">
@@ -210,7 +245,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <Compass className="w-5 h-5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-black text-base sm:text-lg">אימוני שטח ו-ODT</span>
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         101 מתודות
@@ -243,14 +278,19 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <Palette className="w-5 h-5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-black text-base sm:text-lg">חידות בציורים ורבוסים</span>
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         {visualData.length} חידות בציורים
                       </span>
+                      {uxMode === 'enhanced' && (
+                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-amber-400 text-purple-950 flex items-center gap-0.5 shadow-xs">
+                          <Sparkles className="w-2.5 h-2.5" /> 2.0
+                        </span>
+                      )}
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-rose-200/80' : 'text-rose-100'}`}>
-                      זום למעגל החניכים, שידור מקרן וסריקת QR לשטח
+                      {uxMode === 'enhanced' ? 'הפעלה מהירה במעגל, שידור מקרן וסריקת QR לשטח' : 'זום למעגל החניכים, שידור מקרן וסריקת QR לשטח'}
                     </p>
                   </div>
                 </div>
@@ -275,14 +315,19 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <Trophy className="w-5 h-5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-black text-base sm:text-lg">משחק טאבו שטח</span>
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         {tabooData.length} כרטיסים
                       </span>
+                      {uxMode === 'enhanced' && (
+                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-white text-amber-950 flex items-center gap-0.5 shadow-xs">
+                          <Sparkles className="w-2.5 h-2.5" /> 2.0
+                        </span>
+                      )}
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-orange-200/80' : 'text-amber-100'}`}>
-                      {tabooData.length} כרטיסי שטח + טיימר 30/60/90 שנ', תחרות קבוצות וצפצוף
+                      {uxMode === 'enhanced' ? 'מסך זינוק והסתרה, השתקה מהירה, טיימר מונפש ותחרות קבוצות' : `${tabooData.length} כרטיסי שטח + טיימר 30/60/90 שנ', תחרות קבוצות וצפצוף`}
                     </p>
                   </div>
                 </div>
@@ -307,14 +352,19 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-black text-base sm:text-lg">משחק נכון / לא נכון</span>
                       <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-full bg-white/20 text-white">
                         {trueFalseData.length} טענות
                       </span>
+                      {uxMode === 'enhanced' && (
+                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded-full bg-amber-400 text-emerald-950 flex items-center gap-0.5 shadow-xs">
+                          <Sparkles className="w-2.5 h-2.5" /> 2.0
+                        </span>
+                      )}
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-emerald-200/80' : 'text-emerald-100'}`}>
-                      טור בהליכה בשביל, מעגל פסילות, טיימר וניקוד קבוצות
+                      {uxMode === 'enhanced' ? 'סרגל התקדמות, כפתור ענק לאגודל וטיפים מתחלפים להפעלה בשטח' : 'טור בהליכה בשביל, מעגל פסילות, טיימר וניקוד קבוצות'}
                     </p>
                   </div>
                 </div>

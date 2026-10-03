@@ -23,27 +23,36 @@ if (dups.length > 0) {
 
 // 2. Verify encrypted-data.json does not leak plaintext questions in bundle
 const distDir = path.join(__dirname, '..', 'dist', 'assets');
-const jsFiles = fs.readdirSync(distDir).filter(f => f.endsWith('.js') && f.startsWith('index-'));
-if (jsFiles.length > 0) {
-  const mainBundle = fs.readFileSync(path.join(distDir, jsFiles[0]), 'utf8');
-  // Sample a question from True/False
-  const tfSample = 'החרמון הוא ההר הגבוה ביותר בישראל';
-  const containsPlaintext = mainBundle.includes(tfSample);
-  console.log(`[Security Check 2]: Bundle contains plaintext riddle question: ${containsPlaintext}`);
-  if (containsPlaintext) {
-    console.error('FAIL: Plaintext riddle question leaked in bundle!');
-    process.exit(1);
+if (fs.existsSync(distDir)) {
+  const jsFiles = fs.readdirSync(distDir).filter(f => f.endsWith('.js') && f.startsWith('index-'));
+  if (jsFiles.length > 0) {
+    const mainBundle = fs.readFileSync(path.join(distDir, jsFiles[0]), 'utf8');
+    // Sample a question from True/False
+    const tfSample = 'החרמון הוא ההר הגבוה ביותר בישראל';
+    const containsPlaintext = mainBundle.includes(tfSample);
+    console.log(`[Security Check 2]: Bundle contains plaintext riddle question: ${containsPlaintext}`);
+    if (containsPlaintext) {
+      console.error('FAIL: Plaintext riddle question leaked in bundle!');
+      process.exit(1);
+    }
+    console.log('PASS: Bundle is 100% encrypted with XOR Byte Cipher.');
   }
-  console.log('PASS: Bundle is 100% encrypted with XOR Byte Cipher.');
+} else {
+  console.log('[Security Check 2]: dist/assets does not exist yet (pre-build stage) - skipping bundle scan.');
 }
 
 // 3. Verify CSP in dist/index.html
-const indexHtml = fs.readFileSync(path.join(__dirname, '..', 'dist', 'index.html'), 'utf8');
-const hasCSP = indexHtml.includes('http-equiv="Content-Security-Policy"');
-console.log(`[Security Check 3]: dist/index.html includes Content-Security-Policy: ${hasCSP}`);
-if (!hasCSP) {
-  console.error('FAIL: Missing CSP in dist/index.html');
-  process.exit(1);
+const distIndexPath = path.join(__dirname, '..', 'dist', 'index.html');
+if (fs.existsSync(distIndexPath)) {
+  const indexHtml = fs.readFileSync(distIndexPath, 'utf8');
+  const hasCSP = indexHtml.includes('http-equiv="Content-Security-Policy"');
+  console.log(`[Security Check 3]: dist/index.html includes Content-Security-Policy: ${hasCSP}`);
+  if (!hasCSP) {
+    console.error('FAIL: Missing CSP in dist/index.html');
+    process.exit(1);
+  }
+} else {
+  console.log('[Security Check 3]: dist/index.html does not exist yet (pre-build stage) - skipping CSP scan.');
 }
 
 // 4. Verify vercel.json headers

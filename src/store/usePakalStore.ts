@@ -307,7 +307,8 @@ export const usePakalStore = create<PakalState>()(
         favorites: state.favorites,
         savedFeedbackUser: state.savedFeedbackUser,
         pendingFeedbackQueue: state.pendingFeedbackQueue,
-        hasCompletedOnboarding: state.hasCompletedOnboarding
+        hasCompletedOnboarding: state.hasCompletedOnboarding,
+        uxMode: state.uxMode
       })
     }
   )

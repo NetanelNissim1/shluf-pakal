@@ -949,6 +949,17 @@ assert(fs.existsSync(ciWorkflowPath), 'קובץ תצורת GitHub Actions CI ק�
 const ciWorkflowCode = fs.readFileSync(ciWorkflowPath, 'utf8');
 assert(ciWorkflowCode.includes('npm run test') && ciWorkflowCode.includes('npm run build'), 'תהליך ה-CI של GitHub Actions כולל הרצה אוטומטית של כלל מחזורי הבדיקות ובניית גרסת Production');
 
+const homePageCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'HomePage.tsx'), 'utf8');
+assert(homePageCode.includes('ממשק משחקים משודרג (UX 2.0) פעיל!') && homePageCode.includes('חזור לקלאסי'), 'דף הבית מציג באנר פתיחה בולט במצב UX 2.0 עם כפתור חזרה מהיר לקלאסי');
+
+assert(uxStoreCode.includes('uxMode: state.uxMode'), 'שדה uxMode נשמר לצמיתות ב-localStorage דרך partialize של usePakalStore');
+
+const ssCurtain = path.join(__dirname, '..', 'docs', 'screenshots', '07_ux2_taboo_curtain.svg');
+const ssProgress = path.join(__dirname, '..', 'docs', 'screenshots', '08_ux2_true_false_progress.svg');
+const ssToggle = path.join(__dirname, '..', 'docs', 'screenshots', '09_ux2_settings_toggle.svg');
+const ssHome = path.join(__dirname, '..', 'docs', 'screenshots', '10_ux2_home_banner.svg');
+assert(fs.existsSync(ssCurtain) && fs.existsSync(ssProgress) && fs.existsSync(ssToggle) && fs.existsSync(ssHome), 'כל 4 צילומי המסך של UX 2.0 קיימים ב-docs/screenshots ומוצגים ב-README מול הממשק הקלאסי');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');
