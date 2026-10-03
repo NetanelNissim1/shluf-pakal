@@ -1,0 +1,34 @@
+name: CI & Quality Assurance
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-and-build:
+    name: Run Tests, Security Audits & Production Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Parse & Encrypt Content Datasets
+        run: npm run parse
+
+      - name: Run Comprehensive Verification Test Suite & Cyber Security Checks
+        run: npm run test
+
+      - name: Production TypeScript Check & Vite PWA Build
+        run: npm run build

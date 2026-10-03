@@ -904,6 +904,51 @@ assert(presenterModalCode.includes('alt={`חידה בציורים #${currentInde
 assert(presenterModalCode.includes('<span>לחץ לחשיפת הפתרון</span>'), 'תצוגת מסך מלא כוללת כפתור מפורש "לחץ לחשיפת הפתרון"');
 assert(presenterModalCode.includes('פתרון מלא:') && presenterModalCode.includes('{riddle.answer}'), 'תצוגת מסך מלא חושפת את הפתרון המלא והמדויק רק לאחר לחיצה');
 
+// Cycle 33: UX 2.0 Enhancement & User Settings Toggle Engine Verification
+console.log('\n[מחזור 33]: בדיקת מנוע מתג העיצוב (UX Toggle - Classic vs. Enhanced 2.0) ושדרוגי המשחקים');
+const uxStoreCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'store', 'usePakalStore.ts'), 'utf8');
+assert(uxStoreCode.includes('uxMode: UxMode') && uxStoreCode.includes('toggleUxMode: () => void'), 'חנות usePakalStore מגדירה מצב uxMode ופונקציית toggleUxMode');
+assert(uxStoreCode.includes('uxMode: \'enhanced\'') && uxStoreCode.includes('toggleUxMode: () => {'), 'חנות usePakalStore מאתחלת את uxMode כברירת מחדל וכוללת מנגנון היפוך');
+
+const uxHeaderCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'layout', 'Header.tsx'), 'utf8');
+assert(uxHeaderCode.includes('data-tour="tour-ux-mode"') && uxHeaderCode.includes('toggleUxMode'), 'סרגל הניווט העליון כולל מתג מעבר מהיר בין עיצוב קלאסי ל-2.0');
+
+const uxDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
+assert(uxDrawerCode.includes('ממשק משחקים משודרג (UX 2.0)') && uxDrawerCode.includes('toggleUxMode'), 'מגירת ההגדרות והמשוב כוללת מתג החלפת עיצוב מלא עם הסבר');
+
+const uxTabooCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooGame.tsx'), 'utf8');
+assert(uxTabooCode.includes('הסיבוב מוכן להזנקה!') && uxTabooCode.includes('התחל סיבוב! 🚀'), 'משחק טאבו שטח כולל מסך הסתרה וזינוק (Curtain) מקדים');
+assert(uxTabooCode.includes('Quick Mute Toggle') && uxTabooCode.includes('Micro-Hint for Field Play'), 'משחק טאבו שטח כולל השתקה מהירה ומיקרו-טיפ הפעלה');
+
+const uxTrueFalseCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'TrueFalsePage.tsx'), 'utf8');
+assert(uxTrueFalseCode.includes('Top Visual Progress Bar') && uxTrueFalseCode.includes('Field Play Style Tip'), 'משחק נכון/לא נכון כולל סרגל התקדמות עליון וטיפ הפעלה לשטח');
+assert(uxTrueFalseCode.includes('Big Next Question Thumb Button') && uxTrueFalseCode.includes('לשאלה הבאה'), 'משחק נכון/לא נכון כולל לחצן ענק נגיש לאגודל למעבר לשאלה הבאה');
+
+const uxVisualPageCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'VisualRiddlesPage.tsx'), 'utf8');
+assert(uxVisualPageCode.includes('הפעל במעגל'), 'דף חידות בציורים כולל לחצן הזנקת מצגת ישיר למעגל');
+
+const uxCategoryCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx'), 'utf8');
+assert(uxCategoryCode.includes('איך משחקים "הוא והיא" במעגל?'), 'דף קטגוריית הוא והיא כולל כרטיסיית הדרכה פותחת');
+
+const uxTourCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'OnboardingTour.tsx'), 'utf8');
+assert(uxTourCode.includes('ENHANCED_TOUR_STEPS') && uxTourCode.includes('CLASSIC_TOUR_STEPS'), 'סיור הקליטה תומך במודאל דו-מצבי ומציג תחנות ממוקדות משחקים');
+
+// Cycle 34: Smartphone Native Display (iPhone & Android Viewports) & GitHub Actions CI Verification
+console.log('\n[מחזור 34]: בדיקת תצוגה מותאמת לסמארטפונים (iPhone & Android) ואימות תצורת GitHub Actions CI');
+const responsiveHeaderCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'layout', 'Header.tsx'), 'utf8');
+assert(responsiveHeaderCode.includes('min-[380px]') && responsiveHeaderCode.includes('min-[420px]'), 'סרגל עליון Header כולל נקודות שבירה ייעודיות לטלפונים צרים (360px-390px) למניעת גלישת לחצנים');
+assert(responsiveHeaderCode.includes('p-1.5 sm:p-2') && responsiveHeaderCode.includes('pt-safe'), 'לחצני ה-Header מותאמים בארגונומיה מדויקת לאצבע עם תמיכה ב-Notch/Dynamic Island של iPhone');
+
+const mobileCssCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'index.css'), 'utf8');
+assert(mobileCssCode.includes('env(safe-area-inset-top') && mobileCssCode.includes('env(safe-area-inset-bottom'), 'קובץ ה-CSS כולל הגנות Safe Area מלאות לכל סוגי המכשירים הניידים');
+assert(mobileCssCode.includes('font-size: 16px !important'), 'שדות הקלט מוגנים לחלוטין מזום אוטומטי לא רצוי בספארי ב-iPhone');
+assert(mobileCssCode.includes('overscroll-behavior-y: none'), 'מערכת ה-CSS חוסמת גרירת גומי (rubber-banding) להרגשת אפליקציה מקורית (Native App)');
+
+const ciWorkflowPath = path.join(__dirname, '..', '.github', 'workflows', 'ci.yml');
+assert(fs.existsSync(ciWorkflowPath), 'קובץ תצורת GitHub Actions CI קיים בנתיב .github/workflows/ci.yml');
+const ciWorkflowCode = fs.readFileSync(ciWorkflowPath, 'utf8');
+assert(ciWorkflowCode.includes('npm run test') && ciWorkflowCode.includes('npm run build'), 'תהליך ה-CI של GitHub Actions כולל הרצה אוטומטית של כלל מחזורי הבדיקות ובניית גרסת Production');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

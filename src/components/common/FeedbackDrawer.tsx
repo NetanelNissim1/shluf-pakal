@@ -8,7 +8,8 @@ import {
   User, 
   MessageSquare, 
   AlertTriangle, 
-  Zap 
+  Zap,
+  Sparkles 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { usePakalStore } from '../../store/usePakalStore';
@@ -37,7 +38,9 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
     saveFeedbackUserInfo,
     showToast,
     themeMode,
-    hapticsEnabled 
+    hapticsEnabled,
+    uxMode,
+    toggleUxMode
   } = usePakalStore();
 
   const [category, setCategory] = useState<FeedbackCategory>('riddle-idea');
@@ -221,6 +224,35 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
 
         {/* Content Area */}
         <div className="p-6 overflow-y-auto space-y-4">
+          {/* Quick Settings: UX Mode Switch (Option B: Classic vs. Enhanced 2.0) */}
+          <div className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
+            isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-amber-50/70 border-amber-200'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 rounded-lg bg-amber-500/20 text-amber-500">
+                <Sparkles className="w-4 h-4" />
+              </div>
+              <div>
+                <span className="text-xs font-black block">ממשק משחקים משודרג (UX 2.0)</span>
+                <span className="text-[11px] text-stone-400 block">מסכי זינוק, סרגלי התקדמות וכפתורי ענק</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={toggleUxMode}
+              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all ${
+                uxMode === 'enhanced'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm'
+                  : isCampfire
+                    ? 'bg-stone-900 border border-stone-800 text-stone-400'
+                    : 'bg-white border border-stone-300 text-stone-600'
+              }`}
+            >
+              {uxMode === 'enhanced' ? 'פעיל (2.0) ✨' : 'קלאסי'}
+            </button>
+          </div>
+
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Invisible Honeypot for Bot Protection */}
             <input

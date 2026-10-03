@@ -192,7 +192,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         /* Default Dashboard View */
         <>
           {/* Quick Field Modules Banners Grid */}
-          <div className="grid grid-cols-1 gap-2.5">
+          <div className="grid grid-cols-1 gap-2.5" data-tour="tour-games">
             {/* 1. ODT Activities Banner */}
             <div 
               onClick={onNavigateODT}
@@ -228,6 +228,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* 2. Visual Riddles Banner */}
             <div 
               onClick={onNavigateVisual}
+              data-tour="tour-visual"
               className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
                 isCampfire
                   ? 'bg-gradient-to-r from-purple-950 via-campfire-card to-stone-950 border-purple-600/70 shadow-fire'

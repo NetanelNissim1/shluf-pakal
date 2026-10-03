@@ -39,7 +39,8 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
     activeDifficulty,
     revealedMap,
     revealAll,
-    hideAll
+    hideAll,
+    uxMode
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
@@ -253,6 +254,27 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
           )}
         </div>
       </div>
+
+      {/* He & She Welcome & Rules Banner (UX 2.0) */}
+      {uxMode === 'enhanced' && currentCategoryId === 'he-and-she' && (
+        <div className={`p-4 rounded-2xl border flex flex-col gap-2 ${
+          isCampfire ? 'bg-orange-950/40 border-orange-900/60 text-orange-200' : 'bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200 text-stone-900'
+        }`}>
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-black flex items-center gap-1.5">
+              <span>👫 איך משחקים "הוא והיא" במעגל?</span>
+            </span>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-700 dark:text-orange-300">
+              לשון ושנינה
+            </span>
+          </div>
+          <p className="text-xs leading-relaxed opacity-90">
+            רמז להוא ורמז להיא – המשתתפים צריכים לגלות את צמד המילים בעלות אותו צליל ושורש!
+            <br />
+            <strong className="text-amber-700 dark:text-orange-400">לדוגמה:</strong> הוא מאיר בים (מגדלור) | היא מאירה בבית (מנורה).
+          </p>
+        </div>
+      )}
 
       {/* Subcategory Pills */}
       <SubCategoryTabs

@@ -11,7 +11,7 @@ interface TourStep {
   roundedClass: string;
 }
 
-const TOUR_STEPS: TourStep[] = [
+const CLASSIC_TOUR_STEPS: TourStep[] = [
   {
     targetSelector: '[data-tour="tour-fab"]',
     title: 'שליפה מהירה למעגל',
@@ -62,6 +62,57 @@ const TOUR_STEPS: TourStep[] = [
   }
 ];
 
+const ENHANCED_TOUR_STEPS: TourStep[] = [
+  {
+    targetSelector: '[data-tour="tour-games"]',
+    title: 'משחקי שטח ותחרויות קבוצתיות',
+    icon: '🏆',
+    description: 'טאבו שטח עם טיימר וצפצופים, משחק נכון/לא נכון להליכה בטור, וחידות בציורים. הכל מובנה ומוכן להפעלה מיידית במעגל ללא שום ציוד!',
+    preferredPosition: 'bottom',
+    roundedClass: 'rounded-2xl'
+  },
+  {
+    targetSelector: '[data-tour="tour-visual"]',
+    title: 'חידות בציורים ואימוני ODT',
+    icon: '🎨',
+    description: '154 חידות ויזואליות עם זום ומצב מקרן, ו-101 מתודות שטח לפיתוח מנהיגות וגיבוש עם טיימר משימות משולב.',
+    preferredPosition: 'bottom',
+    roundedClass: 'rounded-2xl'
+  },
+  {
+    targetSelector: '[data-tour="tour-fab"]',
+    title: 'שליפה מהירה למעגל',
+    icon: '🎲',
+    description: 'נמצאים באמצע צעידה בשביל או בהפסקת קפה? לחיצה כאן שולפת מיד שאלה אקראית לשבירת שגרה. האפליקציה פועלת 100% אופליין גם במעמקי נחל ללא קליטה!',
+    preferredPosition: 'top',
+    roundedClass: 'rounded-full'
+  },
+  {
+    targetSelector: '[data-tour="tour-situations"]',
+    title: 'חידות מותאמות לרגע',
+    icon: '🧭',
+    description: 'סינון מהיר של תכנים מותאמים לרגע: נסיעה ארוכה באוטובוס, צעידה בשביל, עצירה במעיין או שבירת קרח.',
+    preferredPosition: 'bottom',
+    roundedClass: 'rounded-2xl'
+  },
+  {
+    targetSelector: '[data-tour="tour-pakal"]',
+    title: 'הפק"ל האישי שלך למסלול',
+    icon: '⭐',
+    description: 'סמנו כל חידה או הפעלה בכוכב כדי להרכיב מערך הדרכה אישי מראש. בלחיצה אחת תוכלו לשתף את כל המערך לוואטסאפ של המדריכים.',
+    preferredPosition: 'top',
+    roundedClass: 'rounded-2xl'
+  },
+  {
+    targetSelector: '[data-tour="tour-ux-mode"]',
+    title: 'התאמה מלאה ועיצוב 2.0',
+    icon: '✨',
+    description: 'החליפו בכל רגע בין עיצוב קלאסי לעיצוב 2.0 משודרג בלחיצה אחת! כאן גם תוכלו להגדיל את הטקסט בשמש או לעבור למצב מדורה בלילה.',
+    preferredPosition: 'bottom',
+    roundedClass: 'rounded-xl'
+  }
+];
+
 export const OnboardingTour: React.FC = () => {
   const { 
     isOnboardingActive, 
@@ -70,8 +121,11 @@ export const OnboardingTour: React.FC = () => {
     prevTourStep, 
     skipTour, 
     completeTour,
-    themeMode 
+    themeMode,
+    uxMode 
   } = usePakalStore();
+
+  const TOUR_STEPS = uxMode === 'enhanced' ? ENHANCED_TOUR_STEPS : CLASSIC_TOUR_STEPS;
 
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ top?: number; bottom?: number; left: number; arrowPosition: 'top' | 'bottom'; arrowLeft: number }>({

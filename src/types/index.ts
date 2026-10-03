@@ -53,6 +53,7 @@ export interface CategoryMeta {
 
 export type ThemeMode = 'sun' | 'campfire';
 export type TextSize = 'normal' | 'large' | 'huge';
+export type UxMode = 'classic' | 'enhanced';
 
 // --- ODT Activities Module Types ---
 export interface ODTActivity {

@@ -12,7 +12,9 @@
 [![ODT Activities](https://img.shields.io/badge/ODT-101-forestgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Visual Riddles](https://img.shields.io/badge/חידות%20בציורים-154-purple)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Taboo Cards](https://img.shields.io/badge/טאבו-100-red)](https://github.com/NetanelNissim1/shluf-pakal)
-[![Tests](https://img.shields.io/badge/בדיקות-185%2F185%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![UX Modes](https://img.shields.io/badge/ממשק-Classic%20%7C%20UX%202.0-blueviolet)](https://github.com/NetanelNissim1/shluf-pakal)
+[![CI](https://github.com/NetanelNissim1/shluf-pakal/actions/workflows/ci.yml/badge.svg)](https://github.com/NetanelNissim1/shluf-pakal/actions)
+[![Tests](https://img.shields.io/badge/בדיקות-203%2F203%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
 
@@ -127,6 +129,23 @@
     * **זיהוי סוג מכשיר וסביבה (Device Info):** זיהוי ידידותי של פלטפורמת המשתמש (סמארטפון iPhone/Android או מחשב שולחני Windows/Mac/Linux + סוג דפדפן).
     * **מזהה מכשיר אנונימי וקבוע (Client ID):** מזהה לקוח ייחודי (`cl_xxxxxx`) הנשמר מקומית בדפדפן ומאפשר למנהל המערכת לזהות ריבוי פניות חריג מאותו מכשיר ולחסום אותו בעת הצורך.
 
+15. **מנוע עיצוב כפול – מצב קלאסי מול ממשק משודרג (UX 2.0 & Settings Toggle - חדש!):**
+    * **מתג בחירה אינטואיטיבי (Option B):** מתג החלפה מהיר בסרגל העליון (Header עם אייקון ניצוצות `✨`) ובמגירת ההגדרות והמשוב (Feedback Drawer) המאפשר למשתמש לבחור בחופשיות בין **עיצוב קלאסי (Classic)** לבין **ממשק משודרג (UX 2.0)**.
+    * **שמירה מקומית קבועה (Persistence):** העדפת המשתמש נשמרת ב-LocalStorage באמצעות Zustand ונטענת אוטומטית בכל כניסה.
+    * **תאימות מלאה לאחור (100% Backward Compatibility):** במצב קלאסי כל המשחקים והמסכים נשמרים במבנה המקורי והמוכר ללא שינוי.
+    * **שדרוגי חוויית משתמש במצב 2.0:**
+      * **טאבו שטח:** מסך הסתרה וזינוק (Curtain Overlay) המונע הצצות לפני תחילת הסיבוב, כפתור השתקת צלילים מהירה בטיימר, מיקרו-טיפים להפעלה, ותמיכה בקיצורי מקלדת (Space, Enter, Backspace) להקרנה על מסך.
+      * **נכון / לא נכון:** סרגל התקדמות עליון מונפש, טיפים דינמיים להפעלת הקבוצה במעגל או בהליכה בטור, כפתור ענק ונגיש לאגודל "לשאלה הבאה ⬅️", וקיצורי מקלדת (1/T, 2/F, Space).
+      * **חידות בציורים:** כפתור הזנקה מהיר "הפעל במעגל ▶️" לפתיחת מצב מצגת ישיר.
+      * **הוא והיא:** באנר הדרכה מזמין וקריא המסביר כיצד להנחות את המשחק במעגל.
+      * **שליפה אקראית רב-משחקית:** מודאל הרנדומייזר מציג חיווי מותאם לשליפת חידות והפעלות.
+      * **סיור קליטה אדפטיבי (Adaptive Onboarding Tour):** סיור המודרך מתאים את עצמו למצב הנבחר ומדריך על כל מנועי המשחק החדשים.
+
+16. **צינור אינטגרציה רציפה ב-GitHub Actions (Continuous Integration & Quality Pipeline - חדש!):**
+    * **אוטומציה מלאה בענן:** בכל פעולת `git push` או פתיחת Pull Request, מופעל Workflow ייעודי ב-GitHub Actions המאמת את הקוד על גבי שרתי Linux (Ubuntu).
+    * **בדיקות מקיפות ואבטחה:** הרצה אוטומטית של כלל **203 מחזורי הבדיקות** (שלמות תוכן, הצפנת נתונים ב-Byte Cipher, הגנה מספוילרים, ארגונומיית מובייל ו-Safe Areas).
+    * **בניית Production ובקרת איכות:** אימות קומפילציה קפדנית ב-TypeScript (`tsc`) ובניית חבילת ה-PWA ב-Vite, המבטיחים ששום שינוי שבור לא יגיע לסביבת הייצור (Zero-Downtime Guarantee).
+
 ---
 
 ## 📂 10 קובצי התוכן והמאגרים של הפרויקט
@@ -161,7 +180,7 @@ npm run dev
 # 3. פרסור והצפנת קובצי התוכן (במידה ונוספו חידות או פעילויות ל-content/)
 npm run parse
 
-# 4. הרצת מחזורי הבדיקות האוטומטיים (185 בדיקות אימות, אבטחה, אזורי שטח, כתיב עברי, הגנה מספוילרים ו-Offline ב-32 מחזורים)
+# 4. הרצת מחזורי הבדיקות האוטומטיים (203 בדיקות אימות, מנוע UX 2.0, תאימות סמארטפונים iPhone/Android, CI, אבטחה ו-Offline ב-34 מחזורים)
 npm run test
 
 # 5. בניית גרסת Production מוצפנת ו-PWA מלאה

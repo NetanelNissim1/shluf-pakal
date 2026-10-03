@@ -1,11 +1,16 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import confetti from 'canvas-confetti';
-import { CategoryId, SituationFilter, ThemeMode, TextSize, FeedbackSubmission, StoredFeedbackItem } from '../types';
+import { CategoryId, SituationFilter, ThemeMode, TextSize, UxMode, FeedbackSubmission, StoredFeedbackItem } from '../types';
 import { triggerHaptic } from '../lib/haptics';
 import { sanitizeSearchQuery } from '../lib/security';
 
 interface PakalState {
+  // UX Mode (Settings Toggle: Classic vs. Enhanced 2.0)
+  uxMode: UxMode;
+  setUxMode: (mode: UxMode) => void;
+  toggleUxMode: () => void;
+
   // Theme & Environment
   themeMode: ThemeMode;
   toggleTheme: () => void;
@@ -82,6 +87,24 @@ interface PakalState {
 export const usePakalStore = create<PakalState>()(
   persist(
     (set, get) => ({
+      // UX Mode (Classic vs. Enhanced 2.0)
+      uxMode: 'enhanced',
+      setUxMode: (mode) => {
+        if (get().hapticsEnabled) triggerHaptic(25);
+        set({ uxMode: mode });
+      },
+      toggleUxMode: () => {
+        const next = get().uxMode === 'classic' ? 'enhanced' : 'classic';
+        if (get().hapticsEnabled) triggerHaptic(30);
+        set({ uxMode: next });
+        get().showToast(
+          next === 'enhanced'
+            ? 'עברת לעיצוב משחקים 2.0 משודרג! ✨'
+            : 'חזרת לעיצוב הקלאסי של האתר 🏷️',
+          2500
+        );
+      },
+
       // Theme
       themeMode: 'sun',
       toggleTheme: () => {

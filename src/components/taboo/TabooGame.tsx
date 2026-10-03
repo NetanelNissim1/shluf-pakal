@@ -12,7 +12,10 @@ import {
   Users, 
   Swords,
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  Play,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 import { tabooData } from '../../data/content';
 import { TabooCard } from '../../types';
@@ -25,7 +28,7 @@ import { playSuccess, playPass, playShuffle, playTimerEnd } from '../../lib/soun
 import { triggerHaptic } from '../../lib/haptics';
 
 export const TabooGame: React.FC = () => {
-  const { themeMode, soundEnabled, hapticsEnabled } = usePakalStore();
+  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, uxMode } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
 
   const [cards, setCards] = useState<TabooCard[]>(tabooData as TabooCard[]);
@@ -175,6 +178,26 @@ export const TabooGame: React.FC = () => {
     setIsRunning(true);
   };
 
+  // Desktop / Projector Hotkeys (UX 2.0)
+  useEffect(() => {
+    if (uxMode !== 'enhanced') return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        handleToggleTimer();
+      } else if (e.code === 'ArrowRight' || e.code === 'Enter') {
+        e.preventDefault();
+        handleSuccess();
+      } else if (e.code === 'ArrowLeft' || e.code === 'Backspace') {
+        e.preventDefault();
+        handleSkip();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [uxMode, isRunning, secondsLeft]);
+
   const handleResetGame = () => {
     if (hapticsEnabled) triggerHaptic(30);
     setIsRoundSummaryOpen(false);
@@ -228,6 +251,22 @@ export const TabooGame: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-1.5">
+          {/* Quick Mute Toggle (UX 2.0) */}
+          {uxMode === 'enhanced' && (
+            <button
+              onClick={toggleSound}
+              aria-label={soundEnabled ? 'השתק צלילים' : 'הפעל צלילים'}
+              title={soundEnabled ? 'השתק צלילים' : 'הפעל צלילים'}
+              className={`p-2 rounded-xl border transition-all touch-press ${
+                isCampfire
+                  ? soundEnabled ? 'bg-stone-900 border-stone-800 text-amber-400' : 'bg-stone-900 border-stone-800 text-stone-500'
+                  : soundEnabled ? 'bg-amber-50 border-amber-200 text-amber-800' : 'bg-stone-100 border-stone-200 text-stone-400'
+              }`}
+            >
+              {soundEnabled ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
+            </button>
+          )}
+
           {/* Quick Help Modal Button */}
           <button
             onClick={() => setIsHelpOpen(true)}
@@ -379,17 +418,48 @@ export const TabooGame: React.FC = () => {
         </div>
       </div>
 
+      {/* Micro-Hint for Field Play (UX 2.0) */}
+      {uxMode === 'enhanced' && (
+        <div className={`py-2 px-3 rounded-xl border text-[11px] font-bold flex items-center justify-between gap-1 text-center ${
+          isCampfire ? 'bg-orange-950/40 border-orange-900/60 text-orange-300' : 'bg-amber-50 border-amber-200 text-amber-900'
+        }`}>
+          <span>💡 הסבר למעגל בלי לומר את המילים האסורות!</span>
+          <span className="opacity-75 hidden sm:inline">ימינה = הצלחה 👉 | שמאלה = דילוג 👈</span>
+        </div>
+      )}
+
       {/* Main Taboo Card with Swipe Support & Stealth Indicator */}
       <div 
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="cursor-grab active:cursor-grabbing select-none"
+        className="cursor-grab active:cursor-grabbing select-none relative"
       >
         <TabooCardView
           card={currentCard}
           cardNumber={currentIndex + 1}
           totalCards={cards.length}
         />
+
+        {/* Ready-Set-Go Curtain Overlay (UX 2.0) */}
+        {uxMode === 'enhanced' && !isRunning && secondsLeft === selectedDuration && score.correct === 0 && score.skipped === 0 && (
+          <div className="absolute inset-0 z-30 rounded-3xl bg-stone-950/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center border-2 border-amber-500/50 shadow-2xl animate-fadeIn">
+            <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-3">
+              <Play className="w-7 h-7 fill-amber-500 text-amber-500 ml-0.5" />
+            </div>
+            <h3 className="text-xl font-black text-white mb-1">
+              הסיבוב מוכן להזנקה!
+            </h3>
+            <p className="text-xs text-stone-400 mb-5 max-w-xs">
+              המילים מוסתרות כדי למנוע הצצות מוקדמות. לחצו כדי להפעיל את הטיימר ולחשוף את הכרטיס!
+            </p>
+            <button
+              onClick={handleToggleTimer}
+              className="py-3.5 px-8 rounded-2xl font-black text-base bg-gradient-to-r from-amber-500 to-orange-500 hover:brightness-110 text-white shadow-xl shadow-amber-950/40 active:scale-95 transition-all flex items-center gap-2"
+            >
+              <span>התחל סיבוב! 🚀</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Card Navigation Arrows (Next / Prev) */}

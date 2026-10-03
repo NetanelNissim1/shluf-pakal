@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Flame, SunMedium, Volume2, VolumeX, Compass, Lightbulb, HelpCircle } from 'lucide-react';
+import { Flame, SunMedium, Volume2, VolumeX, Compass, Lightbulb, HelpCircle, Sparkles } from 'lucide-react';
 import { usePakalStore } from '../../store/usePakalStore';
 
 export const Header: React.FC = () => {
@@ -11,7 +11,9 @@ export const Header: React.FC = () => {
     textSize, 
     setTextSize,
     openFeedbackDrawer,
-    startTour
+    startTour,
+    uxMode,
+    toggleUxMode
   } = usePakalStore();
   const [showTextMenu, setShowTextMenu] = useState(false);
   const textMenuRef = useRef<HTMLDivElement>(null);
@@ -47,23 +49,23 @@ export const Header: React.FC = () => {
         ? 'bg-black/90 border-campfire-border/60 text-orange-100' 
         : 'bg-amber-50/95 border-amber-200/80 text-stone-900 shadow-sm'
     }`}>
-      <div className="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-md mx-auto px-2 min-[380px]:px-3 sm:px-4 h-16 flex items-center justify-between gap-1">
         
         {/* Brand Logo & Title */}
-        <div className="flex items-center gap-2.5">
-          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md transition-all ${
+        <div className="flex items-center gap-1.5 min-[380px]:gap-2 min-w-0 shrink">
+          <div className={`w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shadow-md transition-all shrink-0 ${
             isCampfire
               ? 'bg-gradient-to-br from-orange-600 to-red-700 text-white shadow-orange-950/80 animate-flame'
               : 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-amber-300'
           }`}>
-            <Flame className="w-6 h-6 stroke-[2.5]" />
+            <Flame className="w-4.5 h-4.5 min-[380px]:w-5 min-[380px]:h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
           </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <h1 className="text-2xl font-extrabold tracking-tight font-sans">
+          <div className="min-w-0">
+            <div className="flex items-center gap-1 min-[380px]:gap-1.5">
+              <h1 className="text-lg min-[380px]:text-xl sm:text-2xl font-extrabold tracking-tight font-sans">
                 שלוף
               </h1>
-              <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider ${
+              <span className={`text-[9px] min-[380px]:text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
                 isCampfire 
                   ? 'bg-orange-950/80 text-orange-400 border border-orange-800/60' 
                   : 'bg-amber-100 text-amber-800 border border-amber-300'
@@ -71,15 +73,15 @@ export const Header: React.FC = () => {
                 פק"ל שטח
               </span>
             </div>
-            <div className="flex items-center gap-1 text-[11px] opacity-75 font-medium">
-              <Compass className="w-3 h-3" />
-              <span>חידות, משחקים והפעלות</span>
+            <div className="hidden min-[420px]:flex items-center gap-1 text-[10px] sm:text-[11px] opacity-75 font-medium truncate">
+              <Compass className="w-3 h-3 shrink-0" />
+              <span className="truncate">חידות, משחקים והפעלות</span>
             </div>
           </div>
         </div>
 
         {/* Action Controls: Help, Text Size, Sound, Theme, Feedback */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-0.5 min-[380px]:gap-1 sm:gap-1.5 shrink-0">
 
           {/* Quick Text Scaling Stepper (A- / A / A+) */}
           <div className="relative">
@@ -89,7 +91,7 @@ export const Header: React.FC = () => {
               data-tour="tour-text-size"
               aria-label="שנה גודל טקסט לקריאה בשטח"
               title="שנה גודל טקסט לקריאה בשטח (רגיל / גדול / ענק)"
-              className={`p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
+              className={`p-1.5 sm:p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
                 textSize !== 'normal'
                   ? isCampfire
                     ? 'bg-orange-600/30 text-orange-300 border border-orange-500/50'
@@ -194,13 +196,13 @@ export const Header: React.FC = () => {
             data-tour="tour-feedback"
             aria-label="הצעת ייעול, רעיון לחידה או משוב מהשטח"
             title="הצעת ייעול, רעיון לחידה או משוב מהשטח"
-            className={`p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
+            className={`p-1.5 sm:p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
               isCampfire
                 ? 'text-amber-400 hover:bg-stone-900 hover:text-amber-300'
                 : 'text-amber-700 hover:bg-amber-100/70 hover:text-amber-900'
             }`}
           >
-            <Lightbulb className="w-5 h-5" />
+            <Lightbulb className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
           </button>
 
           {/* Quick Onboarding Tour Help Button */}
@@ -208,20 +210,20 @@ export const Header: React.FC = () => {
             onClick={() => startTour(true)}
             aria-label="סיור הדרכה מהיר באתר"
             title="סיור הדרכה מהיר באתר (איך להשתמש בשלוף פק״ל)"
-            className={`p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
+            className={`p-1.5 sm:p-2 rounded-xl transition-all touch-press flex items-center justify-center ${
               isCampfire
                 ? 'text-stone-400 hover:bg-stone-900 hover:text-orange-300'
                 : 'text-stone-500 hover:bg-amber-100/70 hover:text-stone-800'
             }`}
           >
-            <HelpCircle className="w-5 h-5" />
+            <HelpCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
           </button>
 
           {/* Sound Toggle */}
           <button
             onClick={toggleSound}
             aria-label={soundEnabled ? 'השתק צלילים' : 'הפעל צלילים'}
-            className={`p-2 rounded-xl transition-all touch-press ${
+            className={`p-1.5 sm:p-2 rounded-xl transition-all touch-press ${
               isCampfire
                 ? soundEnabled 
                   ? 'text-orange-400 hover:bg-orange-950/50' 
@@ -231,7 +233,27 @@ export const Header: React.FC = () => {
                   : 'text-stone-400 hover:bg-stone-200'
             }`}
           >
-            {soundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
+            {soundEnabled ? <Volume2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <VolumeX className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
+          </button>
+
+          {/* UX Mode Switch (Option B: Classic vs. Enhanced 2.0) */}
+          <button
+            onClick={toggleUxMode}
+            data-tour="tour-ux-mode"
+            aria-label={uxMode === 'enhanced' ? 'מעבר לעיצוב קלאסי' : 'מעבר לעיצוב משחקים 2.0 משודרג'}
+            title={uxMode === 'enhanced' ? 'עיצוב 2.0 פעיל ✨ (לחץ למעבר לעיצוב קלאסי)' : 'הפעל עיצוב 2.0 ✨ (לחץ להפעלת ממשק משחקים משודרג)'}
+            className={`px-1.5 min-[380px]:px-2 py-1 min-[380px]:py-1.5 rounded-xl flex items-center justify-center gap-0.5 min-[380px]:gap-1 transition-all touch-press ${
+              uxMode === 'enhanced'
+                ? isCampfire
+                  ? 'bg-gradient-to-r from-orange-600/40 to-amber-600/40 text-amber-300 border border-orange-500/50 shadow-sm'
+                  : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm'
+                : isCampfire
+                  ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900 border border-stone-800'
+                  : 'text-stone-400 hover:text-stone-700 hover:bg-amber-100/70 border border-stone-200'
+            }`}
+          >
+            <Sparkles className={`w-3.5 h-3.5 ${uxMode === 'enhanced' ? 'animate-pulse' : ''}`} />
+            <span className="text-[10px] font-black">{uxMode === 'enhanced' ? '2.0 ✨' : 'קלאסי'}</span>
           </button>
 
           {/* Sun / Campfire Mode Toggle */}
@@ -239,16 +261,16 @@ export const Header: React.FC = () => {
             onClick={toggleTheme}
             data-tour="tour-campfire"
             aria-label={isCampfire ? 'מעבר למצב שמש ישירה' : 'מעבר למצב מדורה ולילה'}
-            className={`p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
+            className={`p-1.5 sm:p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
               isCampfire
                 ? 'bg-orange-600/20 text-orange-400 border border-orange-500/40 hover:bg-orange-600/30'
                 : 'bg-amber-100 text-amber-800 border border-amber-300/80 hover:bg-amber-200'
             }`}
           >
             {isCampfire ? (
-              <Flame className="w-5 h-5 text-orange-400 fill-orange-500/20" />
+              <Flame className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-orange-400 fill-orange-500/20" />
             ) : (
-              <SunMedium className="w-5 h-5 text-amber-700" />
+              <SunMedium className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-amber-700" />
             )}
           </button>
         </div>
