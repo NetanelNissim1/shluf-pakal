@@ -107,8 +107,24 @@ const CATEGORY_HEBREW_MAP: Record<string, string> = {
   'general': 'משוב כללי'
 };
 
+function sanitizeInput(str: string | undefined | null, maxLength: number): string {
+  if (!str) return '';
+  return str
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '')
+    .trim()
+    .slice(0, maxLength);
+}
+
 function createFeedbackFormData(data: FeedbackSubmission): FormData {
-  const categoryTitle = CATEGORY_HEBREW_MAP[data.category] || data.category;
+  const cleanName = sanitizeInput(data.name, 100);
+  const cleanOrg = sanitizeInput(data.organization, 100);
+  const cleanEmail = sanitizeInput(data.email, 120);
+  const cleanMessage = sanitizeInput(data.message, 3000);
+  const cleanScreen = sanitizeInput(data.currentScreen, 100);
+  const cleanDevice = sanitizeInput(data.deviceInfo, 150);
+  const cleanClientId = sanitizeInput(data.clientId, 100);
+
+  const categoryTitle = CATEGORY_HEBREW_MAP[data.category] || sanitizeInput(data.category, 50);
   const formattedDate = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
 
   // Clean, professional plain text with clear screen context and client device details
@@ -117,17 +133,17 @@ function createFeedbackFormData(data: FeedbackSubmission): FormData {
 
 התקבלה פנייה חדשה ממערכת המשוב של אתר שלוף פק"ל:
 
-• שם הפונה: ${data.name.trim()}
-• מסגרת הדרכה / חברה: ${data.organization?.trim() || 'לא צוין'}
-• מייל לחזרה: ${data.email?.trim() || 'לא צוין על ידי המשתמש (פנייה לידיעה בלבד)'}
+• שם הפונה: ${cleanName}
+• מסגרת הדרכה / חברה: ${cleanOrg || 'לא צוין'}
+• מייל לחזרה: ${cleanEmail || 'לא צוין על ידי המשתמש (פנייה לידיעה בלבד)'}
 • נושא הפנייה: ${categoryTitle}
-• מסך / משחק באפליקציה: ${data.currentScreen || 'דף הבית'}
-• סוג מכשיר וסביבה: ${data.deviceInfo || 'לא זוהה'}
-• מזהה מכשיר ייחודי (Client ID למניעת הצפות): ${data.clientId || 'לא זמין'}
+• מסך / משחק באפליקציה: ${cleanScreen || 'דף הבית'}
+• סוג מכשיר וסביבה: ${cleanDevice || 'לא זוהה'}
+• מזהה מכשיר ייחודי (Client ID למניעת הצפות): ${cleanClientId || 'לא זמין'}
 • תאריך ושעה: ${formattedDate}
 
 תוכן ההצעה:
-${data.message.trim()}
+${cleanMessage}
 
 ---
 הודעה זו נשלחה אוטומטית מטופס המשוב באתר שלוף פק"ל (shluf-pakal.org)
@@ -137,24 +153,24 @@ ${data.message.trim()}
   formData.append('access_key', ACCESS_KEY);
   formData.append('from_name', 'שלוף פקל');
   // Clean subject without emojis (prevents spam scoring triggers)
-  formData.append('subject', `הצעת ייעול חדשה: ${categoryTitle} מאת ${data.name.trim()}`);
-  formData.append('name', data.name.trim());
+  formData.append('subject', `הצעת ייעול חדשה: ${categoryTitle} מאת ${cleanName}`);
+  formData.append('name', cleanName);
   
   // Web3Forms requires a valid email to avoid flagging submission as missing sender/spam
-  const senderEmail = data.email?.trim() || 'feedback-guest@shluf-pakal.org';
+  const senderEmail = cleanEmail || 'feedback-guest@shluf-pakal.org';
   formData.append('email', senderEmail);
   
   formData.append('category', categoryTitle);
-  formData.append('organization', data.organization?.trim() || 'לא צוין');
+  formData.append('organization', cleanOrg || 'לא צוין');
   formData.append('message', formattedMessage);
 
-  if (data.currentScreen) formData.append('current_screen', data.currentScreen);
-  if (data.deviceInfo) formData.append('device_info', data.deviceInfo);
-  if (data.clientId) formData.append('client_id', data.clientId);
+  if (cleanScreen) formData.append('current_screen', cleanScreen);
+  if (cleanDevice) formData.append('device_info', cleanDevice);
+  if (cleanClientId) formData.append('client_id', cleanClientId);
 
   // Honeypot field for bot trapping
   if (data.bot_trap && data.bot_trap.trim().length > 0) {
-    formData.append('botcheck', data.bot_trap.trim());
+    formData.append('botcheck', sanitizeInput(data.bot_trap, 50));
   }
 
   return formData;

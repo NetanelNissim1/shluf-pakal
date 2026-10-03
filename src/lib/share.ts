@@ -90,7 +90,7 @@ export function getBaseShareUrl(): string {
  */
 export function getStudentShareUrl(riddleId: string): string {
   const baseUrl = getBaseShareUrl();
-  return `${baseUrl}/?riddle=${riddleId}`;
+  return `${baseUrl}/?riddle=${encodeURIComponent(riddleId)}`;
 }
 
 export function formatVisualRiddleForWhatsApp(categoryLabel: string, studentUrl: string): string {

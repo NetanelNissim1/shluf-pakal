@@ -100,11 +100,18 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
     setShowHintTooltip(false);
     // Update cast window if open
     if (presentationWindowRef.current && !presentationWindowRef.current.closed) {
-      presentationWindowRef.current.document.body.innerHTML = `
-        <div style="background:#000;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;margin:0;padding:0;overflow:hidden;">
-          <img src="${riddle.imageUrl}" style="max-width:98vw;max-height:98vh;object-fit:contain;" />
-        </div>
-      `;
+      const doc = presentationWindowRef.current.document;
+      while (doc.body.firstChild) {
+        doc.body.removeChild(doc.body.firstChild);
+      }
+      const wrapper = doc.createElement('div');
+      wrapper.style.cssText = 'background:#000;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;margin:0;padding:0;overflow:hidden;';
+      const img = doc.createElement('img');
+      img.src = encodeURI(riddle.imageUrl);
+      img.alt = 'שלוף - מקרן שטח נקי';
+      img.style.cssText = 'max-width:98vw;max-height:98vh;object-fit:contain;';
+      wrapper.appendChild(img);
+      doc.body.appendChild(wrapper);
     }
   }, [riddle]);
 
@@ -165,11 +172,17 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
         win.document.title = 'שלוף - מקרן שטח נקי';
         win.document.body.style.margin = '0';
         win.document.body.style.backgroundColor = '#000000';
-        win.document.body.innerHTML = `
-          <div style="background:#000;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;margin:0;padding:0;overflow:hidden;">
-            <img src="${riddle.imageUrl}" style="max-width:98vw;max-height:98vh;object-fit:contain;" />
-          </div>
-        `;
+        while (win.document.body.firstChild) {
+          win.document.body.removeChild(win.document.body.firstChild);
+        }
+        const wrapper = win.document.createElement('div');
+        wrapper.style.cssText = 'background:#000;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;margin:0;padding:0;overflow:hidden;';
+        const img = win.document.createElement('img');
+        img.src = encodeURI(riddle.imageUrl);
+        img.alt = 'שלוף - מקרן שטח נקי';
+        img.style.cssText = 'max-width:98vw;max-height:98vh;object-fit:contain;';
+        wrapper.appendChild(img);
+        win.document.body.appendChild(wrapper);
       }
     } catch {
       // popup blocked

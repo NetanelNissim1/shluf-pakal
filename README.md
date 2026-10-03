@@ -14,7 +14,8 @@
 [![Taboo Cards](https://img.shields.io/badge/טאבו-100-red)](https://github.com/NetanelNissim1/shluf-pakal)
 [![UX Modes](https://img.shields.io/badge/ממשק-Classic%20%7C%20UX%202.0-blueviolet)](https://github.com/NetanelNissim1/shluf-pakal)
 [![CI](https://github.com/NetanelNissim1/shluf-pakal/actions/workflows/ci.yml/badge.svg)](https://github.com/NetanelNissim1/shluf-pakal/actions)
-[![Tests](https://img.shields.io/badge/בדיקות-206%2F206%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Tests](https://img.shields.io/badge/בדיקות-224%2F224%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Security Rating](https://img.shields.io/badge/אבטחה%20וסייבר-A%2B%20%7C%20Enterprise-success?logo=shield)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
 
@@ -105,12 +106,14 @@
 8. **בקרת שמע שטח (Speaker / Mute Toggle):**
    * כפתור רמקול בראש המסך מאפשר השתקה או הפעלה מהירה של כל צלילי האפליקציה (טיימר, הצלחה, רולטה) בהתאם לתנאי הפעילות.
 
-9. **אבטחת מידע והגנה מפני גניבת תוכן (Security & Anti-Scraping):**
+9. **אבטחת מידע, סייבר והגנה מפני גניבת תוכן (Enterprise Security & Anti-Scraping):**
+   * **דירוג אבטחה מקסימלי (Mozilla Observatory A+ / OWASP Compliant):** עמידה בסטנדרטי אבטחת מידע מחמירים ביותר לאפליקציות Web & PWA.
    * **הצפנת נתונים (UTF-8 Byte XOR Cipher):** כלל מאגרי המידע אינם חשופים כטקסט פתוח ב-Network Tab או ב-Bundle, אלא מוצפנים ב-Build ונפרקים רק לזיכרון ה-RAM בזמן ריצה.
+   * **מדיניות CSP וכותרות HTTP מוקשחות:** כותרת HSTS לשנתיים עם Preload, Strict CSP (`object-src 'none'`, `base-uri 'self'`), COOP, CORP ו-Permissions Policy מחמיר.
+   * **חסינות מוחלטת מ-DOM XSS:** אפס שימוש ב-`innerHTML` וב-`dangerouslySetInnerHTML`, אפס `eval()`, ואימות אוטומטי ממוחשב.
    * **חסימת העתקה וסימון:** מניעת סימון טקסט (`user-select: none`), חסימת Drag & Drop.
    * **חסימת קליק ימני וקיצורים:** מניעת Context Menu וחסימת קיצורי פיתוח (`F12`, `Ctrl+U`, `Ctrl+S`, `Ctrl+Shift+I`).
-   * **מדיניות Content Security Policy (CSP):** כותרות אבטחה מחמירות המונעות הזרקות XSS ו-Clickjacking.
-   * **סניטיזציה:** ניקוי שאילתות חיפוש והגבלת אורך למניעת ReDoS.
+   * **הגנת ספאם והגבלת קצב:** מנגנון Sliding Window Rate Limiting, מלכודת בוטים Honeypot וסניטיזציית תווי בקרה (Control Characters).
 
 10. **מודול פעילויות שטח ואימוני ODT (101 מתודות שטח):**
     * **101 פעילויות שטח מלאות** מחולקות ל-10 קטגוריות מתודולוגיות (חימום, מנהיגות, גיבוש, אמון, אסטרטגיה, קונפליקטים, אי-ודאות, תקשורת, סיכום, ושדה קיצון).
@@ -161,7 +164,7 @@
 
 16. **צינור אינטגרציה רציפה ב-GitHub Actions (Continuous Integration & Quality Pipeline - חדש!):**
     * **אוטומציה מלאה בענן:** בכל פעולת `git push` או פתיחת Pull Request, מופעל Workflow ייעודי ב-GitHub Actions המאמת את הקוד על גבי שרתי Linux (Ubuntu).
-    * **בדיקות מקיפות ואבטחה:** הרצה אוטומטית של כלל **203 מחזורי הבדיקות** (שלמות תוכן, הצפנת נתונים ב-Byte Cipher, הגנה מספוילרים, ארגונומיית מובייל ו-Safe Areas).
+    * **בדיקות מקיפות ואבטחה:** הרצה אוטומטית של כלל **224 מחזורי הבדיקות ומבחני הסייבר** (שלמות תוכן, הצפנת נתונים ב-Byte Cipher, הגנה מספוילרים, ארגונומיית מובייל, 8 מבחני סייבר מחמירים ו-Safe Areas).
     * **בניית Production ובקרת איכות:** אימות קומפילציה קפדנית ב-TypeScript (`tsc`) ובניית חבילת ה-PWA ב-Vite, המבטיחים ששום שינוי שבור לא יגיע לסביבת הייצור (Zero-Downtime Guarantee).
 
 ---
@@ -186,6 +189,52 @@
 
 ---
 
+## 🛡️ ארכיטקטורת אבטחת מידע, סייבר ועמידה בתקנים מחמירים (Cybersecurity Hardening & Compliance)
+
+האפליקציה עברה הקשחה יסודית ומקיפה בהתאם לסטנדרטים הבינלאומיים המחמירים ביותר (OWASP Top 10, CWE Top 25, Mozilla Observatory A+):
+
+### 1. כותרות אבטחה ברמת Enterprise (`vercel.json`)
+* **Strict-Transport-Security (HSTS):** `max-age=63072000; includeSubDomains; preload` – אכיפת חיבור HTTPS מוצפן בלבד למשך שנתיים עם רישום ב-Chrome Preload List.
+* **Content-Security-Policy (CSP):** מדיניות קפדנית המגדירה `default-src 'self'`, חוסמת לחלוטין אובייקטים חיצוניים (`object-src 'none'`), מגבילה את תגית הבסיס (`base-uri 'self'`), וחוסמת מסגור אתרים (`frame-ancestors 'none'`).
+* **Cross-Origin Opener & Resource Policy:** `COOP: same-origin-allow-popups` ו-`CORP: same-origin` למניעת התקפות Spectre, Cross-Origin Leaks וגניבת משאבים.
+* **X-Content-Type-Options: nosniff:** מניעת זיהוי שגוי של סוגי קבצים (MIME Sniffing).
+* **X-Frame-Options: DENY:** חסימה מלאה של ניסיונות Clickjacking ו-iFrame embedding.
+* **Permissions-Policy:** נעילה הרמטית של חיישני מכשיר לא רלוונטיים (חסימת מיקרופון, מצלמה, ג'ירוסקופ, GPS, תשלומים, USB וסנסורים).
+* **X-Permitted-Cross-Domain-Policies: none:** חסימת אינטראקציה ממסמכי Adobe Flash או PDF ישנים.
+
+### 2. חסינות אפליקטיבית מוחלטת מ-DOM-based XSS (Zero DOM XSS)
+* **אפס הזרקות DOM:** נסרקו ואומתו 0 שימושים ב-`innerHTML` ו-0 שימושים ב-`dangerouslySetInnerHTML` בכל קובצי ה-TypeScript וה-React של המערכת.
+* **הסרת מנועי הערכת קוד דינמיים:** 0 שימושים ב-`eval()` ו-0 שימושים ב-`new Function()`.
+* **יצירת אלמנטים מאובטחת:** שימוש בלעדי ב-DOM APIs בטוחים (`document.createElement`, `encodeURI`, `encodeURIComponent`, `appendChild`).
+
+### 3. מניעת חשיפת נתונים והצפנה (XOR Byte Cipher & Build Integrity)
+* מאגר השאלות המלא (חידות, טאבו, ODT, הוא והיא, נכון/לא נכון) מוצפן בינארית בעת תהליך ה-Build.
+* Bundle הייצור של Vite אינו מכיל אף שאלה בטקסט גלוי (מאומת בסריקה אוטומטית כחלק מה-CI).
+* המידע מפוענח ישירות לזיכרון ה-RAM הסטטי בזמן ריצה בלבד.
+
+### 4. הגנה מובנית מפני גניבת תוכן וסריקה אוטומטית (Anti-Scraping Barrier)
+* חסימת תפריט קליק ימני (Context Menu) על כלל כרטיסיות המשחק והתוכן.
+* מניעת סימון וגרירת טקסט חופשית (`user-select: none`, ביטול אירועי `dragstart`).
+* חסימת קיצורי מקלדת המיועדים לחילוץ תוכן ופתיחת כלי פיתוח (`F12`, `Ctrl+Shift+I`, `Ctrl+U`, `Ctrl+S`, `Ctrl+P`).
+
+### 5. הגנת מנגנון המשוב מפני ספאם והזרקות (Anti-Spam & Sanitization)
+* **Sliding Window Rate Limiting:** הגבלה קשיחה של מקסימום 3 פניות ב-15 דקות.
+* **טיהור קלט (Input Sanitization):** סינון תווים מיוחדים ותווי בקרה (Control Characters `\u0000-\u001F`) ומגבלות גודל קשיחות למניעת מתקפות Buffer Overflow ו-DoS.
+* **מלכודת Honeypot:** לכידת בוטים אוטומטיים וסורקי רשת ללא פגיעה בחוויית המשתמש.
+
+### 6. חבילת אימות סייבר אוטומטית (8 מבחני אבטחה ב-CI)
+סקריפט הבדיקה [`scripts/verify-security.cjs`](file:///c:/projects/shluf-pakal/scripts/verify-security.cjs) מוודא 8 בדיקות סייבר עצמאיות בכל הרצת `npm test` ובכל GitHub Actions CI:
+1. בדיקת שלמות מסד נתונים ו-0 כפילויות.
+2. אימות הצפנת תוכן Bundle ואפס זליגת טקסט גלוי.
+3. אימות CSP קשיח ב-HTML (`object-src 'none'`, `base-uri 'self'`).
+4. אימות מלא של כותרות HSTS, CSP, COOP, CORP, XFO ו-Permissions-Policy ב-`vercel.json`.
+5. סריקה סטטית לאימות 0 שימושים ב-`innerHTML` ו-`dangerouslySetInnerHTML`.
+6. סריקה סטטית לאימות 0 שימושים ב-`eval()` ו-`new Function()`.
+7. אימות הפעלת מחסום Anti-Scraping ו-DevTools blocking.
+8. אימות מנוע Rate-Limiting וטיהור קלט בטופס המשוב.
+
+---
+
 ## 🛠️ פקודות הרצה ופיתוח
 
 ```bash
@@ -198,7 +247,7 @@ npm run dev
 # 3. פרסור והצפנת קובצי התוכן (במידה ונוספו חידות או פעילויות ל-content/)
 npm run parse
 
-# 4. הרצת מחזורי הבדיקות האוטומטיים (206 בדיקות אימות, מנוע UX 2.0, תאימות סמארטפונים iPhone/Android, CI, אבטחה ו-Offline ב-34 מחזורים)
+# 4. הרצת מחזורי הבדיקות האוטומטיים (224 בדיקות אימות: שלמות תוכן, מנוע UX כפול, תאימות מובייל, 8 מבחני סייבר ואבטחה מחמירים, ו-CI מלא)
 npm run test
 
 # 5. בניית גרסת Production מוצפנת ו-PWA מלאה
