@@ -11,58 +11,7 @@ interface TourStep {
   roundedClass: string;
 }
 
-const CLASSIC_TOUR_STEPS: TourStep[] = [
-  {
-    targetSelector: '[data-tour="tour-fab"]',
-    title: 'שליפה מהירה למעגל',
-    icon: '🎲',
-    description: 'נמצאים באמצע צעידה בשביל או בהפסקת קפה? לחיצה כאן שולפת מיד שאלה אקראית לשבירת שגרה. האפליקציה פועלת 100% אופליין – חלקה לחלוטין גם בעומק נחל או במדבר ללא טיפת קליטה!',
-    preferredPosition: 'top',
-    roundedClass: 'rounded-full'
-  },
-  {
-    targetSelector: '[data-tour="tour-text-size"]',
-    title: 'התאמת גודל טקסט לשטח',
-    icon: '🔍',
-    description: 'השמש מסנוורת או שאתה מקריא תוך כדי תנועה? ניתן להגדיל את הטקסט ל-115% או 130% בלחיצה אחת.',
-    preferredPosition: 'bottom',
-    roundedClass: 'rounded-xl'
-  },
-  {
-    targetSelector: '[data-tour="tour-campfire"]',
-    title: 'מצב מדורה לראיית לילה',
-    icon: '⛺',
-    description: 'פעילות לילה סביב המדורה? מעבר לתצוגה כהה בגווני להבה שאינה מסנוורת את החניכים במעגל הלילי.',
-    preferredPosition: 'bottom',
-    roundedClass: 'rounded-xl'
-  },
-  {
-    targetSelector: '[data-tour="tour-feedback"]',
-    title: 'יש לך רעיון לחידה או שיפור?',
-    icon: '💡',
-    description: 'יש לך רעיון לחידה מוצלחת מהמסלול או הצעה לייעול? שלח לנו כאן ישירות! המשלוח מתבצע ברקע בלחיצה אחת מבלי לעכב אותך בשטח.',
-    preferredPosition: 'bottom',
-    roundedClass: 'rounded-xl'
-  },
-  {
-    targetSelector: '[data-tour="tour-situations"]',
-    title: 'חידות לפי רגע בפעילות',
-    icon: '🧭',
-    description: 'סינון מהיר של תכנים מותאמים לרגע: נסיעה ארוכה באוטובוס, צעידה בשביל, עצירה במעיין או שבירת קרח.',
-    preferredPosition: 'bottom',
-    roundedClass: 'rounded-2xl'
-  },
-  {
-    targetSelector: '[data-tour="tour-pakal"]',
-    title: 'הפק"ל האישי שלך למסלול',
-    icon: '⭐',
-    description: 'סמן כל חידה או הפעלה בכוכב כדי לבנות מערך הדרכה אישי ומוכן מראש למסלול. כל התוכן שמור אצלך בטלפון ועובד חלק בכל מקום ללא אינטרנט כלל!',
-    preferredPosition: 'top',
-    roundedClass: 'rounded-2xl'
-  }
-];
-
-const ENHANCED_TOUR_STEPS: TourStep[] = [
+const TOUR_STEPS: TourStep[] = [
   {
     targetSelector: '[data-tour="tour-games"]',
     title: 'משחקי שטח ותחרויות קבוצתיות',
@@ -83,7 +32,7 @@ const ENHANCED_TOUR_STEPS: TourStep[] = [
     targetSelector: '[data-tour="tour-fab"]',
     title: 'שליפה מהירה למעגל',
     icon: '🎲',
-    description: 'נמצאים באמצע צעידה בשביל או בהפסקת קפה? לחיצה כאן שולפת מיד שאלה אקראית לשבירת שגרה. האפליקציה פועלת 100% אופליין גם במעמקי נחל ללא קליטה!',
+    description: 'נמצאים באמצע צעידה בשביל או בהפסקת קפה? לחיצה כאן שולפת מיד שאלה אקראית לשבירת שגרה. האפליקציה פועלת 100% אופליין – חלקה לחלוטין גם בעומק נחל או במדבר ללא אינטרנט כלל!',
     preferredPosition: 'top',
     roundedClass: 'rounded-full'
   },
@@ -99,15 +48,31 @@ const ENHANCED_TOUR_STEPS: TourStep[] = [
     targetSelector: '[data-tour="tour-pakal"]',
     title: 'הפק"ל האישי שלך למסלול',
     icon: '⭐',
-    description: 'סמנו כל חידה או הפעלה בכוכב כדי להרכיב מערך הדרכה אישי מראש. בלחיצה אחת תוכלו לשתף את כל המערך לוואטסאפ של המדריכים.',
+    description: 'סמנו כל חידה או הפעלה בכוכב כדי להרכיב מערך הדרכה אישי מראש. בלחיצה אחת תוכלו לשתף את כל המערך לוואטסאפ של המדריכים. כל התוכן שמור במכשיר ללא אינטרנט כלל!',
     preferredPosition: 'top',
     roundedClass: 'rounded-2xl'
   },
   {
-    targetSelector: '[data-tour="tour-ux-mode"]',
-    title: 'התאמה מלאה ועיצוב משודרג',
-    icon: '✨',
-    description: 'החליפו בכל רגע בין עיצוב קלאסי לעיצוב משודרג בלחיצה אחת! כאן גם תוכלו להגדיל את הטקסט בשמש או לעבור למצב מדורה בלילה.',
+    targetSelector: '[data-tour="tour-text-size"]',
+    title: 'התאמת גודל טקסט לשטח',
+    icon: '🔍',
+    description: 'השמש מסנוורת או שאתה מקריא תוך כדי תנועה? ניתן להגדיל את הטקסט ל-115% או 130% בלחיצה אחת.',
+    preferredPosition: 'bottom',
+    roundedClass: 'rounded-xl'
+  },
+  {
+    targetSelector: '[data-tour="tour-campfire"]',
+    title: 'מצב מדורה לראיית לילה',
+    icon: '⛺',
+    description: 'פעילות לילה סביב המדורה? מעבר לתצוגה כהה בגווני להבה שאינה מסנוורת את החניכים במעגל הלילי.',
+    preferredPosition: 'bottom',
+    roundedClass: 'rounded-xl'
+  },
+  {
+    targetSelector: '[data-tour="tour-feedback"]',
+    title: 'הגדרות שטח, ערבוב ומשוב',
+    icon: '💡',
+    description: 'כאן תוכלו לערבב מחדש את סדר השאלות בכל רגע, להתאים הגדרות, או לשלוח רעיון וחידה חדשה ישירות למפתחים בלחיצה אחת!',
     preferredPosition: 'bottom',
     roundedClass: 'rounded-xl'
   }
@@ -121,11 +86,8 @@ export const OnboardingTour: React.FC = () => {
     prevTourStep, 
     skipTour, 
     completeTour,
-    themeMode,
-    uxMode 
+    themeMode 
   } = usePakalStore();
-
-  const TOUR_STEPS = uxMode === 'enhanced' ? ENHANCED_TOUR_STEPS : CLASSIC_TOUR_STEPS;
 
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ top?: number; bottom?: number; left: number; arrowPosition: 'top' | 'bottom'; arrowLeft: number }>({

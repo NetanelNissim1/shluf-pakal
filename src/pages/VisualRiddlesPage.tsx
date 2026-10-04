@@ -27,7 +27,7 @@ import { triggerHaptic } from '../lib/haptics';
 import { seededShuffle, deriveTopicSeed } from '../lib/random';
 
 export const VisualRiddlesPage: React.FC = () => {
-  const { themeMode, soundEnabled, hapticsEnabled, uxMode, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
+  const { themeMode, soundEnabled, hapticsEnabled, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
 
   const allRiddles = visualData as VisualRiddle[];
@@ -149,17 +149,15 @@ export const VisualRiddlesPage: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Quick Carousel / Presentation Launcher (UX 2.0) */}
-            {uxMode === 'enhanced' && (
-              <button
-                onClick={() => setPresenterRiddle(filteredRiddles[0] || allRiddles[0])}
-                title="הפעלת מצגת חידות במעגל במסך מלא"
-                className="py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:brightness-110 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all touch-press"
-              >
-                <Play className="w-3.5 h-3.5 fill-white" />
-                <span className="hidden sm:inline">הפעל במעגל</span>
-              </button>
-            )}
+            {/* Quick Carousel / Presentation Launcher */}
+            <button
+              onClick={() => setPresenterRiddle(filteredRiddles[0] || allRiddles[0])}
+              title="הפעלת מצגת חידות במעגל במסך מלא"
+              className="py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:brightness-110 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all touch-press"
+            >
+              <Play className="w-3.5 h-3.5 fill-white" />
+              <span className="hidden sm:inline">הפעל במעגל</span>
+            </button>
 
             <button
               onClick={() => setIsHelpOpen(true)}

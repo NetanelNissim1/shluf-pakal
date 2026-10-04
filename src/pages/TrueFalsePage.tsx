@@ -31,7 +31,7 @@ interface TrueFalsePageProps {
 type MainFilter = 'all' | 'regions' | 'holidays';
 
 export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
-  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, showToast, uxMode, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
+  const { themeMode, soundEnabled, toggleSound, hapticsEnabled, showToast, deviceShuffleSeed, randomOrderEnabled } = usePakalStore();
   const isCampfire = themeMode === 'campfire';
 
   const [mainFilter, setMainFilter] = useState<MainFilter>('all');
@@ -160,9 +160,8 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
     showToast('🎲 השאלות עורבבו מחדש!');
   };
 
-  // Desktop Hotkeys (UX 2.0)
+  // Desktop Hotkeys
   useEffect(() => {
-    if (uxMode !== 'enhanced') return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
       if (e.key === '1' || e.key.toLowerCase() === 't') {
@@ -180,7 +179,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [uxMode, isRevealed, currentIndex, filteredItems.length]);
+  }, [isRevealed, currentIndex, filteredItems.length]);
 
   return (
     <div className="space-y-4 pb-24" dir="rtl">
@@ -457,8 +456,8 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
         </div>
       )}
 
-      {/* Top Visual Progress Bar (UX 2.0) */}
-      {uxMode === 'enhanced' && filteredItems.length > 0 && (
+      {/* Top Visual Progress Bar */}
+      {filteredItems.length > 0 && (
         <div className="space-y-1.5">
           <div className="flex items-center justify-between text-[11px] font-bold text-stone-400 px-1">
             <span>שאלה {currentIndex + 1} מתוך {filteredItems.length}</span>
@@ -473,15 +472,13 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
         </div>
       )}
 
-      {/* Field Play Style Tip (UX 2.0) */}
-      {uxMode === 'enhanced' && (
-        <div className={`p-2.5 rounded-xl border text-xs font-bold flex items-center gap-2 ${
-          isCampfire ? 'bg-stone-900 border-stone-800 text-amber-300' : 'bg-emerald-50/80 border-emerald-200 text-emerald-900'
-        }`}>
-          <span className="text-base shrink-0">🏃‍♂️</span>
-          <span>{currentIndex % 2 === 0 ? 'טיפ להליכה בטור: צעד ימינה = נכון ✅ | צעד שמאלה = לא נכון ❌' : 'טיפ למעגל: ידיים על הראש = נכון ✅ | ידיים על המותניים = לא נכון ❌'}</span>
-        </div>
-      )}
+      {/* Field Play Style Tip */}
+      <div className={`p-2.5 rounded-xl border text-xs font-bold flex items-center gap-2 ${
+        isCampfire ? 'bg-stone-900 border-stone-800 text-amber-300' : 'bg-emerald-50/80 border-emerald-200 text-emerald-900'
+      }`}>
+        <span className="text-base shrink-0">🏃‍♂️</span>
+        <span>{currentIndex % 2 === 0 ? 'טיפ להליכה בטור: צעד ימינה = נכון ✅ | צעד שמאלה = לא נכון ❌' : 'טיפ למעגל: ידיים על הראש = נכון ✅ | ידיים על המותניים = לא נכון ❌'}</span>
+      </div>
 
       {/* Main Interactive Game Card */}
       {currentItem ? (
@@ -651,8 +648,8 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
             })()
           )}
 
-          {/* Big Next Question Thumb Button (UX 2.0) */}
-          {uxMode === 'enhanced' && isRevealed && (
+          {/* Big Next Question Thumb Button */}
+          {isRevealed && (
             <button
               onClick={handleNext}
               className="w-full py-3.5 px-6 rounded-2xl font-black text-base bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 active:scale-[0.98] text-white shadow-lg shadow-emerald-950/30 flex items-center justify-center gap-2 transition-all mt-4 animate-bounce-subtle"

@@ -16,8 +16,7 @@ export const RandomizerModal: React.FC = () => {
     themeMode, 
     activeCategory, 
     soundEnabled,
-    hapticsEnabled,
-    uxMode 
+    hapticsEnabled 
   } = usePakalStore();
 
   const isCampfire = themeMode === 'campfire';
@@ -101,7 +100,7 @@ export const RandomizerModal: React.FC = () => {
             <div>
               <h3 className="text-xl font-extrabold tracking-tight">שלוף לי!</h3>
               <p className="text-xs text-stone-400">
-                {uxMode === 'enhanced' ? 'שליפה אקראית רב-משחקית למעגל ולשטח ✨' : 'שליפה אקראית מהירה לשבירת שתיקה, רענון והקפצת המעגל בשטח'}
+                שליפה אקראית מהירה לשבירת שתיקה, רענון והקפצת המעגל בשטח ✨
               </p>
             </div>
           </div>

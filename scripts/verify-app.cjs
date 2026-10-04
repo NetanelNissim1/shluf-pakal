@@ -904,34 +904,30 @@ assert(presenterModalCode.includes('alt={`חידה בציורים #${currentInde
 assert(presenterModalCode.includes('<span>לחץ לחשיפת הפתרון</span>'), 'תצוגת מסך מלא כוללת כפתור מפורש "לחץ לחשיפת הפתרון"');
 assert(presenterModalCode.includes('פתרון מלא:') && presenterModalCode.includes('{riddle.answer}'), 'תצוגת מסך מלא חושפת את הפתרון המלא והמדויק רק לאחר לחיצה');
 
-// Cycle 33: UX 2.0 Enhancement & User Settings Toggle Engine Verification
-console.log('\n[מחזור 33]: בדיקת מנוע מתג העיצוב (UX Toggle - Classic vs. Enhanced 2.0) ושדרוגי המשחקים');
-const uxStoreCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'store', 'usePakalStore.ts'), 'utf8');
-assert(uxStoreCode.includes('uxMode: UxMode') && uxStoreCode.includes('toggleUxMode: () => void'), 'חנות usePakalStore מגדירה מצב uxMode ופונקציית toggleUxMode');
-assert(uxStoreCode.includes('uxMode: \'enhanced\'') && uxStoreCode.includes('toggleUxMode: () => {'), 'חנות usePakalStore מאתחלת את uxMode כברירת מחדל וכוללת מנגנון היפוך');
-
+// Cycle 33: Permanent Enhanced Design & Zero Classic Toggles Verification
+console.log('\n[מחזור 33]: בדיקת קיבוע העיצוב המשודרג כסטנדרט בלעדי, הסרת מתגי הקלאסי ושדרוגי המשחקים');
 const uxHeaderCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'layout', 'Header.tsx'), 'utf8');
-assert(uxHeaderCode.includes('data-tour="tour-ux-mode"') && uxHeaderCode.includes('toggleUxMode'), 'סרגל הניווט העליון כולל מתג מעבר מהיר בין עיצוב קלאסי ל-2.0');
+assert(!uxHeaderCode.includes('toggleUxMode') && !uxHeaderCode.includes('data-tour="tour-ux-mode"'), 'הוסר לחלוטין מתג ההחלפה לעיצוב קלאסי מסרגל הניווט העליון (Header)');
 
 const uxDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
-assert(uxDrawerCode.includes('ממשק משחקים משודרג') && uxDrawerCode.includes('toggleUxMode'), 'מגירת ההגדרות והמשוב כוללת מתג החלפת עיצוב מלא עם הסבר');
+assert(!uxDrawerCode.includes('toggleUxMode') && !uxDrawerCode.includes('חזרה למראה הקלאסי'), 'הוסר לחלוטין כרטיס החלפת העיצוב לקלאסי ממגירת ההגדרות (FeedbackDrawer)');
 
 const uxTabooCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'taboo', 'TabooGame.tsx'), 'utf8');
-assert(uxTabooCode.includes('הסיבוב מוכן להזנקה!') && uxTabooCode.includes('התחל סיבוב! 🚀'), 'משחק טאבו שטח כולל מסך הסתרה וזינוק (Curtain) מקדים');
-assert(uxTabooCode.includes('Quick Mute Toggle') && uxTabooCode.includes('Micro-Hint for Field Play'), 'משחק טאבו שטח כולל השתקה מהירה ומיקרו-טיפ הפעלה');
+assert(uxTabooCode.includes('הסיבוב מוכן להזנקה!') && uxTabooCode.includes('התחל סיבוב! 🚀'), 'משחק טאבו שטח כולל מסך הסתרה וזינוק (Curtain) פעיל באופן קבוע');
+assert(uxTabooCode.includes('Quick Mute Toggle') && uxTabooCode.includes('Micro-Hint for Field Play'), 'משחק טאבו שטח כולל השתקה מהירה ומיקרו-טיפ הפעלה פעילים קבועה');
 
 const uxTrueFalseCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'TrueFalsePage.tsx'), 'utf8');
-assert(uxTrueFalseCode.includes('Top Visual Progress Bar') && uxTrueFalseCode.includes('Field Play Style Tip'), 'משחק נכון/לא נכון כולל סרגל התקדמות עליון וטיפ הפעלה לשטח');
+assert(uxTrueFalseCode.includes('Top Visual Progress Bar') && uxTrueFalseCode.includes('Field Play Style Tip'), 'משחק נכון/לא נכון כולל סרגל התקדמות עליון וטיפ הפעלה לשטח קבועים');
 assert(uxTrueFalseCode.includes('Big Next Question Thumb Button') && uxTrueFalseCode.includes('לשאלה הבאה'), 'משחק נכון/לא נכון כולל לחצן ענק נגיש לאגודל למעבר לשאלה הבאה');
 
 const uxVisualPageCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'VisualRiddlesPage.tsx'), 'utf8');
-assert(uxVisualPageCode.includes('הפעל במעגל'), 'דף חידות בציורים כולל לחצן הזנקת מצגת ישיר למעגל');
+assert(uxVisualPageCode.includes('הפעל במעגל') && uxVisualPageCode.includes('Quick Carousel / Presentation Launcher'), 'דף חידות בציורים כולל לחצן הזנקת מצגת ישיר למעגל פעיל קבוע');
 
 const uxCategoryCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'CategoryPage.tsx'), 'utf8');
-assert(uxCategoryCode.includes('איך משחקים "הוא והיא" במעגל?'), 'דף קטגוריית הוא והיא כולל כרטיסיית הדרכה פותחת');
+assert(uxCategoryCode.includes('איך משחקים "הוא והיא" במעגל?'), 'דף קטגוריית הוא והיא כולל כרטיסיית הדרכה פותחת פעילה קבוע');
 
 const uxTourCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'OnboardingTour.tsx'), 'utf8');
-assert(uxTourCode.includes('ENHANCED_TOUR_STEPS') && uxTourCode.includes('CLASSIC_TOUR_STEPS'), 'סיור הקליטה תומך במודאל דו-מצבי ומציג תחנות ממוקדות משחקים');
+assert(uxTourCode.includes('TOUR_STEPS') && uxTourCode.includes('משחקי שטח ותחרויות קבוצתיות'), 'סיור הקליטה מציג את התחנות המשודרגות כברירת מחדל אחידה וקבועה');
 
 // Cycle 34: Smartphone Native Display (iPhone & Android Viewports) & GitHub Actions CI Verification
 console.log('\n[מחזור 34]: בדיקת תצוגה מותאמת לסמארטפונים (iPhone & Android) ואימות תצורת GitHub Actions CI');
@@ -950,9 +946,7 @@ const ciWorkflowCode = fs.readFileSync(ciWorkflowPath, 'utf8');
 assert(ciWorkflowCode.includes('npm run test') && ciWorkflowCode.includes('npm run build'), 'תהליך ה-CI של GitHub Actions כולל הרצה אוטומטית של כלל מחזורי הבדיקות ובניית גרסת Production');
 
 const homePageCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'pages', 'HomePage.tsx'), 'utf8');
-assert(homePageCode.includes('ממשק משחקים משודרג פעיל!') && homePageCode.includes('חזור לקלאסי'), 'דף הבית מציג באנר פתיחה בולט במצב משודרג עם כפתור חזרה מהיר לקלאסי');
-
-assert(uxStoreCode.includes('uxMode: state.uxMode'), 'שדה uxMode נשמר לצמיתות ב-localStorage דרך partialize של usePakalStore');
+assert(!homePageCode.includes('חזור לקלאסי') && !homePageCode.includes('toggleUxMode'), 'דף הבית נקי מבאנרים וכפתורי חזרה לקלאסי (ממשק משודרג בלעדי וקבוע)');
 
 const ssCurtain = path.join(__dirname, '..', 'docs', 'screenshots', '07_ux2_taboo_curtain.svg');
 const ssProgress = path.join(__dirname, '..', 'docs', 'screenshots', '08_ux2_true_false_progress.svg');
@@ -1000,8 +994,8 @@ assert(allRtl1, 'כל 154 חידות הציורים ב-visual-riddles.json מש�
 assert(!homePageCode.includes('> 2.0') && !homePageCode.includes('>2.0'), 'דף הבית אינו מכיל תגיות 2.0 על כרטיסיות המשחקים');
 assert(!homePageCode.includes('UX 2.0'), 'דף הבית נקי לחלוטין מכיתוב UX 2.0');
 
-// 4. Verify Toggle switch button is cleanly labeled "משודרג ✨" / "קלאסי"
-assert(uxHeaderCode.includes('משודרג ✨') && uxHeaderCode.includes('קלאסי'), 'מתג החלפת העיצוב ב-Header מציג תוויות נקיות ("משודרג ✨" מול "קלאסי") ללא מספרי גרסה');
+// 4. Verify Toggle switch button is completely removed from Header
+assert(!uxHeaderCode.includes('toggleUxMode') && !uxHeaderCode.includes('משודרג ✨'), 'סרגל ה-Header נקי לחלוטין מכפתורי החלפת עיצוב לקלאסי');
 
 // ==========================================
 // [מחזור 36]: בדיקת מנוע סדר שאלות אקראי ייחודי למכשיר (Device-Based Seeded Randomization)

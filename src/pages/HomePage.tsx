@@ -64,8 +64,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     revealAll,
     hideAll,
     openFeedbackDrawer,
-    uxMode,
-    toggleUxMode,
     deviceShuffleSeed,
     randomOrderEnabled
   } = usePakalStore();
@@ -132,38 +130,6 @@ export const HomePage: React.FC<HomePageProps> = ({
       <div>
         <SearchBar totalMatches={isFiltering ? filteredRiddles.length : undefined} />
       </div>
-
-      {/* Enhanced Mode Notification Banner */}
-      {uxMode === 'enhanced' && !isFiltering && (
-        <div className={`p-3 rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-card-pop ${
-          isCampfire 
-            ? 'bg-gradient-to-r from-orange-950/60 via-stone-900 to-amber-950/60 border-orange-500/50 text-orange-200'
-            : 'bg-gradient-to-r from-amber-100 via-orange-50 to-amber-50 border-amber-300 text-stone-900'
-        }`}>
-          <div className="flex items-center gap-2.5">
-            <div className={`p-2 rounded-xl shrink-0 ${isCampfire ? 'bg-orange-600/30 text-amber-400' : 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-sm'}`}>
-              <Sparkles className="w-4 h-4 animate-pulse" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-xs font-black">ממשק משחקים משודרג פעיל!</span>
-              </div>
-              <p className="text-[11px] opacity-80 font-medium leading-tight mt-0.5">
-                מסך זינוק בטאבו, סרגל התקדמות וכפתור ענק בנכון/לא נכון, ומצגת במעגל
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={toggleUxMode}
-            title="חזור לממשק קלאסי"
-            className={`text-[10px] font-black px-2.5 py-1.5 rounded-xl border shrink-0 transition-all ${
-              isCampfire ? 'bg-stone-900 border-stone-700 text-stone-300 hover:bg-stone-800' : 'bg-white border-amber-300 text-amber-900 hover:bg-amber-50 shadow-sm'
-            }`}
-          >
-            חזור לקלאסי
-          </button>
-        </div>
-      )}
 
       {/* Field Situation Chips */}
       <div data-tour="tour-situations">
@@ -293,7 +259,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       </span>
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-rose-200/80' : 'text-rose-100'}`}>
-                      {uxMode === 'enhanced' ? 'הפעלה מהירה במעגל, שידור מקרן וסריקת QR לשטח' : 'זום למעגל החניכים, שידור מקרן וסריקת QR לשטח'}
+                      הפעלה מהירה במעגל, שידור מקרן וסריקת QR לשטח
                     </p>
                   </div>
                 </div>
@@ -325,7 +291,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       </span>
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-orange-200/80' : 'text-amber-100'}`}>
-                      {uxMode === 'enhanced' ? 'מסך זינוק והסתרה, השתקה מהירה, טיימר מונפש ותחרות קבוצות' : `${tabooData.length} כרטיסי שטח + טיימר 30/60/90 שנ', תחרות קבוצות וצפצוף`}
+                      מסך זינוק והסתרה, השתקה מהירה, טיימר מונפש ותחרות קבוצות
                     </p>
                   </div>
                 </div>
@@ -357,7 +323,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       </span>
                     </div>
                     <p className={`text-xs ${isCampfire ? 'text-emerald-200/80' : 'text-emerald-100'}`}>
-                      {uxMode === 'enhanced' ? 'סרגל התקדמות, כפתור ענק לאגודל וטיפים מתחלפים להפעלה בשטח' : 'טור בהליכה בשביל, מעגל פסילות, טיימר וניקוד קבוצות'}
+                      סרגל התקדמות, כפתור ענק לאגודל וטיפים מתחלפים להפעלה בשטח
                     </p>
                   </div>
                 </div>

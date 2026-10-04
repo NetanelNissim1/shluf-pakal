@@ -41,7 +41,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
     revealedMap,
     revealAll,
     hideAll,
-    uxMode,
     deviceShuffleSeed,
     randomOrderEnabled
   } = usePakalStore();
@@ -262,8 +261,8 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         </div>
       </div>
 
-      {/* He & She Welcome & Rules Banner (UX 2.0) */}
-      {uxMode === 'enhanced' && currentCategoryId === 'he-and-she' && (
+      {/* He & She Welcome & Rules Banner */}
+      {currentCategoryId === 'he-and-she' && (
         <div className={`p-4 rounded-2xl border flex flex-col gap-2 ${
           isCampfire ? 'bg-orange-950/40 border-orange-900/60 text-orange-200' : 'bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200 text-stone-900'
         }`}>

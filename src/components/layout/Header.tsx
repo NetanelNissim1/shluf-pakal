@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Flame, SunMedium, Volume2, VolumeX, Compass, Lightbulb, HelpCircle, Sparkles } from 'lucide-react';
+import { Flame, SunMedium, Volume2, VolumeX, Compass, Lightbulb, HelpCircle } from 'lucide-react';
 import { usePakalStore } from '../../store/usePakalStore';
 
 export const Header: React.FC = () => {
@@ -11,9 +11,7 @@ export const Header: React.FC = () => {
     textSize, 
     setTextSize,
     openFeedbackDrawer,
-    startTour,
-    uxMode,
-    toggleUxMode
+    startTour
   } = usePakalStore();
   const [showTextMenu, setShowTextMenu] = useState(false);
   const textMenuRef = useRef<HTMLDivElement>(null);
@@ -234,26 +232,6 @@ export const Header: React.FC = () => {
             }`}
           >
             {soundEnabled ? <Volume2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <VolumeX className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
-          </button>
-
-          {/* UX Mode Switch: Classic vs. Enhanced */}
-          <button
-            onClick={toggleUxMode}
-            data-tour="tour-ux-mode"
-            aria-label={uxMode === 'enhanced' ? 'מעבר לעיצוב קלאסי' : 'מעבר לעיצוב משודרג'}
-            title={uxMode === 'enhanced' ? 'עיצוב משודרג פעיל ✨ (לחץ למעבר לעיצוב קלאסי)' : 'הפעל עיצוב משודרג ✨ (לחץ להפעלת ממשק משחקים משודרג)'}
-            className={`px-1.5 min-[380px]:px-2 py-1 min-[380px]:py-1.5 rounded-xl flex items-center justify-center gap-0.5 min-[380px]:gap-1 transition-all touch-press ${
-              uxMode === 'enhanced'
-                ? isCampfire
-                  ? 'bg-gradient-to-r from-orange-600/40 to-amber-600/40 text-amber-300 border border-orange-500/50 shadow-sm'
-                  : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-sm'
-                : isCampfire
-                  ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900 border border-stone-800'
-                  : 'text-stone-400 hover:text-stone-700 hover:bg-amber-100/70 border border-stone-200'
-            }`}
-          >
-            <Sparkles className={`w-3.5 h-3.5 ${uxMode === 'enhanced' ? 'animate-pulse' : ''}`} />
-            <span className="text-[10px] font-black">{uxMode === 'enhanced' ? 'משודרג ✨' : 'קלאסי'}</span>
           </button>
 
           {/* Sun / Campfire Mode Toggle */}
