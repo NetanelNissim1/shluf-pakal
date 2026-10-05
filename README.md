@@ -14,7 +14,7 @@
 [![Taboo Cards](https://img.shields.io/badge/טאבו-100-red)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Interface](https://img.shields.io/badge/ממשק-משודרג%20וקבוע%20%7C%20Enhanced%20UX-blueviolet)](https://github.com/NetanelNissim1/shluf-pakal)
 [![CI](https://github.com/NetanelNissim1/shluf-pakal/actions/workflows/ci.yml/badge.svg)](https://github.com/NetanelNissim1/shluf-pakal/actions)
-[![Tests](https://img.shields.io/badge/בדיקות-225%2F225%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Tests](https://img.shields.io/badge/בדיקות-237%2F237%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Security Rating](https://img.shields.io/badge/אבטחה%20וסייבר-A%2B%20%7C%20Enterprise-success?logo=shield)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
@@ -62,6 +62,18 @@
 | :---: | :---: |
 | <img src="docs/screenshots/07_ux2_taboo_curtain.svg" width="380" alt="טאבו שטח מסך זינוק" /> | <img src="docs/screenshots/08_ux2_true_false_progress.svg" width="380" alt="נכון לא נכון סרגל התקדמות" /> |
 | **טאבו שטח קבוע:** מסך הסתרה וזינוק (Curtain Overlay) אטום עם כפתור ענק "התחל סיבוב! 🚀" המונע הצצות במעגל, כפתור השתקה מהירה ומיקרו-טיפים. | **נכון / לא נכון קבוע:** סרגל התקדמות עליון מונפש (אחוזים ושאלה X מתוך Y), כפתור ענק נגיש לאגודל "לשאלה הבאה ⬅️", וטיפים מתחלפים להפעלה בשטח. |
+
+---
+
+### 🗺️ כרטיס שיתוף לינק רשמי ברשתות ובוואטסאפ (Official Social Share & Branding)
+
+בעת שיתוף הלינק **[shluf-pakal.org](https://shluf-pakal.org)** בוואטסאפ, טלגרם, פייסבוק, לינקדאין או טוויטר, נפתח כרטיס תצוגה מקדימה עשיר (Open Graph 1200x630) עם לוגו "להבת המצפן", קווי גובה טופוגרפיים זהובים, ודגש על 100% פעילות אופליין ומעל 2,500 פעילויות:
+
+<p align="center">
+  <img src="docs/screenshots/11_social_share_banner.jpg" width="760" alt="באנר שיתוף חברתי רשמי של שלוף פק״ל" />
+</p>
+
+---
 
 ---
 
@@ -176,6 +188,11 @@
     * **החרגה מתודולוגית של פעילויות ה-ODT:** 101 פעילויות ה-ODT נשמרות בסדרן הפדגוגי המקורי (מחימום ופתיחה ⬅ גיבוש ואמון ⬅ מנהיגות ⬅ סיכום ועיבוד) כדי לא לפגוע ברצף ההדרכה המקצועי בשטח.
     * **אפס השהיות ויציבות סשן מלאה (Zero Lag & Session Stability):** חישוב הפרמוטציה מתבצע תוך שבריר מילי-שנייה ונשמר יציב ב-LocalStorage. נעילת מכשיר או ריענון דף בשטח אינם מאבדים את מיקום המדריך.
     * **שליטה ובקרה למדריך:** מתג בחירה במגירת ההגדרות בין "סדר אקראי ייחודי למכשיר" (ברירת מחדל) לבין "סדר נושאי מקורי", וכפתור "ערבב מחדש 🎲" לריענון סדר מיידי בכל רגע.
+
+18. **זהות מותגית, לוגו "להבת המצפן" ובאנר שיתוף חברתי מושלם (Branding & Rich Open Graph Preview):**
+    * **לוגו רשמי "להבת המצפן" (Compass Flame):** סמל מותג יוקרתי ומדויק המשלב בין שושנת רוחות ומצפן שטח לבין להבת מדורה חיה. הסמל הוטמע כ-SVG וקטורי בסרגל ה-Header, בלשוניות הדפדפן (Favicon) ובחבילת אייקוני ה-PWA (`icon-192x192.png`, `icon-512x512.png`, `apple-touch-icon.png`).
+    * **כרטיס שיתוף מרהיב לרשתות (Open Graph 1200x630):** בעת שיתוף הלינק בוואטסאפ, טלגרם, פייסבוק, לינקדאין או טוויטר, נפתח כרטיס תצוגה מקדימה עשיר עם באנר גרפי-טופוגרפי מוזהב, כותרת מסקרנת, ותיאור המדגיש את 2,500+ הפעילויות ו-100% האופליין.
+    * **אופטימיזציית משקל ומהירות (Ultra-Fast Scraping):** באנר השיתוף מותאם במשקל קל במיוחד (כ-188KB בלבד) המבטיח תצוגה מקדימה מיידית בכל אפליקציית מסרים גם בחיבור איטי.
 
 ---
 

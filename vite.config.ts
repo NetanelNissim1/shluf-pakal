@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icons/*.png'],
+      includeAssets: ['favicon.svg', 'icons/*.png', 'assets/logo.svg', 'apple-touch-icon.png', 'og-image.jpg'],
       manifest: {
         name: 'שלוף - פק"ל חידות והפעלות שטח',
         short_name: 'שלוף',
@@ -38,7 +38,7 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,jpg}'],
         dontCacheBustURLsMatching: /-[a-zA-Z0-9_-]{8}\./,
         cleanupOutdatedCaches: true,
         clientsClaim: true,

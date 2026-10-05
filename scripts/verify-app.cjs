@@ -1072,6 +1072,45 @@ assert(!rndOdtCode.includes('seededShuffle'), 'פעילויות ODT נשמרות
 const rndDrawerCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'components', 'common', 'FeedbackDrawer.tsx'), 'utf8');
 assert(rndDrawerCode.includes('סדר שאלות אקראי למכשיר') && rndDrawerCode.includes('toggleRandomOrder'), 'מגירת ההגדרות כוללת מתג החלפת סדר שאלות אקראי למכשיר');
 
+// [מחזור 37]: בדיקת זהות מותגית, לוגו להבת המצפן, תגיות Open Graph ובאנר שיתוף חברתי לרשתות
+console.log('\n[מחזור 37]: בדיקת זהות מותגית, לוגו להבת המצפן, תגיות Open Graph ובאנר שיתוף חברתי לרשתות');
+
+const brandIndexPath = path.join(__dirname, '..', 'index.html');
+const brandIndexHtml = fs.readFileSync(brandIndexPath, 'utf8');
+
+// 1. Verify complete Open Graph tags in index.html
+assert(brandIndexHtml.includes('property="og:image"') && brandIndexHtml.includes('https://shluf-pakal.org/og-image.jpg'), 'קובץ index.html כולל תגית og:image המפנה ל-og-image.jpg רשמי');
+assert(brandIndexHtml.includes('property="og:image:width"') && brandIndexHtml.includes('content="1200"'), 'קובץ index.html כולל og:image:width בגודל תקני של 1200 פיקסלים');
+assert(brandIndexHtml.includes('property="og:image:height"') && brandIndexHtml.includes('content="630"'), 'קובץ index.html כולל og:image:height בגודל תקני של 630 פיקסלים');
+assert(brandIndexHtml.includes('property="og:site_name"') && brandIndexHtml.includes('og:locale'), 'קובץ index.html כולל og:site_name ו-og:locale (he_IL)');
+
+// 2. Verify Twitter / X Cards in index.html
+assert(brandIndexHtml.includes('name="twitter:card"') && brandIndexHtml.includes('content="summary_large_image"'), 'קובץ index.html כולל twitter:card מסוג summary_large_image לפריסה רחבה');
+assert(brandIndexHtml.includes('name="twitter:image"'), 'קובץ index.html כולל תמונת twitter:image תואמת');
+
+// 3. Verify public assets existence and sizes
+const ogImagePath = path.join(__dirname, '..', 'public', 'og-image.jpg');
+assert(fs.existsSync(ogImagePath), 'קובץ הבאנר public/og-image.jpg קיים במערכת');
+const ogImageStat = fs.statSync(ogImagePath);
+assert(ogImageStat.size > 10000 && ogImageStat.size < 300000, `קובץ og-image.jpg במשקל אידיאלי לוואטסאפ (${Math.round(ogImageStat.size / 1024)}KB < 300KB)`);
+
+// 4. Verify vector logo and favicon
+const logoSvgPath = path.join(__dirname, '..', 'public', 'assets', 'logo.svg');
+assert(fs.existsSync(logoSvgPath), 'קובץ לוגו להבת המצפן public/assets/logo.svg קיים');
+const faviconSvgPath = path.join(__dirname, '..', 'public', 'favicon.svg');
+const faviconContent = fs.readFileSync(faviconSvgPath, 'utf8');
+assert(faviconContent.includes('favFlame') && faviconContent.includes('favGold'), 'קובץ favicon.svg מעודכן עם סמל להבת המצפן בניגודיות גבוהה');
+
+// 5. Verify App Header integration
+const brandHeaderPath = path.join(__dirname, '..', 'src', 'components', 'layout', 'Header.tsx');
+const brandHeaderCode = fs.readFileSync(brandHeaderPath, 'utf8');
+assert(brandHeaderCode.includes('/assets/logo.svg'), 'סרגל ה-Header משתמש בלוגו להבת המצפן הרשמי (/assets/logo.svg)');
+
+// 6. Verify Vite PWA config includes social and brand assets
+const brandViteConfigPath = path.join(__dirname, '..', 'vite.config.ts');
+const brandViteCode = fs.readFileSync(brandViteConfigPath, 'utf8');
+assert(brandViteCode.includes('og-image.jpg') && brandViteCode.includes('assets/logo.svg'), 'קובץ vite.config.ts כולל את og-image.jpg ו-logo.svg ב-Precache של ה-PWA');
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

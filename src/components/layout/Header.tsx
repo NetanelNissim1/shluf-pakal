@@ -51,12 +51,16 @@ export const Header: React.FC = () => {
         
         {/* Brand Logo & Title */}
         <div className="flex items-center gap-1.5 min-[380px]:gap-2 min-w-0 shrink">
-          <div className={`w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shadow-md transition-all shrink-0 ${
+          <div className={`w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shadow-md transition-all shrink-0 overflow-hidden ${
             isCampfire
-              ? 'bg-gradient-to-br from-orange-600 to-red-700 text-white shadow-orange-950/80 animate-flame'
-              : 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-amber-300'
+              ? 'bg-gradient-to-br from-orange-600 to-red-700 shadow-orange-950/80 animate-flame'
+              : 'bg-gradient-to-br from-amber-500 to-orange-500 shadow-amber-300'
           }`}>
-            <Flame className="w-4.5 h-4.5 min-[380px]:w-5 min-[380px]:h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
+            <img 
+              src="/assets/logo.svg" 
+              alt="שלוף - להבת המצפן" 
+              className="w-full h-full object-contain p-0.5 select-none pointer-events-none" 
+            />
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1 min-[380px]:gap-1.5">
