@@ -56,7 +56,7 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({ riddle, index }) => {
 
   return (
     <div 
-      className={`rounded-2xl border p-4.5 transition-all duration-200 animate-card-pop relative overflow-hidden ${
+      className={`rounded-2xl border p-5 sm:p-6 transition-all duration-200 animate-card-pop relative overflow-hidden ${
         isCampfire
           ? 'bg-campfire-card border-campfire-border/90 text-orange-100 shadow-fire'
           : 'bg-white border-amber-200/90 text-stone-900 shadow-field hover:border-amber-300'
@@ -142,11 +142,11 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({ riddle, index }) => {
         className={`w-full rounded-xl cursor-pointer transition-all duration-200 select-none ${
           showAnswer
             ? isCampfire
-              ? 'bg-orange-950/90 border border-orange-600/80 text-orange-200 p-3.5'
-              : 'bg-amber-50 border border-amber-300 text-stone-900 p-3.5 shadow-inner'
+              ? 'bg-orange-950/90 border border-orange-600/80 text-orange-200 p-4'
+              : 'bg-amber-50 border border-amber-300 text-stone-900 p-4 shadow-inner'
             : isCampfire
-              ? 'bg-stone-900/90 border border-stone-800/80 hover:border-orange-700 text-orange-300/80 py-3 px-4'
-              : 'bg-stone-50 hover:bg-amber-50/60 border border-dashed border-stone-300 hover:border-amber-400 text-stone-600 py-3 px-4'
+              ? 'bg-stone-900/90 border border-stone-800/80 hover:border-orange-700 text-orange-300/80 py-3.5 px-4 sm:px-5'
+              : 'bg-stone-50 hover:bg-amber-50/60 border border-dashed border-stone-300 hover:border-amber-400 text-stone-600 py-3.5 px-4 sm:px-5'
         }`}
       >
         {showAnswer ? (

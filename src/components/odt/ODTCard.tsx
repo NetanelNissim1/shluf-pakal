@@ -164,7 +164,7 @@ ${activity.instructions}
   };
 
   return (
-    <div className={`rounded-2xl border p-4.5 transition-all duration-200 animate-card-pop relative overflow-hidden ${
+    <div className={`rounded-2xl border p-5 sm:p-6 transition-all duration-200 animate-card-pop relative overflow-hidden ${
       isCampfire
         ? 'bg-campfire-card border-campfire-border/90 text-orange-100 shadow-fire'
         : 'bg-white border-amber-200/90 text-stone-900 shadow-field hover:border-amber-300'
@@ -264,7 +264,7 @@ ${activity.instructions}
       </div>
 
       {/* Step-by-Step Instructions */}
-      <div className={`p-3.5 rounded-xl border text-sm sm:text-base leading-relaxed mb-4 select-none ${
+      <div className={`p-4 sm:p-5 rounded-xl border text-sm sm:text-base leading-relaxed mb-4 select-none ${
         isCampfire
           ? 'bg-stone-950/80 border-stone-800/80 text-stone-200'
           : 'bg-stone-50 border-stone-200/80 text-stone-800'
@@ -279,7 +279,7 @@ ${activity.instructions}
       </div>
 
       {/* Integrated Field Timer / Stopwatch Section */}
-      <div className={`p-3 rounded-xl border transition-all ${
+      <div className={`p-4 rounded-xl border transition-all ${
         isCampfire ? 'bg-stone-900/70 border-stone-800' : 'bg-amber-50/50 border-amber-200/70'
       }`}>
         <div className="flex items-center justify-between mb-2">

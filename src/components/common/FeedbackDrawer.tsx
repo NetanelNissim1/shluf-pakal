@@ -228,7 +228,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
         <div className="p-6 overflow-y-auto space-y-4">
 
           {/* Quick Settings: Random Order Switch */}
-          <div className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
+          <div className={`p-4 sm:p-5 rounded-2xl border flex items-center justify-between gap-3 ${
             isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-blue-50/70 border-blue-200'
           }`}>
             <div className="flex items-center gap-2">
@@ -425,7 +425,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
 
               {/* Error Message */}
               {errorMessage && (
-                <div className="p-3 text-xs rounded-xl bg-red-100 dark:bg-red-950/60 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900">
+                <div className="p-4 text-xs rounded-xl bg-red-100 dark:bg-red-950/60 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900">
                   {errorMessage}
                 </div>
               )}

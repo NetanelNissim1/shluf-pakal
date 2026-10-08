@@ -68,7 +68,7 @@ export const VisualInstructionsModal: React.FC<VisualInstructionsModalProps> = (
         <div className="overflow-y-auto space-y-4 py-4 pr-1 text-sm leading-relaxed custom-scrollbar">
           
           {/* What is a Rebus Box */}
-          <div className={`p-3.5 rounded-2xl border flex items-start gap-3 ${
+          <div className={`p-4 sm:p-5 rounded-2xl border flex items-start gap-3 ${
             isCampfire ? 'bg-orange-950/30 border-orange-900/50 text-orange-200' : 'bg-amber-50/80 border-amber-200 text-amber-900'
           }`}>
             <Lightbulb className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
@@ -81,7 +81,7 @@ export const VisualInstructionsModal: React.FC<VisualInstructionsModalProps> = (
           <div className="space-y-3">
             
             {/* Rule 1 */}
-            <div className={`p-3.5 rounded-2xl border transition-all ${
+            <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${
               isCampfire ? 'bg-stone-900/70 border-stone-800' : 'bg-stone-50 border-stone-200'
             }`}>
               <div className="flex items-center gap-2 mb-1.5">
@@ -95,7 +95,7 @@ export const VisualInstructionsModal: React.FC<VisualInstructionsModalProps> = (
             </div>
 
             {/* Rule 2 */}
-            <div className={`p-3.5 rounded-2xl border transition-all ${
+            <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${
               isCampfire ? 'bg-stone-900/70 border-stone-800' : 'bg-stone-50 border-stone-200'
             }`}>
               <div className="flex items-center gap-2 mb-1.5">
@@ -109,7 +109,7 @@ export const VisualInstructionsModal: React.FC<VisualInstructionsModalProps> = (
             </div>
 
             {/* Rule 3 */}
-            <div className={`p-3.5 rounded-2xl border transition-all ${
+            <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${
               isCampfire ? 'bg-stone-900/70 border-stone-800' : 'bg-stone-50 border-stone-200'
             }`}>
               <div className="flex items-center gap-2 mb-1.5">
@@ -123,7 +123,7 @@ export const VisualInstructionsModal: React.FC<VisualInstructionsModalProps> = (
             </div>
 
             {/* Rule 4 */}
-            <div className={`p-3.5 rounded-2xl border transition-all ${
+            <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${
               isCampfire ? 'bg-stone-900/70 border-stone-800' : 'bg-stone-50 border-stone-200'
             }`}>
               <div className="flex items-center gap-2 mb-1.5">
@@ -139,7 +139,7 @@ export const VisualInstructionsModal: React.FC<VisualInstructionsModalProps> = (
           </div>
 
           {/* Quick Tip */}
-          <div className="text-center p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+          <div className="text-center p-3.5 sm:p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
             רעיון לתחרות: חלקו את הקבוצה לשני צוותים. הצוות הראשון שמפענח את הרבוס זוכה בנקודה!
           </div>
 

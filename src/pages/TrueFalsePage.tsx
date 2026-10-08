@@ -253,7 +253,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
 
       {/* Team Scores Drawer / Banner */}
       {showTeamScores && (
-        <div className={`p-3 rounded-2xl border flex items-center justify-around animate-fade-in ${
+        <div className={`p-4 sm:p-5 rounded-2xl border flex items-center justify-around animate-fade-in ${
           isCampfire ? 'bg-stone-950 border-amber-900/60' : 'bg-amber-50/80 border-amber-200 shadow-sm'
         }`}>
           {/* Team A */}
@@ -473,7 +473,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
       )}
 
       {/* Field Play Style Tip */}
-      <div className={`p-2.5 rounded-xl border text-xs font-bold flex items-center gap-2 ${
+      <div className={`p-4 rounded-xl border text-xs font-bold flex items-center gap-2 ${
         isCampfire ? 'bg-stone-900 border-stone-800 text-amber-300' : 'bg-emerald-50/80 border-emerald-200 text-emerald-900'
       }`}>
         <span className="text-base shrink-0">🏃‍♂️</span>
@@ -568,7 +568,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
               if (isUserCorrect === true) {
                 return (
                   <div className="space-y-3 pt-2 animate-fade-in">
-                    <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
+                    <div className={`p-5 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
                       isCampfire 
                         ? 'bg-emerald-950/60 border-emerald-500 text-emerald-100 shadow-emerald-950/50' 
                         : 'bg-emerald-50/95 border-emerald-500 text-emerald-950 shadow-emerald-600/10'
@@ -596,7 +596,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
               if (isUserCorrect === false) {
                 return (
                   <div className="space-y-3 pt-2 animate-fade-in">
-                    <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
+                    <div className={`p-5 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
                       isCampfire 
                         ? 'bg-rose-950/60 border-rose-600 text-rose-100 shadow-rose-950/50' 
                         : 'bg-rose-50/95 border-rose-500 text-rose-950 shadow-rose-600/10'
@@ -623,7 +623,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
               // 3. Guide directly revealed without an answer selection (neutral objective styling)
               return (
                 <div className="space-y-3 pt-2 animate-fade-in">
-                  <div className={`p-4 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
+                  <div className={`p-5 rounded-2xl border-2 flex items-start gap-3 shadow-md ${
                     isCampfire 
                       ? 'bg-stone-900/90 border-amber-500/70 text-amber-100 shadow-amber-950/50' 
                       : 'bg-amber-50/95 border-amber-400 text-amber-950 shadow-amber-600/10'

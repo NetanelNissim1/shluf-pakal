@@ -262,7 +262,7 @@ export const OnboardingTour: React.FC = () => {
           width: Math.min(340, window.innerWidth - 32),
           transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
-        className={`z-50 rounded-2xl p-4.5 border-2 shadow-2xl transition-all ${
+        className={`z-50 rounded-2xl p-5 border-2 shadow-2xl transition-all ${
           isCampfire 
             ? 'bg-stone-950 border-orange-500/60 text-stone-100 shadow-orange-950/80' 
             : 'bg-white border-amber-300 text-stone-900 shadow-2xl'

@@ -70,7 +70,7 @@ export const TrueFalseInstructionsModal: React.FC<TrueFalseInstructionsModalProp
       <div className="overflow-y-auto py-4 space-y-4 text-xs sm:text-sm leading-relaxed">
         
         {/* 1. גרסת הטור בהליכה */}
-        <div className={`p-3.5 rounded-2xl border ${
+        <div className={`p-4 sm:p-5 rounded-2xl border ${
           isCampfire ? 'bg-stone-900/80 border-stone-800' : 'bg-emerald-50/70 border-emerald-200'
         }`}>
           <div className="flex items-center gap-2 mb-1.5 font-bold text-emerald-700 dark:text-emerald-400">
@@ -93,7 +93,7 @@ export const TrueFalseInstructionsModal: React.FC<TrueFalseInstructionsModalProp
         </div>
 
         {/* 2. גרסת הפסילות במעגל */}
-        <div className={`p-3.5 rounded-2xl border ${
+        <div className={`p-4 sm:p-5 rounded-2xl border ${
           isCampfire ? 'bg-stone-900/80 border-stone-800' : 'bg-amber-50/70 border-amber-200'
         }`}>
           <div className="flex items-center gap-2 mb-1.5 font-bold text-amber-700 dark:text-amber-400">
@@ -111,7 +111,7 @@ export const TrueFalseInstructionsModal: React.FC<TrueFalseInstructionsModalProp
         </div>
 
         {/* 3. גרסת הבלוף וההסבר המחכים */}
-        <div className={`p-3.5 rounded-2xl border ${
+        <div className={`p-4 sm:p-5 rounded-2xl border ${
           isCampfire ? 'bg-stone-900/80 border-stone-800' : 'bg-purple-50/70 border-purple-200'
         }`}>
           <div className="flex items-center gap-2 mb-1.5 font-bold text-purple-700 dark:text-purple-400">

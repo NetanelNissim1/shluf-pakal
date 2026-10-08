@@ -211,7 +211,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
       </div>
 
       {/* Category Info Header */}
-      <div className={`p-4 rounded-2xl border transition-all ${
+      <div className={`p-5 sm:p-6 rounded-2xl border transition-all ${
         isCampfire 
           ? 'bg-campfire-card border-campfire-border/90 text-orange-100 shadow-fire' 
           : 'bg-white border-amber-200/90 text-stone-900 shadow-field'
@@ -263,7 +263,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
 
       {/* He & She Welcome & Rules Banner */}
       {currentCategoryId === 'he-and-she' && (
-        <div className={`p-4 rounded-2xl border flex flex-col gap-2 ${
+        <div className={`p-5 rounded-2xl border flex flex-col gap-2 ${
           isCampfire ? 'bg-orange-950/40 border-orange-900/60 text-orange-200' : 'bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200 text-stone-900'
         }`}>
           <div className="flex items-center justify-between">

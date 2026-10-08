@@ -121,7 +121,7 @@ export const VisualRiddlesPage: React.FC = () => {
     <div className="space-y-4 pb-24">
       
       {/* Header Banner */}
-      <div className={`p-4.5 rounded-2xl border transition-all ${
+      <div className={`p-5 sm:p-6 rounded-2xl border transition-all ${
         isCampfire 
           ? 'bg-campfire-card border-campfire-border/90 text-orange-100 shadow-fire' 
           : 'bg-white border-amber-200/90 text-stone-900 shadow-field'

@@ -205,7 +205,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* 1. ODT Activities Banner */}
             <div 
               onClick={onNavigateODT}
-              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+              className={`p-5 sm:p-6 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
                 isCampfire
                   ? 'bg-gradient-to-r from-emerald-950 via-campfire-card to-stone-950 border-emerald-600/70 shadow-fire'
                   : 'bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border-emerald-400 shadow-md shadow-emerald-600/20'
@@ -238,7 +238,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div 
               onClick={onNavigateVisual}
               data-tour="tour-visual"
-              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+              className={`p-5 sm:p-6 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
                 isCampfire
                   ? 'bg-gradient-to-r from-purple-950 via-campfire-card to-stone-950 border-purple-600/70 shadow-fire'
                   : 'bg-gradient-to-r from-amber-600 via-rose-600 to-purple-600 text-white border-rose-400 shadow-md shadow-rose-500/20'
@@ -270,7 +270,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* 3. Taboo Game Banner */}
             <div 
               onClick={onNavigateTaboo}
-              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+              className={`p-5 sm:p-6 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
                 isCampfire
                   ? 'bg-gradient-to-r from-red-950 via-campfire-card to-stone-950 border-orange-600/70 shadow-fire'
                   : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white border-amber-400 shadow-md shadow-amber-500/20'
@@ -302,7 +302,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* 4. True or False Game Banner */}
             <div 
               onClick={onNavigateTrueFalse}
-              className={`p-3.5 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
+              className={`p-5 sm:p-6 rounded-2xl border transition-all cursor-pointer touch-press relative overflow-hidden group ${
                 isCampfire
                   ? 'bg-gradient-to-r from-emerald-950 via-campfire-card to-stone-950 border-emerald-600/70 shadow-fire'
                   : 'bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white border-emerald-400 shadow-md shadow-emerald-500/20'
@@ -353,7 +353,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div
                     key={cat.id}
                     onClick={() => onNavigateCategory(cat.id)}
-                    className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                    className={`p-5 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
                       isCampfire
                         ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 hover:bg-stone-900 shadow-fire'
                         : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
@@ -390,7 +390,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Category Card: חידות בציורים ורבוסים */}
               <div
                 onClick={onNavigateVisual}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                className={`p-5 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
                   isCampfire
                     ? 'bg-campfire-card border-campfire-border hover:border-purple-500/80 hover:bg-stone-900 shadow-fire'
                     : 'bg-white border-amber-200/90 hover:border-purple-400 hover:shadow-md shadow-field'
@@ -425,7 +425,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Category Card: משחק טאבו שטח */}
               <div
                 onClick={onNavigateTaboo}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                className={`p-5 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
                   isCampfire
                     ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 hover:bg-stone-900 shadow-fire'
                     : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
@@ -460,7 +460,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Category Card: משחק נכון / לא נכון */}
               <div
                 onClick={onNavigateTrueFalse}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
+                className={`p-5 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
                   isCampfire
                     ? 'bg-campfire-card border-campfire-border hover:border-emerald-500/80 hover:bg-stone-900 shadow-fire'
                     : 'bg-white border-amber-200/90 hover:border-emerald-400 hover:shadow-md shadow-field'
@@ -495,7 +495,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Quick Guide Tips Card */}
-          <div className={`p-4 rounded-2xl border text-xs leading-relaxed ${
+          <div className={`p-5 rounded-2xl border text-xs leading-relaxed ${
             isCampfire 
               ? 'bg-stone-950 border-campfire-border/60 text-stone-400' 
               : 'bg-amber-100/50 border-amber-200 text-stone-700'
@@ -509,7 +509,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Feedback & Suggestions Banner */}
-          <div className={`p-4 rounded-2xl border text-xs leading-relaxed flex items-center justify-between gap-3 ${
+          <div className={`p-5 rounded-2xl border text-xs leading-relaxed flex items-center justify-between gap-3 ${
             isCampfire 
               ? 'bg-stone-950 border-stone-800 text-stone-300' 
               : 'bg-emerald-50/70 border-emerald-200 text-stone-700'
