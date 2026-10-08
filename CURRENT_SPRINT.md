@@ -1,7 +1,7 @@
 # שלוף פק"ל — סטטוס ספרינט נוכחי (CURRENT_SPRINT)
 
-**עדכון אחרון:** 06 באוקטובר 2026 | **גרסה:** Production Ready (Enhanced UX & Brand Identity)  
-**ענף פעיל:** `main` | **סטטוס אינטגרציה:** עבר בהצלחה (237/237 בדיקות + 8/8 מבחני סייבר)  
+**עדכון אחרון:** 08 באוקטובר 2026 | **גרסה:** Production Ready (Code-Splitted PWA & Brand Identity)  
+**ענף פעיל:** `main` | **סטטוס אינטגרציה:** עבר בהצלחה (246/246 בדיקות + 8/8 מבחני סייבר)  
 **כתובת האתר:** [shluf-pakal.org](https://shluf-pakal.org) | **מאגר גיטהאב:** [NetanelNissim1/shluf-pakal](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
@@ -44,6 +44,12 @@
    - **באנר שיתוף רשמי (1200x630):** קובץ `og-image.jpg` קל-משקל (188KB) המעניק תצוגה מקדימה עשירה ויוקרתית בוואטסאפ, טלגרם, פייסבוק, לינקדאין וטוויטר.
    - **תגיות חברתיות מקיפות:** הטמעת `og:image`, `og:site_name`, `og:locale`, `twitter:card="summary_large_image"` וכותרות שיווקיות סוחפות.
 
+7. **אופטימיזציית ביצועים ופיצול חבילת PWA (Bundle Splitting & Lazy Loading):**
+   - פיצול דינמי באמצעות `React.lazy()` ו-`<Suspense>` עם רכיב טעינה נגיש (`PageLoadingFallback`) עבור דפי המשחקים (`TabooPage`, `ODTPage`, `VisualRiddlesPage`, `TrueFalsePage`, `CategoryPage`, `MyPakalPage`, `StudentViewerPage`).
+   - פיצול Rollup באמצעות `manualChunks` עבור ספריות React, Lucide icons ומסד התוכן המוצפן (`content-data`).
+   - הקטנת ה-chunk הראשי של ה-JS (`index-*.js`) מ-**1.62MB** ל-**97.8kB** בלבד (**הפחתה של 94%**, ו-28kB ב-gzip!).
+   - הכללה מלאה של כל 182 הנכסים וה-chunks ב-Precache של ה-Service Worker לשמירה על 100% פעילות אופליין.
+
 ---
 
 ## 📊 סטטוס נוכחי ומדדי איכות (Metrics & Health)
@@ -51,9 +57,10 @@
 | תחום | סטטוס | פירוט |
 | :--- | :---: | :--- |
 | **קומפילציית TypeScript** | ✅ עבר בהצלחה | `tsc --noEmit` ללא שום שגיאה או אזהרה |
-| **חבילת בדיקות האפליקציה** | ✅ 237/237 עברו (100%) | [`scripts/verify-app.cjs`](file:///c:/projects/shluf-pakal/scripts/verify-app.cjs) — 37 מחזורי אימות שלמים |
+| **חבילת בדיקות האפליקציה** | ✅ 246/246 עברו (100%) | [`scripts/verify-app.cjs`](file:///c:/projects/shluf-pakal/scripts/verify-app.cjs) — 38 מחזורי אימות שלמים |
 | **חבילת בדיקות סייבר ואבטחה** | ✅ 8/8 עברו (100%) | [`scripts/verify-security.cjs`](file:///c:/projects/shluf-pakal/scripts/verify-security.cjs) — בדיקות תקן מחמירות |
-| **בניית Production PWA** | ✅ עבר בהצלחה | `vite build` — יצירת Manifest, Service Worker ו-Precache מלא של 173 נכסים |
+| **גודל ה-chunk הראשי (JS)** | ⚡ 97.8 kB (28 kB gzip) | ירידה חדה מ-1.62MB (הפחתה של 94%) |
+| **בניית Production PWA** | ✅ עבר בהצלחה | `vite build` — יצירת Manifest, Service Worker ו-Precache מלא של 182 נכסים |
 | **סך פעילויות ותוכן** | 📚 2,525 פריטים | 1,813 חידות + 152 נכון/לא נכון + 205 הוא והיא + 101 ODT + 154 ציורים + 100 טאבו |
 | **הגנת אופליין (PWA)** | ⚡ 100% Offline-First | עבודה מלאה וחלקה ללא רשת, במצב טיסה או בעומק שטח |
 | **נראות שיתוף חברתי** | 🌟 מוגדר ומאומת | באנר Open Graph 1200x630 (188KB) מוטמע מלא לוואטסאפ ורשתות |
@@ -90,7 +97,8 @@
 
 1. **משוב משתמשים ראשוני מהשטח (Field Feedback Collection):**
    - איסוף תובנות ממדריכים פעילים באמצעות מערכת המשוב המובנית על סדר השאלות האקראי וזמני הטיימר במשחקים.
-2. **אופטימיזציית גודל חבילת ה-PWA (Bundle Splitting):**
-   - פיצול דינמי (`dynamic import()`) לקטגוריות תוכן כבדות ולמודול ה-ODT כדי להקטין את גודל הטעינה הראשונית עוד יותר (מתחת ל-500kB ל-chunk).
-3. **תוספות תוכן עתידיות:**
+2. **תוספות תוכן עתידיות:**
    - העשרת חידות ייעודיות לעונות השנה (סתיו/חורף) ואירועי לילה בשטח לפי דרישה.
+3. **בדיקות שטח ומכשירים מבוססי Low-End:**
+   - בדיקת זמן תגובה וטעינת Chunks במכשירי אנדרואיד מוחלשים בתנאי חום ושמש.
+

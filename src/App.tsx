@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Header } from './components/layout/Header';
 import { BottomNav, NavTab } from './components/layout/BottomNav';
 import { HomePage } from './pages/HomePage';
-import { CategoryPage } from './pages/CategoryPage';
-import { TabooPage } from './pages/TabooPage';
-import { MyPakalPage } from './pages/MyPakalPage';
-import { ODTPage } from './pages/ODTPage';
-import { VisualRiddlesPage } from './pages/VisualRiddlesPage';
-import { TrueFalsePage } from './pages/TrueFalsePage';
-import { StudentViewerPage } from './components/visual/StudentViewerPage';
 import { RandomizerModal } from './components/randomizer/RandomizerModal';
 import { FeedbackDrawer } from './components/common/FeedbackDrawer';
 import { OnboardingTour } from './components/common/OnboardingTour';
@@ -16,6 +9,33 @@ import { usePakalStore } from './store/usePakalStore';
 import { CategoryId } from './types';
 import { initContentProtection } from './lib/security';
 import { initFeedbackSync } from './lib/feedback';
+
+// Dynamic lazy imports for heavy game pages & modules (Bundle Splitting & Lazy Loading)
+const CategoryPage = lazy(() => import('./pages/CategoryPage').then(m => ({ default: m.CategoryPage })));
+const TabooPage = lazy(() => import('./pages/TabooPage').then(m => ({ default: m.TabooPage })));
+const MyPakalPage = lazy(() => import('./pages/MyPakalPage').then(m => ({ default: m.MyPakalPage })));
+const ODTPage = lazy(() => import('./pages/ODTPage').then(m => ({ default: m.ODTPage })));
+const VisualRiddlesPage = lazy(() => import('./pages/VisualRiddlesPage').then(m => ({ default: m.VisualRiddlesPage })));
+const TrueFalsePage = lazy(() => import('./pages/TrueFalsePage').then(m => ({ default: m.TrueFalsePage })));
+const StudentViewerPage = lazy(() => import('./components/visual/StudentViewerPage').then(m => ({ default: m.StudentViewerPage })));
+
+// Accessible loading fallback for dynamic transitions
+const PageLoadingFallback: React.FC = () => (
+  <div 
+    className="flex flex-col items-center justify-center min-h-[50vh] py-16 space-y-4 animate-fade-in select-none" 
+    role="status" 
+    aria-label="טוען תוכן מהפק&quot;ל..."
+  >
+    <div className="relative w-12 h-12">
+      <div className="absolute inset-0 rounded-full border-4 border-amber-500/20 animate-ping opacity-25" />
+      <div className="w-12 h-12 rounded-full border-4 border-amber-500 border-t-transparent animate-spin" />
+    </div>
+    <div className="flex items-center gap-2 text-stone-500 dark:text-orange-300/80 font-medium text-sm">
+      <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+      <span>שולף מהפק&quot;ל...</span>
+    </div>
+  </div>
+);
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
@@ -146,15 +166,17 @@ export const App: React.FC = () => {
   // Render Student Viewer if mode=student is activated
   if (studentMode) {
     return (
-      <StudentViewerPage
-        riddleId={studentRiddleId}
-        onExitStudentMode={() => {
-          setStudentMode(false);
-          if (typeof window !== 'undefined') {
-            window.history.replaceState({}, '', window.location.pathname);
-          }
-        }}
-      />
+      <Suspense fallback={<PageLoadingFallback />}>
+        <StudentViewerPage
+          riddleId={studentRiddleId}
+          onExitStudentMode={() => {
+            setStudentMode(false);
+            if (typeof window !== 'undefined') {
+              window.history.replaceState({}, '', window.location.pathname);
+            }
+          }}
+        />
+      </Suspense>
     );
   }
 
@@ -167,38 +189,40 @@ export const App: React.FC = () => {
 
       {/* Main Content Area */}
       <main className="flex-1 w-full max-w-lg mx-auto px-3.5 sm:px-4 pt-3.5 pb-safe">
-        {currentTab === 'home' && (
-          <HomePage
-            onNavigateCategory={handleNavigateCategory}
-            onNavigateTaboo={handleNavigateTaboo}
-            onNavigatePakal={handleNavigatePakal}
-            onNavigateODT={handleNavigateODT}
-            onNavigateVisual={handleNavigateVisual}
-            onNavigateTrueFalse={handleNavigateTrueFalse}
-          />
-        )}
+        <Suspense fallback={<PageLoadingFallback />}>
+          {currentTab === 'home' && (
+            <HomePage
+              onNavigateCategory={handleNavigateCategory}
+              onNavigateTaboo={handleNavigateTaboo}
+              onNavigatePakal={handleNavigatePakal}
+              onNavigateODT={handleNavigateODT}
+              onNavigateVisual={handleNavigateVisual}
+              onNavigateTrueFalse={handleNavigateTrueFalse}
+            />
+          )}
 
-        {currentTab === 'categories' && (
-          <CategoryPage 
-            onNavigateVisual={handleNavigateVisual}
-            onNavigateTaboo={handleNavigateTaboo}
-            onNavigateTrueFalse={handleNavigateTrueFalse}
-          />
-        )}
+          {currentTab === 'categories' && (
+            <CategoryPage 
+              onNavigateVisual={handleNavigateVisual}
+              onNavigateTaboo={handleNavigateTaboo}
+              onNavigateTrueFalse={handleNavigateTrueFalse}
+            />
+          )}
 
-        {currentTab === 'odt' && <ODTPage />}
+          {currentTab === 'odt' && <ODTPage />}
 
-        {currentTab === 'visual' && <VisualRiddlesPage />}
+          {currentTab === 'visual' && <VisualRiddlesPage />}
 
-        {currentTab === 'taboo' && <TabooPage />}
+          {currentTab === 'taboo' && <TabooPage />}
 
-        {currentTab === 'true-false' && (
-          <TrueFalsePage onBack={() => setCurrentTab('home')} />
-        )}
+          {currentTab === 'true-false' && (
+            <TrueFalsePage onBack={() => setCurrentTab('home')} />
+          )}
 
-        {currentTab === 'pakal' && (
-          <MyPakalPage onExploreClick={() => setCurrentTab('home')} />
-        )}
+          {currentTab === 'pakal' && (
+            <MyPakalPage onExploreClick={() => setCurrentTab('home')} />
+          )}
+        </Suspense>
       </main>
 
       {/* Floating Randomizer Modal */}

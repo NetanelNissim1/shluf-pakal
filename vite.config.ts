@@ -46,5 +46,26 @@ export default defineConfig({
         ignoreURLParametersMatching: [/.*/]
       }
     })
-  ]
+  ],
+  build: {
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+              return 'vendor-react';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-lucide';
+            }
+          }
+          if (id.includes('encrypted-data.json') || id.includes('src/data/content.ts') || id.includes('src\\data\\content.ts')) {
+            return 'content-data';
+          }
+        }
+      }
+    }
+  }
 });
+

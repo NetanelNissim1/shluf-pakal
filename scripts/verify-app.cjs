@@ -1111,6 +1111,51 @@ const brandViteConfigPath = path.join(__dirname, '..', 'vite.config.ts');
 const brandViteCode = fs.readFileSync(brandViteConfigPath, 'utf8');
 assert(brandViteCode.includes('og-image.jpg') && brandViteCode.includes('assets/logo.svg'), 'קובץ vite.config.ts כולל את og-image.jpg ו-logo.svg ב-Precache של ה-PWA');
 
+// Cycle 38: PWA Bundle Splitting, Lazy Loading & Sub-500kB Main Chunk Guarantee
+console.log('\n[מחזור 38]: בדיקת אופטימיזציית גודל חבילת ה-PWA (Code Splitting, Lazy Loading והגבלת Chunk ראשי מתחת ל-500kB)');
+const appBundleCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'App.tsx'), 'utf8');
+assert(appBundleCode.includes('Suspense') && appBundleCode.includes('lazy'), 'קובץ App.tsx מייבא Suspense ו-lazy לצורך טעינה מושהית מבוססת ביצועים');
+assert(
+  appBundleCode.includes("lazy(() => import('./pages/TabooPage')") &&
+  appBundleCode.includes("lazy(() => import('./pages/ODTPage')") &&
+  appBundleCode.includes("lazy(() => import('./pages/VisualRiddlesPage')") &&
+  appBundleCode.includes("lazy(() => import('./pages/TrueFalsePage')"),
+  'כל דפי המשחקים והמודולים הכבדים (טאבו, ODT, חידות ציורים, נכון/לא נכון) נטענים דינמית ב-Lazy Loading'
+);
+assert(appBundleCode.includes('PageLoadingFallback') && (appBundleCode.includes('שולף מהפק"ל') || appBundleCode.includes('שולף מהפק&quot;ל')), 'קובץ App.tsx מגדיר רכיב טעינה נגיש ואלגנטי (PageLoadingFallback) עם הכיתוב שולף מהפק"ל');
+assert(brandViteCode.includes('manualChunks') && brandViteCode.includes('vendor-react') && brandViteCode.includes('vendor-lucide'), 'קובץ vite.config.ts מגדיר פיצול ידני (manualChunks) של רכיבי ליבה וספריות צד ג\'');
+assert(brandViteCode.includes('content-data') && brandViteCode.includes('encrypted-data.json'), 'קובץ vite.config.ts מבודד את מסד הנתונים המוצפן ל-chunk ייעודי נפרד (content-data)');
+
+const distAssetsDir = path.join(__dirname, '..', 'dist', 'assets');
+if (fs.existsSync(distAssetsDir)) {
+  const assetFiles = fs.readdirSync(distAssetsDir);
+  const mainIndexJs = assetFiles.find(f => f.startsWith('index-') && f.endsWith('.js'));
+  assert(!!mainIndexJs, 'קיים קובץ צ\'אנק ראשי index-*.js בתיקיית הבנייה dist/assets');
+
+  if (mainIndexJs) {
+    const mainChunkSizeBytes = fs.statSync(path.join(distAssetsDir, mainIndexJs)).size;
+    const mainChunkSizeKb = (mainChunkSizeBytes / 1024).toFixed(1);
+    assert(mainChunkSizeBytes < 500 * 1024, `גודל ה-chunk הראשי של ה-JS (${mainChunkSizeKb}kB) קטן בהרבה מהרף של 500kB (יעד הושג בהצלחה)`);
+  }
+
+  const hasGameChunks = assetFiles.some(f => f.startsWith('TabooPage-')) &&
+                        assetFiles.some(f => f.startsWith('ODTPage-')) &&
+                        assetFiles.some(f => f.startsWith('VisualRiddlesPage-')) &&
+                        assetFiles.some(f => f.startsWith('TrueFalsePage-'));
+  assert(hasGameChunks, 'דפי המשחקים פוצלו לקבצי chunk ייעודיים נפרדים (TabooPage, ODTPage, VisualRiddlesPage, TrueFalsePage)');
+} else {
+  assert(false, 'תיקיית dist/assets אינה קיימת לבדיקת גודל הצ\'אנקים');
+}
+
+const distSwPath = path.join(__dirname, '..', 'dist', 'sw.js');
+if (fs.existsSync(distSwPath)) {
+  const swCode = fs.readFileSync(distSwPath, 'utf8');
+  const swPrecacheChunks = swCode.includes('index-') && swCode.includes('TabooPage-') && swCode.includes('content-data-');
+  assert(swPrecacheChunks, 'ה-Service Worker (PWA) כולל את כל הצ\'אנקים המפוצלים ב-Precache לשמירה מלאה על פעילות 100% אופליין');
+} else {
+  assert(false, 'קובץ dist/sw.js אינו קיים לבדיקת Precache של צ\'אנקים');
+}
+
 console.log('\n======================================================');
 console.log(`תוצאות הבדיקה: ${passed} עברו בהצלחה, ${failed} נכשלו.`);
 console.log('======================================================\n');

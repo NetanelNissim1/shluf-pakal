@@ -14,7 +14,7 @@
 [![Taboo Cards](https://img.shields.io/badge/טאבו-100-red)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Interface](https://img.shields.io/badge/ממשק-משודרג%20וקבוע%20%7C%20Enhanced%20UX-blueviolet)](https://github.com/NetanelNissim1/shluf-pakal)
 [![CI](https://github.com/NetanelNissim1/shluf-pakal/actions/workflows/ci.yml/badge.svg)](https://github.com/NetanelNissim1/shluf-pakal/actions)
-[![Tests](https://img.shields.io/badge/בדיקות-237%2F237%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
+[![Tests](https://img.shields.io/badge/בדיקות-246%2F246%20Passed-brightgreen)](https://github.com/NetanelNissim1/shluf-pakal)
 [![Security Rating](https://img.shields.io/badge/אבטחה%20וסייבר-A%2B%20%7C%20Enterprise-success?logo=shield)](https://github.com/NetanelNissim1/shluf-pakal)
 
 ---
@@ -262,6 +262,16 @@
 
 ---
 
+## ⚡ 19. אופטימיזציית ביצועים וחבילת PWA (Bundle Splitting & Lazy Loading)
+
+כדי להבטיח זמני טעינה מיידיים (Sub-Second FCP) גם במכשירי שטח ישנים ובקליטה חלשה:
+* **פיצול מודולים דינמי (`React.lazy` + `<Suspense>`):** כל דפי המשחקים והמודולים הכבדים (משחק טאבו, ODT, חידות בציורים, נכון/לא נכון, מסך מקרן/תלמיד) מופרדים ל-chunks עצמאיים הנטענים לפי דרישה בלבד.
+* **הקטנת חבילת הליבה (Main Bundle):** ה-chunk הראשי של ה-JS (`index-*.js`) הוקטן מ-**1.62MB** ל-**97.8kB** בלבד (**הפחתה של כ-94%** ו-28kB בלבד ב-gzip!).
+* **Rollup `manualChunks`:** בידוד ספריות ליבה (`vendor-react`, `vendor-lucide`) ומסד התוכן המוצפן (`content-data`) לקבצים נפרדים הנטענים במקביל.
+* **100% Precache ב-PWA:** ה-Service Worker של Workbox ממשיך לשמור את כל 182 הנכסים וה-chunks המפוצלים במטמון המכשיר מראש, כך שחוויית האופליין (100% ללא אינטרנט בשטח) נשמרת באופן מלא ומושלם.
+
+---
+
 ## 🛠️ פקודות הרצה ופיתוח
 
 ```bash
@@ -274,7 +284,7 @@ npm run dev
 # 3. פרסור והצפנת קובצי התוכן (במידה ונוספו חידות או פעילויות ל-content/)
 npm run parse
 
-# 4. הרצת מחזורי הבדיקות האוטומטיים (236 בדיקות אימות: שלמות תוכן, מנוע UX כפול, תאימות מובייל, מנוע אקראיות מבוסס Seed, 8 מבחני סייבר ואבטחה מחמירים, ו-CI מלא)
+# 4. הרצת מחזורי הבדיקות האוטומטיים (246 בדיקות אימות: שלמות תוכן, מנועי משחק, תאימות מובייל, מנוע אקראיות מבוסס Seed, 8 מבחני סייבר ואבטחה מחמירים, Bundle Splitting ו-CI מלא)
 npm run test
 
 # 5. בניית גרסת Production מוצפנת ו-PWA מלאה
