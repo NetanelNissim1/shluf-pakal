@@ -311,7 +311,7 @@ export const OnboardingTour: React.FC = () => {
             <span className="text-lg leading-none">{currentStep.icon}</span>
             <span>{currentStep.title}</span>
           </h3>
-          <p className={`text-xs leading-relaxed ${isCampfire ? 'text-stone-300' : 'text-stone-600'}`}>
+          <p className={`text-sm leading-relaxed ${isCampfire ? 'text-stone-300' : 'text-stone-600'}`}>
             {currentStep.description}
           </p>
         </div>

@@ -264,7 +264,7 @@ ${activity.instructions}
       </div>
 
       {/* Step-by-Step Instructions */}
-      <div className={`p-4 sm:p-5 rounded-xl border text-sm sm:text-base leading-relaxed mb-4 select-none ${
+      <div className={`p-4 sm:p-5 rounded-xl border text-base sm:text-lg leading-relaxed mb-4 select-none ${
         isCampfire
           ? 'bg-stone-950/80 border-stone-800/80 text-stone-200'
           : 'bg-stone-50 border-stone-200/80 text-stone-800'
@@ -391,7 +391,7 @@ ${activity.instructions}
                 )}
               </div>
               <h4 className="font-extrabold text-sm mb-1">{nextActivitySuggestion.title}</h4>
-              <p className="text-xs text-stone-500 line-clamp-2">{nextActivitySuggestion.instructions}</p>
+              <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed line-clamp-2">{nextActivitySuggestion.instructions}</p>
             </div>
           )}
         </div>

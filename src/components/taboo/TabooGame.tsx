@@ -423,7 +423,7 @@ export const TabooGame: React.FC = () => {
       </div>
 
       {/* Micro-Hint for Field Play */}
-      <div className={`py-2 px-3 rounded-xl border text-[11px] font-bold flex items-center justify-between gap-1 text-center ${
+      <div className={`py-2 px-3 rounded-xl border text-xs sm:text-sm font-extrabold flex items-center justify-between gap-1 text-center ${
         isCampfire ? 'bg-orange-950/40 border-orange-900/60 text-orange-300' : 'bg-amber-50 border-amber-200 text-amber-900'
       }`}>
         <span>💡 הסבר למעגל בלי לומר את המילים האסורות!</span>

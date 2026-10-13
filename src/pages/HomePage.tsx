@@ -495,7 +495,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Quick Guide Tips Card */}
-          <div className={`p-5 rounded-2xl border text-xs leading-relaxed ${
+          <div className={`p-5 rounded-2xl border text-sm leading-relaxed ${
             isCampfire 
               ? 'bg-stone-950 border-campfire-border/60 text-stone-400' 
               : 'bg-amber-100/50 border-amber-200 text-stone-700'
@@ -524,7 +524,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <h4 className="font-bold text-sm text-stone-900 dark:text-stone-100 mb-0.5">
                   יש לך רעיון לחידה או הצעה לייעול?
                 </h4>
-                <p className="text-[11px] text-stone-500 dark:text-stone-400">
+                <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                   נשמח לשמוע! אנחנו קוראים כל הצעה של מדריכים ומעדכנים את הפק"ל באופן שוטף.
                 </p>
               </div>

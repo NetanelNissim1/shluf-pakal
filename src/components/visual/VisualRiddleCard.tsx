@@ -206,7 +206,7 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
 
       {/* Hint Tooltip */}
       {showHint && (
-        <div className="mb-3 p-3 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-900 dark:text-amber-200 text-xs font-bold animate-fadeIn flex items-center gap-1.5">
+        <div className="mb-3 p-3 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-900 dark:text-amber-200 text-sm sm:text-base font-bold animate-fadeIn flex items-center gap-1.5">
           <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
           <span>רמז: {riddle.hints[0] || 'התבונן בכל מרכיב בנפרד וחבר אותם!'}</span>
         </div>
@@ -262,7 +262,7 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
               <div className="text-[18px] sm:text-[19px] font-extrabold text-amber-600 dark:text-orange-400 mb-1">
                 {riddle.answer}
               </div>
-              <div className="text-xs text-stone-500 dark:text-stone-300">
+              <div className="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed">
                 {riddle.explanation}
               </div>
             </div>

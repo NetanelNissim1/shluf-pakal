@@ -80,7 +80,7 @@ export const TabooInstructionsModal: React.FC<TabooInstructionsModalProps> = ({
               <h3 className="font-extrabold text-sm mb-0.5">
                 כלל הברזל: רק המסביר מביט במסך!
               </h3>
-              <p className="text-xs opacity-90">
+              <p className="text-sm leading-relaxed opacity-95">
                 שחקן אחד מחזיק את הטלפון ומסתיר את המסך מהמעגל. שאר החניכים אינם רואים את הכרטיס וחייבים לנחש אך ורק לפי ההסבר המילולי שלו.
               </p>
             </div>
@@ -99,7 +99,7 @@ export const TabooInstructionsModal: React.FC<TabooInstructionsModalProps> = ({
               <h3 className="font-extrabold text-sm mb-0.5 text-red-600 dark:text-red-400">
                 המילים האסורות (ה"טאבו")
               </h3>
-              <p className="text-xs opacity-90">
+              <p className="text-sm leading-relaxed opacity-95">
                 על המסביר לתאר את <strong>מילת המטרה</strong> שבראש הכרטיס, אך <strong>אסור לו באיסור מוחלט</strong> להגיד אף אחת מ-4 המילים המסומנות ב-✕ באדום!
               </p>
               <div className="mt-2 text-[11px] p-2 rounded-lg bg-black/10 dark:bg-black/40 font-mono">
@@ -116,7 +116,7 @@ export const TabooInstructionsModal: React.FC<TabooInstructionsModalProps> = ({
               <AlertTriangle className="w-4 h-4 text-amber-500" />
               <span>חוקי פסילה נוספים:</span>
             </h3>
-            <ul className="text-xs space-y-1.5 list-disc list-inside text-stone-600 dark:text-stone-300">
+            <ul className="text-sm space-y-1.5 list-disc list-inside text-stone-600 dark:text-stone-300">
               <li><strong>בלי תנועות ידיים:</strong> אסור פנטומימה או סימונים באצבעות.</li>
               <li><strong>בלי חרוזים:</strong> אסור להגיד "מתחרז עם..." או "נשמע כמו...".</li>
               <li><strong>בלי אותיות:</strong> אסור להגיד "מתחיל באות..." או להרכיב ראשי תיבות.</li>
@@ -135,7 +135,7 @@ export const TabooInstructionsModal: React.FC<TabooInstructionsModalProps> = ({
               <h3 className="font-extrabold text-sm mb-0.5 text-emerald-600 dark:text-emerald-400">
                 מהלך הסיבוב והניקוד
               </h3>
-              <p className="text-xs text-stone-600 dark:text-stone-300">
+              <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                 1. לוחצים <strong>התחל</strong> בטיימר.<br/>
                 2. ניחשו נכון? לוחצים <strong>"הצלחה! (+1)"</strong> בירוק והכרטיס מתחלף מיד.<br/>
                 3. הסתבכתם או פלטתם מילה אסורה? לוחצים <strong>"דלג / פסילה"</strong>.<br/>

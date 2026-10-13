@@ -473,7 +473,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
       )}
 
       {/* Field Play Style Tip */}
-      <div className={`p-4 rounded-xl border text-xs font-bold flex items-center gap-2 ${
+      <div className={`p-4 rounded-xl border text-sm font-bold flex items-center gap-2 ${
         isCampfire ? 'bg-stone-900 border-stone-800 text-amber-300' : 'bg-emerald-50/80 border-emerald-200 text-emerald-900'
       }`}>
         <span className="text-base shrink-0">🏃‍♂️</span>
@@ -583,7 +583,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                             הטענה אכן {currentItem.isTrue ? 'נכונה ✅' : 'אינה נכונה ❌'}
                           </span>
                         </div>
-                        <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
+                        <p className="text-sm sm:text-base font-medium leading-relaxed opacity-95">
                           {currentItem.explanation}
                         </p>
                       </div>
@@ -611,7 +611,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                             התשובה הנכונה: {currentItem.isTrue ? 'נכון ✅' : 'לא נכון ❌'}
                           </span>
                         </div>
-                        <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
+                        <p className="text-sm sm:text-base font-medium leading-relaxed opacity-95">
                           {currentItem.explanation}
                         </p>
                       </div>
@@ -638,7 +638,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                           חשיפת מדריך 💡
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm font-medium leading-relaxed opacity-95">
+                      <p className="text-sm sm:text-base font-medium leading-relaxed opacity-95">
                         {currentItem.explanation}
                       </p>
                     </div>
