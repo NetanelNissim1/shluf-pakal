@@ -43,29 +43,42 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <circle cx="0" cy="10" r="55" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>
-        <ellipse cx="-20" cy="0" rx="14" ry="22" fill="#78350f" transform="rotate(-20 -20 0)"/>
-        <circle cx="15" cy="-10" r="14" fill="#ea580c"/>
-        <ellipse cx="10" cy="20" rx="16" ry="10" fill="#92400e"/>
-      
+  <!-- Right: 4 Wine Cups in Gradual Shades (ארבע כוסות יין גוונים) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <!-- Cup 1: White wine -->
+    <g transform="translate(-60, 0)">
+      <path d="M-14,-25 L14,-25 L10,10 C10,20 -10,20 -10,10 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+      <line x1="0" y1="18" x2="0" y2="35" stroke="#ca8a04" stroke-width="3"/>
+      <ellipse cx="0" cy="35" rx="10" ry="4" fill="#ca8a04"/>
     </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+    <!-- Cup 2: Light pink wine -->
+    <g transform="translate(-20, 0)">
+      <path d="M-14,-25 L14,-25 L10,10 C10,20 -10,20 -10,10 Z" fill="#fca5a5" stroke="#e11d48" stroke-width="2"/>
+      <line x1="0" y1="18" x2="0" y2="35" stroke="#e11d48" stroke-width="3"/>
+      <ellipse cx="0" cy="35" rx="10" ry="4" fill="#e11d48"/>
+    </g>
+    <!-- Cup 3: Rose wine -->
+    <g transform="translate(20, 0)">
+      <path d="M-14,-25 L14,-25 L10,10 C10,20 -10,20 -10,10 Z" fill="#f43f5e" stroke="#be123c" stroke-width="2"/>
+      <line x1="0" y1="18" x2="0" y2="35" stroke="#be123c" stroke-width="3"/>
+      <ellipse cx="0" cy="35" rx="10" ry="4" fill="#be123c"/>
+    </g>
+    <!-- Cup 4: Deep red wine -->
+    <g transform="translate(60, 0)">
+      <path d="M-14,-25 L14,-25 L10,10 C10,20 -10,20 -10,10 Z" fill="#881337" stroke="#4c0519" stroke-width="2"/>
+      <line x1="0" y1="18" x2="0" y2="35" stroke="#4c0519" stroke-width="3"/>
+      <ellipse cx="0" cy="35" rx="10" ry="4" fill="#4c0519"/>
+    </g>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Plate of 7 Species Fruits (קערת שבעת המינים) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <circle cx="0" cy="10" r="65" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>
+    <circle cx="-25" cy="-5" r="14" fill="#dc2626"/> <!-- Pomegranate -->
+    <circle cx="0" cy="-20" r="14" fill="#78350f"/> <!-- Date -->
+    <circle cx="25" cy="-5" r="14" fill="#15803d"/> <!-- Fig -->
+    <circle cx="-15" cy="25" r="12" fill="#7c2d12"/> <!-- Grapes -->
+    <circle cx="15" cy="25" r="12" fill="#eab308"/> <!-- Olive -->
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <circle cx="0" cy="0" r="38" fill="url(#goldGrad)"/>
-        <g stroke="#f59e0b" stroke-width="5" stroke-linecap="round">
-          <line x1="0" y1="-50" x2="0" y2="-65"/>
-          <line x1="0" y1="50" x2="0" y2="65"/>
-          <line x1="-50" y1="0" x2="-65" y2="0"/>
-          <line x1="50" y1="0" x2="65" y2="0"/>
-          <line x1="-35" y1="-35" x2="-45" y2="-45"/>
-          <line x1="35" y1="35" x2="45" y2="45"/>
-          <line x1="-35" y1="35" x2="-45" y2="45"/>
-          <line x1="35" y1="-35" x2="45" y2="-45"/>
-        </g>
-      
-    </g>
 </svg>

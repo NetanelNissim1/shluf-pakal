@@ -43,26 +43,42 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <circle cx="-30" cy="-20" r="14" fill="#38bdf8"/>
-        <circle cx="0" cy="-30" r="14" fill="#38bdf8"/>
-        <circle cx="30" cy="-20" r="14" fill="#38bdf8"/>
-        <line x1="-30" y1="-5" x2="-30" y2="45" stroke="#38bdf8" stroke-width="6"/>
-        <line x1="0" y1="-15" x2="0" y2="45" stroke="#38bdf8" stroke-width="6"/>
-        <line x1="30" y1="-5" x2="30" y2="45" stroke="#38bdf8" stroke-width="6"/>
-      
+  <!-- Right: Marching Crowd (שיירת אנשים צועדת) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <!-- Person 1 -->
+    <g transform="translate(-40, 10)">
+      <circle cx="0" cy="-45" r="14" fill="#3b82f6"/>
+      <path d="M-15,-25 L15,-25 L10,35 L-10,35 Z" fill="#1d4ed8"/>
+      <line x1="-8" y1="35" x2="-18" y2="65" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+      <line x1="8" y1="35" x2="18" y2="65" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
     </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+    <!-- Person 2 -->
+    <g transform="translate(0, 0)">
+      <circle cx="0" cy="-55" r="16" fill="#60a5fa"/>
+      <path d="M-18,-35 L18,-35 L12,30 L-12,30 Z" fill="#2563eb"/>
+      <line x1="-10" y1="30" x2="-22" y2="70" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+      <line x1="10" y1="30" x2="22" y2="70" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+    </g>
+    <!-- Person 3 -->
+    <g transform="translate(40, 15)">
+      <circle cx="0" cy="-45" r="14" fill="#38bdf8"/>
+      <path d="M-15,-25 L15,-25 L10,35 L-10,35 Z" fill="#0284c7"/>
+      <line x1="-8" y1="35" x2="-16" y2="65" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+      <line x1="8" y1="35" x2="16" y2="65" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Israeli Blue & White Flags Waving (דגלי ישראל מונפים) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <!-- Flagpole -->
+    <line x1="-50" y1="-85" x2="-50" y2="80" stroke="#71717a" stroke-width="6" stroke-linecap="round"/>
+    <!-- Flag Canvas -->
+    <rect x="-50" y="-80" width="110" height="70" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+    <rect x="-50" y="-72" width="110" height="10" fill="#2563eb"/>
+    <rect x="-50" y="-22" width="110" height="10" fill="#2563eb"/>
+    <!-- Star of David -->
+    <polygon points="5,-55 -15,-30 25,-30" fill="none" stroke="#2563eb" stroke-width="3"/>
+    <polygon points="5,-25 -15,-50 25,-50" fill="none" stroke="#2563eb" stroke-width="3"/>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <circle cx="-30" cy="-20" r="14" fill="#38bdf8"/>
-        <circle cx="0" cy="-30" r="14" fill="#38bdf8"/>
-        <circle cx="30" cy="-20" r="14" fill="#38bdf8"/>
-        <line x1="-30" y1="-5" x2="-30" y2="45" stroke="#38bdf8" stroke-width="6"/>
-        <line x1="0" y1="-15" x2="0" y2="45" stroke="#38bdf8" stroke-width="6"/>
-        <line x1="30" y1="-5" x2="30" y2="45" stroke="#38bdf8" stroke-width="6"/>
-      
-    </g>
 </svg>

@@ -43,23 +43,51 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <rect x="-45" y="-30" width="90" height="90" fill="#78716c" stroke="#44403c" stroke-width="3"/>
-        <rect x="-50" y="-55" width="100" height="25" fill="#a8a29e" stroke="#44403c" stroke-width="3"/>
-        <rect x="-40" y="-70" width="20" height="15" fill="#78716c"/>
-        <rect x="-10" y="-70" width="20" height="15" fill="#78716c"/>
-        <rect x="20" y="-70" width="20" height="15" fill="#78716c"/>
-        <path d="M-15,60 L-15,25 C-15,10 15,10 15,25 L15,60 Z" fill="#292524"/>
-      
+  <!-- Right: 8 Candle Flames (שמונה להבות נר) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <!-- Base stand line -->
+    <line x1="-80" y1="50" x2="80" y2="50" stroke="#78350f" stroke-width="6" stroke-linecap="round"/>
+    <!-- 8 candles -->
+    <g transform="translate(-70, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
     </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+    <g transform="translate(-50, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+    <g transform="translate(-30, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+    <g transform="translate(-10, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+    <g transform="translate(10, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+    <g transform="translate(30, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+    <g transform="translate(50, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+    <g transform="translate(70, 0)">
+      <rect x="-4" y="0" width="8" height="50" fill="#f8fafc" rx="2"/>
+      <path d="M0,-2 L-6,-18 C-6,-26 0,-34 0,-34 C0,-34 6,-26 6,-18 Z" fill="url(#goldGrad)"/>
+    </g>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Liturgical Open Hymn Book (ספר פיוטים פתוח) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <path d="M-75,-30 C-35,-45 -10,-35 0,-20 C10,-35 35,-45 75,-30 L70,45 C35,35 10,40 0,30 C-10,40 -35,35 -70,45 Z" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+    <path d="M0,-20 L0,30" stroke="#b45309" stroke-width="3"/>
+    <text x="-35" y="0" font-family="Rubik, sans-serif" font-size="28" fill="#78350f" text-anchor="middle">♪</text>
+    <text x="35" y="0" font-family="Rubik, sans-serif" font-size="28" fill="#78350f" text-anchor="middle">♫</text>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <path d="M-25,10 L-25,-35 L25,-20 L25,25" stroke="#f59e0b" stroke-width="6" fill="none"/>
-        <circle cx="-35" cy="15" r="14" fill="#f59e0b"/>
-        <circle cx="15" cy="30" r="14" fill="#f59e0b"/>
-      
-    </g>
 </svg>

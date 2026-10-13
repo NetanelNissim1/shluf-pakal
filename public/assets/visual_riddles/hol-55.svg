@@ -43,20 +43,31 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <ellipse cx="0" cy="10" rx="60" ry="45" fill="url(#goldGrad)" stroke="#b45309" stroke-width="3"/>
-        <ellipse cx="0" cy="0" rx="50" ry="30" fill="#fef3c7" opacity="0.4"/>
-        <circle cx="0" cy="5" r="14" fill="#dc2626"/>
-      
-    </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Right: Potatoes and Grater (תפוחי אדמה ומגררת) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <rect x="-35" y="-65" width="70" height="95" rx="8" fill="#94a3b8" stroke="#475569" stroke-width="4"/>
+    <rect x="-24" y="-55" width="48" height="75" fill="#cbd5e1"/>
+    <circle cx="-12" cy="-40" r="3" fill="#334155"/>
+    <circle cx="12" cy="-40" r="3" fill="#334155"/>
+    <circle cx="0" cy="-25" r="3" fill="#334155"/>
+    <circle cx="-12" cy="-10" r="3" fill="#334155"/>
+    <circle cx="12" cy="-10" r="3" fill="#334155"/>
+    <!-- Potatoes -->
+    <ellipse cx="42" cy="40" rx="34" ry="24" fill="#a16207" transform="rotate(15 42 40)"/>
+    <ellipse cx="-42" cy="42" rx="30" ry="22" fill="#b45309" transform="rotate(-15 -42 42)"/>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Sizzling Pan with Golden Latkes (מחבת רוחשת לביבות) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <circle cx="0" cy="10" r="65" fill="#334155" stroke="#1e293b" stroke-width="6"/>
+    <line x1="55" y1="35" x2="105" y2="65" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+    <!-- Golden Latkes -->
+    <ellipse cx="-20" cy="-10" rx="22" ry="18" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2"/>
+    <ellipse cx="22" cy="-5" rx="20" ry="17" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2"/>
+    <ellipse cx="-5" cy="28" rx="24" ry="19" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2"/>
+    <!-- Sizzle steam -->
+    <path d="M-20,-45 Q-15,-60 -25,-75" stroke="#facc15" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M10,-40 Q15,-55 5,-70" stroke="#facc15" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <rect x="-35" y="-30" width="70" height="75" rx="14" fill="url(#redGrad)" stroke="#991b1b" stroke-width="3"/>
-        <rect x="-40" y="-45" width="80" height="18" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
-        <ellipse cx="0" cy="8" rx="20" ry="12" fill="#ffffff" opacity="0.7"/>
-      
-    </g>
 </svg>

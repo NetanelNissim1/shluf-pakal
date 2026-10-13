@@ -43,18 +43,26 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <path d="M-55,50 C-55,-20 0,-60 55,-20 C55,50 55,50 -55,50 Z" fill="#78716c"/>
-        <ellipse cx="0" cy="20" rx="30" ry="30" fill="#1c1917"/>
-      
-    </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Right: Meron Tomb Monument with White Dome (קבר מירון עם כיפה) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <!-- Base stone building -->
+    <rect x="-65" y="-10" width="130" height="85" fill="#e7e5e4" stroke="#78716c" stroke-width="4"/>
+    <line x1="-65" y1="20" x2="65" y2="20" stroke="#a8a29e" stroke-width="3"/>
+    <line x1="-65" y1="50" x2="65" y2="50" stroke="#a8a29e" stroke-width="3"/>
+    <!-- Dome -->
+    <path d="M-50,-10 C-50,-65 50,-65 50,-10 Z" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>
+    <circle cx="0" cy="-68" r="6" fill="#fbbf24"/>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Celebratory Bonfire (מדורת הדלקה) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <!-- Wood logs -->
+    <line x1="-50" y1="65" x2="50" y2="40" stroke="#78350f" stroke-width="14" stroke-linecap="round"/>
+    <line x1="-50" y1="40" x2="50" y2="65" stroke="#451a03" stroke-width="14" stroke-linecap="round"/>
+    <!-- Roaring Fire Flames -->
+    <path d="M0,45 C-50,20 -55,-40 -20,-75 C-10,-45 0,-40 5,-60 C25,-40 55,-10 40,45 Z" fill="url(#redGrad)"/>
+    <path d="M0,45 C-30,25 -30,-20 -10,-45 C0,-25 5,-20 10,-35 C20,-20 30,0 20,45 Z" fill="url(#goldGrad)"/>
+    <ellipse cx="0" cy="30" rx="14" ry="18" fill="#fef08a"/>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <path d="M-55,50 C-55,-20 0,-60 55,-20 C55,50 55,50 -55,50 Z" fill="#78716c"/>
-        <ellipse cx="0" cy="20" rx="30" ry="30" fill="#1c1917"/>
-      
-    </g>
 </svg>

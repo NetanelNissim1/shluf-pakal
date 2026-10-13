@@ -16,6 +16,10 @@
       <stop offset="0%" stop-color="#60a5fa"/>
       <stop offset="100%" stop-color="#2563eb"/>
     </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
     <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f87171"/>
       <stop offset="100%" stop-color="#dc2626"/>
@@ -39,13 +43,23 @@
 
   <!-- Content Graphics Area -->
   
-  <!-- Element 1: מַעֲלֶה (מַדְרֵגוֹת) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
-    <polygon points="-50,45 -50,20 -20,20 -20,-5 10,-5 10,-30 40,-30 40,45" fill="#d97706" stroke="#fbbf24" stroke-width="3"/>
+  <!-- Right: Ascending Staircase Steps (מעלה - מדרגות עולות) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <polygon points="-65,55 -65,25 -25,25 -25,-5 15,-5 15,-35 55,-35 55,55" fill="url(#goldGrad)" stroke="#78350f" stroke-width="4"/>
+    <!-- Ascending Arrow -->
+    <line x1="-50" y1="50" x2="45" y2="-45" stroke="#22c55e" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="45,-45 20,-45 45,-20" fill="#22c55e"/>
   </g>
-  <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
-  <!-- Element 2: אֲדֻמִּים (אֲדַמְדַּם) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
-    <circle cx="0" cy="0" r="55" fill="url(#redGrad)" stroke="#b91c1c" stroke-width="4"/>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Red Desert Hills & Red City Houses (אדומים) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <!-- Red mountain ridge -->
+    <path d="M-75,55 Q-40,-25 0,10 Q40,-35 75,55 Z" fill="url(#redGrad)" stroke="#991b1b" stroke-width="4"/>
+    <!-- Red city houses on hill -->
+    <rect x="-25" y="10" width="22" height="25" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+    <polygon points="-27,10 -14,-5 -1,10" fill="#dc2626"/>
+    <rect x="5" y="15" width="20" height="20" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+    <polygon points="3,15 15,3 27,15" fill="#dc2626"/>
   </g>
+
 </svg>

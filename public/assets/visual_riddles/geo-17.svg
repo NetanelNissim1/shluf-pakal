@@ -16,6 +16,10 @@
       <stop offset="0%" stop-color="#60a5fa"/>
       <stop offset="100%" stop-color="#2563eb"/>
     </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
     <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f87171"/>
       <stop offset="100%" stop-color="#dc2626"/>
@@ -39,10 +43,17 @@
 
   <!-- Content Graphics Area -->
   
-  <!-- Element 1: מְצָדָה (מְצוּדָה בַּצּוּק) -->
-  <g transform="translate(450, 250)" filter="url(#shadow)">
-    <polygon points="-60,45 -35,-25 35,-25 60,45" fill="#78350f" stroke="#d97706" stroke-width="3"/>
-              <rect x="-25" y="-55" width="50" height="30" fill="#b45309" stroke="#fbbf24" stroke-width="2"/>
-              <path d="M-55,40 Q-10,10 -30,-20" stroke="#fbbf24" stroke-width="4" stroke-dasharray="6 4" fill="none"/>
+  <!-- Right: Masada Isolated Mountain Cliff (מצוק מצדה מבודד) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <polygon points="-75,60 -45,-30 45,-30 75,60" fill="#78350f" stroke="#b45309" stroke-width="4"/>
+    <rect x="-25" y="-55" width="50" height="25" rx="2" fill="#d97706" stroke="#fbbf24" stroke-width="2"/>
   </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Winding Snake Path (שביל הנחש) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <rect x="-65" y="-65" width="130" height="130" rx="20" fill="url(#cardGrad)" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M-45,45 Q0,30 -30,5 Q30,-20 -20,-45" stroke="#facc15" stroke-width="8" stroke-dasharray="12 8" fill="none" stroke-linecap="round"/>
+    <circle cx="-20" cy="-45" r="8" fill="#ea580c"/>
+  </g>
+
 </svg>

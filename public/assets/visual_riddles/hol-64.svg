@@ -43,40 +43,22 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <path d="M-45,45 Q0,0 45,-45" stroke="#78350f" stroke-width="6" fill="none"/>
-        <g transform="translate(-10, 10)">
-          <circle cx="-10" cy="0" r="10" fill="#fce7f3"/>
-          <circle cx="10" cy="0" r="10" fill="#fce7f3"/>
-          <circle cx="0" cy="-10" r="10" fill="#fce7f3"/>
-          <circle cx="0" cy="10" r="10" fill="#fce7f3"/>
-          <circle cx="0" cy="0" r="6" fill="#f43f5e"/>
-        </g>
-        <g transform="translate(20, -20)">
-          <circle cx="-10" cy="0" r="10" fill="#fce7f3"/>
-          <circle cx="10" cy="0" r="10" fill="#fce7f3"/>
-          <circle cx="0" cy="-10" r="10" fill="#fce7f3"/>
-          <circle cx="0" cy="10" r="10" fill="#fce7f3"/>
-          <circle cx="0" cy="0" r="6" fill="#f43f5e"/>
-        </g>
-      
-    </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Right: Blooming Tree (עץ עבות פורח) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <path d="M-12,70 L-8,10 C-8,-10 -30,-30 0,-60 C30,-30 8,-10 8,10 L12,70" fill="#78350f" stroke="#451a03" stroke-width="4"/>
+    <circle cx="0" cy="-50" r="55" fill="url(#greenGrad)"/>
+    <circle cx="-35" cy="-35" r="35" fill="url(#greenGrad)"/>
+    <circle cx="35" cy="-35" r="35" fill="url(#greenGrad)"/>
+    <circle cx="-20" cy="-65" r="25" fill="#4ade80"/>
+    <circle cx="20" cy="-65" r="25" fill="#4ade80"/>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Flowing Water Stream (פלג מים זורם) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <path d="M-75,45 Q-25,10 0,35 Q25,60 75,25 L75,70 L-75,70 Z" fill="url(#cyanGrad)"/>
+    <path d="M-75,0 Q-25,-35 0,-10 Q25,15 75,-20 L75,25 L-75,25 Z" fill="url(#blueGrad)"/>
+    <path d="M-70,10 Q-25,-20 0,5 Q25,30 70,-5" stroke="#ffffff" stroke-width="4" fill="none" opacity="0.7"/>
+    <path d="M-70,55 Q-25,25 0,45 Q25,65 70,35" stroke="#ffffff" stroke-width="4" fill="none" opacity="0.7"/>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <circle cx="0" cy="0" r="38" fill="url(#goldGrad)"/>
-        <g stroke="#f59e0b" stroke-width="5" stroke-linecap="round">
-          <line x1="0" y1="-50" x2="0" y2="-65"/>
-          <line x1="0" y1="50" x2="0" y2="65"/>
-          <line x1="-50" y1="0" x2="-65" y2="0"/>
-          <line x1="50" y1="0" x2="65" y2="0"/>
-          <line x1="-35" y1="-35" x2="-45" y2="-45"/>
-          <line x1="35" y1="35" x2="45" y2="45"/>
-          <line x1="-35" y1="35" x2="-45" y2="45"/>
-          <line x1="35" y1="-35" x2="45" y2="-45"/>
-        </g>
-      
-    </g>
 </svg>

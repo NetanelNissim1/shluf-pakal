@@ -43,13 +43,25 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(450, 260)" filter="url(#shadow)">
-      
-        <path d="M-55,-10 L55,-10 L45,55 L-45,55 Z" fill="#b45309" stroke="#78350f" stroke-width="4"/>
-        <path d="M-40,-10 C-40,-65 40,-65 40,-10" fill="none" stroke="#78350f" stroke-width="6"/>
-        <circle cx="-25" cy="-10" r="14" fill="#dc2626"/>
-        <circle cx="0" cy="-15" r="14" fill="#15803d"/>
-        <circle cx="25" cy="-10" r="14" fill="#7c2d12"/>
-      
-    </g>
+  <!-- Right: Decorated Wicker Basket (סל קש מעוטר) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <path d="M-50,0 C-50,-65 50,-65 50,0" fill="none" stroke="#78350f" stroke-width="7" stroke-linecap="round"/>
+    <path d="M-65,0 L65,0 L50,70 L-50,70 Z" fill="#b45309" stroke="#78350f" stroke-width="4"/>
+    <line x1="-60" y1="22" x2="60" y2="22" stroke="#d97706" stroke-width="3"/>
+    <line x1="-55" y1="45" x2="55" y2="45" stroke="#d97706" stroke-width="3"/>
+    <ellipse cx="-40" cy="-2" rx="12" ry="6" fill="#15803d" transform="rotate(-15 -40 -2)"/>
+    <ellipse cx="40" cy="-2" rx="12" ry="6" fill="#15803d" transform="rotate(15 40 -2)"/>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: First Fruits of Seven Species (פירות ראשונים) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <circle cx="0" cy="10" r="65" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>
+    <circle cx="-25" cy="-5" r="18" fill="#dc2626"/>
+    <polygon points="-25,-28 -20,-22 -30,-22" fill="#dc2626"/>
+    <circle cx="22" cy="-8" r="18" fill="#701a75"/>
+    <circle cx="-10" cy="25" r="12" fill="#7e22ce"/>
+    <circle cx="10" cy="25" r="12" fill="#9333ea"/>
+    <circle cx="0" cy="38" r="10" fill="#a855f7"/>
+  </g>
+
 </svg>

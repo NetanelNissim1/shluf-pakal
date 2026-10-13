@@ -43,21 +43,26 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <circle cx="-20" cy="15" r="28" fill="url(#goldGrad)" stroke="#b45309" stroke-width="3"/>
-        <circle cx="20" cy="15" r="28" fill="url(#goldGrad)" stroke="#b45309" stroke-width="3"/>
-        <circle cx="0" cy="-20" r="32" fill="url(#goldGrad)" stroke="#b45309" stroke-width="4"/>
-        <text x="0" y="-10" font-family="system-ui" font-size="32" font-weight="900" fill="#78350f" text-anchor="middle">₪</text>
-      
-    </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Right: Lion of Judah Silhouette (אריה יהודה) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <!-- Lion head mane -->
+    <circle cx="0" cy="0" r="55" fill="url(#goldGrad)" stroke="#78350f" stroke-width="3"/>
+    <circle cx="-15" cy="-8" r="6" fill="#451a03"/>
+    <circle cx="15" cy="-8" r="6" fill="#451a03"/>
+    <polygon points="0,5 -8,-3 8,-3" fill="#451a03"/>
+    <path d="M-8,12 Q0,18 8,12" stroke="#451a03" stroke-width="3" fill="none"/>
+    <!-- Crown of Judah -->
+    <polygon points="-30,-45 -15,-65 0,-50 15,-65 30,-45" fill="url(#goldGrad)" stroke="#78350f" stroke-width="2"/>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: War Battle Hammer (מקבת / פטיש קרב) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <!-- Wooden handle -->
+    <rect x="-8" y="-30" width="16" height="110" rx="4" fill="#78350f" stroke="#451a03" stroke-width="3"/>
+    <!-- Iron hammer head -->
+    <rect x="-55" y="-60" width="110" height="42" rx="8" fill="#94a3b8" stroke="#334155" stroke-width="4"/>
+    <rect x="-62" y="-55" width="14" height="32" rx="4" fill="#64748b"/>
+    <rect x="48" y="-55" width="14" height="32" rx="4" fill="#64748b"/>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <path d="M-30,-20 L30,-20 L30,20 L0,50 L-30,20 Z" fill="url(#blueGrad)" stroke="#1e3a8a" stroke-width="3"/>
-        <rect x="-6" y="-45" width="12" height="25" rx="3" fill="#78350f"/>
-        <text x="0" y="15" font-family="Rubik, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">נ</text>
-      
-    </g>
 </svg>

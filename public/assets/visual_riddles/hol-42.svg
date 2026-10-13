@@ -43,19 +43,27 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(620, 260)" filter="url(#shadow)">
-      
-        <circle cx="0" cy="0" r="65" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>
-        <circle cx="0" cy="0" r="45" fill="none" stroke="#e2e8f0" stroke-width="3"/>
-        <line x1="-55" y1="-55" x2="55" y2="55" stroke="#ef4444" stroke-width="10" stroke-linecap="round"/>
-      
-    </g>
-<text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Right: Open Holy Book (ספר פתוח) -->
+  <g transform="translate(680, 260)" filter="url(#shadow)">
+    <path d="M-65,-30 C-30,-45 -10,-35 0,-20 C10,-35 30,-45 65,-30 L60,45 C30,35 10,40 0,30 C-10,40 -30,35 -60,45 Z" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+    <path d="M0,-20 L0,30" stroke="#b45309" stroke-width="3"/>
+    <line x1="-50" y1="-10" x2="-10" y2="-5" stroke="#92400e" stroke-width="3" stroke-dasharray="5 3"/>
+    <line x1="-50" y1="5" x2="-10" y2="10" stroke="#92400e" stroke-width="3" stroke-dasharray="5 3"/>
+    <line x1="10" y1="-5" x2="50" y2="-10" stroke="#92400e" stroke-width="3" stroke-dasharray="5 3"/>
+    <line x1="10" y1="10" x2="50" y2="5" stroke="#92400e" stroke-width="3" stroke-dasharray="5 3"/>
+  </g>
+  <text x="520" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Middle: Golden Shofar (שופר מוזהב) -->
+  <g transform="translate(380, 260)" filter="url(#shadow)">
+    <path d="M-50,45 Q-20,25 0,0 Q20,-35 60,-25 Q50,-10 15,10 Q-20,30 -40,55 Z" fill="url(#goldGrad)" stroke="#78350f" stroke-width="3"/>
+    <circle cx="-45" cy="50" r="7" fill="#451a03"/>
+  </g>
+  <text x="240" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Royal Seal (חותם מלכותי) -->
+  <g transform="translate(130, 260)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="45" fill="url(#redGrad)" stroke="#991b1b" stroke-width="3"/>
+    <polygon points="0,-30 8,-10 30,-10 12,4 18,24 0,12 -18,24 -12,4 -30,-10 -8,-10" fill="#fef08a"/>
+    <circle cx="0" cy="3" r="10" fill="#ef4444"/>
+  </g>
 
-    <g transform="translate(280, 260)" filter="url(#shadow)">
-      
-        <path d="M-50,55 Q0,10 45,-60 Q55,-10 0,35 Z" fill="url(#blueGrad)"/>
-        <line x1="-50" y1="55" x2="45" y2="-60" stroke="#ffffff" stroke-width="3"/>
-      
-    </g>
 </svg>

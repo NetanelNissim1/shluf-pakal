@@ -43,12 +43,16 @@
 
   <!-- Content Graphics Area -->
   
-    <g transform="translate(450, 260)" filter="url(#shadow)">
-      
-        <path d="M-50,55 L-5,55 L-5,-25 C-5,-50 -50,-50 -50,-25 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="3"/>
-        <path d="M5,55 L50,55 L50,-25 C50,-50 5,-50 5,-25 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="3"/>
-        <text x="-27" y="15" font-family="Rubik, sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle">א-ה</text>
-        <text x="27" y="15" font-family="Rubik, sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle">ו-י</text>
-      
-    </g>
+  <!-- Right: Tablet 1 (א-ה) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <path d="M-55,60 L55,60 L55,-25 C55,-55 -55,-55 -55,-25 Z" fill="url(#blueGrad)" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="0" y="18" font-family="Rubik, sans-serif" font-size="42" font-weight="900" fill="#fef08a" text-anchor="middle">א-ה</text>
+  </g>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Tablet 2 (ו-י) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <path d="M-55,60 L55,60 L55,-25 C55,-55 -55,-55 -55,-25 Z" fill="url(#blueGrad)" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="0" y="18" font-family="Rubik, sans-serif" font-size="42" font-weight="900" fill="#fef08a" text-anchor="middle">ו-י</text>
+  </g>
+
 </svg>

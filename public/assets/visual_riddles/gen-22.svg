@@ -16,6 +16,10 @@
       <stop offset="0%" stop-color="#60a5fa"/>
       <stop offset="100%" stop-color="#2563eb"/>
     </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
     <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f87171"/>
       <stop offset="100%" stop-color="#dc2626"/>
@@ -39,13 +43,18 @@
 
   <!-- Content Graphics Area -->
   
-  <!-- Element 1: שָׂם נַפְשׁוֹ (לֵב/נֶפֶשׁ) -->
-  <g transform="translate(640, 250)" filter="url(#shadow)">
-    <path d="M0,35 L-35,0 Q-35,-30 0,-10 Q35,-30 35,0 Z" fill="url(#redGrad)"/>
+  <!-- Right: Glowing Heart / Soul (נפש / לב זוהר) -->
+  <g transform="translate(640, 260)" filter="url(#shadow)">
+    <circle cx="0" cy="5" r="75" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+    <path d="M0,45 C-60,-5 -45,-55 0,-25 C45,-55 60,-5 0,45 Z" fill="url(#redGrad)" stroke="#be123c" stroke-width="3"/>
+    <ellipse cx="-15" cy="-8" rx="8" ry="14" fill="#fecdd3" opacity="0.6" transform="rotate(-25 -15 -8)"/>
   </g>
-  <text x="450" y="270" font-family="system-ui, sans-serif" font-size="52" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
-  <!-- Element 2: בְּכַפּוֹ (כַּף יָד) -->
-  <g transform="translate(260, 250)" filter="url(#shadow)">
-    <path d="M-25,45 L-25,-10 L-10,-35 L0,-35 L10,-30 L20,-20 L25,45 Z" fill="#d97706"/>
+  <text x="450" y="275" font-family="system-ui, sans-serif" font-size="64" font-weight="900" fill="#fbbf24" text-anchor="middle">+</text>
+  <!-- Left: Open Cupped Palm of Hand (כף יד פתוחה) -->
+  <g transform="translate(260, 260)" filter="url(#shadow)">
+    <!-- Palm and fingers -->
+    <path d="M-40,65 L-40,20 C-40,-15 -25,-45 -10,-45 C0,-45 5,-15 5,-15 C10,-40 25,-40 30,-15 C35,-35 45,-35 50,-15 C55,-30 65,-25 65,-5 C65,30 20,65 -40,65 Z" fill="#fed7aa" stroke="#c2410c" stroke-width="4"/>
+    <line x1="-15" y1="20" x2="25" y2="20" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
   </g>
+
 </svg>
