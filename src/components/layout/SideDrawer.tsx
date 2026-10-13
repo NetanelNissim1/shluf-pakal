@@ -106,12 +106,12 @@ export const SideDrawer: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-base tracking-tight">שלוף</span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <span className="font-extrabold text-lg tracking-tight">שלוף</span>
+                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                   100% אופליין
                 </span>
               </div>
-              <p className="text-[11px] opacity-75 font-medium mt-0.5">פק"ל שטח, חידות והפעלות</p>
+              <p className="text-xs opacity-75 font-medium mt-0.5">פק"ל שטח, חידות והפעלות</p>
             </div>
           </div>
 
@@ -148,12 +148,12 @@ export const SideDrawer: React.FC = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between">
-                <span className="font-extrabold text-xs text-stone-900 dark:text-white">סיור מודרך באתר</span>
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300">
+                <span className="font-extrabold text-sm text-stone-900 dark:text-white">סיור מודרך באתר</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300">
                   הפעלה
                 </span>
               </div>
-              <p className="text-[11px] opacity-70 mt-0.5 leading-snug">
+              <p className="text-xs opacity-70 mt-0.5 leading-snug">
                 איך לתפעל את שלוף בשטח: שליפה מהירה, חידות ופק"ל אישי
               </p>
             </div>
@@ -176,12 +176,12 @@ export const SideDrawer: React.FC = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between">
-                <span className="font-extrabold text-xs text-stone-900 dark:text-white">פק"ל טיפים למדריך</span>
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
+                <span className="font-extrabold text-sm text-stone-900 dark:text-white">פק"ל טיפים למדריך</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
                   חדש!
                 </span>
               </div>
-              <p className="text-[11px] opacity-70 mt-0.5 leading-snug">
+              <p className="text-xs opacity-70 mt-0.5 leading-snug">
                 מתודיקה והדרכה: 10 חוקי ברזל למעגל, שבירת שגרה בהליכה ו-ODT
               </p>
             </div>
@@ -207,12 +207,12 @@ export const SideDrawer: React.FC = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between">
-                <span className="font-extrabold text-xs text-stone-900 dark:text-white">הפק"ל האישי שלי</span>
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300">
+                <span className="font-extrabold text-sm text-stone-900 dark:text-white">הפק"ל האישי שלי</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300">
                   אישי
                 </span>
               </div>
-              <p className="text-[11px] opacity-70 mt-0.5 leading-snug">
+              <p className="text-xs opacity-70 mt-0.5 leading-snug">
                 חידות ושאלות שסימנת בכוכב לקראת היציאה לשטח
               </p>
             </div>
@@ -235,12 +235,12 @@ export const SideDrawer: React.FC = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between">
-                <span className="font-extrabold text-xs text-stone-900 dark:text-white">אודות והתקנת אפליקציה</span>
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-700 dark:text-sky-300">
+                <span className="font-extrabold text-sm text-stone-900 dark:text-white">אודות והתקנת אפליקציה</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-700 dark:text-sky-300">
                   PWA
                 </span>
               </div>
-              <p className="text-[11px] opacity-70 mt-0.5 leading-snug">
+              <p className="text-xs opacity-70 mt-0.5 leading-snug">
                 חזון המיזם, קרדיט ליוצר ומדריך התקנה מהיר למסך הבית
               </p>
             </div>
@@ -254,19 +254,19 @@ export const SideDrawer: React.FC = () => {
           <div className={`p-3.5 rounded-2xl border space-y-3 ${
             isCampfire ? 'bg-stone-900/50 border-stone-800' : 'bg-stone-50 border-stone-200'
           }`}>
-            <span className="text-[10px] font-black uppercase tracking-wider opacity-60 block">
+            <span className="text-[11px] font-black uppercase tracking-wider opacity-60 block">
               ⚙️ הגדרות שטח מהירות
             </span>
 
             {/* Text Size Stepper */}
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-stone-800 dark:text-stone-200">גודל טקסט:</span>
+              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">גודל טקסט:</span>
               <div className={`grid grid-cols-3 gap-1 p-0.5 rounded-xl border ${
                 isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-white border-stone-300'
               }`}>
                 <button
                   onClick={() => setTextSize('normal')}
-                  className={`py-1 px-2 rounded-lg text-xs font-bold transition-all ${
+                  className={`py-1 px-2.5 rounded-lg text-sm font-bold transition-all ${
                     textSize === 'normal'
                       ? isCampfire ? 'bg-orange-600 text-white shadow-sm' : 'bg-amber-500 text-white shadow-sm'
                       : 'text-stone-500 hover:text-stone-900 dark:hover:text-stone-200'
@@ -276,7 +276,7 @@ export const SideDrawer: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setTextSize('large')}
-                  className={`py-1 px-2 rounded-lg text-xs font-bold transition-all ${
+                  className={`py-1 px-2.5 rounded-lg text-sm font-bold transition-all ${
                     textSize === 'large'
                       ? isCampfire ? 'bg-orange-600 text-white shadow-sm' : 'bg-amber-500 text-white shadow-sm'
                       : 'text-stone-500 hover:text-stone-900 dark:hover:text-stone-200'
@@ -286,7 +286,7 @@ export const SideDrawer: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setTextSize('huge')}
-                  className={`py-1 px-2 rounded-lg text-xs font-bold transition-all ${
+                  className={`py-1 px-2.5 rounded-lg text-sm font-bold transition-all ${
                     textSize === 'huge'
                       ? isCampfire ? 'bg-orange-600 text-white shadow-sm' : 'bg-amber-500 text-white shadow-sm'
                       : 'text-stone-500 hover:text-stone-900 dark:hover:text-stone-200'
@@ -299,7 +299,7 @@ export const SideDrawer: React.FC = () => {
 
             {/* Random Order Switch */}
             <div className="flex items-center justify-between pt-1 border-t border-stone-200/40 dark:border-stone-800">
-              <span className="text-xs font-bold text-stone-800 dark:text-stone-200">ערבוב שאלות:</span>
+              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">ערבוב שאלות:</span>
               <div className="flex items-center gap-1">
                 {randomOrderEnabled && (
                   <button
@@ -316,7 +316,7 @@ export const SideDrawer: React.FC = () => {
                 )}
                 <button
                   onClick={toggleRandomOrder}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-2.5 py-1 rounded-lg text-sm font-bold transition-all ${
                     randomOrderEnabled
                       ? 'bg-blue-600 text-white shadow-sm'
                       : isCampfire
@@ -331,10 +331,10 @@ export const SideDrawer: React.FC = () => {
 
             {/* Sound Toggle */}
             <div className="flex items-center justify-between pt-1 border-t border-stone-200/40 dark:border-stone-800">
-              <span className="text-xs font-bold text-stone-800 dark:text-stone-200">צלילי מערכת:</span>
+              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">צלילי מערכת:</span>
               <button
                 onClick={toggleSound}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
+                className={`px-2.5 py-1 rounded-lg text-sm font-bold transition-all flex items-center gap-1.5 ${
                   soundEnabled
                     ? 'bg-emerald-600 text-white shadow-sm'
                     : isCampfire
@@ -372,7 +372,7 @@ export const SideDrawer: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <Lightbulb className="w-4 h-4 text-amber-500" />
-              <span className="text-xs font-extrabold">יש לך רעיון לחידה או שיפור?</span>
+              <span className="text-sm font-extrabold">יש לך רעיון לחידה או שיפור?</span>
             </div>
             <span className="text-xs opacity-75">←</span>
           </button>
@@ -380,7 +380,7 @@ export const SideDrawer: React.FC = () => {
         </div>
 
         {/* Drawer Footer */}
-        <div className={`p-3 pb-safe border-t text-center text-[10px] opacity-60 shrink-0 ${
+        <div className={`p-3 pb-safe border-t text-center text-[11px] opacity-65 shrink-0 ${
           isCampfire ? 'border-stone-800 bg-stone-900/40' : 'border-amber-100 bg-amber-50/40'
         }`}>
           שלוף פק"ל הדרכה • נוצר ע״י נתנאל נסים (Netanel Nissim)
