@@ -88,11 +88,6 @@ export const RiddleCard: React.FC<RiddleCardProps> = ({ riddle, index }) => {
               </span>
             </span>
           )}
-          {index !== undefined && (
-            <span className="text-[11px] text-stone-400 font-medium">
-              #{index + 1}
-            </span>
-          )}
         </div>
 
         {/* Action Buttons: Star Favorite & Share */}

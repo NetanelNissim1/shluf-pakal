@@ -134,15 +134,8 @@ export const ODTPage: React.FC = () => {
               <Compass className="w-6 h-6 stroke-[2.5]" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <h2 className="text-xl font-black tracking-tight">אימוני שטח ו-ODT</h2>
-                <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
-                  isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-amber-100 text-amber-800'
-                }`}>
-                  101 מתודות
-                </span>
-              </div>
-              <p className="text-xs text-stone-400">
+              <h2 className="text-xl font-black tracking-tight">אימוני שטח ו-ODT</h2>
+              <p className="text-xs text-stone-400 mt-0.5">
                 פיתוח צוות, מנהיגות, שיווי משקל ואמון הדדי בשטח
               </p>
             </div>
@@ -218,7 +211,7 @@ export const ODTPage: React.FC = () => {
       {/* Results Header */}
       <div className="flex items-center justify-between px-1">
         <span className="text-xs font-bold text-stone-400">
-          מוצגות {visibleActivities.length} מתוך {filteredActivities.length} פעילויות ODT
+          פעילויות שטח ואימוני ODT
         </span>
       </div>
 
@@ -257,7 +250,7 @@ export const ODTPage: React.FC = () => {
                     : 'bg-white border-amber-200 text-amber-800 hover:bg-amber-50 shadow-sm'
                 }`}
               >
-                <span>טען עוד פעילויות ({filteredActivities.length - visibleActivities.length} נותרו)</span>
+                <span>טען עוד פעילויות</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
             </div>

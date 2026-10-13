@@ -206,15 +206,8 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
             </button>
           )}
           <div>
-            <h1 className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-1.5">
-              <span>נכון / לא נכון</span>
-              <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold border ${
-                isCampfire 
-                  ? 'bg-emerald-950/70 border-emerald-700/60 text-emerald-300' 
-                  : 'bg-emerald-50 border-emerald-300 text-emerald-800'
-              }`}>
-                152 טענות
-              </span>
+            <h1 className="text-xl sm:text-2xl font-black tracking-tight">
+              נכון / לא נכון
             </h1>
             <p className="text-xs text-stone-500 dark:text-stone-400">
               טריוויית שטח מהירה לטור בהליכה, לעצירת צל ולמדורה
@@ -317,7 +310,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
               : 'text-stone-500 hover:text-stone-800 dark:hover:text-stone-200'
           }`}
         >
-          הכל (152)
+          הכל
         </button>
 
         <button
@@ -329,7 +322,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
           }`}
         >
           <Compass className="w-3.5 h-3.5" />
-          <span>חבלי ארץ (84)</span>
+          <span>חבלי ארץ</span>
         </button>
 
         <button
@@ -341,7 +334,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
           }`}
         >
           <CalendarDays className="w-3.5 h-3.5" />
-          <span>חגים ומועדים (68)</span>
+          <span>חגים ומועדים</span>
         </button>
       </div>
 
@@ -356,7 +349,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            כל האזורים (84)
+            כל האזורים
           </button>
           <button
             onClick={() => setSubFilter('north')}
@@ -366,7 +359,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            צפון וגולן (21)
+            צפון וגולן
           </button>
           <button
             onClick={() => setSubFilter('center')}
@@ -376,7 +369,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            מרכז וחוף (21)
+            מרכז וחוף
           </button>
           <button
             onClick={() => setSubFilter('jerusalem')}
@@ -386,7 +379,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            ירושלים ויהודה (21)
+            ירושלים ויהודה
           </button>
           <button
             onClick={() => setSubFilter('south')}
@@ -396,7 +389,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            דרום, נגב וערבה (21)
+            דרום, נגב וערבה
           </button>
         </div>
       )}
@@ -411,7 +404,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            כל המועדים (68)
+            כל המועדים
           </button>
           <button
             onClick={() => setSubFilter('tishrei')}
@@ -421,7 +414,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            חגי תשרי (17)
+            חגי תשרי
           </button>
           <button
             onClick={() => setSubFilter('chanukah-tubishvat')}
@@ -431,7 +424,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            חנוכה וט"ו בשבט (17)
+            חנוכה וט"ו בשבט
           </button>
           <button
             onClick={() => setSubFilter('purim-pesach')}
@@ -441,7 +434,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            פורים ופסח (17)
+            פורים ופסח
           </button>
           <button
             onClick={() => setSubFilter('iyar-sivan')}
@@ -451,19 +444,15 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                 : isCampfire ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-stone-200 text-stone-600'
             }`}
           >
-            עצמאות, ל"ג בעומר ושבועות (17)
+            עצמאות, ל"ג בעומר ושבועות
           </button>
         </div>
       )}
 
       {/* Top Visual Progress Bar */}
       {filteredItems.length > 0 && (
-        <div className="space-y-1.5">
-          <div className="flex items-center justify-between text-[11px] font-bold text-stone-400 px-1">
-            <span>שאלה {currentIndex + 1} מתוך {filteredItems.length}</span>
-            <span>{Math.round(((currentIndex + 1) / filteredItems.length) * 100)}%</span>
-          </div>
-          <div className="w-full bg-stone-200 dark:bg-stone-800 h-2 rounded-full overflow-hidden">
+        <div className="space-y-1">
+          <div className="w-full bg-stone-200 dark:bg-stone-800 h-1.5 rounded-full overflow-hidden">
             <div 
               className="bg-gradient-to-r from-emerald-500 to-teal-500 h-full rounded-full transition-all duration-300"
               style={{ width: `${((currentIndex + 1) / filteredItems.length) * 100}%` }}
@@ -495,7 +484,7 @@ export const TrueFalsePage: React.FC<TrueFalsePageProps> = ({ onBack }) => {
                   ? 'bg-stone-900 border-stone-800 text-orange-400' 
                   : 'bg-amber-100/80 border-amber-300 text-amber-900'
               }`}>
-                שאלה {currentIndex + 1} מתוך {filteredItems.length}
+                {currentItem.category === 'regions' ? 'חבלי ארץ' : 'מועדי ישראל'}
               </span>
 
               <span className="text-[11px] text-stone-400 font-medium">

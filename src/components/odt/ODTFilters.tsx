@@ -82,7 +82,7 @@ export const ODTFilters: React.FC<ODTFiltersProps> = ({
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
-            <span>כל 101 הפעילויות</span>
+            <span>כל הפעילויות</span>
           </button>
 
           {categories.map((cat) => {

@@ -54,6 +54,7 @@ interface PakalState {
   setActiveDifficulty: (diff: 'all' | 'easy' | 'medium' | 'hard') => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  resetFilters: () => void;
 
   // Randomizer Modal
   isRandomizerOpen: boolean;
@@ -76,6 +77,18 @@ interface PakalState {
   showToast: (msg: string, duration?: number) => void;
   hideToast: () => void;
 
+  // Side Drawer & Modals (Plan 1)
+  isSideDrawerOpen: boolean;
+  openSideDrawer: () => void;
+  closeSideDrawer: () => void;
+  toggleSideDrawer: () => void;
+  isAboutModalOpen: boolean;
+  openAboutModal: () => void;
+  closeAboutModal: () => void;
+  isGuideTipsModalOpen: boolean;
+  openGuideTipsModal: () => void;
+  closeGuideTipsModal: () => void;
+
   // Onboarding Tour & Coach Marks (First Visit Guide)
   hasCompletedOnboarding: boolean;
   isOnboardingActive: boolean;
@@ -90,6 +103,31 @@ interface PakalState {
 export const usePakalStore = create<PakalState>()(
   persist(
     (set, get) => ({
+      // Side Drawer & Modals (Plan 1)
+      isSideDrawerOpen: false,
+      openSideDrawer: () => {
+        if (get().hapticsEnabled) triggerHaptic(15);
+        set({ isSideDrawerOpen: true });
+      },
+      closeSideDrawer: () => set({ isSideDrawerOpen: false }),
+      toggleSideDrawer: () => {
+        if (get().hapticsEnabled) triggerHaptic(15);
+        set((state) => ({ isSideDrawerOpen: !state.isSideDrawerOpen }));
+      },
+
+      isAboutModalOpen: false,
+      openAboutModal: () => {
+        if (get().hapticsEnabled) triggerHaptic(15);
+        set({ isAboutModalOpen: true, isSideDrawerOpen: false });
+      },
+      closeAboutModal: () => set({ isAboutModalOpen: false }),
+
+      isGuideTipsModalOpen: false,
+      openGuideTipsModal: () => {
+        if (get().hapticsEnabled) triggerHaptic(15);
+        set({ isGuideTipsModalOpen: true, isSideDrawerOpen: false });
+      },
+      closeGuideTipsModal: () => set({ isGuideTipsModalOpen: false }),
       // Device-Based Dynamic Random Order
       deviceShuffleSeed: generateRandomSeed(),
       randomOrderEnabled: true,
@@ -199,6 +237,15 @@ export const usePakalStore = create<PakalState>()(
       },
       searchQuery: '',
       setSearchQuery: (query) => set({ searchQuery: sanitizeSearchQuery(query) }),
+      resetFilters: () => {
+        set({
+          activeSituation: 'all',
+          activeCategory: null,
+          activeSubCategory: null,
+          activeDifficulty: 'all',
+          searchQuery: ''
+        });
+      },
 
       // Randomizer
       isRandomizerOpen: false,

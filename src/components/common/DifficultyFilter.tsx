@@ -50,11 +50,6 @@ export const DifficultyFilter: React.FC<DifficultyFilterProps> = ({ counts }) =>
             >
               <span className={`w-1.5 h-1.5 rounded-full ${opt.dotColor} ${isActive ? 'ring-2 ring-white/50' : ''}`} />
               <span>{opt.label}</span>
-              {count !== undefined && (
-                <span className={`text-[10px] font-semibold opacity-75`}>
-                  ({count})
-                </span>
-              )}
             </button>
           );
         })}

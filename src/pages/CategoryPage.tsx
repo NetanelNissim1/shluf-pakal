@@ -155,7 +155,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
                 }`}
               >
                 <span>{cat.title}</span>
-                <span className="text-[10px] opacity-80 font-bold">({count})</span>
+                <span className="hidden" aria-hidden="true">({categoryCounts[cat.id]})</span>
               </button>
             );
           })}
@@ -172,7 +172,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
             >
               <Palette className="w-3.5 h-3.5 text-purple-500" />
               <span>חידות בציורים</span>
-              <span className="text-[10px] opacity-80 font-bold">({visualData.length})</span>
             </button>
           )}
 
@@ -188,7 +187,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
             >
               <Trophy className="w-3.5 h-3.5 text-orange-500" />
               <span>טאבו שטח</span>
-              <span className="text-[10px] opacity-80 font-bold">({tabooData.length})</span>
             </button>
           )}
 
@@ -204,7 +202,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
             >
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
               <span>נכון / לא נכון</span>
-              <span className="text-[10px] opacity-80 font-bold">({trueFalseData.length})</span>
             </button>
           )}
         </div>
@@ -225,13 +222,6 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
               {currentCategoryMeta.description}
             </p>
           </div>
-          <span className={`text-xs font-extrabold px-2.5 py-1 rounded-xl border shrink-0 ${
-            isCampfire
-              ? 'bg-stone-950 text-orange-400 border-stone-800'
-              : 'bg-amber-50 text-amber-800 border-amber-200'
-          }`}>
-            {categoryRiddles.length} שאלות
-          </span>
         </div>
 
         {/* Local Category Search Input */}
@@ -301,7 +291,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
       {/* List Header & Anti-Peeking Global Toggle */}
       <div className="flex items-center justify-between px-1">
         <div className="text-xs font-bold text-stone-500">
-          מוצגות {visibleRiddles.length} מתוך {filteredRiddles.length}
+          שאלות וחידות לפעילות
         </div>
 
         {filteredRiddles.length > 0 && (

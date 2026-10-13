@@ -91,7 +91,7 @@ export function initContentProtection(): () => void {
       e.key === 'F12' ||
       ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
       ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'P' || e.key === 'p')) ||
-      (!isInput && (e.ctrlKey || e.metaKey) && (e.key === 'A' || e.key === 'a'))
+      (!isInput && (e.ctrlKey || e.metaKey) && (e.key === 'A' || e.key === 'a' || e.key === 'C' || e.key === 'c' || e.key === 'X' || e.key === 'x'))
     ) {
       e.preventDefault();
       e.stopPropagation();
@@ -112,11 +112,21 @@ export function initContentProtection(): () => void {
     e.preventDefault();
   };
 
+  // 5. Block text selection start event
+  const handleSelectStart = (e: Event) => {
+    const target = e.target as HTMLElement;
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+      return;
+    }
+    e.preventDefault();
+  };
+
   window.addEventListener('contextmenu', handleContextMenu);
   window.addEventListener('keydown', handleKeyDown);
   window.addEventListener('dragstart', handleDragStart);
   window.addEventListener('copy', handleCopy);
   window.addEventListener('cut', handleCopy);
+  window.addEventListener('selectstart', handleSelectStart);
 
   return () => {
     window.removeEventListener('contextmenu', handleContextMenu);
@@ -124,5 +134,6 @@ export function initContentProtection(): () => void {
     window.removeEventListener('dragstart', handleDragStart);
     window.removeEventListener('copy', handleCopy);
     window.removeEventListener('cut', handleCopy);
+    window.removeEventListener('selectstart', handleSelectStart);
   };
 }

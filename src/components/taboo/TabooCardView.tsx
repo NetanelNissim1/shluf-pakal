@@ -23,16 +23,11 @@ export const TabooCardView: React.FC<TabooCardViewProps> = ({
         ? 'bg-gradient-to-b from-stone-950 via-campfire-card to-black border-orange-600/60 shadow-orange-950/50'
         : 'bg-gradient-to-b from-white to-amber-50/70 border-amber-300 shadow-xl'
     }`}>
-      {/* Card Header & Counter */}
-      <div className="flex items-center justify-between text-xs font-bold mb-3 opacity-75">
-        <span className="flex items-center gap-1">
+      {/* Card Header */}
+      <div className="flex items-center justify-center text-xs font-bold mb-3 opacity-75">
+        <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
           <AlertCircle className="w-3.5 h-3.5 text-red-500" />
           <span>כרטיס טאבו שטח</span>
-        </span>
-        <span className={`px-2.5 py-1 rounded-full text-xs font-extrabold ${
-          isCampfire ? 'bg-orange-950 text-orange-300' : 'bg-amber-100 text-amber-900'
-        }`}>
-          {cardNumber} מתוך {totalCards}
         </span>
       </div>
 

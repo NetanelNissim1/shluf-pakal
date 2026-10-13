@@ -50,7 +50,7 @@ export const TrueFalseInstructionsModal: React.FC<TrueFalseInstructionsModalProp
               איך מפעילים "נכון או לא נכון" בשטח?
             </h2>
             <p className="text-xs text-stone-400">
-              משחק טריוויה מהיר ודינמי שאינו דורש שום ציוד (152 טענות שטח)
+              משחק טריוויה מהיר ודינמי שאינו דורש שום ציוד
             </p>
           </div>
         </div>

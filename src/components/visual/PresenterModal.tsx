@@ -214,9 +214,6 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
           <div>
             <h2 className="text-sm sm:text-base font-extrabold text-white flex items-center gap-2">
               <span>{isAnswerRevealed ? riddle.title : 'חידה בציורים'}</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                {currentIndex + 1} / {allRiddles.length}
-              </span>
             </h2>
           </div>
         </div>

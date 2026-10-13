@@ -34,13 +34,6 @@ export const SubCategoryTabs: React.FC<SubCategoryTabsProps> = ({
           }`}
         >
           <span>הכל</span>
-          <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
-            activeSubCategory === null
-              ? 'bg-white/20 text-white'
-              : isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-stone-100 text-stone-600'
-          }`}>
-            {totalCount}
-          </span>
         </button>
 
         {/* Subcategory Pills */}
@@ -61,13 +54,6 @@ export const SubCategoryTabs: React.FC<SubCategoryTabsProps> = ({
               }`}
             >
               <span>{sub.name}</span>
-              <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
-                isActive
-                  ? 'bg-white/20 text-white'
-                  : isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-stone-100 text-stone-600'
-              }`}>
-                {sub.count}
-              </span>
             </button>
           );
         })}

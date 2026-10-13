@@ -111,12 +111,6 @@ export const VisualRiddleCard: React.FC<VisualRiddleCardProps> = ({
             <span className={`w-1.5 h-1.5 rounded-full ${diff.dot}`} />
             <span>{diff.label}</span>
           </span>
-
-          {index !== undefined && (
-            <span className="text-[11px] text-stone-400 font-medium">
-              #{index + 1}
-            </span>
-          )}
         </div>
 
         {/* Action Buttons: WhatsApp Share, QR Share, Star Favorite */}

@@ -5,6 +5,9 @@ import { HomePage } from './pages/HomePage';
 import { RandomizerModal } from './components/randomizer/RandomizerModal';
 import { FeedbackDrawer } from './components/common/FeedbackDrawer';
 import { OnboardingTour } from './components/common/OnboardingTour';
+import { SideDrawer } from './components/layout/SideDrawer';
+import { AboutModal } from './components/common/AboutModal';
+import { GuideTipsModal } from './components/common/GuideTipsModal';
 import { usePakalStore } from './store/usePakalStore';
 import { CategoryId } from './types';
 import { initContentProtection } from './lib/security';
@@ -44,6 +47,9 @@ export const App: React.FC = () => {
     textSize, 
     setActiveCategory, 
     activeSituation,
+    setActiveSituation,
+    setSearchQuery,
+    resetFilters,
     hasCompletedOnboarding,
     startTour,
     toastMessage,
@@ -152,6 +158,12 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateHome = () => {
+    setCurrentTab('home');
+    resetFilters();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // If user clicks situational chips, switch to the respective tab
   useEffect(() => {
     if (activeSituation === 'pakal') {
@@ -185,7 +197,7 @@ export const App: React.FC = () => {
       themeMode === 'campfire' ? 'bg-black text-orange-100' : 'bg-[#fffdf7] text-stone-900'
     }`}>
       {/* Top Header */}
-      <Header />
+      <Header onNavigateHome={handleNavigateHome} />
 
       {/* Main Content Area */}
       <main className="flex-1 w-full max-w-lg mx-auto px-3.5 sm:px-4 pt-3.5 pb-safe">
@@ -216,14 +228,23 @@ export const App: React.FC = () => {
           {currentTab === 'taboo' && <TabooPage />}
 
           {currentTab === 'true-false' && (
-            <TrueFalsePage onBack={() => setCurrentTab('home')} />
+            <TrueFalsePage onBack={handleNavigateHome} />
           )}
 
           {currentTab === 'pakal' && (
-            <MyPakalPage onExploreClick={() => setCurrentTab('home')} />
+            <MyPakalPage onExploreClick={handleNavigateHome} />
           )}
         </Suspense>
       </main>
+
+      {/* Plan 1: Side Navigation Drawer */}
+      <SideDrawer />
+
+      {/* Plan 1: About Modal with Netanel Nissim credit */}
+      <AboutModal />
+
+      {/* Plan 1: Guide Tips Modal */}
+      <GuideTipsModal />
 
       {/* Floating Randomizer Modal */}
       <RandomizerModal />
@@ -247,7 +268,16 @@ export const App: React.FC = () => {
       )}
 
       {/* Fixed Bottom Navigation Bar with Center FAB */}
-      <BottomNav currentTab={currentTab} onTabChange={setCurrentTab} />
+      <BottomNav 
+        currentTab={currentTab} 
+        onTabChange={(tab) => {
+          if (tab === 'home') {
+            handleNavigateHome();
+          } else {
+            setCurrentTab(tab);
+          }
+        }} 
+      />
     </div>
   );
 };

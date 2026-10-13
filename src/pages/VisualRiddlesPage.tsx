@@ -134,17 +134,13 @@ export const VisualRiddlesPage: React.FC = () => {
               <Palette className="w-6 h-6 stroke-[2.5]" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <h2 className="text-xl font-black tracking-tight">חידות בציורים ורבוסים</h2>
-                <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
-                  isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-amber-100 text-amber-800'
-                }`}>
-                  {allRiddles.length} חידות ויזואליות
-                </span>
-              </div>
-              <p className="text-xs text-stone-400">
+              <h2 className="text-xl font-black tracking-tight">חידות בציורים ורבוסים</h2>
+              <p className="text-xs text-stone-400 mt-0.5">
                 מסך מלא למעגל, זום, שידור מקרן וקוד QR שטח לסמארטפונים
               </p>
+              <span className="hidden" aria-hidden="true">
+                {allRiddles.length} חידות ויזואליות
+              </span>
             </div>
           </div>
 
@@ -232,7 +228,7 @@ export const VisualRiddlesPage: React.FC = () => {
             }`}
           >
             <span>כל הציורים</span>
-            <span className="text-[10px] opacity-80 font-bold">({categoryCounts.all})</span>
+            <span className="hidden" aria-hidden="true">({categoryCounts.all})</span>
           </button>
 
           <button
@@ -252,7 +248,7 @@ export const VisualRiddlesPage: React.FC = () => {
           >
             <CalendarDays className="w-3.5 h-3.5" />
             <span>חגי ישראל</span>
-            <span className="text-[10px] opacity-80 font-bold">({categoryCounts.holidays})</span>
+            <span className="hidden" aria-hidden="true">({categoryCounts.holidays})</span>
           </button>
 
           <button
@@ -272,7 +268,7 @@ export const VisualRiddlesPage: React.FC = () => {
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>פתגמים וביטויים</span>
-            <span className="text-[10px] opacity-80 font-bold">({categoryCounts.general})</span>
+            <span className="hidden" aria-hidden="true">({categoryCounts.general})</span>
           </button>
 
           <button
@@ -292,7 +288,7 @@ export const VisualRiddlesPage: React.FC = () => {
           >
             <Compass className="w-3.5 h-3.5" />
             <span>אתרים ומקומות</span>
-            <span className="text-[10px] opacity-80 font-bold">({categoryCounts.geography})</span>
+            <span className="hidden" aria-hidden="true">({categoryCounts.geography})</span>
           </button>
         </div>
       </div>
@@ -319,7 +315,7 @@ export const VisualRiddlesPage: React.FC = () => {
                   }`}
                 >
                   <span>{h.label}</span>
-                  <span className="text-[10px] opacity-75">({count})</span>
+                  <span className="hidden" aria-hidden="true">({count})</span>
                 </button>
               );
             })}
@@ -331,13 +327,13 @@ export const VisualRiddlesPage: React.FC = () => {
       <div className="flex items-center justify-between px-1">
         <span className="text-xs font-bold text-stone-400">
           {activeMainCat === 'holidays' && activeHoliday !== 'all' ? (
-            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.holidays} חידות חגים ({holidaysList.find(h => h.id === activeHoliday)?.label})</>
+            <>חידות חגים ({holidaysList.find(h => h.id === activeHoliday)?.label})</>
           ) : activeMainCat === 'general' ? (
-            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.general} חידות פתגמים וביטויים</>
+            <>חידות פתגמים וביטויים</>
           ) : activeMainCat === 'geography' ? (
-            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.geography} חידות אתרים ומקומות</>
+            <>חידות אתרים ומקומות</>
           ) : (
-            <>מוצגות {filteredRiddles.length} מתוך {categoryCounts.all} חידות בציורים</>
+            <>חידות בציורים ורבוסים</>
           )}
         </span>
       </div>

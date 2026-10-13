@@ -27,8 +27,24 @@
     background-color: var(--bg-main);
     color: var(--text-primary);
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     overscroll-behavior-y: none;
+  }
+
+  *, ::before, ::after {
+    -webkit-touch-callout: none;
+  }
+
+  input, textarea {
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
   }
 }
 
