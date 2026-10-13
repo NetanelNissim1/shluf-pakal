@@ -186,7 +186,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {filteredRiddles.length === 0 ? (
             <div className={`p-8 text-center rounded-2xl border ${
-              isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-white border-amber-200'
+              isCampfire ? 'bg-zinc-950 border-zinc-800' : 'bg-white border-amber-200'
             }`}>
               <Sparkles className="w-10 h-10 mx-auto mb-2 text-stone-400" />
               <h3 className="font-extrabold text-base mb-1">לא נמצאו חידות מתאימות</h3>
@@ -215,41 +215,41 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {/* 1. Visual Riddles Card (Top-Right in RTL) */}
+              {/* 1. Visual Riddles Card (Top-Right in RTL): Purple Theme 💜 */}
               <div
                 onClick={onNavigateVisual}
                 data-tour="tour-visual"
                 className={`p-4 sm:p-5 rounded-3xl border transition-all cursor-pointer touch-press group flex flex-col items-center justify-center text-center h-32 sm:h-36 ${
                   isCampfire
-                    ? 'bg-campfire-card border-campfire-border hover:border-amber-500/80 shadow-fire'
-                    : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
+                    ? 'bg-campfire-card border-campfire-border hover:border-purple-500/80 shadow-fire'
+                    : 'bg-white border-amber-200/90 hover:border-purple-400 hover:shadow-md shadow-field'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-2 shadow-sm transition-transform group-hover:scale-105 ${
                   isCampfire
-                    ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                    : 'bg-amber-100/80 text-amber-600 border border-amber-200'
+                    ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                    : 'bg-purple-100 text-purple-600 border border-purple-200'
                 }`}>
                   <Palette className="w-6 h-6 stroke-[2.2]" />
                 </div>
-                <h3 className="font-black text-sm sm:text-base leading-tight group-hover:text-amber-600 dark:group-hover:text-orange-400 transition-colors">
+                <h3 className="font-black text-sm sm:text-base leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   חידות בציורים
                 </h3>
               </div>
 
-              {/* 2. Taboo Card (Top-Left in RTL) */}
+              {/* 2. Taboo Card (Top-Left in RTL): Orange Theme 🧡 */}
               <div
                 onClick={onNavigateTaboo}
                 className={`p-4 sm:p-5 rounded-3xl border transition-all cursor-pointer touch-press group flex flex-col items-center justify-center text-center h-32 sm:h-36 ${
                   isCampfire
                     ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 shadow-fire'
-                    : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
+                    : 'bg-white border-amber-200/90 hover:border-orange-400 hover:shadow-md shadow-field'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-2 shadow-sm transition-transform group-hover:scale-105 ${
                   isCampfire
                     ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30'
-                    : 'bg-amber-100/80 text-orange-600 border border-amber-200'
+                    : 'bg-orange-100 text-orange-600 border border-orange-200'
                 }`}>
                   <Trophy className="w-6 h-6 stroke-[2.2]" />
                 </div>
@@ -258,7 +258,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </h3>
               </div>
 
-              {/* 3. True / False Card (Bottom-Right in RTL) */}
+              {/* 3. True / False Card (Bottom-Right in RTL): Emerald Green Theme 💚 */}
               <div
                 onClick={onNavigateTrueFalse}
                 className={`p-4 sm:p-5 rounded-3xl border transition-all cursor-pointer touch-press group flex flex-col items-center justify-center text-center h-32 sm:h-36 ${
@@ -270,7 +270,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-2 shadow-sm transition-transform group-hover:scale-105 ${
                   isCampfire
                     ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                    : 'bg-emerald-100/80 text-emerald-600 border border-emerald-200'
+                    : 'bg-emerald-100 text-emerald-600 border border-emerald-200'
                 }`}>
                   <CheckCircle2 className="w-6 h-6 stroke-[2.2]" />
                 </div>
@@ -279,23 +279,23 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </h3>
               </div>
 
-              {/* 4. ODT Activities Card (Bottom-Left in RTL) */}
+              {/* 4. ODT Activities Card (Bottom-Left in RTL): Blue Theme 💙 */}
               <div
                 onClick={onNavigateODT}
                 className={`p-4 sm:p-5 rounded-3xl border transition-all cursor-pointer touch-press group flex flex-col items-center justify-center text-center h-32 sm:h-36 ${
                   isCampfire
-                    ? 'bg-campfire-card border-campfire-border hover:border-teal-500/80 shadow-fire'
-                    : 'bg-white border-amber-200/90 hover:border-teal-400 hover:shadow-md shadow-field'
+                    ? 'bg-campfire-card border-campfire-border hover:border-blue-500/80 shadow-fire'
+                    : 'bg-white border-amber-200/90 hover:border-blue-400 hover:shadow-md shadow-field'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-2 shadow-sm transition-transform group-hover:scale-105 ${
                   isCampfire
-                    ? 'bg-teal-500/20 text-teal-400 border border-teal-500/30'
-                    : 'bg-teal-100/80 text-teal-600 border border-teal-200'
+                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                    : 'bg-blue-100 text-blue-600 border border-blue-200'
                 }`}>
                   <Compass className="w-6 h-6 stroke-[2.2]" />
                 </div>
-                <h3 className="font-black text-sm sm:text-base leading-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                <h3 className="font-black text-sm sm:text-base leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   אימוני ODT
                 </h3>
               </div>
@@ -321,7 +321,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     onClick={() => onNavigateCategory(cat.id)}
                     className={`p-5 rounded-2xl border transition-all cursor-pointer touch-press group relative overflow-hidden ${
                       isCampfire
-                        ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 hover:bg-stone-900 shadow-fire'
+                        ? 'bg-campfire-card border-campfire-border hover:border-orange-500/80 hover:bg-zinc-900 shadow-fire'
                         : 'bg-white border-amber-200/90 hover:border-amber-400 hover:shadow-md shadow-field'
                     }`}
                   >

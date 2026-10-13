@@ -194,7 +194,7 @@ export const App: React.FC = () => {
 
   return (
     <div className={`min-h-screen min-h-screen-dvh flex flex-col font-sans transition-colors duration-200 select-none ${
-      themeMode === 'campfire' ? 'bg-black text-orange-100' : 'bg-[#fffdf7] text-stone-900'
+      themeMode === 'campfire' ? 'bg-black text-zinc-100' : 'bg-[#fffdf7] text-stone-900'
     }`}>
       {/* Top Header */}
       <Header onNavigateHome={handleNavigateHome} />

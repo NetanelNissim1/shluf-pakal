@@ -264,7 +264,7 @@ export const OnboardingTour: React.FC = () => {
         }}
         className={`z-50 rounded-2xl p-5 border-2 shadow-2xl transition-all ${
           isCampfire 
-            ? 'bg-stone-950 border-orange-500/60 text-stone-100 shadow-orange-950/80' 
+            ? 'bg-black border-amber-500/60 text-zinc-100 shadow-black' 
             : 'bg-white border-amber-300 text-stone-900 shadow-2xl'
         }`}
       >
@@ -276,8 +276,8 @@ export const OnboardingTour: React.FC = () => {
           }}
           className={`absolute w-3.5 h-3.5 border-2 ${
             tooltipPos.arrowPosition === 'top'
-              ? `-top-[8px] ${isCampfire ? 'bg-stone-950 border-t-orange-500/60 border-l-orange-500/60 border-b-transparent border-r-transparent' : 'bg-white border-t-amber-300 border-l-amber-300 border-b-transparent border-r-transparent'}`
-              : `-bottom-[8px] ${isCampfire ? 'bg-stone-950 border-b-orange-500/60 border-r-orange-500/60 border-t-transparent border-l-transparent' : 'bg-white border-b-amber-300 border-r-amber-300 border-t-transparent border-l-transparent'}`
+              ? `-top-[8px] ${isCampfire ? 'bg-black border-t-amber-500/60 border-l-amber-500/60 border-b-transparent border-r-transparent' : 'bg-white border-t-amber-300 border-l-amber-300 border-b-transparent border-r-transparent'}`
+              : `-bottom-[8px] ${isCampfire ? 'bg-black border-b-amber-500/60 border-r-amber-500/60 border-t-transparent border-l-transparent' : 'bg-white border-b-amber-300 border-r-amber-300 border-t-transparent border-l-transparent'}`
           }`}
         />
 
@@ -298,7 +298,7 @@ export const OnboardingTour: React.FC = () => {
             aria-label="סגור סיור"
             title="סגור סיור (דלג)"
             className={`p-1 rounded-lg transition-colors ${
-              isCampfire ? 'hover:bg-stone-800 text-stone-400' : 'hover:bg-stone-100 text-stone-500'
+              isCampfire ? 'hover:bg-zinc-800 text-zinc-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500'
             }`}
           >
             <X className="w-4 h-4" />
@@ -311,13 +311,13 @@ export const OnboardingTour: React.FC = () => {
             <span className="text-lg leading-none">{currentStep.icon}</span>
             <span>{currentStep.title}</span>
           </h3>
-          <p className={`text-sm leading-relaxed ${isCampfire ? 'text-stone-300' : 'text-stone-600'}`}>
+          <p className={`text-sm leading-relaxed ${isCampfire ? 'text-zinc-300' : 'text-stone-600'}`}>
             {currentStep.description}
           </p>
         </div>
 
         {/* Footer: Progress dots & Navigation buttons */}
-        <div className="flex items-center justify-between pt-2 border-t border-stone-200/50 dark:border-stone-800">
+        <div className="flex items-center justify-between pt-2 border-t border-stone-200/50 dark:border-zinc-800">
           {/* Step dots */}
           <div className="flex items-center gap-1">
             {TOUR_STEPS.map((_, idx) => (
@@ -326,7 +326,7 @@ export const OnboardingTour: React.FC = () => {
                 className={`h-1.5 rounded-full transition-all ${
                   idx === currentTourStep
                     ? isCampfire ? 'w-5 bg-orange-500' : 'w-5 bg-amber-600'
-                    : isCampfire ? 'w-1.5 bg-stone-700' : 'w-1.5 bg-stone-300'
+                    : isCampfire ? 'w-1.5 bg-zinc-700' : 'w-1.5 bg-stone-300'
                 }`}
               />
             ))}
@@ -339,7 +339,7 @@ export const OnboardingTour: React.FC = () => {
               onClick={skipTour}
               className={`text-xs font-semibold px-2 py-1.5 rounded-lg transition-colors ${
                 isCampfire 
-                  ? 'text-stone-400 hover:text-stone-200 hover:bg-stone-900' 
+                  ? 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900' 
                   : 'text-stone-500 hover:text-stone-900 hover:bg-stone-100'
               }`}
             >
@@ -353,7 +353,7 @@ export const OnboardingTour: React.FC = () => {
                 aria-label="לתחנה הקודמת"
                 className={`p-1.5 rounded-xl border text-xs font-bold transition-all ${
                   isCampfire
-                    ? 'border-stone-700 bg-stone-900 text-stone-300 hover:bg-stone-800'
+                    ? 'border-zinc-700 bg-zinc-900 text-zinc-300 hover:bg-zinc-800'
                     : 'border-stone-300 bg-white text-stone-700 hover:bg-stone-50'
                 }`}
               >

@@ -185,7 +185,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
       <div 
         className={`relative w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl z-10 max-h-[92vh] max-h-[92dvh] pb-safe flex flex-col overflow-hidden transition-all transform ${
           isCampfire 
-            ? 'bg-stone-900 border border-amber-900/40 text-stone-100' 
+            ? 'bg-black border border-zinc-800 text-zinc-100' 
             : 'bg-white border border-stone-200 text-stone-800'
         }`}
         dir="rtl"
@@ -195,11 +195,11 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
       >
         {/* Top Handle for mobile drawer */}
         <div className="flex justify-center pt-3 pb-1 sm:hidden">
-          <div className={`w-12 h-1.5 rounded-full ${isCampfire ? 'bg-stone-700' : 'bg-stone-300'}`} />
+          <div className={`w-12 h-1.5 rounded-full ${isCampfire ? 'bg-zinc-700' : 'bg-stone-300'}`} />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 pt-3 pb-3 border-b border-stone-200/40 dark:border-stone-800">
+        <div className="flex items-center justify-between px-6 pt-3 pb-3 border-b border-stone-200/40 dark:border-zinc-800">
           <div className="flex items-center gap-2.5">
             <div className={`p-2 rounded-xl ${isCampfire ? 'bg-amber-500/20 text-amber-400' : 'bg-emerald-100 text-emerald-700'}`}>
               <Lightbulb className="w-5 h-5 animate-pulse" />
@@ -208,7 +208,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
               <h2 id="feedback-drawer-title" className="text-lg font-bold">
                 עוזרים לנו לשפר את שלוף פק"ל
               </h2>
-              <p className={`text-xs ${isCampfire ? 'text-stone-400' : 'text-stone-500'}`}>
+              <p className={`text-xs ${isCampfire ? 'text-zinc-400' : 'text-stone-500'}`}>
                 הצעות ייעול, רעיונות לחידות ותוכן מהשטח
               </p>
             </div>
@@ -216,7 +216,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
           <button
             onClick={() => closeFeedbackDrawer()}
             className={`p-2 rounded-full transition-colors ${
-              isCampfire ? 'hover:bg-stone-800 text-stone-400' : 'hover:bg-stone-100 text-stone-500'
+              isCampfire ? 'hover:bg-zinc-800 text-zinc-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500'
             }`}
             aria-label="סגור"
           >
@@ -229,7 +229,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
 
           {/* Quick Settings: Random Order Switch */}
           <div className={`p-4 sm:p-5 rounded-2xl border flex items-center justify-between gap-3 ${
-            isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-blue-50/70 border-blue-200'
+            isCampfire ? 'bg-zinc-950 border-zinc-800' : 'bg-blue-50/70 border-blue-200'
           }`}>
             <div className="flex items-center gap-2">
               <div className="p-1.5 rounded-lg bg-blue-500/20 text-blue-500">
@@ -237,7 +237,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
               </div>
               <div>
                 <span className="text-xs font-black block">סדר שאלות אקראי למכשיר</span>
-                <span className="text-[11px] text-stone-400 block">סדר ייחודי למכשיר זה במשחקים ובנושאים</span>
+                <span className="text-[11px] text-zinc-400 block">סדר ייחודי למכשיר זה במשחקים ובנושאים</span>
               </div>
             </div>
 
@@ -249,7 +249,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                   title="ערבב מחדש את השאלות"
                   className={`p-1.5 rounded-xl border text-[11px] font-bold transition-all ${
                     isCampfire 
-                      ? 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white' 
+                      ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white' 
                       : 'bg-white border-blue-200 text-blue-700 hover:bg-blue-100'
                   }`}
                 >
@@ -263,7 +263,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                   randomOrderEnabled
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
                     : isCampfire
-                      ? 'bg-stone-900 border border-stone-800 text-stone-400'
+                      ? 'bg-zinc-900 border border-zinc-800 text-zinc-400'
                       : 'bg-white border border-stone-300 text-stone-600'
                 }`}
               >
@@ -307,7 +307,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                               ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-sm'
                               : 'bg-emerald-50 border-emerald-600 text-emerald-800 shadow-sm font-bold'
                             : isCampfire
-                              ? 'bg-stone-800/60 border-stone-700 text-stone-400 hover:border-stone-600'
+                              ? 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700'
                               : 'bg-stone-50 border-stone-200 text-stone-600 hover:bg-stone-100'
                         }`}
                       >
@@ -324,7 +324,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                   שם ושם משפחה <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-stone-400">
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-zinc-400">
                     <User className="w-4 h-4" />
                   </div>
                   <input
@@ -337,7 +337,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                     maxLength={70}
                     className={`w-full pr-9 pl-3 py-2 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
                       isCampfire
-                        ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
+                        ? 'bg-zinc-900 border-zinc-800 text-zinc-100 focus:ring-amber-500/50'
                         : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
                     }`}
                   />
@@ -350,7 +350,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                   <label htmlFor="feedback-message" className="block text-xs font-semibold">
                     תוכן ההצעה או השיפור <span className="text-red-500">*</span>
                   </label>
-                  <span className={`text-[10px] ${message.length > 1800 ? 'text-amber-500' : 'text-stone-400'}`}>
+                  <span className={`text-[10px] ${message.length > 1800 ? 'text-amber-500' : 'text-zinc-400'}`}>
                     {message.length}/2000
                   </span>
                 </div>
@@ -364,7 +364,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                   maxLength={2000}
                   className={`w-full p-3 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors resize-none ${
                     isCampfire
-                      ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
+                      ? 'bg-zinc-900 border-zinc-800 text-zinc-100 focus:ring-amber-500/50'
                       : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
                   }`}
                 />
@@ -373,10 +373,10 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
               {/* Organization / Tour Company (Optional) */}
               <div>
                 <label htmlFor="feedback-org" className="block text-xs font-semibold mb-1">
-                  מסגרת הדרכה / חברת טיולים <span className="text-stone-400 font-normal">(רשות)</span>
+                  מסגרת הדרכה / חברת טיולים <span className="text-zinc-400 font-normal">(רשות)</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-stone-400">
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-zinc-400">
                     <Building2 className="w-4 h-4" />
                   </div>
                   <input
@@ -388,7 +388,7 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                     maxLength={100}
                     className={`w-full pr-9 pl-3 py-2 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
                       isCampfire
-                        ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
+                        ? 'bg-zinc-900 border-zinc-800 text-zinc-100 focus:ring-amber-500/50'
                         : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
                     }`}
                   />
@@ -398,10 +398,10 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
               {/* Email Address for Reply (Optional) */}
               <div>
                 <label htmlFor="feedback-email" className="block text-xs font-semibold mb-1">
-                  דוא"ל למענה <span className="text-stone-400 font-normal">(רשות – ללא התחייבות למענה)</span>
+                  דוא"ל למענה <span className="text-zinc-400 font-normal">(רשות – ללא התחייבות למענה)</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-stone-400">
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-zinc-400">
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
@@ -413,12 +413,12 @@ export const FeedbackDrawer: React.FC<FeedbackDrawerProps> = ({ currentTab = 'ho
                     maxLength={100}
                     className={`w-full pr-9 pl-3 py-2 text-base sm:text-sm rounded-xl border focus:outline-none focus:ring-2 transition-colors ${
                       isCampfire
-                        ? 'bg-stone-800/80 border-stone-700 text-stone-100 focus:ring-amber-500/50'
+                        ? 'bg-zinc-900 border-zinc-800 text-zinc-100 focus:ring-amber-500/50'
                         : 'bg-white border-stone-300 text-stone-900 focus:ring-emerald-500/50'
                     }`}
                   />
                 </div>
-                <p className="text-[10px] text-stone-400 mt-1">
+                <p className="text-[10px] text-zinc-400 mt-1">
                   ניתן להשאיר ריק. המייל ישמש אך ורק למענה במידה ונצטרך הבהרה לגבי ההצעה.
                 </p>
               </div>

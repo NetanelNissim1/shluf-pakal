@@ -15,12 +15,12 @@
 
   .campfire {
     --bg-main: #000000;
-    --card-bg: #120703;
-    --card-border: #381206;
-    --text-primary: #ffedd5;
-    --text-secondary: #fdba74;
-    --accent: #ea580c;
-    --accent-glow: rgba(234, 88, 12, 0.35);
+    --card-bg: #121214;
+    --card-border: #27272a;
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --accent: #f59e0b;
+    --accent-glow: rgba(245, 158, 11, 0.3);
   }
 
   body {

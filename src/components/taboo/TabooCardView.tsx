@@ -20,12 +20,12 @@ export const TabooCardView: React.FC<TabooCardViewProps> = ({
   return (
     <div className={`w-full rounded-3xl border-2 p-6 sm:p-8 transition-all duration-300 shadow-2xl relative overflow-hidden text-center ${
       isCampfire
-        ? 'bg-gradient-to-b from-stone-950 via-campfire-card to-black border-orange-600/60 shadow-orange-950/50'
+        ? 'bg-gradient-to-b from-zinc-950 via-black to-black border-amber-500/60 shadow-black'
         : 'bg-gradient-to-b from-white to-amber-50/70 border-amber-300 shadow-xl'
     }`}>
       {/* Card Header */}
       <div className="flex items-center justify-center text-xs font-bold mb-3 opacity-75">
-        <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
+        <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 dark:bg-zinc-900 border border-stone-200 dark:border-zinc-800">
           <AlertCircle className="w-3.5 h-3.5 text-red-500" />
           <span>כרטיס טאבו שטח</span>
         </span>
@@ -34,7 +34,7 @@ export const TabooCardView: React.FC<TabooCardViewProps> = ({
       {/* Stealth Reminder Banner */}
       <div className={`mb-3 py-1 px-3 rounded-full inline-flex items-center gap-1.5 text-[11px] font-extrabold border ${
         isCampfire 
-          ? 'bg-amber-950/60 border-amber-700/60 text-amber-300' 
+          ? 'bg-zinc-900 border-amber-500/40 text-amber-300' 
           : 'bg-amber-100/90 border-amber-300 text-amber-900'
       }`}>
         <span>🤫</span>
@@ -42,12 +42,12 @@ export const TabooCardView: React.FC<TabooCardViewProps> = ({
       </div>
 
       {/* Target Word (Main Guessing Word) */}
-      <div className="py-4 border-b border-dashed border-stone-300 dark:border-stone-800">
+      <div className="py-4 border-b border-dashed border-stone-300 dark:border-zinc-800">
         <span className="text-xs font-bold text-stone-400 block mb-1">
           המילה שצריך לנחש:
         </span>
         <h2 className={`text-4xl sm:text-5xl font-black tracking-tight ${
-          isCampfire ? 'text-orange-400' : 'text-stone-900'
+          isCampfire ? 'text-amber-400' : 'text-stone-900'
         }`}>
           {card.targetWord}
         </h2>

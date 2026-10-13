@@ -18,7 +18,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     <div className="relative w-full">
       <div className={`relative flex items-center w-full rounded-2xl border transition-all duration-200 ${
         isCampfire
-          ? 'bg-stone-950 border-campfire-border/80 focus-within:border-orange-500 focus-within:ring-2 focus-within:ring-orange-500/20'
+          ? 'bg-black border-zinc-800 focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20'
           : 'bg-white border-amber-200/90 shadow-sm focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20'
       }`}>
         <div className="pr-3.5 pl-2 text-stone-400">
@@ -30,7 +30,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={placeholder}
           className={`w-full py-3 pl-10 pr-1 text-base bg-transparent border-0 focus:outline-none placeholder:text-stone-400 ${
-            isCampfire ? 'text-orange-100' : 'text-stone-900'
+            isCampfire ? 'text-zinc-100' : 'text-stone-900'
           }`}
         />
         {searchQuery && (

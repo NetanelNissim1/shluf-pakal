@@ -16,7 +16,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onTabChange })
   return (
     <nav className={`fixed bottom-0 left-0 right-0 z-40 transition-colors duration-200 border-t pb-safe ${
       isCampfire 
-        ? 'bg-black/95 border-campfire-border/80 text-orange-200 shadow-fire' 
+        ? 'bg-black/95 border-zinc-800 text-zinc-100 shadow-fire' 
         : 'bg-white/95 border-amber-200/80 text-stone-800 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]'
     } backdrop-blur-md`}>
       <div className="max-w-md mx-auto px-4 h-16 flex items-center justify-center relative">
@@ -42,7 +42,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onTabChange })
             onClick={() => onTabChange('home')}
             className={`absolute right-4 px-3 py-2 rounded-xl border flex items-center gap-1.5 text-xs font-bold transition-all touch-press active:scale-95 ${
               isCampfire
-                ? 'bg-stone-900 border-stone-800 text-orange-300 hover:bg-stone-800'
+                ? 'bg-zinc-900 border-zinc-800 text-zinc-200 hover:bg-zinc-800'
                 : 'bg-amber-50 border-amber-200 text-amber-900 hover:bg-amber-100'
             }`}
             aria-label="חזור לדף הבית"

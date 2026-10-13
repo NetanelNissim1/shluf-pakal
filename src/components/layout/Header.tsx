@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateHome }) => {
   return (
     <header className={`sticky top-0 z-40 pt-safe transition-colors duration-200 border-b backdrop-blur-md ${
       isCampfire 
-        ? 'bg-black/90 border-campfire-border/60 text-orange-100' 
+        ? 'bg-black/95 border-zinc-800 text-white' 
         : 'bg-amber-50/95 border-amber-200/80 text-stone-900 shadow-sm'
     }`}>
       <div className="max-w-md mx-auto px-3 sm:px-4 h-16 flex items-center justify-between gap-2">
@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateHome }) => {
             title="תפריט ראשי: סיור, טיפים למדריך, אודות והגדרות"
             className={`p-2 rounded-xl flex items-center justify-center transition-all touch-press active:scale-95 border-2 ${
               isCampfire
-                ? 'bg-stone-900 border-orange-500/70 text-orange-400 shadow-md hover:bg-stone-800'
+                ? 'bg-zinc-900 border-zinc-700 text-amber-400 shadow-md hover:bg-zinc-800'
                 : 'bg-amber-50 border-amber-400 text-amber-900 shadow-sm hover:bg-amber-100'
             }`}
           >
@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateHome }) => {
               </h1>
               <span className={`text-[9px] min-[380px]:text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
                 isCampfire 
-                  ? 'bg-orange-950/80 text-orange-400 border border-orange-800/60' 
+                  ? 'bg-zinc-900 text-amber-400 border border-zinc-700' 
                   : 'bg-amber-100 text-amber-800 border border-amber-300'
               }`}>
                 פק"ל שטח
@@ -126,12 +126,12 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateHome }) => {
             aria-label={isCampfire ? 'מעבר למצב שמש ישירה' : 'מעבר למצב מדורה ולילה'}
             className={`p-1.5 sm:p-2 rounded-xl flex items-center justify-center transition-all touch-press ${
               isCampfire
-                ? 'bg-orange-600/20 text-orange-400 border border-orange-500/40 hover:bg-orange-600/30'
+                ? 'bg-zinc-900 text-amber-400 border border-zinc-700 hover:bg-zinc-800'
                 : 'bg-amber-100 text-amber-800 border border-amber-300/80 hover:bg-amber-200'
             }`}
           >
             {isCampfire ? (
-              <Flame className="w-5 h-5 text-orange-400 fill-orange-500/20" />
+              <Flame className="w-5 h-5 text-amber-400 fill-amber-500/20" />
             ) : (
               <SunMedium className="w-5 h-5 text-amber-700" />
             )}

@@ -44,7 +44,7 @@ export const DifficultyFilter: React.FC<DifficultyFilterProps> = ({ counts }) =>
                     ? 'bg-orange-600 text-white border-orange-500 shadow-sm'
                     : 'bg-amber-600 text-white border-amber-600 shadow-sm'
                   : isCampfire
-                    ? 'bg-stone-900 text-stone-300 border-campfire-border/60 hover:text-white'
+                    ? 'bg-zinc-900 text-zinc-300 border-zinc-800 hover:text-white'
                     : 'bg-white text-stone-600 border-amber-200/80 hover:bg-amber-50'
               }`}
             >

@@ -93,7 +93,7 @@ export const MyPakalPage: React.FC<MyPakalPageProps> = ({ onExploreClick }) => {
 
           <span className={`text-xs font-black px-2.5 py-1 rounded-xl border ${
             isCampfire
-              ? 'bg-stone-950 text-orange-400 border-stone-800'
+              ? 'bg-zinc-950 text-amber-400 border-zinc-800'
               : 'bg-amber-50 text-amber-800 border-amber-200'
           }`}>
             נשמר אופליין
@@ -102,7 +102,7 @@ export const MyPakalPage: React.FC<MyPakalPageProps> = ({ onExploreClick }) => {
 
         {/* WhatsApp & Share Actions */}
         {savedRiddles.length > 0 && (
-          <div className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center gap-2 flex-wrap">
+          <div className="mt-4 pt-3 border-t border-stone-200 dark:border-zinc-800 flex items-center gap-2 flex-wrap">
             <button
               onClick={handleShareToWhatsApp}
               className="flex-1 min-w-[130px] py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-700/20 transition-all touch-press"

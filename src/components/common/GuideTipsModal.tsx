@@ -87,7 +87,7 @@ export const GuideTipsModal: React.FC = () => {
       <div 
         className={`relative w-full max-w-md rounded-3xl border shadow-2xl overflow-hidden flex flex-col max-h-[90vh] transition-colors select-none ${
           isCampfire 
-            ? 'bg-stone-950 border-stone-800 text-orange-100 shadow-orange-950/40' 
+            ? 'bg-black border-zinc-800 text-zinc-100 shadow-black' 
             : 'bg-white border-emerald-200 text-stone-900 shadow-2xl'
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -96,12 +96,12 @@ export const GuideTipsModal: React.FC = () => {
       >
         {/* Header */}
         <div className={`p-4 sm:p-5 border-b flex items-center justify-between shrink-0 ${
-          isCampfire ? 'border-stone-800 bg-stone-900/50' : 'border-emerald-100 bg-emerald-50/60'
+          isCampfire ? 'border-zinc-800 bg-zinc-950/80' : 'border-emerald-100 bg-emerald-50/60'
         }`}>
           <div className="flex items-center gap-2.5">
             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-md ${
               isCampfire 
-                ? 'bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-emerald-950' 
+                ? 'bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-black' 
                 : 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-emerald-200'
             }`}>
               <Tent className="w-5 h-5" />
@@ -120,7 +120,7 @@ export const GuideTipsModal: React.FC = () => {
           <button
             onClick={closeGuideTipsModal}
             className={`p-2 rounded-full transition-colors ${
-              isCampfire ? 'hover:bg-stone-800 text-stone-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500 hover:text-stone-900'
+              isCampfire ? 'hover:bg-zinc-800 text-zinc-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500 hover:text-stone-900'
             }`}
             aria-label="סגור טיפים למדריך"
           >
@@ -138,10 +138,10 @@ export const GuideTipsModal: React.FC = () => {
                 className={`rounded-2xl border transition-all overflow-hidden ${
                   isExpanded
                     ? isCampfire
-                      ? 'bg-stone-900/90 border-emerald-500/50 shadow-md'
+                      ? 'bg-zinc-900/90 border-emerald-500/50 shadow-md'
                       : 'bg-emerald-50/70 border-emerald-300 shadow-sm'
                     : isCampfire
-                      ? 'bg-stone-900/40 border-stone-800/80 hover:border-stone-700'
+                      ? 'bg-zinc-900/40 border-zinc-800/80 hover:border-zinc-700'
                       : 'bg-white border-stone-200 hover:border-emerald-200'
                 }`}
               >
@@ -168,7 +168,7 @@ export const GuideTipsModal: React.FC = () => {
 
                 {isExpanded && (
                   <div className={`px-4 pb-4 pt-1 text-xs leading-relaxed border-t ${
-                    isCampfire ? 'border-stone-800/60 text-stone-300' : 'border-emerald-200/60 text-stone-700'
+                    isCampfire ? 'border-zinc-800/60 text-zinc-300' : 'border-emerald-200/60 text-stone-700'
                   }`}>
                     {tip.content}
                   </div>
@@ -180,7 +180,7 @@ export const GuideTipsModal: React.FC = () => {
 
         {/* Footer */}
         <div className={`p-3.5 border-t text-center text-[11px] opacity-65 shrink-0 ${
-          isCampfire ? 'border-stone-800 bg-stone-900/40' : 'border-emerald-100 bg-emerald-50/30'
+          isCampfire ? 'border-zinc-800 bg-zinc-950/80' : 'border-emerald-100 bg-emerald-50/30'
         }`}>
           💡 זכרו: מדריך טוב הוא מדריך שמקשיב לשטח ויוצר חיבור בין החניכים!
         </div>

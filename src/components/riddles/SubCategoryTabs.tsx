@@ -29,7 +29,7 @@ export const SubCategoryTabs: React.FC<SubCategoryTabsProps> = ({
                 ? 'bg-orange-600 text-white border-orange-500 shadow-sm'
                 : 'bg-stone-900 text-white border-stone-900 shadow-sm'
               : isCampfire
-                ? 'bg-stone-950 text-orange-200/70 border-campfire-border/60 hover:text-orange-200'
+                ? 'bg-zinc-950 text-zinc-300 border-zinc-800 hover:text-white'
                 : 'bg-white text-stone-600 border-amber-200/80 hover:bg-amber-50'
           }`}
         >
@@ -49,7 +49,7 @@ export const SubCategoryTabs: React.FC<SubCategoryTabsProps> = ({
                     ? 'bg-orange-600 text-white border-orange-500 shadow-sm'
                     : 'bg-amber-600 text-white border-amber-600 shadow-sm'
                   : isCampfire
-                    ? 'bg-stone-950 text-orange-200/70 border-campfire-border/60 hover:text-orange-200'
+                    ? 'bg-zinc-950 text-zinc-300 border-zinc-800 hover:text-white'
                     : 'bg-white text-stone-600 border-amber-200/80 hover:bg-amber-50'
               }`}
             >

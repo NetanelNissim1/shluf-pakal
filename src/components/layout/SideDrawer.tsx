@@ -79,7 +79,7 @@ export const SideDrawer: React.FC = () => {
           isSideDrawerOpen ? 'translate-x-0' : 'translate-x-full'
         } ${
           isCampfire 
-            ? 'bg-stone-950 border-stone-800 text-orange-100 shadow-orange-950/60' 
+            ? 'bg-black border-zinc-800 text-zinc-100 shadow-2xl' 
             : 'bg-white border-amber-200 text-stone-900 shadow-2xl'
         }`}
         role="dialog"
@@ -90,7 +90,7 @@ export const SideDrawer: React.FC = () => {
       >
         {/* Drawer Header */}
         <div className={`p-4 sm:p-5 pt-safe border-b flex items-center justify-between shrink-0 ${
-          isCampfire ? 'border-stone-800 bg-stone-900/60' : 'border-amber-100 bg-amber-50/70'
+          isCampfire ? 'border-zinc-800 bg-zinc-950/80' : 'border-amber-100 bg-amber-50/70'
         }`}>
           <div className="flex items-center gap-2.5">
             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-md overflow-hidden ${
@@ -118,7 +118,7 @@ export const SideDrawer: React.FC = () => {
           <button
             onClick={closeSideDrawer}
             className={`p-2 rounded-full transition-colors ${
-              isCampfire ? 'hover:bg-stone-800 text-stone-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500 hover:text-stone-900'
+              isCampfire ? 'hover:bg-zinc-800 text-zinc-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500 hover:text-stone-900'
             }`}
             aria-label="סגור תפריט"
           >
@@ -137,7 +137,7 @@ export const SideDrawer: React.FC = () => {
             }}
             className={`w-full p-3 rounded-2xl border text-right transition-all flex items-start gap-3 group ${
               isCampfire 
-                ? 'bg-stone-900/60 border-stone-800 hover:border-amber-500/50 hover:bg-stone-900' 
+                ? 'bg-zinc-900/60 border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-900' 
                 : 'bg-amber-50/50 border-amber-200/80 hover:border-amber-400 hover:bg-amber-50'
             }`}
           >
@@ -165,7 +165,7 @@ export const SideDrawer: React.FC = () => {
             onClick={openGuideTipsModal}
             className={`w-full p-3 rounded-2xl border text-right transition-all flex items-start gap-3 group ${
               isCampfire 
-                ? 'bg-stone-900/60 border-stone-800 hover:border-emerald-500/50 hover:bg-stone-900' 
+                ? 'bg-zinc-900/60 border-zinc-800 hover:border-emerald-500/50 hover:bg-zinc-900' 
                 : 'bg-emerald-50/50 border-emerald-200/80 hover:border-emerald-400 hover:bg-emerald-50'
             }`}
           >
@@ -196,7 +196,7 @@ export const SideDrawer: React.FC = () => {
             }}
             className={`w-full p-3 rounded-2xl border text-right transition-all flex items-start gap-3 group ${
               isCampfire 
-                ? 'bg-stone-900/60 border-stone-800 hover:border-amber-500/50 hover:bg-stone-900' 
+                ? 'bg-zinc-900/60 border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-900' 
                 : 'bg-amber-50/50 border-amber-200/80 hover:border-amber-400 hover:bg-amber-50'
             }`}
           >
@@ -224,7 +224,7 @@ export const SideDrawer: React.FC = () => {
             onClick={openAboutModal}
             className={`w-full p-3 rounded-2xl border text-right transition-all flex items-start gap-3 group ${
               isCampfire 
-                ? 'bg-stone-900/60 border-stone-800 hover:border-cyan-500/50 hover:bg-stone-900' 
+                ? 'bg-zinc-900/60 border-zinc-800 hover:border-cyan-500/50 hover:bg-zinc-900' 
                 : 'bg-sky-50/50 border-sky-200/80 hover:border-sky-400 hover:bg-sky-50'
             }`}
           >
@@ -248,11 +248,11 @@ export const SideDrawer: React.FC = () => {
           </button>
 
           {/* Divider */}
-          <div className="border-t my-3 opacity-25" />
+          <div className="border-t my-3 opacity-25 border-zinc-800" />
 
           {/* Quick Settings Section */}
           <div className={`p-3.5 rounded-2xl border space-y-3 ${
-            isCampfire ? 'bg-stone-900/50 border-stone-800' : 'bg-stone-50 border-stone-200'
+            isCampfire ? 'bg-zinc-900/50 border-zinc-800' : 'bg-stone-50 border-stone-200'
           }`}>
             <span className="text-[11px] font-black uppercase tracking-wider opacity-60 block">
               ⚙️ הגדרות שטח מהירות
@@ -260,16 +260,16 @@ export const SideDrawer: React.FC = () => {
 
             {/* Text Size Stepper */}
             <div className="flex items-center justify-between">
-              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">גודל טקסט:</span>
+              <span className="text-sm font-bold text-stone-800 dark:text-zinc-200">גודל טקסט:</span>
               <div className={`grid grid-cols-3 gap-1 p-0.5 rounded-xl border ${
-                isCampfire ? 'bg-stone-950 border-stone-800' : 'bg-white border-stone-300'
+                isCampfire ? 'bg-black border-zinc-800' : 'bg-white border-stone-300'
               }`}>
                 <button
                   onClick={() => setTextSize('normal')}
                   className={`py-1 px-2.5 rounded-lg text-sm font-bold transition-all ${
                     textSize === 'normal'
                       ? isCampfire ? 'bg-orange-600 text-white shadow-sm' : 'bg-amber-500 text-white shadow-sm'
-                      : 'text-stone-500 hover:text-stone-900 dark:hover:text-stone-200'
+                      : 'text-stone-500 hover:text-stone-900 dark:hover:text-zinc-200'
                   }`}
                 >
                   א
@@ -279,7 +279,7 @@ export const SideDrawer: React.FC = () => {
                   className={`py-1 px-2.5 rounded-lg text-sm font-bold transition-all ${
                     textSize === 'large'
                       ? isCampfire ? 'bg-orange-600 text-white shadow-sm' : 'bg-amber-500 text-white shadow-sm'
-                      : 'text-stone-500 hover:text-stone-900 dark:hover:text-stone-200'
+                      : 'text-stone-500 hover:text-stone-900 dark:hover:text-zinc-200'
                   }`}
                 >
                   א+
@@ -289,7 +289,7 @@ export const SideDrawer: React.FC = () => {
                   className={`py-1 px-2.5 rounded-lg text-sm font-bold transition-all ${
                     textSize === 'huge'
                       ? isCampfire ? 'bg-orange-600 text-white shadow-sm' : 'bg-amber-500 text-white shadow-sm'
-                      : 'text-stone-500 hover:text-stone-900 dark:hover:text-stone-200'
+                      : 'text-stone-500 hover:text-stone-900 dark:hover:text-zinc-200'
                   }`}
                 >
                   א++
@@ -298,8 +298,8 @@ export const SideDrawer: React.FC = () => {
             </div>
 
             {/* Random Order Switch */}
-            <div className="flex items-center justify-between pt-1 border-t border-stone-200/40 dark:border-stone-800">
-              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">ערבוב שאלות:</span>
+            <div className="flex items-center justify-between pt-1 border-t border-stone-200/40 dark:border-zinc-800">
+              <span className="text-sm font-bold text-stone-800 dark:text-zinc-200">ערבוב שאלות:</span>
               <div className="flex items-center gap-1">
                 {randomOrderEnabled && (
                   <button
@@ -307,7 +307,7 @@ export const SideDrawer: React.FC = () => {
                     title="ערבב מחדש את השאלות"
                     className={`p-1 rounded-lg border transition-all ${
                       isCampfire 
-                        ? 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white' 
+                        ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white' 
                         : 'bg-white border-stone-300 text-stone-700 hover:bg-stone-100'
                     }`}
                   >
@@ -320,7 +320,7 @@ export const SideDrawer: React.FC = () => {
                     randomOrderEnabled
                       ? 'bg-blue-600 text-white shadow-sm'
                       : isCampfire
-                        ? 'bg-stone-800 text-stone-400'
+                        ? 'bg-zinc-800 text-zinc-400'
                         : 'bg-stone-200 text-stone-600'
                   }`}
                 >
@@ -330,15 +330,15 @@ export const SideDrawer: React.FC = () => {
             </div>
 
             {/* Sound Toggle */}
-            <div className="flex items-center justify-between pt-1 border-t border-stone-200/40 dark:border-stone-800">
-              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">צלילי מערכת:</span>
+            <div className="flex items-center justify-between pt-1 border-t border-stone-200/40 dark:border-zinc-800">
+              <span className="text-sm font-bold text-stone-800 dark:text-zinc-200">צלילי מערכת:</span>
               <button
                 onClick={toggleSound}
                 className={`px-2.5 py-1 rounded-lg text-sm font-bold transition-all flex items-center gap-1.5 ${
                   soundEnabled
                     ? 'bg-emerald-600 text-white shadow-sm'
                     : isCampfire
-                      ? 'bg-stone-800 text-stone-400'
+                      ? 'bg-zinc-800 text-zinc-400'
                       : 'bg-stone-200 text-stone-600'
                 }`}
               >
@@ -381,7 +381,7 @@ export const SideDrawer: React.FC = () => {
 
         {/* Drawer Footer */}
         <div className={`p-3 pb-safe border-t text-center text-[11px] opacity-65 shrink-0 ${
-          isCampfire ? 'border-stone-800 bg-stone-900/40' : 'border-amber-100 bg-amber-50/40'
+          isCampfire ? 'border-zinc-800 bg-black' : 'border-amber-100 bg-amber-50/40'
         }`}>
           שלוף פק"ל הדרכה • נוצר ע״י נתנאל נסים (Netanel Nissim)
         </div>

@@ -19,7 +19,7 @@ export const AboutModal: React.FC = () => {
       <div 
         className={`relative w-full max-w-md rounded-3xl border shadow-2xl overflow-hidden flex flex-col max-h-[90vh] transition-colors select-none ${
           isCampfire 
-            ? 'bg-stone-950 border-stone-800 text-orange-100 shadow-orange-950/40' 
+            ? 'bg-black border-zinc-800 text-zinc-100 shadow-black' 
             : 'bg-white border-amber-200 text-stone-900 shadow-2xl'
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -28,12 +28,12 @@ export const AboutModal: React.FC = () => {
       >
         {/* Header */}
         <div className={`p-4 sm:p-5 border-b flex items-center justify-between shrink-0 ${
-          isCampfire ? 'border-stone-800 bg-stone-900/50' : 'border-amber-100 bg-amber-50/60'
+          isCampfire ? 'border-zinc-800 bg-zinc-950/80' : 'border-amber-100 bg-amber-50/60'
         }`}>
           <div className="flex items-center gap-2.5">
             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-md ${
               isCampfire 
-                ? 'bg-gradient-to-br from-orange-600 to-red-600 text-white shadow-orange-950' 
+                ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-black' 
                 : 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-amber-300'
             }`}>
               <Compass className="w-5 h-5" />
@@ -52,7 +52,7 @@ export const AboutModal: React.FC = () => {
           <button
             onClick={closeAboutModal}
             className={`p-2 rounded-full transition-colors ${
-              isCampfire ? 'hover:bg-stone-800 text-stone-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500 hover:text-stone-900'
+              isCampfire ? 'hover:bg-zinc-800 text-zinc-400 hover:text-white' : 'hover:bg-stone-100 text-stone-500 hover:text-stone-900'
             }`}
             aria-label="סגור חלון אודות"
           >
@@ -66,10 +66,10 @@ export const AboutModal: React.FC = () => {
           {/* Creator & Developer Credit */}
           <div className={`p-4 rounded-2xl border ${
             isCampfire 
-              ? 'bg-gradient-to-br from-stone-900 to-stone-950 border-orange-500/30' 
+              ? 'bg-gradient-to-br from-zinc-900 to-black border-amber-500/30' 
               : 'bg-gradient-to-br from-amber-50 to-orange-50/50 border-amber-200'
           }`}>
-            <div className="flex items-center gap-2 text-amber-600 dark:text-orange-400 font-extrabold text-sm mb-1.5">
+            <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-extrabold text-sm mb-1.5">
               <Sparkles className="w-4 h-4" />
               <span>יוצר ומפתח המיזם</span>
             </div>
@@ -83,7 +83,7 @@ export const AboutModal: React.FC = () => {
 
           {/* 100% Offline Guarantee */}
           <div className={`p-3.5 rounded-2xl border flex items-start gap-3 ${
-            isCampfire ? 'bg-stone-900/60 border-stone-800' : 'bg-stone-50 border-stone-200'
+            isCampfire ? 'bg-zinc-900/60 border-zinc-800' : 'bg-stone-50 border-stone-200'
           }`}>
             <div className="p-2 rounded-xl bg-blue-500/20 text-blue-500 shrink-0 mt-0.5">
               <WifiOff className="w-4 h-4" />
@@ -98,7 +98,7 @@ export const AboutModal: React.FC = () => {
 
           {/* PWA Home Screen Installation Guide */}
           <div className={`p-3.5 rounded-2xl border space-y-2.5 ${
-            isCampfire ? 'bg-stone-900/60 border-stone-800' : 'bg-stone-50 border-stone-200'
+            isCampfire ? 'bg-zinc-900/60 border-zinc-800' : 'bg-stone-50 border-stone-200'
           }`}>
             <div className="flex items-center gap-2 font-bold text-xs text-stone-900 dark:text-white">
               <Smartphone className="w-4 h-4 text-emerald-500" />
@@ -107,11 +107,11 @@ export const AboutModal: React.FC = () => {
 
             <div className="space-y-1.5 opacity-85 text-[11px]">
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-stone-900 dark:text-stone-200">🍏 באייפון (Safari):</span>
+                <span className="font-bold text-stone-900 dark:text-zinc-200">🍏 באייפון (Safari):</span>
                 <span>לחצו על כפתור השיתוף בתחתית המסך ⬅️ ״הוספה למסך הבית״.</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-stone-900 dark:text-stone-200">🤖 באנדרואיד (Chrome):</span>
+                <span className="font-bold text-stone-900 dark:text-zinc-200">🤖 באנדרואיד (Chrome):</span>
                 <span>לחצו על 3 הנקודות בראש הדפדפן ⬅️ ״התקנת אפליקציה״ או ״הוספה למסך הבית״.</span>
               </div>
             </div>
@@ -119,7 +119,7 @@ export const AboutModal: React.FC = () => {
 
           {/* Security & Privacy */}
           <div className={`p-3 rounded-2xl border flex items-center gap-2.5 ${
-            isCampfire ? 'bg-stone-900/40 border-stone-800/80' : 'bg-stone-50/80 border-stone-200/80'
+            isCampfire ? 'bg-zinc-900/40 border-zinc-800/80' : 'bg-stone-50/80 border-stone-200/80'
           }`}>
             <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
             <span className="text-[11px] opacity-75">
@@ -131,7 +131,7 @@ export const AboutModal: React.FC = () => {
 
         {/* Footer Button */}
         <div className={`p-3.5 sm:p-4 border-t flex items-center justify-between shrink-0 ${
-          isCampfire ? 'border-stone-800 bg-stone-900/40' : 'border-amber-100 bg-amber-50/40'
+          isCampfire ? 'border-zinc-800 bg-zinc-950/80' : 'border-amber-100 bg-amber-50/40'
         }`}>
           <div className="flex items-center gap-1 text-[11px] opacity-60">
             <span>נבנה עם</span>

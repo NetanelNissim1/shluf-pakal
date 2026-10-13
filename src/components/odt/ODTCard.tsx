@@ -248,7 +248,7 @@ ${activity.instructions}
               className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${
                 eq.includes('אין') || eq.includes('ללא')
                   ? isCampfire ? 'bg-emerald-950/60 text-emerald-300 border-emerald-900/60' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                  : isCampfire ? 'bg-stone-900 text-stone-300 border-stone-800' : 'bg-stone-100 text-stone-700 border-stone-200'
+                  : isCampfire ? 'bg-zinc-900 text-zinc-300 border-zinc-800' : 'bg-stone-100 text-stone-700 border-stone-200'
               }`}
             >
               🎒 {eq}
@@ -260,7 +260,7 @@ ${activity.instructions}
       {/* Step-by-Step Instructions */}
       <div className={`p-4 sm:p-5 rounded-xl border text-base sm:text-lg leading-relaxed mb-4 select-none ${
         isCampfire
-          ? 'bg-stone-950/80 border-stone-800/80 text-stone-200'
+          ? 'bg-zinc-950 border-zinc-800 text-zinc-200'
           : 'bg-stone-50 border-stone-200/80 text-stone-800'
       }`}>
         <div className="font-bold text-xs uppercase tracking-wider text-stone-400 mb-1 flex items-center gap-1">
@@ -274,7 +274,7 @@ ${activity.instructions}
 
       {/* Integrated Field Timer / Stopwatch Section */}
       <div className={`p-4 rounded-xl border transition-all ${
-        isCampfire ? 'bg-stone-900/70 border-stone-800' : 'bg-amber-50/50 border-amber-200/70'
+        isCampfire ? 'bg-zinc-900/70 border-zinc-800' : 'bg-amber-50/50 border-amber-200/70'
       }`}>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-1.5 text-xs font-black text-amber-600 dark:text-orange-400">

@@ -43,7 +43,7 @@ export const SituationChips: React.FC = () => {
                     ? 'bg-orange-600 text-white border-orange-500 shadow-md shadow-orange-950/60'
                     : 'bg-amber-600 text-white border-amber-600 shadow-sm shadow-amber-300'
                   : isCampfire
-                    ? 'bg-stone-900/90 text-orange-200/80 border-campfire-border/60 hover:border-orange-500/50 hover:text-orange-100'
+                    ? 'bg-zinc-900/90 text-zinc-200/90 border-zinc-800 hover:border-amber-500/50 hover:text-white'
                     : 'bg-white text-stone-700 border-amber-200/80 hover:bg-amber-50 hover:text-amber-900 shadow-[0_1px_2px_rgba(0,0,0,0.04)]'
               }`}
             >
@@ -53,7 +53,7 @@ export const SituationChips: React.FC = () => {
                 <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
                   isActive
                     ? 'bg-white text-amber-700'
-                    : isCampfire ? 'bg-orange-950 text-orange-400' : 'bg-amber-100 text-amber-800'
+                    : isCampfire ? 'bg-zinc-800 text-amber-400' : 'bg-amber-100 text-amber-800'
                 }`}>
                   {favorites.length}
                 </span>
